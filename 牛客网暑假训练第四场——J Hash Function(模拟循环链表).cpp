@@ -1,67 +1,66 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-const int maxn=2e5+10;
+const int maxn = 2e5 + 10;
 int n;
-struct node
-{
-    int num,id;///值和位置
-    bool operator <(const node& a)const///优先队列按值从小到大排序
-    {
-        return num>a.num;
-    }
+struct node {
+  int num, id;                        /// 值和位置
+  bool operator<(const node &a) const /// 优先队列按值从小到大排序
+  {
+    return num > a.num;
+  }
 } a[maxn];
-int pre[maxn],nxt[maxn];///循环链表数组
+int pre[maxn], nxt[maxn]; /// 循环链表数组
 bool vis[maxn];
-priority_queue<node>q;///保证按最小字典序输出
-vector<int>ans;
-bool judge(int a,int b,int c)
-{
-    if(a<c)return a<b&&b<c;
-    return a<b||b<c;
+priority_queue<node> q; /// 保证按最小字典序输出
+vector<int> ans;
+bool judge(int a, int b, int c) {
+  if (a < c)
+    return a < b && b < c;
+  return a < b || b < c;
 }
-int main()
-{
-    int t;
-    scanf("%d",&t);
-    while(t--)
-    {
-        scanf("%d",&n);
-        for(int i=0; i<n; i++)
-        {
-            scanf("%d",&a[i].num);
-            a[i].id=i;
-        }
-        bool flag=true;
-        ans.clear();
-        int cnt=0;
-        while(!q.empty())q.pop();
-        memset(vis,false,sizeof vis);
-        for(int i=0; i<n; i++) pre[i]= i==0?n-1:i-1,nxt[i]= i==n-1?0:i+1;
-        for(int i=0; i<n; i++)
-        {
-            if(a[i].num!=-1)cnt++;
-            if(a[i].num%n==i&&a[i].num!=-1)
-                vis[i]=true,q.push(a[i]);
-        }
-        while(!q.empty())
-        {
-            node tmp=q.top();
-            ans.push_back(tmp.num);
-            q.pop();
-            nxt[pre[tmp.id]]=nxt[tmp.id];
-            pre[nxt[tmp.id]]=pre[tmp.id];
-            int pos=nxt[tmp.id];
-            if(a[pos].num!=-1&&!vis[pos]&&judge(pre[pos],a[pos].num%n,pos))vis[pos]=true,q.push(a[pos]);
-        }
-        if(cnt!=ans.size())flag=false;
-        if(flag)
-        {
-            for(int i=0; i<ans.size(); i++)
-                printf("%d%c",ans[i],i==ans.size()-1?'\n':' ');
-            if(ans.size()==0)printf("\n");
-        }
-        else printf("-1\n");
+int main() {
+  int t;
+  scanf("%d", &t);
+  while (t--) {
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+      scanf("%d", &a[i].num);
+      a[i].id = i;
     }
+    bool flag = true;
+    ans.clear();
+    int cnt = 0;
+    while (!q.empty())
+      q.pop();
+    memset(vis, false, sizeof vis);
+    for (int i = 0; i < n; i++)
+      pre[i] = i == 0 ? n - 1 : i - 1, nxt[i] = i == n - 1 ? 0 : i + 1;
+    for (int i = 0; i < n; i++) {
+      if (a[i].num != -1)
+        cnt++;
+      if (a[i].num % n == i && a[i].num != -1)
+        vis[i] = true, q.push(a[i]);
+    }
+    while (!q.empty()) {
+      node tmp = q.top();
+      ans.push_back(tmp.num);
+      q.pop();
+      nxt[pre[tmp.id]] = nxt[tmp.id];
+      pre[nxt[tmp.id]] = pre[tmp.id];
+      int pos = nxt[tmp.id];
+      if (a[pos].num != -1 && !vis[pos] && judge(pre[pos], a[pos].num % n, pos))
+        vis[pos] = true, q.push(a[pos]);
+    }
+    if (cnt != ans.size())
+      flag = false;
+    if (flag) {
+      for (int i = 0; i < ans.size(); i++)
+        printf("%d%c", ans[i], i == ans.size() - 1 ? '\n' : ' ');
+      if (ans.size() == 0)
+        printf("\n");
+    } else
+      printf("-1\n");
+  }
 }
 /*
 #include<bits/stdc++.h>
@@ -121,7 +120,8 @@ bool solve()
         back[Next[k.id]]=back[k.id];
 
         int key=Next[k.id];///安排下一个不在自己位置上的元素
-        if(data[key].v!=-1&&!vis[key]&&judge(back[key],data[key].v%n,key))///如果下一个位置被占用 且 下一个元素没有被安排 且 保证前后位置是递增的才合法
+        if(data[key].v!=-1&&!vis[key]&&judge(back[key],data[key].v%n,key))///如果下一个位置被占用
+且 下一个元素没有被安排 且 保证前后位置是递增的才合法
         {///因为如果b<a<c这种情况，我前面的back还没输出，即使我是本体b后面的值，但我也不能入队，因为要等我之前的那个数输出了，才轮到我被后移，不然会出现我先输入，但我位置比后输入的还后移
             vis[key]=true;
             buf.push(data[key]);///入队即合法位置
