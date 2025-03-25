@@ -1,0 +1,53 @@
+# Ignore Visual Studio specific files
+.vscode/
+*.code-workspace
+
+# Ignore build files and directories
+build/
+out/
+dist/
+
+# Ignore compiled binaries
+*.exe
+*.out
+*.o
+*.obj
+*.dll
+*.lib
+*.so
+*.a
+*.lo
+*.la
+
+# Ignore temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.swn
+
+# Ignore dependency files
+dep/
+*.d
+
+# Ignore CMake generated files
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+
+# Ignore IDE-specific files
+.idea/
+*.iml
+
+# Ignore MacOS system files
+.DS_Store
+
+# Ignore Windows system files
+Thumbs.db
+Desktop.ini
+
+# Ignore Visual Studio debugging and linker files
+*.ilk
+*.pdb
