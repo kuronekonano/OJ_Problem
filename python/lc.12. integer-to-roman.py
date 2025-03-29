@@ -6,7 +6,7 @@ class Solution:
         def roman(one, five, ten, value):
             if value < 4:
                 return value * one
-            if value == 4:          
+            if value == 4:
                 return one + five
             if value == 5:
                 return five
@@ -18,12 +18,13 @@ class Solution:
         ans = []
         ans.append(roman("M", "", "", num // 1000))
         num = num % 1000
-        ans.append(roman("C", "D", "M", num //100))
+        ans.append(roman("C", "D", "M", num // 100))
         num = num % 100
         ans.append(roman("X", "L", "C", num // 10))
         num = num % 10
         ans.append(roman("I", "V", "X", num))
         return "".join(ans)
+
 
 if __name__ == "__main__":
     s = Solution()

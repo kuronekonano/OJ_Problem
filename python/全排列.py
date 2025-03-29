@@ -1,6 +1,7 @@
 vis = [0] * 100
 ans = []
 
+
 def dfs(n, len):
     if len == n:
         print(ans)
@@ -8,10 +9,11 @@ def dfs(n, len):
     for i in range(n):
         if vis[i] == 0:
             vis[i] = 1
-            ans.append(i)
+            ans.append(i + 1)
             dfs(n, len + 1)
             ans.pop()
             vis[i] = 0
 
+
 if __name__ == "__main__":
-    dfs(6, 0)
+    dfs(4, 0)

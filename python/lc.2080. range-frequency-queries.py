@@ -1,6 +1,7 @@
 from collections import defaultdict
 from bisect import bisect_left, bisect_right
 
+
 class RangeFreqQuery:
 
     def __init__(self, arr):
