@@ -2,9 +2,9 @@
 using namespace std;
 const int maxn = 1e4 + 10;
 const int inf = 0x7fffffff;
-struct edge /// Á´Ê½Ç°ÏòĞÇ½¨Í¼
+struct edge /// é“¾å¼å‰å‘æ˜Ÿå»ºå›¾
 {
-  int to, val, rev; /// revÓÃÓÚÈ¡·´±ß
+  int to, val, rev; /// revç”¨äºå–åè¾¹
   edge() {}
   edge(int a, int b, int c) {
     to = a;
@@ -13,15 +13,15 @@ struct edge /// Á´Ê½Ç°ÏòĞÇ½¨Í¼
   }
 };
 vector<edge> mp[maxn];
-void add(int from, int to, int val) /// ¼Ó±ß
+void add(int from, int to, int val) /// åŠ è¾¹
 {
-  mp[from].push_back(edge(to, val, mp[to].size())); /// Õı±ß£¬revÎªtoµÄ×îĞÂ±ß
+  mp[from].push_back(edge(to, val, mp[to].size())); /// æ­£è¾¹ï¼Œrevä¸ºtoçš„æœ€æ–°è¾¹
   mp[to].push_back(
-      edge(from, 0, mp[from].size() - 1)); /// ·´±ß£¬ÓëÕı±ßµÄrevÎªÕı±ßµÄ±êºÅ
+      edge(from, 0, mp[from].size() - 1)); /// åè¾¹ï¼Œä¸æ­£è¾¹çš„revä¸ºæ­£è¾¹çš„æ ‡å·
 }
 int t, n, m;
 int dep
-    [20]; /// depÎªdinicËã·¨ÖĞµÄ·Ö²ãÍ¼µÄÉî¶È£¬²ãÊıÎª´Ó¿ªÊ¼µ½´ï¸Ã½Úµã×î¶Ì¾àÀë,Êı×é´óĞ¡ÎªµãÊı¶àÉÙ£¬´ËÌâÖ»ÓĞ15
+    [20]; /// depä¸ºdinicç®—æ³•ä¸­çš„åˆ†å±‚å›¾çš„æ·±åº¦ï¼Œå±‚æ•°ä¸ºä»å¼€å§‹åˆ°è¾¾è¯¥èŠ‚ç‚¹æœ€çŸ­è·ç¦»,æ•°ç»„å¤§å°ä¸ºç‚¹æ•°å¤šå°‘ï¼Œæ­¤é¢˜åªæœ‰15
 int bfs() {
   memset(dep, -1, sizeof dep);
   queue<int> q;
@@ -29,16 +29,16 @@ int bfs() {
     q.pop();
   dep[1] = 0;
   q.push(1);
-  while (!q.empty()) /// ¹ãËÑ·Ö²ã
+  while (!q.empty()) /// å¹¿æœåˆ†å±‚
   {
     int tmp = q.front();
     q.pop();
     if (tmp == n)
-      return 1; /// Èô¹ãËÑ»¹ÄÜ×ßµ½»ãµãËµÃ÷¿ÉÒÔ¼ÌĞø‰ˆ¹ã
+      return 1; /// è‹¥å¹¿æœè¿˜èƒ½èµ°åˆ°æ±‡ç‚¹è¯´æ˜å¯ä»¥ç»§ç»­å¢—å¹¿
     for (int i = 0; i < mp[tmp].size(); i++) {
       int &to = mp[tmp][i].to, flow = mp[tmp][i].val;
       if (dep[to] == -1 &&
-          flow) /// Èô¸Ãµã»¹Ã»ÓĞ±»·Ö²ã£¬Ã»ÓĞ×ßµ½µÄ±ê¼Ç£¬ÇÒÓĞÈİÁ¿£¬ÄÇÃ´×ßÏÂÈ¥
+          flow) /// è‹¥è¯¥ç‚¹è¿˜æ²¡æœ‰è¢«åˆ†å±‚ï¼Œæ²¡æœ‰èµ°åˆ°çš„æ ‡è®°ï¼Œä¸”æœ‰å®¹é‡ï¼Œé‚£ä¹ˆèµ°ä¸‹å»
       {
         dep[to] = dep[tmp] + 1;
         q.push(to);
@@ -47,27 +47,27 @@ int bfs() {
   }
   return 0;
 }
-int dfs(int s, int t, int flow) /// ¶à´Î‰ˆ¹ã
+int dfs(int s, int t, int flow) /// å¤šæ¬¡å¢—å¹¿
 {
   if (s == t)
-    return flow; /// ·µ»ØÁ÷Á¿
+    return flow; /// è¿”å›æµé‡
   int pre = 0;
   for (int i = 0; i < mp[s].size(); i++) {
     int &to = mp[s][i].to, val = mp[s][i].val;
     if (dep[s] + 1 == dep[to] &&
-        val > 0) /// ÏÂÒ»´Î‰ˆ¹ãµÄ½Úµã²ãÊıÓ¦ÔÚ¸Ãµã»ù´¡ÉÏ+1
+        val > 0) /// ä¸‹ä¸€æ¬¡å¢—å¹¿çš„èŠ‚ç‚¹å±‚æ•°åº”åœ¨è¯¥ç‚¹åŸºç¡€ä¸Š+1
     {
-      int tmp = min(flow - pre, val);  /// Á÷Á¿ºÍÊ£ÓàÈİÁ¿È¡×îĞ¡Öµ
-      int sub = dfs(to, t, tmp);       /// ²»¶ÏÍ¨¹ıbfsÏòÏÂÁ÷£¬ÇÒ¹ıÂËÁ÷Á¿
-      mp[s][i].val -= sub;             /// ÕıÏò±ß-
-      mp[to][mp[s][i].rev].val += sub; /// ·´Ïò±ß+
+      int tmp = min(flow - pre, val);  /// æµé‡å’Œå‰©ä½™å®¹é‡å–æœ€å°å€¼
+      int sub = dfs(to, t, tmp);       /// ä¸æ–­é€šè¿‡bfså‘ä¸‹æµï¼Œä¸”è¿‡æ»¤æµé‡
+      mp[s][i].val -= sub;             /// æ­£å‘è¾¹-
+      mp[to][mp[s][i].rev].val += sub; /// åå‘è¾¹+
       pre += sub;
       if (pre == flow)
-        return pre; /// ¶à´Î‰ˆ¹ã×ÜÁ÷Á¿
+        return pre; /// å¤šæ¬¡å¢—å¹¿æ€»æµé‡
     }
   }
   return pre;
-} /// ·Ö²ãºóÃ¿´Î‰ˆ¹ã¶àÌõÁ´
+} /// åˆ†å±‚åæ¯æ¬¡å¢—å¹¿å¤šæ¡é“¾
 int dinic() {
   int ans = 0;
   while (bfs())

@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <stdio.h> ///��״����
+#include <stdio.h> ///莫队
 #include <string.h>
 using namespace std;
 const int maxn = 100005;
@@ -39,7 +39,7 @@ int main() {
       que[i].id = i;
     }
     sort(que, que + q,
-         cmp); /// ѯ�����򣬰�R�ұ߽��С����
+         cmp); ///询问排序，按R右边界从小到大
     int j = 0;
     for (int i = 1; i <= n; i++) {
       while (j < q && que[j].r == i)
@@ -53,7 +53,7 @@ int main() {
 }
 
 /***
-#include<bits/stdc++.h>///Ī��
+#include<bits/stdc++.h>///???
 using namespace std;
 const int maxn=100005;
 struct node
