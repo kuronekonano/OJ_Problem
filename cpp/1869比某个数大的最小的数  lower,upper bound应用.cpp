@@ -1,4 +1,4 @@
-#include <algorithm> ///²åÈëº¯ÊýµÄÍ·ÎÄ¼þ
+#include <algorithm> ///æ’å…¥å‡½æ•°çš„å¤´æ–‡ä»¶
 #include <stdio.h>
 using namespace std;
 int main() {
@@ -7,26 +7,26 @@ int main() {
     for (i = 0; i < n; i++) {
       scanf("%d", &a[i]);
     }
-    sort(a, a + n); /// upperºÍlowerÖ»ÄÜÔÚÓÐÐòÊýÁÐÖÐÊ¹ÓÃ
+    sort(a, a + n); /// upperå’Œloweråªèƒ½åœ¨æœ‰åºæ•°åˆ—ä¸­ä½¿ç”¨
     int t;
     scanf(
         "%d",
-        &t); /// ×¢Òâ²åÈëº¯ÊýµÄÊ¹ÓÃ·½·¨£¬µÚÒ»¸öÊÇÊý×éÃû£¨Ê×µØÖ·£©£¬È»ºóÊÇÔÚÊý×éÖÐµÄÄ³¸ö·¶Î§²åÈëa+n,×îºóÊÇÒª²åÈëµÄÊý
+        &t); /// æ³¨æ„æ’å…¥å‡½æ•°çš„ä½¿ç”¨æ–¹æ³•ï¼Œç¬¬ä¸€ä¸ªæ˜¯æ•°ç»„åï¼ˆé¦–åœ°å€ï¼‰ï¼Œç„¶åŽæ˜¯åœ¨æ•°ç»„ä¸­çš„æŸä¸ªèŒƒå›´æ’å…¥a+n,æœ€åŽæ˜¯è¦æ’å…¥çš„æ•°
     while (
-        t--) /// ¾¯¸æ£¡£¡£¡Ô­º¯Êý·µ»ØµÄÊÇÒ»¸öµØÖ·£¬±ØÐë¼õµôÊý×éÊ×µØÖ·a£¬²ÅÊÇÒ»¸ö±íÊ¾Î»ÖÃµÄÖµ£¡£¡£¡
+        t--) /// è­¦å‘Šï¼ï¼ï¼åŽŸå‡½æ•°è¿”å›žçš„æ˜¯ä¸€ä¸ªåœ°å€ï¼Œå¿…é¡»å‡æŽ‰æ•°ç»„é¦–åœ°å€aï¼Œæ‰æ˜¯ä¸€ä¸ªè¡¨ç¤ºä½ç½®çš„å€¼ï¼ï¼ï¼
     {
       int flag;
-      scanf("%d", &flag); /// ÊäÈëµÄÕâ¸öÊýÊÇÈÎÒâÊý£¬²»ÊÇÊýÁÐÖÐµÄÊý
+      scanf("%d", &flag); /// è¾“å…¥çš„è¿™ä¸ªæ•°æ˜¯ä»»æ„æ•°ï¼Œä¸æ˜¯æ•°åˆ—ä¸­çš„æ•°
       int inside =
-          upper_bound(a, a + n, flag) - a; /// ½«Õâ¸öÊý²åÈëµ½ÅÅÐòºÃµÄÐòÁÐÖÐ
+          upper_bound(a, a + n, flag) - a; /// å°†è¿™ä¸ªæ•°æ’å…¥åˆ°æŽ’åºå¥½çš„åºåˆ—ä¸­
       if (inside >=
-          n) /// Èç¹û²åÈëµÄÎ»ÖÃÊÇÊý×éµÄ×îºóÒ»Î»£¬ÄÇÃ´ËµÃ÷Ã»ÓÐ±ÈËû¸ü´óµÄÁË
+          n) /// å¦‚æžœæ’å…¥çš„ä½ç½®æ˜¯æ•°ç»„çš„æœ€åŽä¸€ä½ï¼Œé‚£ä¹ˆè¯´æ˜Žæ²¡æœ‰æ¯”ä»–æ›´å¤§çš„äº†
       {
         printf("Orz\n");
       } else {
         printf(
             "%d\n",
-            a[inside]); /// ÕâÀïÖ±½ÓÊä³öÊý×é²åÈëµÄÄÇ¸öÎ»ÖÃ¾ÍºÃ£¬ÒòÎªÄÇ¸öÎ»ÖÃ¾ÍÊÇ±ÈËû´óµÄ×îÐ¡µÄÊý
+            a[inside]); /// è¿™é‡Œç›´æŽ¥è¾“å‡ºæ•°ç»„æ’å…¥çš„é‚£ä¸ªä½ç½®å°±å¥½ï¼Œå› ä¸ºé‚£ä¸ªä½ç½®å°±æ˜¯æ¯”ä»–å¤§çš„æœ€å°çš„æ•°
       }
     }
   }

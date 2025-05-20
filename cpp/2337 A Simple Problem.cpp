@@ -1,4 +1,4 @@
-#include <stdio.h> ///ÏßÐÔ±éÀú£¬ÔÚÎ´À´¿Éµ½´ïµÄÇø¼äÄÚ£¬ÕÒµ½Ò»¸ö£¬µ½´ïÕâ¸ö½Úµã¾àÀë¼ÓÉÏ½«Òªµ½´ïµÄ½Úµã¿É×ß¾àÀëµÄÒ»¸ö×î´óÖµ£¡£¡
+#include <stdio.h> ///çº¿æ€§éåŽ†ï¼Œåœ¨æœªæ¥å¯åˆ°è¾¾çš„åŒºé—´å†…ï¼Œæ‰¾åˆ°ä¸€ä¸ªï¼Œåˆ°è¾¾è¿™ä¸ªèŠ‚ç‚¹è·ç¦»åŠ ä¸Šå°†è¦åˆ°è¾¾çš„èŠ‚ç‚¹å¯èµ°è·ç¦»çš„ä¸€ä¸ªæœ€å¤§å€¼ï¼ï¼
 int main() {
   int n, a[30008];
   while (scanf("%d", &n) != EOF) {

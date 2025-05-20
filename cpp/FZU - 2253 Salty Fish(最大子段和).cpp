@@ -28,14 +28,14 @@ int main() {
     if (a[n])
       tmp = -tmp;
     q.push_back(tmp);
-    if (n == one) /// ±ØÐë·­Ò»´Î
+    if (n == one) /// å¿…é¡»ç¿»ä¸€æ¬¡
     {
       printf("%d\n", n - 1);
       continue;
     }
     int ans = 0;
     tmp = 0;
-    for (int i = 0; i < q.size(); i++) /// ×î´ó×Ó¶ÎºÍ
+    for (int i = 0; i < q.size(); i++) /// æœ€å¤§å­æ®µå’Œ
     {
       if (tmp > 0)
         tmp += q[i];

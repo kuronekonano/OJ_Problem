@@ -1,4 +1,4 @@
-#include <stdio.h> ///²»´ò±í»áÒòÎª¶à´ÎËÑÑ°¶ø³¬Ê±
+#include <stdio.h> ///ä¸æ‰“è¡¨ä¼šå› ä¸ºå¤šæ¬¡æœå¯»è€Œè¶…æ—¶
 #include <string.h>
 bool visr[15], vis1[20], ma[20][20], vis2[20];
 int ans[12];

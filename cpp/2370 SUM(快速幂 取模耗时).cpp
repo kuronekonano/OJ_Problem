@@ -8,7 +8,7 @@ LL poww(LL a, LL b) {
   LL ans = 1;
   while (b) {
     if (b & 1)
-      ans = (ans * (a % MOD)) % MOD; /// ���ȡģ�ᳬʱ
+      ans = (ans * (a % MOD)) % MOD; /// 多次取模会超时
     a = (a * (a % MOD)) % MOD;
     b >>= 1;
   }
@@ -22,7 +22,7 @@ int main() {
     LL sum = 1;
     scanf("%lld%lld", &n, &d);
     for (int i = 2; i <= n; i++) {
-      sum = (sum + poww(i, d) % MOD) % MOD; /// ���ȡģ�ᳬʱ
+      sum = (sum + poww(i, d) % MOD) % MOD; /// 多次取模会超时
     }
     printf("%lld\n", sum);
   }

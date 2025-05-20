@@ -12,7 +12,7 @@ void Meg(int l, int mid, int r) {
     if (a[i] < a[j])
       tmp[k++] = a[i++];
     else {
-      ans += mid - i + 1; /// ÄæĞòÊı¼ÆÊı
+      ans += mid - i + 1; /// é€†åºæ•°è®¡æ•°
       tmp[k++] = a[j++];
     }
   }
@@ -23,7 +23,7 @@ void Meg(int l, int mid, int r) {
   for (int i = l, k = 0; i <= r; k++, i++)
     a[i] = tmp[k];
 }
-void Msort(int l, int r) /// ¹é²¢ÅÅĞòÄ£°å
+void Msort(int l, int r) /// å½’å¹¶æ’åºæ¨¡æ¿
 {
   if (l < r) {
     int mid = (l + r) >> 1;

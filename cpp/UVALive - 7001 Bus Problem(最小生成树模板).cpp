@@ -1,4 +1,4 @@
-#include <stdio.h> ///×îĞ¡Éú³ÉÊ÷Ä£°åÌâ
+#include <stdio.h> ///æœ€å°ç”Ÿæˆæ ‘æ¨¡æ¿é¢˜
 #include <string.h>
 #define pppp printf("----------\n");
 int ma[1005][1005], dist[1005], m, n;
@@ -9,9 +9,9 @@ int prim() {
   vis[0] = true;
   int minn, mini, sum = 0;
   for (int i = 1; i < n; i++)
-    dist[i] = ma[0][i]; /// ¸üĞÂ´Ó0½Úµãµ½´ïÃ¿¸ö½ÚµãµÄ¾àÀë
+    dist[i] = ma[0][i]; /// æ›´æ–°ä»0èŠ‚ç‚¹åˆ°è¾¾æ¯ä¸ªèŠ‚ç‚¹çš„è·ç¦»
   for (int i = 1; i < n; i++) {
-    int minn = 0x7fffffff; /// Ã¿´Î´ÓÎ´±ê¼Ç½ÚµãÖĞÑ¡Ôñ×îĞ¡Öµ¼ÓÈëµ½×îĞ¡Éú³ÉÊ÷ÖĞ
+    int minn = 0x7fffffff; /// æ¯æ¬¡ä»æœªæ ‡è®°èŠ‚ç‚¹ä¸­é€‰æ‹©æœ€å°å€¼åŠ å…¥åˆ°æœ€å°ç”Ÿæˆæ ‘ä¸­
     int mini = -1;
     for (int j = 0; j < n; j++) {
       if (!vis[j] && dist[j] < minn) {
@@ -19,11 +19,11 @@ int prim() {
         mini = j;
       }
     }
-    sum += minn; /// ×îĞ¡Éú³ÉÊ÷×Ü³¤ÇóºÍ
+    sum += minn; /// æœ€å°ç”Ÿæˆæ ‘æ€»é•¿æ±‚å’Œ
     vis[mini] = true;
     for (int j = 0; j < n; j++)
       if (!vis[j] && ma[mini][j] < dist[j])
-        dist[j] = ma[mini][j]; /// ÀûÓÃĞÂ¼ÓÈëµÄ½Úµã¸üĞÂÊ£ÏÂËùÓĞ½ÚµãµÄµ½´ï¾àÀë
+        dist[j] = ma[mini][j]; /// åˆ©ç”¨æ–°åŠ å…¥çš„èŠ‚ç‚¹æ›´æ–°å‰©ä¸‹æ‰€æœ‰èŠ‚ç‚¹çš„åˆ°è¾¾è·ç¦»
   }
   return sum;
 }
@@ -32,7 +32,7 @@ int main() {
   scanf("%d", &t);
   while (t--) {
     int x, y, val, total = 0;
-    memset(ma, 0x3f, sizeof(ma)); /// µØÍ¼Î´Á¬Í¨²¿·ÖÈ«²¿Éè³É³¤¶ÈÎŞÏŞ´ó£¬±íÊ¾²»Í¨
+    memset(ma, 0x3f, sizeof(ma)); /// åœ°å›¾æœªè¿é€šéƒ¨åˆ†å…¨éƒ¨è®¾æˆé•¿åº¦æ— é™å¤§ï¼Œè¡¨ç¤ºä¸é€š
     scanf("%d%d", &n, &m);
     for (int i = 0; i < m; i++) {
       scanf("%d%d%d", &x, &y, &val);

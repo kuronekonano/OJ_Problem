@@ -1,6 +1,6 @@
 #include <stdio.h>
 int main() {
-  unsigned long long a[1000]; // µÚ89Ïîì³²¨ÄÇÆõÊıÌ«´óÁË
+  unsigned long long a[1000]; // ç¬¬89é¡¹æ–æ³¢é‚£å¥‘æ•°å¤ªå¤§äº†
   int n, k, m, i;
   while (scanf("%d%d%d", &n, &m, &k) != EOF) {
     a[1] = n;

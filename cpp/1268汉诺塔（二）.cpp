@@ -1,16 +1,16 @@
 #include <stdio.h>
-long long tower(int a) /// ººÅµËþµÄÊýÔÚ63ÄÚ¿ÉÓÃlong long´æÏÂ£¬µ¥¶ÀÈ¡³öÔËËã
+long long tower(int a) /// æ±‰è¯ºå¡”çš„æ•°åœ¨63å†…å¯ç”¨long longå­˜ä¸‹ï¼Œå•ç‹¬å–å‡ºè¿ç®—
 {
   long long flag = 1;
   for (int i = 1; i < a; i++) {
-    flag = flag * 2 + 1; /// ººÅµËþµÝÍÆ¹«Ê½
+    flag = flag * 2 + 1; /// æ±‰è¯ºå¡”é€’æŽ¨å…¬å¼
   }
-  return flag; /// ·µ»ØÖµÊÇlong longµÄ
+  return flag; /// è¿”å›žå€¼æ˜¯long longçš„
 }
 int main() {
   int i, n;
   while (scanf("%d", &n) != EOF) {
-    long long hano = tower(n); /// ÓÉ´ËÒÀ´ÎÇóÄ££¬ÔÙ³ýÇóÄê·ÝÌìÊýÊ±·ÖÃë
+    long long hano = tower(n); /// ç”±æ­¤ä¾æ¬¡æ±‚æ¨¡ï¼Œå†é™¤æ±‚å¹´ä»½å¤©æ•°æ—¶åˆ†ç§’
     int second = hano % 60;
     hano = hano / 60;
     int minute = hano % 60;

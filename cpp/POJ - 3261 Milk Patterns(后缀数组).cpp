@@ -72,7 +72,7 @@ int main() {
     for (int i = 1; i <= n; i++)
       cnt[height[i]]++;
     int l = 1, r = n, mid, ans = 0;
-    while (l <= r) /// 二分查找结果
+    while (l <= r) /// 浜屽垎鏌ユ壘缁撴灉
     {
       mid = (l + r) / 2;
       if (judge(mid, k))

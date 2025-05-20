@@ -4,10 +4,10 @@ int main()
     int a,i;
     while(scanf("%d",&a)!=EOF)
     {
-        int b=0;//初始化b
+        int b=0;//鍒濆鍖朾
         if(a<3)
         {
-            printf("0\n");//小于3的周长不可能有多边形
+            printf("0\n");//灏忎簬3鐨勫懆闀夸笉鍙兘鏈夊杈瑰舰
         }
         else
         {
@@ -15,7 +15,7 @@ int main()
             {
                 if(a%i==0)
                 {
-                    b++;//用b计数
+                    b++;//鐢╞璁℃暟
                 }
             }
             printf("%d\n",b);

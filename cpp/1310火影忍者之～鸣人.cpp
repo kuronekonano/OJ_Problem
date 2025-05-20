@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <stdio.h> /// Çå¿Õ½á¹¹ÌåÊı×é£ºmemset£¨½á¹¹ÌåÊı×éÃû³Æ£¬0£¬sizeof(½á¹¹ÌåÊı×éÃû³Æ)£©
+#include <stdio.h> /// æ¸…ç©ºç»“æ„ä½“æ•°ç»„ï¼šmemsetï¼ˆç»“æ„ä½“æ•°ç»„åç§°ï¼Œ0ï¼Œsizeof(ç»“æ„ä½“æ•°ç»„åç§°)ï¼‰
 #include <string.h>
 using namespace std;
 int m, n;
@@ -10,15 +10,15 @@ struct nijia {
 bool cmp(nijia a, nijia b) {
   if (a.att == b.att) {
     if (a.lea == b.lea) {
-      for (int i = 0; i < n; i++) /// ¶şÎ¬Êı×é×Ö·û´®±È½Ï
+      for (int i = 0; i < n; i++) /// äºŒç»´æ•°ç»„å­—ç¬¦ä¸²æ¯”è¾ƒ
       {
         if (strcmp(a.message[i], b.message[i]) != 0) {
           return (strcmp(a.message[i], b.message[i]) <
-                  0); /// ×ÖµäĞòÅÅĞòÊÇĞ¡ÓÚ0µÄ
+                  0); /// å­—å…¸åºæ’åºæ˜¯å°äº0çš„
         }
       }
     }
-    return a.lea > b.lea; /// ´Ó´óµ½Ğ¡ÅÅĞòÊ±´óÓÚºÅ
+    return a.lea > b.lea; /// ä»å¤§åˆ°å°æ’åºæ—¶å¤§äºå·
   }
   return a.att > b.att;
 }
@@ -31,7 +31,7 @@ int main() {
       }
       scanf("%d%d", &fir[i].att, &fir[i].lea);
     }
-    sort(fir, fir + m, cmp); /// ½á¹¹ÌåÅÅĞò
+    sort(fir, fir + m, cmp); /// ç»“æ„ä½“æ’åº
     for (i = 0; i < k; i++) {
       printf("%s\n", fir[i].message[0]);
     }

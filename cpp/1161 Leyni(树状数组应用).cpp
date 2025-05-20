@@ -1,4 +1,4 @@
-#include <stdio.h> ///树状数组，单点更新，区间求和
+#include <stdio.h> ///鏍戠姸鏁扮粍锛屽崟鐐规洿鏂帮紝鍖洪棿姹傚拰
 #include <string.h>
 int tree[100008], n;
 int lowbit(int x) { return x & (-x); }

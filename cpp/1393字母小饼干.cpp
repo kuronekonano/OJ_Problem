@@ -5,7 +5,7 @@ int main() {
   char a[105], b[105];
   while (scanf("%d", &n) != EOF) {
     int x[30], y[30];
-    memset(x, 0, sizeof(x)); /// 记得清空数组
+    memset(x, 0, sizeof(x)); /// 璁板緱娓呯┖鏁扮粍
     memset(y, 0, sizeof(y));
     scanf("%s", a);
     scanf("%s", b);

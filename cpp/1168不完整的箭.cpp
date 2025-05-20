@@ -3,11 +3,11 @@
 int main() {
   char s[50];
   char a[11] =
-      ">>>------>"; // ���ַ�����ֵ����������У�ע���ֹ���鱬��Ӧ����������
+      ">>>------>"; // 将字符串赋值于数组变量中，注意防止数组爆掉应定大点的数组
   char b[11] = "<------<<<";
   while (gets(s)) {
     if (strcmp(s, a) == 0 ||
-        strcmp(s, b) == 0) // �ַ����ԱȺ���strcmp�����ַ����Աȣ�
+        strcmp(s, b) == 0) // 字符串对比函数strcmp将两字符串对比，
     {
       printf("Yes\n");
     } else {

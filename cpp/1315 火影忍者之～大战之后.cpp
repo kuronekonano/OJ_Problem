@@ -1,13 +1,13 @@
-#include <algorithm> ///�Խ���ʱ������Ȼ��ѡ�����ʱ����̵ģ�Ȼ���ѡ�������Ŀ�ʼʱ������׼
-#include <stdio.h> ///��̰��
-using namespace std; /// һ����һ����ѡ����Ŀ�ʼʱ��>=��ѡ������Ľ���ʱ�䣬��ô�Ǹ�������ǿ�ѡ��
+#include <algorithm> ///对结束时间排序，然后选择结束时间最短的，然后把选择的任务的开始时间作标准
+#include <stdio.h> ///简单贪心
+using namespace std; /// 一旦下一个可选任务的开始时间>=已选择任务的结束时间，那么那个任务就是可选的
 struct npc {
   int s, t;
-  bool friend operator<(npc a, npc b) /// ���������------>��ʽ�� bool friend
-                                      /// operator<(�ṹ���� a���ṹ���� b)
+  bool friend operator<(npc a, npc b) /// 重载运算符------>格式： bool friend
+                                      /// operator<(结构体名 a，结构体名 b)
   {                                   ///    return   a.xxx < b.xxx
     return a.t <
-           b.t; ///     ��ʱ����sort����Ͳ���Ҫ����cmp�ˣ�ֱ�ӽ���sort��������Ϊ�ṹ����������Ѿ�������
+           b.t; ///     此时进行sort排序就不需要导入cmp了，直接进行sort操作，因为结构体中运算符已经被重载
   }
 } a[108];
 // bool cmp(npc a,npc b)

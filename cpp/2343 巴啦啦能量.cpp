@@ -1,4 +1,4 @@
-#include <stdio.h> ///�����ַ����ֵĴ������ж��Ƿ�����Ӵ�T��������������һ�δ�S�У�һ�����С������T�ķ�Χ������¼��̴������ұ߽�
+#include <stdio.h> ///利用字符出现的次数来判断是否包含子串T，并且在连续的一段串S中，一点点缩小包含串T的范围，并记录最短串的左右边界
 #include <string.h>
 char S[100008], T[100005];
 int ss[300], tt[300];

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 void input(int **p, int m, int n) {
   int i, j;
-  printf("ÇëÊäÈëÊı×é%d¡Á%d£º\n", m, n);
+  printf("è¯·è¾“å…¥æ•°ç»„%dÃ—%dï¼š\n", m, n);
   for (i = 0; i < m; i++)
     for (j = 0; j < n; j++)
       scanf("%d", &p[i][j]);
@@ -40,34 +40,34 @@ void zhuanzhi(int **p, int **q, int m, int n) {
 }
 
 int main() {
-  int **a, **b, m, n, i; // ¶¨Òå¶şÖØÖ¸Õë
+  int **a, **b, m, n, i; // å®šä¹‰äºŒé‡æŒ‡é’ˆ
 
-  printf("ÇëÊäÈëĞĞ¡¢ÁĞÊıÎª£º");
+  printf("è¯·è¾“å…¥è¡Œã€åˆ—æ•°ä¸ºï¼š");
 
   scanf("%d%d", &m, &n);
 
   a = (int **)malloc(m * sizeof(int));
 
   for (i = 0; i < m; ++i) {
-    a[i] = (int *)malloc(n * sizeof(int)); // ¿ª±Ù´æ´¢¿Õ¼ä£¬Êı×éa
+    a[i] = (int *)malloc(n * sizeof(int)); // å¼€è¾Ÿå­˜å‚¨ç©ºé—´ï¼Œæ•°ç»„a
   }
 
   b = (int **)malloc(n * sizeof(int));
 
   for (i = 0; i < n; ++i) {
 
-    b[i] = (int *)malloc(m * sizeof(int)); // ¿ª±Ù
+    b[i] = (int *)malloc(m * sizeof(int)); // å¼€è¾Ÿ
   }
 
-  input(a, m, n); // Êä³öº¯Êı
+  input(a, m, n); // è¾“å‡ºå‡½æ•°
 
-  output1(a, m, n); // Êä³öº¯Êı
+  output1(a, m, n); // è¾“å‡ºå‡½æ•°
 
-  zhuanzhi(a, b, m, n); // ×ªÖÃº¯Êı
+  zhuanzhi(a, b, m, n); // è½¬ç½®å‡½æ•°
 
-  output2(b, m, n); // Êä³öº¯Êı
+  output2(b, m, n); // è¾“å‡ºå‡½æ•°
 
-  for (i = 0; i < m; ++i) /// ÊÍ·Å¿Õ¼ä
+  for (i = 0; i < m; ++i) /// é‡Šæ”¾ç©ºé—´
     free(a[i]);
   free(a);
   for (i = 0; i < n; ++i)

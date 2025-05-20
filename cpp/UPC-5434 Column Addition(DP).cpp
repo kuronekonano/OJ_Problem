@@ -18,7 +18,7 @@ int main() {
       if ((ax[i] + aa[i] + bb[i]) % 10 == cc[i]) {
         if ((ax[i] + aa[i] + bb[i]) / 10 == 0) {
           dp[i] = 1;
-          ans = max(ans, dp[i]); /// 必须更新当前预处理出来的dp长度作为ans
+          ans = max(ans, dp[i]); /// 蹇呴』鏇存柊褰撳墠棰勫鐞嗗嚭鏉ョ殑dp闀垮害浣滀负ans
         } else
           dp[i] = 1, ax[i] = 1;
       }

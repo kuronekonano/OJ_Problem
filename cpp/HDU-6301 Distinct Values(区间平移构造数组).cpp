@@ -8,7 +8,7 @@ struct node {
 bool cmp(
     node a,
     node
-        b) /// ����߽��С�����������ϱ���˳�򣬰��ұ߽�ϴ��������������������䶼�ϴ󣬲����������Ч(����������ȫ���ǵ�)����
+        b) /// 按左边界较小排序，这样符合遍历顺序，按右边界较大排序，这样遍历到的区间都较大，不会遍历到无效(被大区间完全覆盖的)区间
 {
   if (a.l == b.l)
     return a.r > b.r;
@@ -34,7 +34,7 @@ int main() {
         while (pl < qu[i].l) {
           if (pl <= pr)
             q.push(
-                ans[pl]); /// ֻ�е�Lָ��С��Rָ��ʱ�Ž����ͷŵ�����Ͷ�������
+                ans[pl]); /// 只有当L指针小于R指针时才将被释放的数字投入队列中
           pl++;
         }
         while (pr < qu[i].r) {
@@ -42,10 +42,10 @@ int main() {
           if (!q.empty()) {
             if (pr >= pl)
               ans[pr] = q.top(),
-              q.pop(); /// ͬ��ֻ�е�Rָ�����Lָ��ʱ�Ÿ�ֵ����
+              q.pop(); /// 同理只有当R指针大于L指针时才赋值数组
           } else
             ans[pr] =
-                maxnum++; /// �������Ϊ�գ�˵����ʹ�õ����ֵ�����ô��ʱ�Ž����ȶ����к�ѡֵ����������
+                maxnum++; /// 如果队列为空，说明被使用的最大值变大，那么此时才将优先队列中候选值的数量增加
         }
       }
     }

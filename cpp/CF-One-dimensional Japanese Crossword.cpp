@@ -1,4 +1,4 @@
-#include <stdio.h> ///找B的个数，并且是分段的连续的B
+#include <stdio.h> ///鎵綛鐨勪釜鏁帮紝骞朵笖鏄垎娈电殑杩炵画鐨凚
 #include <string.h>
 int main() {
   int n, i, sums[108];

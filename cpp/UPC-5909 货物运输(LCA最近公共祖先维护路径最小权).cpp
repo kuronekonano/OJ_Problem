@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <stdio.h> ///LCA×î½ü¹«¹²×æÏÈÆÓËØËã·¨
+#include <stdio.h> ///LCAæœ€è¿‘å…¬å…±ç¥–å…ˆæœ´ç´ ç®—æ³•
 #include <string.h>
 using namespace std;
 int fa[100005];
@@ -19,10 +19,10 @@ int main() {
     memset(fa, 0, sizeof(fa));
     for (int i = 0; i < n - 1; i++) {
       scanf("%d%d%d", &x, &y,
-            &w); /// ¹ØÓÚ½¨Í¼£¬ÒòÎªÌâÄ¿Ã»ÓĞ¸ø³ö¸¸×Ó¹ØÏµ£¬Ò²Ã»ÓĞÏÈºóË³Ğò
+            &w); /// å…³äºå»ºå›¾ï¼Œå› ä¸ºé¢˜ç›®æ²¡æœ‰ç»™å‡ºçˆ¶å­å…³ç³»ï¼Œä¹Ÿæ²¡æœ‰å…ˆåé¡ºåº
       if (fa[x] != 0)
         fa[y] = x,
-        val[y] = w; /// Òò´ËÅĞ¶ÏË«·½ÊÇ·ñÓĞ¸¸Ç×¼´¿É£¬Èç¹û¶¼Ã»ÓĞ¸¸Ç×Ä¬ÈÏx×÷¸¸Ç×
+        val[y] = w; /// å› æ­¤åˆ¤æ–­åŒæ–¹æ˜¯å¦æœ‰çˆ¶äº²å³å¯ï¼Œå¦‚æœéƒ½æ²¡æœ‰çˆ¶äº²é»˜è®¤xä½œçˆ¶äº²
       else
         fa[x] = y, val[x] = w;
     }
@@ -30,11 +30,11 @@ int main() {
       scanf("%d%d", &x, &y);
       int dx = deep(x), dy = deep(y);
       int minx = 0x7fffffff,
-          miny = 0x7fffffff; /// Ö»ĞèÔÚ»ØËİÊ±²»¶ÏÎ¬»¤µ±Ç°×îĞ¡È¨
+          miny = 0x7fffffff; /// åªéœ€åœ¨å›æº¯æ—¶ä¸æ–­ç»´æŠ¤å½“å‰æœ€å°æƒ
       if (dx < dy) {
         int tt = dy - dx;
         while (tt--) {
-          miny = min(miny, val[y]); /// ×¢ÒâÏÈÈ¡×îĞ¡È¨ÔÙÏòÉÏ»ØËİ
+          miny = min(miny, val[y]); /// æ³¨æ„å…ˆå–æœ€å°æƒå†å‘ä¸Šå›æº¯
           y = fa[y];
         }
       } else if (dx > dy) {
@@ -44,7 +44,7 @@ int main() {
           x = fa[x];
         }
       }
-      while (x != y) /// Ã¿´Î»ØËİ¶¼ÏÈÈ¡×îĞ¡È¨
+      while (x != y) /// æ¯æ¬¡å›æº¯éƒ½å…ˆå–æœ€å°æƒ
       {
         minx = min(minx, val[x]);
         x = fa[x];

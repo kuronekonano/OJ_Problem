@@ -14,7 +14,7 @@ struct Splay_tree {
       add = rev = son[0] = son[1] = 0;
     }
   } tre[maxn];
-  void pushup(int x) /// ÏòÉÏ´«µİ
+  void pushup(int x) /// å‘ä¸Šä¼ é€’
   {
     tre[x].maxx = tre[x].val;
     tre[x].siz = 1;
@@ -27,7 +27,7 @@ struct Splay_tree {
       tre[x].siz += tre[tre[x].son[1]].siz;
     }
   }
-  void pushdown(int x) /// ÏòÏÂ´«µİ
+  void pushdown(int x) /// å‘ä¸‹ä¼ é€’
   {
     if (x == 0)
       return;
@@ -53,7 +53,7 @@ struct Splay_tree {
       tre[x].rev = 0;
     }
   }
-  void rota(int x, int kind) /// Ğı×ª
+  void rota(int x, int kind) /// æ—‹è½¬
   {
     int y = fa[x], z = fa[y];
 
@@ -68,7 +68,7 @@ struct Splay_tree {
 
     pushup(y);
   }
-  //    void zig(int x)///ÓÒĞı
+  //    void zig(int x)///å³æ—‹
   //    {
   //        int y=fa[x];
   //        ch[y][0]=ch[x][1];
@@ -79,7 +79,7 @@ struct Splay_tree {
   //        else if(y==ch[fa[y]][1]) ch[fa[y]][1]=x;
   //    }
   //
-  //    void zag(int x)///×óĞı
+  //    void zag(int x)///å·¦æ—‹
   //    {
   //        int y=fa[x];
   //        ch[y][1]=ch[x][0];
@@ -131,7 +131,7 @@ struct Splay_tree {
     return u;
   }
 
-  void updata(int L, int R, int val) /// Çø¼ä¸üĞÂ
+  void updata(int L, int R, int val) /// åŒºé—´æ›´æ–°
   {
     int u = select(L - 1), v = select(R + 1);
     Splay(u, 0);
@@ -140,14 +140,14 @@ struct Splay_tree {
     tre[tre[v].son[0]].val += val;
     tre[tre[v].son[0]].add += val;
   }
-  void reverse(int L, int R) /// ·­×ªÇø¼ä
+  void reverse(int L, int R) /// ç¿»è½¬åŒºé—´
   {
     int u = select(L - 1), v = select(R + 1);
     Splay(u, 0);
     Splay(v, u);
     tre[tre[v].son[0]].rev ^= 1;
   }
-  int query(int L, int R) /// Çø¼ä²éÑ¯
+  int query(int L, int R) /// åŒºé—´æŸ¥è¯¢
   {
     int u = select(L - 1), v = select(R + 1);
     Splay(u, 0);
@@ -167,7 +167,7 @@ struct Splay_tree {
     pushup(mid);
     return mid;
   }
-  void init(int n) /// ³õÊ¼»¯
+  void init(int n) /// åˆå§‹åŒ–
   {
     tre[0].init(-inf);
     tre[1].init(-inf);

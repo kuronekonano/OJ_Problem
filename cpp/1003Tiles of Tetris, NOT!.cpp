@@ -12,8 +12,8 @@ int main() {
     if (a == 0 && b == 0) {
       return 0;
     }
-    long long k = gcd(a, b);         /// 最大公约数
-    printf("%lld\n", a * b / k / k); /// 最小公倍数除最大公约数
+    long long k = gcd(a, b);         /// 鏈�澶у叕绾︽暟
+    printf("%lld\n", a * b / k / k); /// 鏈�灏忓叕鍊嶆暟闄ゆ渶澶у叕绾︽暟
   }
   return 0;
 }

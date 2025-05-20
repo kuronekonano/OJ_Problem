@@ -1,8 +1,8 @@
-#include <algorithm> ///��n˫��ͬ���ȵ����ӣ�ÿ��ѡ�񳤶Ȳ�ͬ�Ҿ����̵���ֻ���Ȳ���̵����ӣ������ĳ�����ϲ����ٴ����ʵ�k�촩����ʲô��������
-#include <stdio.h> ///���ַ�����һ�������ȶ���ģ�⣬��һ��Ͷ��������������ڳ��Ȳ�ֵ��֮��ÿ��ȡ��С��ֵ����һ˫���Ӳ�ֵͶ����У�������֤Ͷ����еĶ��ǽ�Сֵ
-using namespace std; /// �ڶ��ַ��������ö��ֲ��ҵ���k���ڿ��õ�����ֵ��ÿ��Ͷ��һ�����ֳ�����mid��Ȼ������forѭ���ҵ�����С�ڵ��������ֵ���Ӳ������k�����ʱ��������С������mid��ֵ
+#include <algorithm> ///有n双不同长度的袜子，每天选择长度不同且尽量短的两只长度差最短的袜子，穿过的长度组合不能再穿，问第k天穿的是什么长度袜子
+#include <stdio.h> ///两种方法，一种用优先队列模拟，第一次投入所有排序后相邻长度差值，之后每次取最小差值向后加一双袜子差值投入队列，这样保证投入队列的都是较小值
+using namespace std; /// 第二种方法，利用二分查找到在k天内可用的最大差值，每次投入一个二分出来的mid，然后两层for循环找到所有小于等于这个差值袜子差，当满足k种组合时，尽量缩小或扩大mid的值
 struct
-    sock /// Ȼ��ȡ����k������Ӳ�ֵ������forѭ�����ҵ���������������ֵ�������ȡ��k��ֵ���Ǵ�
+    sock /// 然后取到第k天的袜子差值，两层for循环查找到所有满足条件的值。排序后取第k大值就是答案
 {
   int mi, ma;
   bool operator<(const sock &a) const {
@@ -10,7 +10,7 @@ struct
       return ma < a.ma;
     return ma - mi < a.ma - a.mi;
   }
-} a[1000005]; /// ע��ṹ�����飬������ϵ����������Իᳬ��1e5���ֵ���࿪����
+} a[1000005]; /// 注意结构体数组，两两配合的数量，明显会超过1e5最大值，多开数组
 int n, k, b[100005];
 bool judge(int maxn) {
   int flag = 0;

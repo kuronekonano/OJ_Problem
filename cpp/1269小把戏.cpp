@@ -2,7 +2,7 @@
 #include <string.h>
 int main() {
   char a[10000], b[1000];
-  while (scanf("%s %s", a, b) != EOF) // Ã¿¸öÎ»µ¥¶ÀÏà¼ÓÇóºÍ
+  while (scanf("%s %s", a, b) != EOF) // æ¯ä¸ªä½å•ç‹¬ç›¸åŠ æ±‚å’Œ
   {
     int sum = 0;
     int n = strlen(a);

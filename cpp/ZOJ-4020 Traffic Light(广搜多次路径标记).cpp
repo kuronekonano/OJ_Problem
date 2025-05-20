@@ -1,41 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 struct
-    node /// ¶ÔÓÚ¶ÓÁĞÖĞÃ¿¸ö½Úµã£¬Ò»¸öÖµ±íÊ¾×ø±ê£¬Ò²¾ÍÊÇÔÚÄ£Äâ¶şÎ¬Êı×éÖĞÒ»Î¬Êı×éµÄÏÂ±ê
-{ /// ÒÔ¼°Ò»¸ö±íÊ¾µ½´ïµ±Ç°Î»ÖÃµÄÊ±¼ä£¬ÒòÎª¸ù¾İµ½´ïÄ³¸öÎ»ÖÃµÄÊ±¼ä²»Í¬£¬Òì»òÖµ»á²»Í¬
+    node /// å¯¹äºé˜Ÿåˆ—ä¸­æ¯ä¸ªèŠ‚ç‚¹ï¼Œä¸€ä¸ªå€¼è¡¨ç¤ºåæ ‡ï¼Œä¹Ÿå°±æ˜¯åœ¨æ¨¡æ‹ŸäºŒç»´æ•°ç»„ä¸­ä¸€ç»´æ•°ç»„çš„ä¸‹æ ‡
+{ /// ä»¥åŠä¸€ä¸ªè¡¨ç¤ºåˆ°è¾¾å½“å‰ä½ç½®çš„æ—¶é—´ï¼Œå› ä¸ºæ ¹æ®åˆ°è¾¾æŸä¸ªä½ç½®çš„æ—¶é—´ä¸åŒï¼Œå¼‚æˆ–å€¼ä¼šä¸åŒ
   int pos, time;
-  node(int x, int y) /// ¹¹Ôìº¯Êı
+  node(int x, int y) /// æ„é€ å‡½æ•°
   {
     pos = x;
     time = y;
   }
 };
 queue<node>
-    q; /// ´Ë´¦µÄ±ê¼ÇÓÃÁË3¸ö×´Ì¬£¬Ò»¸öÊÇÒ»´Î¶¼Ã»×ß£¬ÓÃ-1±íÊ¾£¬Ò»¸öÊÇ×ßÁËÒ»´Î£¬¼ÇÂ¼×ß¹ıµÄÄÇÒ»´ÎÊÇÊ²Ã´×´Ì¬£¬µÚÈıÖÖÊÇ×ß¹ıÁ½´Î£¬²»ÔÙ×ßÕâ¸ö½Úµã
+    q; /// æ­¤å¤„çš„æ ‡è®°ç”¨äº†3ä¸ªçŠ¶æ€ï¼Œä¸€ä¸ªæ˜¯ä¸€æ¬¡éƒ½æ²¡èµ°ï¼Œç”¨-1è¡¨ç¤ºï¼Œä¸€ä¸ªæ˜¯èµ°äº†ä¸€æ¬¡ï¼Œè®°å½•èµ°è¿‡çš„é‚£ä¸€æ¬¡æ˜¯ä»€ä¹ˆçŠ¶æ€ï¼Œç¬¬ä¸‰ç§æ˜¯èµ°è¿‡ä¸¤æ¬¡ï¼Œä¸å†èµ°è¿™ä¸ªèŠ‚ç‚¹
 int t, n, m, a[100008], sx, sy, ex, ey,
-    vis[100005]; /// ÒòÎªn*mÒ»¶¨Ğ¡ÓÚ1e5£¬Òò´ËÓÃÒ»Î¬Êı×éÄ£Äâ¶şÎ¬Êı×é
+    vis[100005]; /// å› ä¸ºn*mä¸€å®šå°äº1e5ï¼Œå› æ­¤ç”¨ä¸€ç»´æ•°ç»„æ¨¡æ‹ŸäºŒç»´æ•°ç»„
 bool dir(int pos,
-         int time) /// ÅĞ¶ÏĞĞ×ß·½Ïò£¬¸ù¾İµ½´ï¸ÃµãÊ±¼äÅĞ¶ÏÒì»òÖµ£¬ÊÇºá×ß»¹ÊÇÊú×ß
+         int time) /// åˆ¤æ–­è¡Œèµ°æ–¹å‘ï¼Œæ ¹æ®åˆ°è¾¾è¯¥ç‚¹æ—¶é—´åˆ¤æ–­å¼‚æˆ–å€¼ï¼Œæ˜¯æ¨ªèµ°è¿˜æ˜¯ç«–èµ°
 {
   if (time % 2 == 0 && a[pos] == 0 || time % 2 == 1 && a[pos] == 1)
-    return true; /// Êú×ß
+    return true; /// ç«–èµ°
   else
-    return false; /// ºá×ß
+    return false; /// æ¨ªèµ°
 }
-bool judge(int x, int y, int time) /// ÅĞ¶Ï¸ÃµãÊÇ·ñÄÜ×ß
+bool judge(int x, int y, int time) /// åˆ¤æ–­è¯¥ç‚¹æ˜¯å¦èƒ½èµ°
 {
-  if (x >= 0 && x < n && y >= 0 && y < m) /// Èô³¬³öµØÍ¼Ôò²»×ß
+  if (x >= 0 && x < n && y >= 0 && y < m) /// è‹¥è¶…å‡ºåœ°å›¾åˆ™ä¸èµ°
   {
-    if (vis[x * m + y] == -1) /// ÈôÒ»´ÎÃ»×ß¹ı£¬±Ø×ß£¬²¢ÇÒ¼ÇÂ¼µÚÒ»´Î×ß¸ÃµãµÄ×´Ì¬
+    if (vis[x * m + y] == -1) /// è‹¥ä¸€æ¬¡æ²¡èµ°è¿‡ï¼Œå¿…èµ°ï¼Œå¹¶ä¸”è®°å½•ç¬¬ä¸€æ¬¡èµ°è¯¥ç‚¹çš„çŠ¶æ€
     {
       vis[x * m + y] = dir(x * m + y, time) ? 0 : 1;
       return true;
     }
     if (vis[x * m + y] == 0 && dir(x * m + y, time) == 1)
-      return false; /// Èç¹û×ß¹ıÒ»´Î£¬²¢ÇÒµÚ¶ş´ÎÓöµ½ÈÔÈ»ÊÇÏàÍ¬µÄ×´Ì¬Ôò²»×ß
+      return false; /// å¦‚æœèµ°è¿‡ä¸€æ¬¡ï¼Œå¹¶ä¸”ç¬¬äºŒæ¬¡é‡åˆ°ä»ç„¶æ˜¯ç›¸åŒçš„çŠ¶æ€åˆ™ä¸èµ°
     if (vis[x * m + y] == 0 &&
         dir(x * m + y, time) ==
-            0) /// ÈôÊÇ²»Í¬µÄ×´Ì¬£¬¿ÉÒÔ×ß£¬²¢ÇÒ±ê¼ÇÎª×ß¹ıÁ½´Î
+            0) /// è‹¥æ˜¯ä¸åŒçš„çŠ¶æ€ï¼Œå¯ä»¥èµ°ï¼Œå¹¶ä¸”æ ‡è®°ä¸ºèµ°è¿‡ä¸¤æ¬¡
     {
       vis[x * m + y] = 2;
       return true;
@@ -47,7 +47,7 @@ bool judge(int x, int y, int time) /// ÅĞ¶Ï¸ÃµãÊÇ·ñÄÜ×ß
     if (vis[x * m + y] == 1 && dir(x * m + y, time) == 0)
       return false;
     if (vis[x * m + y] == 2)
-      return false; /// Óöµ½ÁË×ß¹ıÁ½´ÎµÄµãÔò²»×ß
+      return false; /// é‡åˆ°äº†èµ°è¿‡ä¸¤æ¬¡çš„ç‚¹åˆ™ä¸èµ°
   }
   return false;
 }
@@ -58,44 +58,44 @@ int main() {
       q.pop();
     scanf("%d%d", &n, &m);
     for (int i = 0; i <= n * m; i++)
-      vis[i] = -1; /// ³õÊ¼»¯±ê¼ÇÊı×é
+      vis[i] = -1; /// åˆå§‹åŒ–æ ‡è®°æ•°ç»„
     for (int i = 0; i < n; i++)
       for (int j = 0; j < m; j++)
         scanf("%d", &a[i * m + j]);
     scanf("%d%d%d%d", &sx, &sy, &ex, &ey);
     node st = node((sx - 1) * m + sy - 1, 0);
     node ed = node((ex - 1) * m + ey - 1, 0);
-    vis[st.pos] = a[st.pos]; /// Æğµã±ê¼Ç
+    vis[st.pos] = a[st.pos]; /// èµ·ç‚¹æ ‡è®°
     q.push(st);
     int ans = 0x7fffffff;
     while (!q.empty()) {
       node top = q.front();
       q.pop();
-      int tmx = top.pos / m; /// ¼ÆËã×ø±ê
+      int tmx = top.pos / m; /// è®¡ç®—åæ ‡
       int tmy = top.pos % m;
       int tim = top.time;
       //            printf("==%d   %d   %d==\n",tmx,tmy,tim);
-      if (tmx == ed.pos / m && tmy == ed.pos % m) /// ÅĞ¶ÏÊÇ·ñµ½´ïÖÕµã
+      if (tmx == ed.pos / m && tmy == ed.pos % m) /// åˆ¤æ–­æ˜¯å¦åˆ°è¾¾ç»ˆç‚¹
       {
         ans = tim > ans ? ans : tim;
         break;
       }
-      if (dir(tmx * m + tmy, tim)) /// Êú×ß
+      if (dir(tmx * m + tmy, tim)) /// ç«–èµ°
       {
         tim++;
         if (judge(tmx + 1, tmy, tim))
-          q.push(node((tmx + 1) * m + tmy, tim)); /// ÏòÏÂ
+          q.push(node((tmx + 1) * m + tmy, tim)); /// å‘ä¸‹
         if (judge(tmx - 1, tmy, tim))
-          q.push(node((tmx - 1) * m + tmy, tim)); /// ÏòÉÏ
-      } else                                      /// ºá×ß
+          q.push(node((tmx - 1) * m + tmy, tim)); /// å‘ä¸Š
+      } else                                      /// æ¨ªèµ°
       {
         tim++;
         if (judge(tmx, tmy - 1, tim))
-          q.push(node(tmx * m + tmy - 1, tim)); /// ÏòÓÒ
+          q.push(node(tmx * m + tmy - 1, tim)); /// å‘å³
         if (judge(tmx, tmy + 1, tim))
-          q.push(node(tmx * m + tmy + 1, tim)); /// Ïò×ó
+          q.push(node(tmx * m + tmy + 1, tim)); /// å‘å·¦
       }
     }
-    printf("%d\n", ans == 0x7fffffff ? -1 : ans); /// ÅĞ¶ÏÊÇ·ñ×ßµÃÍ¨
+    printf("%d\n", ans == 0x7fffffff ? -1 : ans); /// åˆ¤æ–­æ˜¯å¦èµ°å¾—é€š
   }
 }

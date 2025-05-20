@@ -1,22 +1,22 @@
-#include <stdio.h>  ///¶þ·ÖÍ¼×î´óÆ¥Åä   ×îÐ¡µã¸²¸ÇÊý=×î´óÆ¥ÅäÊý
-#include <string.h> ///½«ÐÐºÍÁÐ×ª»¯³Éµã£¬Ã¿¸öµã×ª»¯ÎªÁ¬½ÓÁ½±ßµÄÏß£¬¹¹³ÉÒ»¸ö¶þ·ÖÍ¼£¬ÒªÇó×îÐ¡Éä»÷´ÎÊý£¬¼´¸²¸ÇËùÓÐµÄ±ß(±»³éÏó³É±ßµÄµã)£¬ÓÃ×îÐ¡µÄµã(±»³éÏó³ÉµãµÄÐÐÁÐ)¸²¸ÇÀ´ÊµÏÖ
+#include <stdio.h>  ///äºŒåˆ†å›¾æœ€å¤§åŒ¹é…   æœ€å°ç‚¹è¦†ç›–æ•°=æœ€å¤§åŒ¹é…æ•°
+#include <string.h> ///å°†è¡Œå’Œåˆ—è½¬åŒ–æˆç‚¹ï¼Œæ¯ä¸ªç‚¹è½¬åŒ–ä¸ºè¿žæŽ¥ä¸¤è¾¹çš„çº¿ï¼Œæž„æˆä¸€ä¸ªäºŒåˆ†å›¾ï¼Œè¦æ±‚æœ€å°å°„å‡»æ¬¡æ•°ï¼Œå³è¦†ç›–æ‰€æœ‰çš„è¾¹(è¢«æŠ½è±¡æˆè¾¹çš„ç‚¹)ï¼Œç”¨æœ€å°çš„ç‚¹(è¢«æŠ½è±¡æˆç‚¹çš„è¡Œåˆ—)è¦†ç›–æ¥å®žçŽ°
 int match[505];     ///
 bool edge[505][505],
-    vis[505]; /// edge´æÍ¼£¬±íÊ¾ÔÚµÚiÐÐjÁÐÊÇ·ñÓÐµã´æÔÚ£¬vis±ê¼ÇÊÇ·ñÑ¯ÎÊ¹ýÄ³¸öµã
+    vis[505]; /// edgeå­˜å›¾ï¼Œè¡¨ç¤ºåœ¨ç¬¬iè¡Œjåˆ—æ˜¯å¦æœ‰ç‚¹å­˜åœ¨ï¼Œvisæ ‡è®°æ˜¯å¦è¯¢é—®è¿‡æŸä¸ªç‚¹
 int n, k;
-bool KM(int x) /// DFSÇóÔö¹ãÂ·
+bool KM(int x) /// DFSæ±‚å¢žå¹¿è·¯
 {
-  for (int i = 1; i <= n; i++) /// ±éÀúÄÜÓë¸ÃµãÅä¶ÔµÄµã
+  for (int i = 1; i <= n; i++) /// éåŽ†èƒ½ä¸Žè¯¥ç‚¹é…å¯¹çš„ç‚¹
   {
     if (!vis[i] && edge[x][i]) {
-      vis[i] = true; /// ±ê¼Ç·ÃÎÊµã
+      vis[i] = true; /// æ ‡è®°è®¿é—®ç‚¹
       if (match[i] == 0 || KM(match[i])) {
-        match[i] = x; /// ¸üÐÂÅä¶Ô¹ØÏµ
+        match[i] = x; /// æ›´æ–°é…å¯¹å…³ç³»
         return true;
       }
     }
   }
-  return false; /// Èô±éÀúÁËËùÓÐµã
+  return false; /// è‹¥éåŽ†äº†æ‰€æœ‰ç‚¹
 }
 int main() {
   while (scanf("%d%d", &n, &k) != EOF) {
@@ -26,13 +26,13 @@ int main() {
     for (int i = 0; i < k; i++) {
       scanf("%d%d", &x, &y);
       edge[x][y] =
-          true; /// ÕâÀïÐÐºÍÁÐÊÇ²»Í¬µÄ£¬µÚÒ»ÐÐÅä¶ÔµÚÈýÁÐºÍµÚÈýÐÐÅä¶ÔµÚÒ»ÁÐÊÇÁ½¸öµã£¬Òò´ËÊÇÎÞÏòÍ¼
+          true; /// è¿™é‡Œè¡Œå’Œåˆ—æ˜¯ä¸åŒçš„ï¼Œç¬¬ä¸€è¡Œé…å¯¹ç¬¬ä¸‰åˆ—å’Œç¬¬ä¸‰è¡Œé…å¯¹ç¬¬ä¸€åˆ—æ˜¯ä¸¤ä¸ªç‚¹ï¼Œå› æ­¤æ˜¯æ— å‘å›¾
     }
     int sum = 0;
     for (int i = 1; i <= n; i++) {
       memset(vis, false, sizeof(vis));
       if (KM(i))
-        sum++; /// Ôö¹ãÂ·¼ÆÊý½á¹û¼´ÊÇ×î´óÆ¥ÅäÊýÁ¿
+        sum++; /// å¢žå¹¿è·¯è®¡æ•°ç»“æžœå³æ˜¯æœ€å¤§åŒ¹é…æ•°é‡
     }
     printf("%d\n", sum);
   }

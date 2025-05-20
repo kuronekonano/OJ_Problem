@@ -1,5 +1,5 @@
-#include <stdio.h> ///ÒÔ×ÖÄ¸×ö½Úµã£¬ÒÔµ¥´ÊÁ¬Ïß£¬ÒòÎªÁ½Á½¿ÉÁ¬½Óµ¥´ÊµÄÊ××ÖÄ¸ºÍÄ©×ÖÄ¸¶¼Ò»Ñù£¬Òò´ËÖ±½ÓÓÃµ¥´ÊÀ´½«Á½¸ö²»Í¬×ÖÄ¸Á¬½Ó
-#include <string.h> ///²¢²é¼¯
+#include <stdio.h> ///ä»¥å­—æ¯åšèŠ‚ç‚¹ï¼Œä»¥å•è¯è¿žçº¿ï¼Œå› ä¸ºä¸¤ä¸¤å¯è¿žæŽ¥å•è¯çš„é¦–å­—æ¯å’Œæœ«å­—æ¯éƒ½ä¸€æ ·ï¼Œå› æ­¤ç›´æŽ¥ç”¨å•è¯æ¥å°†ä¸¤ä¸ªä¸åŒå­—æ¯è¿žæŽ¥
+#include <string.h> ///å¹¶æŸ¥é›†
 using namespace std;
 int r[30], n;
 char a[55];

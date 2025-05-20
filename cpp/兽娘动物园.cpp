@@ -18,11 +18,11 @@ int main() {
       memset(cc[i].ans, false, sizeof(cc[i].ans));
     }
     char str[30];
-    for (i = 0; i < q; i++) /// 问题
+    for (i = 0; i < q; i++) /// 闂
     {
-      scanf("%d", &m); /// 回答人数
+      scanf("%d", &m); /// 鍥炵瓟浜烘暟
       for (j = 0; j < m; j++) {
-        scanf("%s", str); /// 每人名字
+        scanf("%s", str); /// 姣忎汉鍚嶅瓧
         for (int k = 0; k < c; k++) {
           if (strcmp(str, cc[k].name) == 0) {
             cc[k].ans[i] = true;
@@ -46,13 +46,13 @@ int main() {
         scanf("%d", &ansn[i][j]);
       }
     }
-    for (i = 0; i < n; i++) /// 朋友
+    for (i = 0; i < n; i++) /// 鏈嬪弸
     {
       int flag = 0;
       int num = -1;
-      for (int r = 0; r < c; r++) /// 从朋友中找相符的
+      for (int r = 0; r < c; r++) /// 浠庢湅鍙嬩腑鎵剧浉绗︾殑
       {
-        for (j = 0; j < q; j++) /// 问题
+        for (j = 0; j < q; j++) /// 闂
         {
           if (cc[r].ans[j] != ansn[i][j])
             break;

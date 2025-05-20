@@ -1,6 +1,6 @@
-#include <queue> ///Êý¾ÝÁ¿½ÏÐ¡£¬·ÖÁ½ÖÖÇé¿ö£¬×ß´«ËÍÃÅºÍ²»×ß´«ËÍÃÅÁ½ÖÖÇé¿ö£¬È¡×îÐ¡Ê±¼ä×÷Îªans
-#include <stdio.h>  ///²»ÓÃÅÐ¶Ï1*1µÄµØÍ¼
-#include <string.h> ///×ß´«ËÍÃÅµÄÇé¿ö ´ÓÆðµãËÑµ½µÚÒ»¸ö´«ËÍÃÅµÄÊ±¼ä+´ÓÖÕµãÍù»ØËÑµ½µÄµÚÒ»¸ö´«ËÍÃÅµÄÊ±¼äÏà¼Ó
+#include <queue> ///æ•°æ®é‡è¾ƒå°ï¼Œåˆ†ä¸¤ç§æƒ…å†µï¼Œèµ°ä¼ é€é—¨å’Œä¸èµ°ä¼ é€é—¨ä¸¤ç§æƒ…å†µï¼Œå–æœ€å°æ—¶é—´ä½œä¸ºans
+#include <stdio.h>  ///ä¸ç”¨åˆ¤æ–­1*1çš„åœ°å›¾
+#include <string.h> ///èµ°ä¼ é€é—¨çš„æƒ…å†µ ä»Žèµ·ç‚¹æœåˆ°ç¬¬ä¸€ä¸ªä¼ é€é—¨çš„æ—¶é—´+ä»Žç»ˆç‚¹å¾€å›žæœåˆ°çš„ç¬¬ä¸€ä¸ªä¼ é€é—¨çš„æ—¶é—´ç›¸åŠ 
 using namespace std;
 char ma[108][108];
 bool vis[108][108];
@@ -116,7 +116,7 @@ int main() {
     }
     if ((ans_1 == 0x7fffffff || ans_2 == 0x7fffffff) &&
         ans2 ==
-            0x7fffffff) /// ´ÓÈë¿ÚºÍ³ö¿ÚÁ½±ßËÑµÄÊ±ºò£¬×¢ÒâÈç¹ûÓÐÈÎºÎÒ»±ßËÑ²»µ½´«ËÍÃÅËµÃ÷´«ËÍÃÅ¸ù±¾×ß²»Í¨
+            0x7fffffff) /// ä»Žå…¥å£å’Œå‡ºå£ä¸¤è¾¹æœçš„æ—¶å€™ï¼Œæ³¨æ„å¦‚æžœæœ‰ä»»ä½•ä¸€è¾¹æœä¸åˆ°ä¼ é€é—¨è¯´æ˜Žä¼ é€é—¨æ ¹æœ¬èµ°ä¸é€š
     {
       printf("IMPOSSIBLE\n");
       continue;

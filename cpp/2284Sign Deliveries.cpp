@@ -26,7 +26,7 @@ int main() {
     for (i = 0; i < n; i++) {
       scanf("%d%d", &box[i].st, &box[i].time);
       if (box[i].st <= 11) {
-        box[i].fin = 30 + box[i].st + box[i].time; /// Ëã×îºóÊ±¼äÒª¼ÓµÄÊÇ30
+        box[i].fin = 30 + box[i].st + box[i].time; /// ç®—æœ€åŽæ—¶é—´è¦åŠ çš„æ˜¯30
       } else {
         box[i].fin = box[i].time + box[i].st;
       }

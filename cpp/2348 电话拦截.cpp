@@ -16,10 +16,10 @@ int main() {
     char type[2], call[30], flag[2];
     while (n--) {
       scanf("%s", type);
-      if (type[0] == 'A') /// ²éÑ¯
+      if (type[0] == 'A') /// æŸ¥è¯¢
       {
         scanf("%s", call);
-        if (m[call]) /// ÒÑ±ê¼Ç
+        if (m[call]) /// å·²æ ‡è®°
         {
           int tmp = m[call];
           int ans = -1, ii;
@@ -34,13 +34,13 @@ int main() {
           if (ii == 2)
             q = 'k';
           printf("%c=%d\n", q, ans);
-        } else /// Î´±ê¼Ç
+        } else /// æœªæ ‡è®°
         {
           printf("N\n");
         }
       } else {
         scanf("%s %s", call, flag);
-        if (!m[call]) /// Î´±ê¼Ç
+        if (!m[call]) /// æœªæ ‡è®°
         {
           int tmp;
           m[call] = ++tot;
@@ -52,7 +52,7 @@ int main() {
           if (flag[0] == 'k')
             tmp = 2;
           a[tot].sum[tmp] = 1;
-        } else /// ÒÑ±ê¼Ç
+        } else /// å·²æ ‡è®°
         {
           int tmp = m[call];
           int q;

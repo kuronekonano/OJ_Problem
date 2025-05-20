@@ -1,9 +1,9 @@
 #include <stdio.h>
 int main() {
   char a, b, c, t;
-  while (scanf("%c%c%c", &a, &b, &c) != EOF) // Ö±½ÓÓÃASCIIÂë±È½Ï¾ÍºÃÀ²
+  while (scanf("%c%c%c", &a, &b, &c) != EOF) // ç›´æŽ¥ç”¨ASCIIç æ¯”è¾ƒå°±å¥½å•¦
   {
-    getchar(); // ÓÖÊÇgetcharµÄÓÃ·¨
+    getchar(); // åˆæ˜¯getcharçš„ç”¨æ³•
     if (a > b) {
       t = a;
       a = b;

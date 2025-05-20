@@ -21,7 +21,7 @@ int main() {
           ans = false;
         if (mp[j][i] != 0 && mp[i][k] != 0 && j != k &&
             mp[j][k] == mp[j][i] + mp[i][k])
-          flag[j][k] = true; /// 中继位置总和标记
+          flag[j][k] = true; /// 涓户浣嶇疆鎬诲拰鏍囪
       }
     }
   }

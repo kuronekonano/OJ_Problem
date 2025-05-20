@@ -1,31 +1,31 @@
 #include <queue>
-#include <stdio.h> ///ÓÅÏÈ¶ÓÁĞÓÅ»¯dijkstra
+#include <stdio.h> ///ä¼˜å…ˆé˜Ÿåˆ—ä¼˜åŒ–dijkstra
 #include <string.h>
 #include <vector>
 using namespace std;
 const int N = 208;
 const int MAX = 0x7fffffff;
-int dist[N]; /// ¼ÇÂ¼µ½´ïÃ¿¸ö½ÚµãµÄ×î¶ÌÂ·
+int dist[N]; /// è®°å½•åˆ°è¾¾æ¯ä¸ªèŠ‚ç‚¹çš„æœ€çŸ­è·¯
 int n, m, flag;
 struct Edge {
-  int to, val; /// µãµÄ±êºÅÒÔ¼°µ½´ï´ËµãĞèÒªµÄÈ¨Öµ
-  Edge(int a = 0, int b = 0) : to(a), val(b) {} /// ½á¹¹Ìå¹¹Ôìº¯Êı
-  bool operator<(const Edge &a) const           /// ÖØÔØÔËËã·û
+  int to, val; /// ç‚¹çš„æ ‡å·ä»¥åŠåˆ°è¾¾æ­¤ç‚¹éœ€è¦çš„æƒå€¼
+  Edge(int a = 0, int b = 0) : to(a), val(b) {} /// ç»“æ„ä½“æ„é€ å‡½æ•°
+  bool operator<(const Edge &a) const           /// é‡è½½è¿ç®—ç¬¦
   {
     if (val == a.val)
       return to < a.to;
     return val > a.val;
   }
 };
-vector<Edge> v[N]; ///(½á¹¹ÌåÀàĞÍ)¶¯Ì¬Êı×é×öÁÚ½Ó¾ØÕó
+vector<Edge> v[N]; ///(ç»“æ„ä½“ç±»å‹)åŠ¨æ€æ•°ç»„åšé‚»æ¥çŸ©é˜µ
 void dijkstra(int s) {
   bool vis[N];
-  memset(dist, 0x3f, sizeof(dist)); /// Ò»¿ªÊ¼µ½´ïËùÓĞ½ÚµãµÄÂ·³Ì¶¼ÊÇinf
+  memset(dist, 0x3f, sizeof(dist)); /// ä¸€å¼€å§‹åˆ°è¾¾æ‰€æœ‰èŠ‚ç‚¹çš„è·¯ç¨‹éƒ½æ˜¯inf
   memset(vis, false, sizeof vis);
-  flag = dist[0];         /// ÓÃÓÚÅĞ¶ÏÎŞ·¨µ½´ïµÄÇé¿ö(-1)
-  dist[s] = 0;            /// µ½´ïÆğµãµÄ×î¶ÌÂ·Îª0
-  priority_queue<Edge> q; /// ÓÅÏÈ¶ÓÁĞÓÅ»¯
-  q.push(Edge(s, 0));     /// ½«ÆğÊ¼½Úµã·ÅÈë¶ÓÁĞÖĞ
+  flag = dist[0];         /// ç”¨äºåˆ¤æ–­æ— æ³•åˆ°è¾¾çš„æƒ…å†µ(-1)
+  dist[s] = 0;            /// åˆ°è¾¾èµ·ç‚¹çš„æœ€çŸ­è·¯ä¸º0
+  priority_queue<Edge> q; /// ä¼˜å…ˆé˜Ÿåˆ—ä¼˜åŒ–
+  q.push(Edge(s, 0));     /// å°†èµ·å§‹èŠ‚ç‚¹æ”¾å…¥é˜Ÿåˆ—ä¸­
   while (!q.empty()) {
     Edge top = q.top();
     q.pop();
@@ -33,16 +33,16 @@ void dijkstra(int s) {
       continue;
     vis[top.to] = true;
     for (int i = 0; i < v[top.to].size();
-         i++) /// ±éÀúËùÓĞ´Óµ±Ç°µã³ö·¢µ½´ïµÄËùÓĞ½Úµã
+         i++) /// éå†æ‰€æœ‰ä»å½“å‰ç‚¹å‡ºå‘åˆ°è¾¾çš„æ‰€æœ‰èŠ‚ç‚¹
     {
       Edge tmp = v[top.to][i];
-      if (dist[tmp.to] > top.val + tmp.val) /// ÓÃµ±Ç°½ÚµãËÉ³ÚÄ¿µÄ½ÚµãµÄ×î¶ÌÂ·
+      if (dist[tmp.to] > top.val + tmp.val) /// ç”¨å½“å‰èŠ‚ç‚¹æ¾å¼›ç›®çš„èŠ‚ç‚¹çš„æœ€çŸ­è·¯
       {
         dist[tmp.to] = top.val + tmp.val;
         q.push(Edge(
             tmp.to,
-            dist[tmp.to])); /// Ã¿´ÎÍ¶Èë¶ÓÁĞÖĞµÄ½á¹¹Ìå¶¼ÊÇÖ±½Ó¹¹ÔìµÄ£¬²¢²»ÊÇÔ­ÏÈ¾Í´æÔÚµÄ
-      } /// Í¶ÈëÒ»¸ö¿ÉÒÔµ½´ïµÄµã£¬È¨ÖµÈ¡µ±Ç°µ½´ï½ÚµãµÄÒÑÖª×î¶ÌÂ·
+            dist[tmp.to])); /// æ¯æ¬¡æŠ•å…¥é˜Ÿåˆ—ä¸­çš„ç»“æ„ä½“éƒ½æ˜¯ç›´æ¥æ„é€ çš„ï¼Œå¹¶ä¸æ˜¯åŸå…ˆå°±å­˜åœ¨çš„
+      } /// æŠ•å…¥ä¸€ä¸ªå¯ä»¥åˆ°è¾¾çš„ç‚¹ï¼Œæƒå€¼å–å½“å‰åˆ°è¾¾èŠ‚ç‚¹çš„å·²çŸ¥æœ€çŸ­è·¯
     }
   }
 }
@@ -50,14 +50,14 @@ int main() {
   int i, j, k, x, y;
   while (scanf("%d%d", &n, &m) != EOF) {
     for (i = 0; i <= N; i++)
-      v[i].clear(); /// Çå¿ÕÊı×é
+      v[i].clear(); /// æ¸…ç©ºæ•°ç»„
     for (i = 0; i < m; i++) {
       scanf(
           "%d%d%d", &x, &y,
-          &k); /// ÕâÀï½á¹¹Ìå½ö´æ´¢µ½´ïÄ³¸öµãµÄÈ¨Öµ£¬ÖÁÓÚË­µ½´ïÕâ¸öµãµÄÈ¨Öµ£¬ÓÉ¶¯Ì¬Êı×éÏÂ±ê´æ´¢
-      v[x].push_back(Edge(y, k)); /// ÎŞÏòÍ¼
+          &k); /// è¿™é‡Œç»“æ„ä½“ä»…å­˜å‚¨åˆ°è¾¾æŸä¸ªç‚¹çš„æƒå€¼ï¼Œè‡³äºè°åˆ°è¾¾è¿™ä¸ªç‚¹çš„æƒå€¼ï¼Œç”±åŠ¨æ€æ•°ç»„ä¸‹æ ‡å­˜å‚¨
+      v[x].push_back(Edge(y, k)); /// æ— å‘å›¾
       v[y].push_back(Edge(x, k));
-    } /// Ïàµ±ÓÚÒ»¸öµãµ½´ïÁíÒ»¸öµãµÄÈ¨Öµ£¬ÓÉÁíÒ»¸öµãµÄ½á¹¹ÌåÀ´´æ´¢£¬¶ø¶¯Ì¬Êı×é´æ´¢ËùÓĞ×Ô¼ºÄÜµ½µÄµÄµã½á¹¹Ìå£¬½á¹¹ÌåÄÚµÄÈ¨ÖµÒ²¾ÍÊÇ¶¯Ì¬Êı×éÏÂ±êµ½´ï½á¹¹ÌåÄÚ±êºÅµÄÈ¨Öµ
+    } /// ç›¸å½“äºä¸€ä¸ªç‚¹åˆ°è¾¾å¦ä¸€ä¸ªç‚¹çš„æƒå€¼ï¼Œç”±å¦ä¸€ä¸ªç‚¹çš„ç»“æ„ä½“æ¥å­˜å‚¨ï¼Œè€ŒåŠ¨æ€æ•°ç»„å­˜å‚¨æ‰€æœ‰è‡ªå·±èƒ½åˆ°çš„çš„ç‚¹ç»“æ„ä½“ï¼Œç»“æ„ä½“å†…çš„æƒå€¼ä¹Ÿå°±æ˜¯åŠ¨æ€æ•°ç»„ä¸‹æ ‡åˆ°è¾¾ç»“æ„ä½“å†…æ ‡å·çš„æƒå€¼
     int s, t;
     scanf("%d%d", &s, &t);
     dijkstra(s);
@@ -66,7 +66,7 @@ int main() {
 }
 
 #include <algorithm>
-#include <stdio.h> ///×î¶ÌÂ·ÆÓËØdijkstra
+#include <stdio.h> ///æœ€çŸ­è·¯æœ´ç´ dijkstra
 #include <string.h>
 using namespace std;
 int dist[208];
@@ -78,17 +78,17 @@ void dijkstra(int s, int t) {
   memset(vis, false, sizeof(vis));
   memset(dist, 0x3f, sizeof(dist));
   flag = dist[0];
-  for (i = 0; i < n; i++) /// ËùÓĞµãµ½´ïÆğµãµÄ¾àÀë
+  for (i = 0; i < n; i++) /// æ‰€æœ‰ç‚¹åˆ°è¾¾èµ·ç‚¹çš„è·ç¦»
   {
     dist[i] = maps[s][i];
   }
-  dist[s] = 0;            /// ±ê¼ÇÆğµã³¤¶ÈÎª0
-  vis[s] = true;          /// ±ê¼Ç×ß¹ı
-  for (i = 1; i < n; i++) /// ±éÀún-1´Î
+  dist[s] = 0;            /// æ ‡è®°èµ·ç‚¹é•¿åº¦ä¸º0
+  vis[s] = true;          /// æ ‡è®°èµ°è¿‡
+  for (i = 1; i < n; i++) /// éå†n-1æ¬¡
   {
     int minn = 0x7fffffff, mini;
     for (j = 0; j < n;
-         j++) /// ÕâÀïÊÇÒª±éÀúËùÓĞµÄµã£¬ÒòÎª²»Ò»¶¨ÊÇµÚ0¸öµã×÷ÎªÆğµã
+         j++) /// è¿™é‡Œæ˜¯è¦éå†æ‰€æœ‰çš„ç‚¹ï¼Œå› ä¸ºä¸ä¸€å®šæ˜¯ç¬¬0ä¸ªç‚¹ä½œä¸ºèµ·ç‚¹
     {
       if (!vis[j] && dist[j] < minn) {
         minn = dist[j];
@@ -108,16 +108,16 @@ void dijkstra(int s, int t) {
 int main() {
   int i, j, k, x, y;
   while (scanf("%d%d", &n, &m) != EOF) {
-    memset(maps, 0x3f, sizeof(maps)); /// ³õÊ¼ËùÓĞÂ·¶ÎÎªÎŞÏŞ´ó(²»¿Éµ½´ï)
-    for (i = 0; i < m; i++)           /// mÌõÂ·
+    memset(maps, 0x3f, sizeof(maps)); /// åˆå§‹æ‰€æœ‰è·¯æ®µä¸ºæ— é™å¤§(ä¸å¯åˆ°è¾¾)
+    for (i = 0; i < m; i++)           /// mæ¡è·¯
     {
       scanf("%d%d%d", &x, &y, &k);
       if (k < maps[x][y])
-        maps[x][y] = maps[y][x] = k; /// Ò»Ö±¸üĞÂÎª×îĞ¡Â·¾¶
-      //            maps[y][x]=maps[x][y]=k;///ÎŞÏòÍ¼
+        maps[x][y] = maps[y][x] = k; /// ä¸€ç›´æ›´æ–°ä¸ºæœ€å°è·¯å¾„
+      //            maps[y][x]=maps[x][y]=k;///æ— å‘å›¾
     }
     int s, t;
-    scanf("%d%d", &s, &t); /// ÆğµãÖÕµã
+    scanf("%d%d", &s, &t); /// èµ·ç‚¹ç»ˆç‚¹
     dijkstra(s, t);
     printf("%d\n", dist[t] == flag ? -1 : dist[t]);
   }

@@ -21,7 +21,7 @@ int main() {
   for (int i = 0; i < n; i++) {
     scanf("%d", &a[i]);
     if (i != 0)
-      disa[i] = a[i] - a[i - 1]; /// ¼ÆËãÐòÁÐÏàÁÚÊý²îÖµ
+      disa[i] = a[i] - a[i - 1]; /// è®¡ç®—åºåˆ—ç›¸é‚»æ•°å·®å€¼
   }
   for (int i = 0; i < n; i++) {
     scanf("%d", &b[i]);
@@ -32,14 +32,14 @@ int main() {
     q.pop();
   vis.clear();
   int cnt = 0;
-  q.push(node(a[0] + b[0], 0, 0)); /// a1ºÍbi×÷ÎªÆðµã×îÐ¡Öµ¿ªÊ¼ËÑË÷
+  q.push(node(a[0] + b[0], 0, 0)); /// a1å’Œbiä½œä¸ºèµ·ç‚¹æœ€å°å€¼å¼€å§‹æœç´¢
   while (!q.empty()) {
     node tmp = q.top();
     q.pop();
     cnt++;
-    printf("%d%c", tmp.sum, cnt == n ? '\n' : ' '); /// È¡³öÒ»¸ö×îÐ¡ÖµÊä³ö
+    printf("%d%c", tmp.sum, cnt == n ? '\n' : ' '); /// å–å‡ºä¸€ä¸ªæœ€å°å€¼è¾“å‡º
     if (cnt == n)
-      break; /// ½«×îÐ¡Öµ¼ÓÉÏÁ½ÐòÁÐÖÐµÄÏÂÒ»¸ö²îÖµËÍÈëÓÅÏÈ¶ÓÁÐÖÐ
+      break; /// å°†æœ€å°å€¼åŠ ä¸Šä¸¤åºåˆ—ä¸­çš„ä¸‹ä¸€ä¸ªå·®å€¼é€å…¥ä¼˜å…ˆé˜Ÿåˆ—ä¸­
     if (!vis[(tmp.i + 1) * 1000000 + tmp.j])
       q.push(node(tmp.sum + disa[tmp.i + 1], tmp.i + 1, tmp.j)),
           vis[(tmp.i + 1) * 1000000 + tmp.j] = true;

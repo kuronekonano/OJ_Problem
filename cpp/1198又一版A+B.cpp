@@ -5,11 +5,11 @@ int main() {
     if (m == 0)
       return 0;
     scanf("%d%d", &a, &b);
-    a = a + b; /// 直接计算A+B
+    a = a + b; /// 鐩存帴璁＄畻A+B
     int c[100000], flag = 0;
-    while (a) /// 进制转换循环
+    while (a) /// 杩涘埗杞崲寰幆
     {
-      c[flag++] = a % m; /// 求模过程，存储位数是倒着存的
+      c[flag++] = a % m; /// 姹傛ā杩囩▼锛屽瓨鍌ㄤ綅鏁版槸鍊掔潃瀛樼殑
       a /= m;
     }
     for (int i = flag - 1; i >= 0; i--) {

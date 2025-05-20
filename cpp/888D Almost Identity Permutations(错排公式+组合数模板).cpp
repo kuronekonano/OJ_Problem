@@ -1,7 +1,7 @@
-#include <stdio.h> ///ÓÐn¸öÈË£¬ÇóÆäÖÐÂú×ãÖÁÉÙn-k¸öÈËÅÅ¶ÔÎ»ÖÃµÄÖÖÊý£¬Ò²¾ÍÊÇÓÐkµ½0¸öÈËÅÅ´íµÄÖÖÊý
-long long tC[1002][10], cP[25]; /// ÓÃ×éºÏÊý+´íÅÅ¹«Ê½Ïà³Ë
+#include <stdio.h> ///æœ‰nä¸ªäººï¼Œæ±‚å…¶ä¸­æ»¡è¶³è‡³å°‘n-kä¸ªäººæŽ’å¯¹ä½ç½®çš„ç§æ•°ï¼Œä¹Ÿå°±æ˜¯æœ‰kåˆ°0ä¸ªäººæŽ’é”™çš„ç§æ•°
+long long tC[1002][10], cP[25]; /// ç”¨ç»„åˆæ•°+é”™æŽ’å…¬å¼ç›¸ä¹˜
 void init() {
-  for (int i = 0; i <= 1000; i++) /// ×éºÏÊýÔ¤´¦ÀíµÄ²Ù×÷£¡£¡£¡
+  for (int i = 0; i <= 1000; i++) /// ç»„åˆæ•°é¢„å¤„ç†çš„æ“ä½œï¼ï¼ï¼
   {
     tC[i][0] = 1;
     for (int j = 1; j <= 4 && j < i; j++) {
@@ -9,11 +9,11 @@ void init() {
     }
     tC[i][i] = 1;
   }
-  cP[0] = 1; /// ËùÓÐÈË¶¼ÅÅ¶ÔµÄÇé¿ö
+  cP[0] = 1; /// æ‰€æœ‰äººéƒ½æŽ’å¯¹çš„æƒ…å†µ
   cP[1] = 0;
   cP[2] = 1;
   for (int i = 3; i <= 20; i++) {
-    cP[i] = (i - 1) * (cP[i - 1] + cP[i - 2]); /// ´íÅÅµÝÍÆ¹«Ê½
+    cP[i] = (i - 1) * (cP[i - 1] + cP[i - 2]); /// é”™æŽ’é€’æŽ¨å…¬å¼
   }
 }
 int main() {
@@ -22,7 +22,7 @@ int main() {
   while (scanf("%d%d", &n, &k) != EOF) {
     long long ans = 0;
     for (int i = k; i >= 0;
-         i--) /// ËãÉÏi==0Ê±µÄÇé¿ö(ËùÓÐÈË¶¼ÅÅ¶ÔÊ±)£¬Îª1ÖÖ£¬ÕâÑù¾Í²»»áÉÙ+1
+         i--) /// ç®—ä¸Ši==0æ—¶çš„æƒ…å†µ(æ‰€æœ‰äººéƒ½æŽ’å¯¹æ—¶)ï¼Œä¸º1ç§ï¼Œè¿™æ ·å°±ä¸ä¼šå°‘+1
     {
       ans += cP[i] * tC[n][i];
     }

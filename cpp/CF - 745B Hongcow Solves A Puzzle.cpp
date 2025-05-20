@@ -1,4 +1,4 @@
-#include <stdio.h> ///ÅĞ¶ÏÊÇ·ñÊÇX×Ö·û×é³ÉÒ»¸ö¾ØĞÎ¼´¿É
+#include <stdio.h> ///åˆ¤æ–­æ˜¯å¦æ˜¯Xå­—ç¬¦ç»„æˆä¸€ä¸ªçŸ©å½¢å³å¯
 #include <string.h>
 int main() {
   int n, m, i, j;

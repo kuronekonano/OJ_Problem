@@ -9,18 +9,18 @@ int main() {
     sum = 0;
     coin = 0;
     kuro = 0;
-    for (i = 1; i <= n; i++) // ´Ó1¿ªÊ¼Á¬¼Ó£¬Ö±µ½n
+    for (i = 1; i <= n; i++) // ä»Ž1å¼€å§‹è¿žåŠ ï¼Œç›´åˆ°n
     {
-      sum = i + sum; // ÌìÊýºÍ
-      if (sum > n)   // µ±ÌìÊýºÍ´óÓÚÊäÈëÌìÊý
+      sum = i + sum; // å¤©æ•°å’Œ
+      if (sum > n)   // å½“å¤©æ•°å’Œå¤§äºŽè¾“å…¥å¤©æ•°
       {
         kuro = n - (sum -
-                    i); // ¼õÈ¥¶à¼ÓµÄÌìÊýÔÙÓÃnÇóÈ±ÉÙµÄÌìÊý£¬µÚiÌì±íÊ¾¸ø¼¸¸ö½ð±Ò
+                    i); // å‡åŽ»å¤šåŠ çš„å¤©æ•°å†ç”¨næ±‚ç¼ºå°‘çš„å¤©æ•°ï¼Œç¬¬iå¤©è¡¨ç¤ºç»™å‡ ä¸ªé‡‘å¸
         break;
       }
-      coin = coin + i * i; // ÇóÕû²¿·ÖµÄÌìÊý¹²µÃ½ð±Ò
+      coin = coin + i * i; // æ±‚æ•´éƒ¨åˆ†çš„å¤©æ•°å…±å¾—é‡‘å¸
     }
-    coin = coin + i * kuro; // ¼ÓÉÏ¶àÓàµÄ²»×ãiÌìµÄÌìÊýµÃµÄ½ð±Ò
+    coin = coin + i * kuro; // åŠ ä¸Šå¤šä½™çš„ä¸è¶³iå¤©çš„å¤©æ•°å¾—çš„é‡‘å¸
     printf("%d %d\n", n, coin);
   }
   return 0;

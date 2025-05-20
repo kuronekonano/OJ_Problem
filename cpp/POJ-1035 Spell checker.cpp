@@ -14,7 +14,7 @@ int main() {
       break;
     bool check = true;
     for (i = 1; i < num;
-         i++) /// 这里用map标记内存和时间会比for遍历查找慢一倍大一倍，垃圾STL
+         i++) /// 杩欓噷鐢╩ap鏍囪鍐呭瓨鍜屾椂闂翠細姣攆or閬嶅巻鏌ユ壘鎱竴鍊嶅ぇ涓�鍊嶏紝鍨冨溇STL
     {
       if (strcmp(a, dir[i]) == 0) {
         printf("%s is correct\n", a);

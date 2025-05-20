@@ -1,20 +1,20 @@
 #include <stack>
-#include <stdio.h> ///Õ»½ø³öÅĞ¶ÏĞ¡Ó¦ÓÃ
+#include <stdio.h> ///æ ˆè¿›å‡ºåˆ¤æ–­å°åº”ç”¨
 using namespace std;
 int main() {
   int n, i, a[55];
   while (scanf("%d", &n) != EOF) {
     stack<int> q;
-    while (!q.empty()) /// Çå¿ÕÕ»
+    while (!q.empty()) /// æ¸…ç©ºæ ˆ
     {
       q.pop();
     }
-    for (i = 0; i < n; i++) /// ÊäÈë
+    for (i = 0; i < n; i++) /// è¾“å…¥
     {
       scanf("%d", &a[i]);
     }
     int j = 0;
-    for (i = 1; i <= n; i++) /// ÅĞ¶Ï½ø³öÊÇ·ñºÏÀíµÄÑ­»·
+    for (i = 1; i <= n; i++) /// åˆ¤æ–­è¿›å‡ºæ˜¯å¦åˆç†çš„å¾ªç¯
     {
       q.push(i);
       while (!q.empty() && q.top() == a[j]) {

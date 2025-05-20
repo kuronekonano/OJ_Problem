@@ -8,9 +8,9 @@ int main() {
     for (i = 0; i < n; i++) {
       scanf("%d", &a[i]);
     }
-    sort(a, a + n); // 排序方便查找
+    sort(a, a + n); // 鎺掑簭鏂逛究鏌ユ壘
     printf("%d\n",
-           a[k - 1]); // 因为是第K小的数，所以输出应该是数组中的第k-1个数
+           a[k - 1]); // 鍥犱负鏄K灏忕殑鏁帮紝鎵�浠ヨ緭鍑哄簲璇ユ槸鏁扮粍涓殑绗琸-1涓暟
   }
   return 0;
 }

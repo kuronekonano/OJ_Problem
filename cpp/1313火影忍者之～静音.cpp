@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <queue>
-#include <stdio.h> ///ÓÅÏÈ¶ÓÁĞ
+#include <stdio.h> ///ä¼˜å…ˆé˜Ÿåˆ—
 #include <string.h>
 using namespace std;
 struct npcs {
@@ -9,16 +9,16 @@ struct npcs {
   bool operator()(
       npcs a,
       npcs
-          b) /// ĞşÑ§µÄÖØÔØÔËËã·û£¬µ±ÓÅÏÈ¶ÓÁĞµÄ¶¨ÒåĞÎÊ½²»Í¬Ê±£¬ÖØÔØÔËËã·ûµÄ¸ñÊ½Ò²²»Í¬
+          b) /// ç„å­¦çš„é‡è½½è¿ç®—ç¬¦ï¼Œå½“ä¼˜å…ˆé˜Ÿåˆ—çš„å®šä¹‰å½¢å¼ä¸åŒæ—¶ï¼Œé‡è½½è¿ç®—ç¬¦çš„æ ¼å¼ä¹Ÿä¸åŒ
   {
-    if (a.pen == b.pen) /// µÚÒ»ÂÖÑ¡°ÎÓÃ±ÊÊÔÅÅĞò
+    if (a.pen == b.pen) /// ç¬¬ä¸€è½®é€‰æ‹”ç”¨ç¬”è¯•æ’åº
     {
       return strcmp(a.name, b.name) > 0;
     }
     return a.pen < b.pen;
   }
-} k, top[10800]; /// k×÷ÎªÊäÈëµÄÁÙÊ±´æ·Å£¬topÊÇ±»Ñ¡³öµÄÒªÈ¥µÚ¶şÂÖÈÌÊõÑ¡°ÎµÄÈË
-bool cmp(npcs a, npcs b) /// µÚ¶şÂÖÑ¡°ÎsortµÄ×Ô¶¨Òåº¯Êı£¬ÓÃÈÌÊõÀ´ÅÅĞò
+} k, top[10800]; /// kä½œä¸ºè¾“å…¥çš„ä¸´æ—¶å­˜æ”¾ï¼Œtopæ˜¯è¢«é€‰å‡ºçš„è¦å»ç¬¬äºŒè½®å¿æœ¯é€‰æ‹”çš„äºº
+bool cmp(npcs a, npcs b) /// ç¬¬äºŒè½®é€‰æ‹”sortçš„è‡ªå®šä¹‰å‡½æ•°ï¼Œç”¨å¿æœ¯æ¥æ’åº
 {
   if (a.mag == b.mag) {
     return strcmp(a.name, b.name) < 0;
@@ -28,24 +28,24 @@ bool cmp(npcs a, npcs b) /// µÚ¶şÂÖÑ¡°ÎsortµÄ×Ô¶¨Òåº¯Êı£¬ÓÃÈÌÊõÀ´ÅÅĞò
 int main() {
   int m, n;
   while (scanf("%d%d", &m, &n) != EOF) {
-    priority_queue<npcs, vector<npcs>, npcs> q; /// ¶ÓÁĞ·ÅÀïÃæ£¬²»È»×ÜÍüÁËÇå¿Õ
+    priority_queue<npcs, vector<npcs>, npcs> q; /// é˜Ÿåˆ—æ”¾é‡Œé¢ï¼Œä¸ç„¶æ€»å¿˜äº†æ¸…ç©º
     int flag = 0;
-    while (m--) /// mÅúÈË£¬Òò´ËÊäÈëm´Î£¬Ã¿´ÎÑ¡³öµÄÈË±»·Åµ½Êı×éÖĞ
+    while (m--) /// mæ‰¹äººï¼Œå› æ­¤è¾“å…¥mæ¬¡ï¼Œæ¯æ¬¡é€‰å‡ºçš„äººè¢«æ”¾åˆ°æ•°ç»„ä¸­
     {
       for (int i = 0; i < n; i++) {
         scanf("%s%d%d", k.name, &k.pen, &k.mag);
         q.push(
-            k); /// ÅÅµ½ÓÅÏÈ¶ÓÁĞÖĞ£¬ÕâÑù¶ÓÁĞÖĞÎ´Ñ¡ÖĞµÄÈËÒ²»áÁôµ½ºóÃæµÄµÚÒ»ÂÖÑ¡°ÎÀï
+            k); /// æ’åˆ°ä¼˜å…ˆé˜Ÿåˆ—ä¸­ï¼Œè¿™æ ·é˜Ÿåˆ—ä¸­æœªé€‰ä¸­çš„äººä¹Ÿä¼šç•™åˆ°åé¢çš„ç¬¬ä¸€è½®é€‰æ‹”é‡Œ
       }
-      for (int i = 0; i < 5; i++) /// Ã¿ÅúÑ¡³ö5ÈË
+      for (int i = 0; i < 5; i++) /// æ¯æ‰¹é€‰å‡º5äºº
       {
         top[flag++] = q.top();
         q.pop();
       }
     }
-    sort(top, top + flag, cmp); /// µÚ¶şÂÖÑ¡°Î
+    sort(top, top + flag, cmp); /// ç¬¬äºŒè½®é€‰æ‹”
     for (int i = 0; i < 5; i++) {
-      printf("%s\n", top[i].name); /// Ö»Ñ¡³ö5ÈË
+      printf("%s\n", top[i].name); /// åªé€‰å‡º5äºº
     }
   }
   return 0;

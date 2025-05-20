@@ -9,7 +9,7 @@ int main() {
     if (n < 0)
       flag = true;
     long long temp = abs(n), ans = 0, sum = 0;
-    while (temp > 0) /// µ÷×ª£¬¼ÇÎ»Êı
+    while (temp > 0) /// è°ƒè½¬ï¼Œè®°ä½æ•°
     {
       ans = ans * 10 + temp % 10;
       temp /= 10;
@@ -17,12 +17,12 @@ int main() {
     }
     temp = ans;
     long long num = 0;
-    while (temp > 0) /// µ÷×ªºóÎ»Êı
+    while (temp > 0) /// è°ƒè½¬åä½æ•°
     {
       temp /= 10;
       num++;
     }
-    if (num < sum) /// ²¹Áã
+    if (num < sum) /// è¡¥é›¶
     {
       for (i = 0; i < sum - num; i++)
         ans *= 10;

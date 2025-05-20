@@ -33,12 +33,12 @@ void creat(int n) {
       pos->l = next;
   }
 }
-void inOrderTraverse(Node *T) /// ÏÈÐò±éÀú
+void inOrderTraverse(Node *T) /// å…ˆåºéåŽ†
 {
   if (T) {
     ans[num++] = T->data;
-    inOrderTraverse(T->l); // ±éÀú×ó×ÓÊ÷
-    inOrderTraverse(T->r); // ±éÀúÓÒ×ÓÊ÷
+    inOrderTraverse(T->l); // éåŽ†å·¦å­æ ‘
+    inOrderTraverse(T->r); // éåŽ†å³å­æ ‘
   }
 }
 

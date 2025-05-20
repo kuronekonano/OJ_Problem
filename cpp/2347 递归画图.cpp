@@ -14,7 +14,7 @@ int poww(int a, int b) {
 char ma[1005][1005], ans[1005][1005];
 int n, m;
 int dfs(int t, int x, int y, int xx, int yy) {
-  if (t == 1) /// µİ¹éÖÕµã
+  if (t == 1) /// é€’å½’ç»ˆç‚¹
   {
     for (int i = x, ii = 0; i < x + n; i++, ii++)
       for (int j = y, jj = 0; j < y + n; j++, jj++)
@@ -40,7 +40,7 @@ int main() {
     }
     memset(ans, ' ', sizeof(ans));
     int xx = poww(n, m),
-        tmx = poww(n, m - 1); /// µ±ÒÔÔ­±¶Êı(m=1)Êä³öÍ¼ĞÎÊ±£¬tmx=0£¬forÑ­»·±¬Õ¨
+        tmx = poww(n, m - 1); /// å½“ä»¥åŸå€æ•°(m=1)è¾“å‡ºå›¾å½¢æ—¶ï¼Œtmx=0ï¼Œforå¾ªç¯çˆ†ç‚¸
     for (int i = 0, ii = 0; i < xx; i += tmx, ii++)
       for (int j = 0, jj = 0; j < xx; j += tmx, jj++)
         if (ma[ii][jj] != ' ')

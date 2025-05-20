@@ -22,9 +22,9 @@ int main() {
   while (scanf("%d%d%d", &t, &p, &s) != EOF) {
     if (!t && !p && !s)
       return 0;
-    memset(pro, 0, sizeof(pro));   /// Ã¿¸öÎÊÌâACÈËÊı¼ÆÊı
-    memset(team, 0, sizeof(team)); /// Ã¿¸ö¶ÓÎéACÌâÄ¿¼ÆÊı
-    memset(tp, false, sizeof(tp)); /// Ã¿ÈËÃ¿ÌâAC×´Ì¬ÅĞ¶Ï
+    memset(pro, 0, sizeof(pro));   /// æ¯ä¸ªé—®é¢˜ACäººæ•°è®¡æ•°
+    memset(team, 0, sizeof(team)); /// æ¯ä¸ªé˜Ÿä¼ACé¢˜ç›®è®¡æ•°
+    memset(tp, false, sizeof(tp)); /// æ¯äººæ¯é¢˜ACçŠ¶æ€åˆ¤æ–­
     int tmax = 0, pmax = 0, tmin = t, pmin = p;
     bool flag = false, flag2 = false;
     int sth, stm, sts, eh, em, es;
@@ -34,56 +34,56 @@ int main() {
       scanf("%d:%d:%d", &sss[i].hh, &sss[i].mm, &sss[i].ss);
       gets(sss[i].out);
     }
-    sort(sss, sss + s, cmp); /// ¸ø³öµÄÊ±¼ä²»Ò»¶¨°´Ë³Ğò£¬ÒªÅÅĞòºóÒ»Ò»ÅĞ¶Ï
+    sort(sss, sss + s, cmp); /// ç»™å‡ºçš„æ—¶é—´ä¸ä¸€å®šæŒ‰é¡ºåºï¼Œè¦æ’åºåä¸€ä¸€åˆ¤æ–­
     for (int i = 0; i < s; i++) {
       if (sss[i].out[1] == 'Y') {
         if (!team[sss[i].tt])
-          tmin--; /// ÊÇ·ñËùÓĞ¶Ó×ö³öÌâ
+          tmin--; /// æ˜¯å¦æ‰€æœ‰é˜Ÿåšå‡ºé¢˜
         if (!pro[sss[i].pp[0] - 'A'])
-          pmin--; /// ÊÇ·ñËùÓĞÌâ¶¼±»A
+          pmin--; /// æ˜¯å¦æ‰€æœ‰é¢˜éƒ½è¢«A
         if (!tp[sss[i].tt][sss[i].pp[0] -
-                           'A']) /// ÒÑ¾­A¹ıµÄÌâ¿ÉÄÜÓÖ½»ÁË£¬ÕâÊ±ÊÇ²»ÄÜÖØ¸´¼ÆÊıµÄ
+                           'A']) /// å·²ç»Aè¿‡çš„é¢˜å¯èƒ½åˆäº¤äº†ï¼Œè¿™æ—¶æ˜¯ä¸èƒ½é‡å¤è®¡æ•°çš„
         {
-          team[sss[i].tt]++;         /// Ã¿¶Ó¼¸Ìâ
-          pro[sss[i].pp[0] - 'A']++; /// Ã¿Ìâ¼¸¶Ó
+          team[sss[i].tt]++;         /// æ¯é˜Ÿå‡ é¢˜
+          pro[sss[i].pp[0] - 'A']++; /// æ¯é¢˜å‡ é˜Ÿ
           if (pro[sss[i].pp[0] - 'A'] > pmax)
-            pmax = pro[sss[i].pp[0] - 'A']; /// ·ÀËùÓĞ¶Ó×ö³öÄ³Ìâ
+            pmax = pro[sss[i].pp[0] - 'A']; /// é˜²æ‰€æœ‰é˜Ÿåšå‡ºæŸé¢˜
           if (team[sss[i].tt] > tmax)
-            tmax = team[sss[i].tt]; /// ·ÀAK
+            tmax = team[sss[i].tt]; /// é˜²AK
         }
         tp[sss[i].tt][sss[i].pp[0] - 'A'] = true;
       }
       //            printf("-------> pmax=%d tmax=%d pmin=%d
       //            tmin=%d\n",pmax,tmax,pmin,tmin);
       if (!flag && tmin == 0 && pmin == 0 && pmax != t &&
-          tmax != p) /// ÅĞ¶ÏÊÇ·ñ·ûºÏ¿ªÊ¼Ê±¼ä
+          tmax != p) /// åˆ¤æ–­æ˜¯å¦ç¬¦åˆå¼€å§‹æ—¶é—´
       {
         sth = sss[i].hh, stm = sss[i].mm,
         sts =
             sss[i]
-                .ss; /// pmax×÷ÎªÍê³ÉÈËÊı×î¶àµÄÌâÄ¿¼ÆÊı£¬µ±ÓĞtÈËĞ´ÍêÄ³ÌâÊ±£¬ËµÃ÷ÕâÌâ±»ËùÓĞÈËĞ´³öÀ´
-        flag = true; /// tmax×÷ÎªĞ´ÍêÌâÄ¿×î¶àµÄ¶Ó£¬µ±ÓĞpÌâ±»Ğ´ÍêÊ±£¬ËµÃ÷ÓĞÈËAK
+                .ss; /// pmaxä½œä¸ºå®Œæˆäººæ•°æœ€å¤šçš„é¢˜ç›®è®¡æ•°ï¼Œå½“æœ‰täººå†™å®ŒæŸé¢˜æ—¶ï¼Œè¯´æ˜è¿™é¢˜è¢«æ‰€æœ‰äººå†™å‡ºæ¥
+        flag = true; /// tmaxä½œä¸ºå†™å®Œé¢˜ç›®æœ€å¤šçš„é˜Ÿï¼Œå½“æœ‰pé¢˜è¢«å†™å®Œæ—¶ï¼Œè¯´æ˜æœ‰äººAK
       }
       if (flag && (pmax == t || tmax == p) &&
-          !flag2) /// ÅĞ¶ÏÍêÃÀ×´Ì¬ÊÇ·ñ±»ÆÆ»µ,ÒòÎªpminºÍtminÒ»µ©´ïµ½ÍêÃÀ£¬¾Í²»¿ÉÄÜ±»ÆÆ»µ£¬Ò»Ö±ÒÔ´æÔÚ£¬Òò´Ë²»ÓÃ¿¼ÂÇ
+          !flag2) /// åˆ¤æ–­å®Œç¾çŠ¶æ€æ˜¯å¦è¢«ç ´å,å› ä¸ºpminå’Œtminä¸€æ—¦è¾¾åˆ°å®Œç¾ï¼Œå°±ä¸å¯èƒ½è¢«ç ´åï¼Œä¸€ç›´ä»¥å­˜åœ¨ï¼Œå› æ­¤ä¸ç”¨è€ƒè™‘
       {
         eh = sss[i].hh, em = sss[i].mm, es = sss[i].ss;
         flag2 = true;
       }
     }
-    if (flag) /// ¿ªÊ¼ÍêÃÀÊ±¼äµã
+    if (flag) /// å¼€å§‹å®Œç¾æ—¶é—´ç‚¹
     {
       printf("%02d:%02d:%02d", sth, stm, sts);
     }
-    if (flag2) /// ½áÊøÍêÃÀÊ±¼äµã
+    if (flag2) /// ç»“æŸå®Œç¾æ—¶é—´ç‚¹
     {
       printf(" %02d:%02d:%02d\n", eh, em, es);
     }
-    if (!flag) /// Ã»ÓĞ¿ªÊ¼Ê±¼ä±ØÃ»ÓĞ½áÊøÊ±¼ä
+    if (!flag) /// æ²¡æœ‰å¼€å§‹æ—¶é—´å¿…æ²¡æœ‰ç»“æŸæ—¶é—´
     {
       printf("--:--:-- --:--:--\n");
     }
-    if (!flag2 && flag) /// ¿ªÊ¼Ê±¼äÖªµÀ½áÊø£¬Ã»ÓĞ½áÊøÊ±¼äµã
+    if (!flag2 && flag) /// å¼€å§‹æ—¶é—´çŸ¥é“ç»“æŸï¼Œæ²¡æœ‰ç»“æŸæ—¶é—´ç‚¹
     {
       printf(" --:--:--\n");
     }

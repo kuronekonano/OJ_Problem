@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> ///盖毯子，最多用多少毯子
+#include <bits/stdc++.h> ///鐩栨瀛愶紝鏈�澶氱敤澶氬皯姣瓙
 using namespace std;
 int n, m, a, b, t, ans[100008];
 int main() {

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 int tot, tre[6000][26],
-    vis[6000]; /// ×ÖµäÊ÷¿ª´óµã£¬²»È»×Ü·µ»ØWA¶¼²»ÖªµÀÈ¥ÄÄ¶ùÕÒ´í
+    vis[6000]; /// å­—å…¸æ ‘å¼€å¤§ç‚¹ï¼Œä¸ç„¶æ€»è¿”å›WAéƒ½ä¸çŸ¥é“å»å“ªå„¿æ‰¾é”™
 char word[1002][23];
 bool flag[6008];
 int insert(char str[], int rt) {

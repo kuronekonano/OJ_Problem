@@ -22,7 +22,7 @@ int main() {
       scanf("%d", &a[i].t);
     for (int i = 1; i <= n; i++)
       scanf("%d", &a[i].w);
-    sort(a + 1, a + n + 1, cmp); /// À¬»øË®Ìâ£¬´íÔÚsortµÄÅÅÐò±ß½çÍüÁË+1
+    sort(a + 1, a + n + 1, cmp); /// åžƒåœ¾æ°´é¢˜ï¼Œé”™åœ¨sortçš„æŽ’åºè¾¹ç•Œå¿˜äº†+1
     int i = 1, time = 1;
     while (i <= n) {
       if (a[i].t >= time) {

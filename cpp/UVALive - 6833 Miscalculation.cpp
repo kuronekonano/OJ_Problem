@@ -7,7 +7,7 @@ int main() {
     scanf("%d", &judge);
     int len = strlen(a), sum = a[0] - '0';
     bool flag = false;
-    for (int i = 1; i < len; i++) /// Ë³Ðò¼ÆËã
+    for (int i = 1; i < len; i++) /// é¡ºåºè®¡ç®—
       if (a[i] >= '0' && a[i] <= '9')
         sum = flag ? sum * (a[i] - '0') : sum + a[i] - '0';
       else
@@ -15,7 +15,7 @@ int main() {
     int num[20] = {0};
     num[0] = a[0] - '0';
     int ter = 0, nums = 0;
-    for (int i = 1; i < len; i += 2) /// ÓÅÏÈ¼¶¼ÆËã
+    for (int i = 1; i < len; i += 2) /// ä¼˜å…ˆçº§è®¡ç®—
       if (a[i] == '*')
         num[ter] = num[ter] * (a[i + 1] - '0');
       else

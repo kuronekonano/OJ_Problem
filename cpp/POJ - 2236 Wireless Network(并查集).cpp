@@ -2,7 +2,7 @@
 #include <math.h>
 #include <queue>
 #include <set>
-#include <stdio.h> ///²¢²é¼¯
+#include <stdio.h> ///å¹¶æŸ¥é›†
 #include <string.h>
 #include <string>
 #include <vector>
@@ -45,7 +45,7 @@ int main() {
       for (int j = 1; j < i; j++) {
         dis[i][j] = dis[j][i] = sqrt((a[i].x - a[j].x) * (a[i].x - a[j].x) +
                                      (a[i].y - a[j].y) * (a[i].y - a[j].y));
-        if (dis[i][j] <= d) /// ½«Ã¿¸öµçÄÔÖÜÎ§µÄ¿ÉÑ¡¾àÀëµÄµçÄÔÊÕÈëvectorÖÐ´ýÑ¡
+        if (dis[i][j] <= d) /// å°†æ¯ä¸ªç”µè„‘å‘¨å›´çš„å¯é€‰è·ç¦»çš„ç”µè„‘æ”¶å…¥vectorä¸­å¾…é€‰
         {
           v[i].push_back(j);
           v[j].push_back(i);

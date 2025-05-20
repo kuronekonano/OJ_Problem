@@ -2,7 +2,7 @@
 int main() {
   int a, b, c, d;
   for (a = 2; a <= 200; a++) {
-    for (b = 2; b <= a; b++) /// 由题意，b<=c<=d可得循环条件
+    for (b = 2; b <= a; b++) /// 鐢遍鎰忥紝b<=c<=d鍙緱寰幆鏉′欢
     {
       for (c = b; c <= a; c++) {
         for (d = c; d <= a; d++) {

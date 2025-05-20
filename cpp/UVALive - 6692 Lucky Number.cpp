@@ -1,6 +1,6 @@
-#include <algorithm> ///���ֻ���ڱ�����һ���������ʱ��¼���ж����i�Ƿ��㹻С��ע���ظ�������ֱ���Թ��ж�
-#include <stdio.h> ///����󰴴�С�����˳���������Ϊ�Ѿ���������˲��ù�tiֵ��ɸѡ����Ϊÿ�ζ����㹻���
-using namespace std; /// ��Ϊ��Сmini��tiֵ������i��tiֵ��ȣ�������ͬ�ļ�������i�ϴ�������ǰ�棬ʣ���i�Ͳ��ж���
+#include <algorithm> ///因此只用在遍历到一个更大的数时记录或判断这个i是否足够小。注意重复的数，直接略过判断
+#include <stdio.h> ///排序后按从小到大的顺序遍历，因为已经排完序，因此不用管ti值的筛选，因为每次都是足够大的
+using namespace std; /// 因为最小mini的ti值不能与i的ti值相等，并且相同的几个数，i较大的排序放前面，剩余的i就不判断了
 struct num {
   int n, i;
 } a[1000006];

@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> ///最小字典序子串只可能是单个字母
+#include <bits/stdc++.h> ///鏈�灏忓瓧鍏稿簭瀛愪覆鍙彲鑳芥槸鍗曚釜瀛楁瘝
 using namespace std;
 const int maxn = 1e5 + 7;
 int tre[26][maxn];

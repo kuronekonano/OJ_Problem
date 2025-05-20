@@ -1,8 +1,8 @@
 #include <algorithm>
 #include <iostream>
-#include <stdio.h> ///花费与通话时间梯度计算
+#include <stdio.h> ///鑺辫垂涓庨�氳瘽鏃堕棿姊害璁＄畻
 #include <string>
-#define ll long long /// 注意会有k2*p2出现1e6*1e6的情况超int
+#define ll long long /// 娉ㄦ剰浼氭湁k2*p2鍑虹幇1e6*1e6鐨勬儏鍐佃秴int
 using namespace std;
 int main() {
   ll n, k1, k2, p1, p2, p3;

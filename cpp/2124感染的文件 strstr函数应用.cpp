@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <string.h> ///¡¾strstrº¯ÊýÓ¦ÓÃ£¬strstr(str1,str2)¡¿¼ì²éstr1ÖÐÊÇ·ñ°üº¬str2£¬Èô°üº¬£¬·µ»ØµÚÒ»¸ö²éÕÒµ½µÄstr2Ê×µØÖ·£¬²»°üº¬·µ»ØNULL¿ÕµØÖ·
-int main()          /// °üº¬ÓÚstring.hÍ·ÎÄ¼þÖÐ
+#include <string.h> ///ã€strstrå‡½æ•°åº”ç”¨ï¼Œstrstr(str1,str2)ã€‘æ£€æŸ¥str1ä¸­æ˜¯å¦åŒ…å«str2ï¼Œè‹¥åŒ…å«ï¼Œè¿”å›žç¬¬ä¸€ä¸ªæŸ¥æ‰¾åˆ°çš„str2é¦–åœ°å€ï¼Œä¸åŒ…å«è¿”å›žNULLç©ºåœ°å€
+int main()          /// åŒ…å«äºŽstring.hå¤´æ–‡ä»¶ä¸­
 {
   int t, n, i;
   char a[56][25];
@@ -26,7 +26,7 @@ int main()          /// °üº¬ÓÚstring.hÍ·ÎÄ¼þÖÐ
   }
   return 0;
 }
-// #include<stdio.h>///ÊÖ¶¯±È½Ï
+// #include<stdio.h>///æ‰‹åŠ¨æ¯”è¾ƒ
 // #include<string.h>
 // int main()
 //{

@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <stdio.h> ///¼òµ¥Ì°ĞÄ
+#include <stdio.h> ///ç®€å•è´ªå¿ƒ
 using namespace std;
 struct stone {
   int x, y, v;
@@ -7,9 +7,9 @@ struct stone {
 } a[1008];
 bool cmp(stone a, stone b) {
   if (a.dis == b.dis) {
-    return a.v > b.v; /// Èô¾àÀëÏàÍ¬¡£°´Ìå»ı´óĞ¡ÅÅĞò(Ìå»ı´ó¿¿Ç°)
+    return a.v > b.v; /// è‹¥è·ç¦»ç›¸åŒã€‚æŒ‰ä½“ç§¯å¤§å°æ’åº(ä½“ç§¯å¤§é å‰)
   }
-  return a.dis < b.dis; /// Ê×ÏÈ°´Ê¯×Óµ½Æ¿µÄ¾àÀëÅÅĞò(¾àÀë¶Ì¿¿Ç°)
+  return a.dis < b.dis; /// é¦–å…ˆæŒ‰çŸ³å­åˆ°ç“¶çš„è·ç¦»æ’åº(è·ç¦»çŸ­é å‰)
 }
 int main() {
   int n, m, b, i;
@@ -17,20 +17,20 @@ int main() {
     int sum = 0;
     for (i = 0; i < n; i++) {
       scanf("%d%d%d", &a[i].x, &a[i].y, &a[i].v);
-      a[i].dis = a[i].x * a[i].x + a[i].y * a[i].y; /// Á½µã¼ä¾àÀë£¬Ã»¿ª·½
+      a[i].dis = a[i].x * a[i].x + a[i].y * a[i].y; /// ä¸¤ç‚¹é—´è·ç¦»ï¼Œæ²¡å¼€æ–¹
       sum += a[i].v;
     }
-    if (sum + b < m) /// ÈôËùÓĞÊ¯Í·Ìå»ı¼ÓÉÏË®µÄÌå»ıĞ¡ÓÚÆ¿µÄÌå»ı£¬Ôò²»¿ÉÄÜ¹ıºÈµ½
+    if (sum + b < m) /// è‹¥æ‰€æœ‰çŸ³å¤´ä½“ç§¯åŠ ä¸Šæ°´çš„ä½“ç§¯å°äºç“¶çš„ä½“ç§¯ï¼Œåˆ™ä¸å¯èƒ½è¿‡å–åˆ°
     {
       printf("-1\n");
       continue;
     }
-    sort(a, a + n, cmp); /// Ê¯×ÓÑ¡ÔñË³ĞòÅÅĞò
-    sum = b;             /// ³õÊ¼ÖµÎªË®µÄÌå»ı
+    sort(a, a + n, cmp); /// çŸ³å­é€‰æ‹©é¡ºåºæ’åº
+    sum = b;             /// åˆå§‹å€¼ä¸ºæ°´çš„ä½“ç§¯
     i = 0;
-    int flag = 0; /// Ê¯×ÓÊıÁ¿¼ÆÊı
+    int flag = 0; /// çŸ³å­æ•°é‡è®¡æ•°
     while (sum < m && i <= n) {
-      sum += a[i++].v; /// Ìå»ıÇóºÍ
+      sum += a[i++].v; /// ä½“ç§¯æ±‚å’Œ
       flag++;
     }
     printf("%d\n", flag);

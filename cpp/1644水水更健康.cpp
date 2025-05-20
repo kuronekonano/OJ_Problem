@@ -2,18 +2,18 @@
 #include <stdio.h>
 #include <string.h>
 using namespace std;
-struct num // ÒòÎªÒªÅÅĞòµÄÊı×ÖÌ«´óÁË£¬ÓÃ×Ö·û´®´æ
+struct num // å› ä¸ºè¦æ’åºçš„æ•°å­—å¤ªå¤§äº†ï¼Œç”¨å­—ç¬¦ä¸²å­˜
 {
-  int len; // ³¤¶È£¬×Ö·û´®Í¬Ê±´æ´¢
+  int len; // é•¿åº¦ï¼Œå­—ç¬¦ä¸²åŒæ—¶å­˜å‚¨
   char number[10000];
 } nums[105];
-bool cmp(num a, num b) // ½á¹¹ÌåÅÅĞò
+bool cmp(num a, num b) // ç»“æ„ä½“æ’åº
 {
-  if (a.len == b.len) // ³¤¶ÈÏàÍ¬±È×Ö·û´®´óĞ¡£¨ASCIIÂë£©
+  if (a.len == b.len) // é•¿åº¦ç›¸åŒæ¯”å­—ç¬¦ä¸²å¤§å°ï¼ˆASCIIç ï¼‰
   {
     return (strcmp(a.number, b.number) < 0);
   } else
-    return a.len < b.len; // ³¤¶È²»Í¬±È³¤¶È
+    return a.len < b.len; // é•¿åº¦ä¸åŒæ¯”é•¿åº¦
 }
 int main() {
   int n, i;

@@ -1,6 +1,6 @@
 #include <stdio.h>
 int main() {
-  long long i, f[55], n, f1, f2; // 前五十项，用long long
+  long long i, f[55], n, f1, f2; // 鍓嶄簲鍗侀」锛岀敤long long
   while (scanf("%lld", &n) != EOF) {
     if (n == -1) {
       return 0;

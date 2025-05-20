@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> ///¸üĞÂÌõ¼ş£¬½«Çø¼äÄÚËùÓĞĞ¡ÓÚvalµÄÖµ¸üĞÂ³Éval
+#include <bits/stdc++.h> ///æ›´æ–°æ¡ä»¶ï¼Œå°†åŒºé—´å†…æ‰€æœ‰å°äºvalçš„å€¼æ›´æ–°æˆval
 #define LL long long
 #define M(a, b) memset(a, b, sizeof a)
 using namespace std;
@@ -22,12 +22,12 @@ unsigned int calsq() {
   return z;
 }
 void pushup(
-    int rt) /// ÄÇÃ´Ïß¶ÎÊ÷Î¬»¤Çø¼ä×îĞ¡Öµ£¬ÕâÑù¸üĞÂÊ±·½±ã²éÕÒÄÄ¶ÎÇø¼äÊÇĞ¡ÓÚ¸üĞÂÖµµÄ
+    int rt) /// é‚£ä¹ˆçº¿æ®µæ ‘ç»´æŠ¤åŒºé—´æœ€å°å€¼ï¼Œè¿™æ ·æ›´æ–°æ—¶æ–¹ä¾¿æŸ¥æ‰¾å“ªæ®µåŒºé—´æ˜¯å°äºæ›´æ–°å€¼çš„
 {
   tre[rt].val = min(tre[rt << 1].val, tre[rt << 1 | 1].val);
 }
 void pushdown(
-    int rt) /// ÑÓÊ±¸üĞÂ´«µİ¸üĞÂ×î´óÖµ£¬±£Ö¤¶à´Î¸üĞÂºóÎ¬»¤µ½µ×²ãÓÃµÄÊÇÓĞĞ§µÄ×î´óÖµ¸üĞÂ
+    int rt) /// å»¶æ—¶æ›´æ–°ä¼ é€’æ›´æ–°æœ€å¤§å€¼ï¼Œä¿è¯å¤šæ¬¡æ›´æ–°åç»´æŠ¤åˆ°åº•å±‚ç”¨çš„æ˜¯æœ‰æ•ˆçš„æœ€å¤§å€¼æ›´æ–°
 {
   if (tre[rt].val) {
     tre[rt << 1].val = max(tre[rt << 1].val, tre[rt].val);
@@ -53,7 +53,7 @@ void update(int l, int r, unsigned val, int rt) {
     return;
   if (tre[rt].l >= l &&
       tre[rt].r <=
-          r) /// ¸üĞÂÊ±ÒªÇó¸ÃÇø¼ä×îĞ¡ÖµĞ¡ÓÚ±»¸üĞÂÖµ£¬ÄÇÃ´ËùÓĞµÄ×îĞ¡Öµ¶¼»á±»¸üĞÂ£¬ÓëÇø¼äÄÚ×î´óÖµÎŞ¹Ø
+          r) /// æ›´æ–°æ—¶è¦æ±‚è¯¥åŒºé—´æœ€å°å€¼å°äºè¢«æ›´æ–°å€¼ï¼Œé‚£ä¹ˆæ‰€æœ‰çš„æœ€å°å€¼éƒ½ä¼šè¢«æ›´æ–°ï¼Œä¸åŒºé—´å†…æœ€å¤§å€¼æ— å…³
   {
     if (tre[rt].val <= val)
       tre[rt].val = val;
@@ -65,10 +65,10 @@ void update(int l, int r, unsigned val, int rt) {
     update(l, r, val, rt << 1);
   if (r > mid)
     update(l, r, val, rt << 1 | 1);
-  pushup(rt); /// ÏòÉÏ´«µİ×îĞ¡Öµ
+  pushup(rt); /// å‘ä¸Šä¼ é€’æœ€å°å€¼
 }
 void query(int l, int r, int rt) {
-  if (tre[rt].l == tre[rt].r) /// ²éÑ¯Ê±²éÑ¯µ½µ×²ã£¬ÓÃ±êºÅLÓë¸ÃÖµÏà³Ë²¢Òì»ò×ÜANS
+  if (tre[rt].l == tre[rt].r) /// æŸ¥è¯¢æ—¶æŸ¥è¯¢åˆ°åº•å±‚ï¼Œç”¨æ ‡å·Lä¸è¯¥å€¼ç›¸ä¹˜å¹¶å¼‚æˆ–æ€»ANS
   {
     ans = ans ^ (tre[rt].l * tre[rt].val);
     return;
@@ -84,7 +84,7 @@ int main() {
   while (t--) {
     scanf("%d%d%u%u%u", &n, &m, &x, &y, &z);
     build(1, n, 1);
-    for (int i = 1; i <= m; i++) { /// ¹¹ÔìÇø¼äºÍÖµ
+    for (int i = 1; i <= m; i++) { /// æ„é€ åŒºé—´å’Œå€¼
       LL a = calsq(), b = calsq();
       int l = min(a % n + 1, b % n + 1);
       int r = max(a % n + 1, b % n + 1);

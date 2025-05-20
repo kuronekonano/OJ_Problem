@@ -6,7 +6,7 @@ int a[16000];
 bool cmp(int a, int b) { return a > b; }
 int main() {
   int n, m,
-      dis[16000]; /// 直接算出两坑之间的距离，然后选出前m-1长的距离，因为要分成m段，用总间距减去较长的间距，剩下的较短间距之和即ans
+      dis[16000]; /// 鐩存帴绠楀嚭涓ゅ潙涔嬮棿鐨勮窛绂伙紝鐒跺悗閫夊嚭鍓峬-1闀跨殑璺濈锛屽洜涓鸿鍒嗘垚m娈碉紝鐢ㄦ�婚棿璺濆噺鍘昏緝闀跨殑闂磋窛锛屽墿涓嬬殑杈冪煭闂磋窛涔嬪拰鍗砤ns
   while (scanf("%d%d", &n, &m) != EOF) {
     int j = 0, ans = 0;
     for (int i = 1; i <= n; i++) {

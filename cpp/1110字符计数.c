@@ -5,7 +5,7 @@ int main()
     char c[21];
     while(scanf("%s",&c)!=EOF)
     {
-        printf("%d\n",strlen(c));//strlen函数用于字符串的计数，可以记空格
+        printf("%d\n",strlen(c));//strlen鍑芥暟鐢ㄤ簬瀛楃涓茬殑璁℃暟锛屽彲浠ヨ绌烘牸
     }
     return 0;
 }

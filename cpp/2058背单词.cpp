@@ -9,7 +9,7 @@ struct Node {
 } node[444444];
 int len1;
 Node *newnode() {
-  memset(&node[len1], 0, sizeof(node[len1])); /// Çå¿Õº¯Êý
+  memset(&node[len1], 0, sizeof(node[len1])); /// æ¸…ç©ºå‡½æ•°
   return &node[len1++];
 }
 
@@ -18,7 +18,7 @@ void update(char *s, Node *root) {
   for (int i = 0; i < len; i++) {
     int cc = s[i] - 'a';
     if (!root->next[cc]) {
-      root->next[cc] = newnode(); /// ´´½¨²¢Çå¿ÕÐÂ½á¹¹Ìåº¯Êý
+      root->next[cc] = newnode(); /// åˆ›å»ºå¹¶æ¸…ç©ºæ–°ç»“æž„ä½“å‡½æ•°
     }
     root->cnt++;
     root = root->next[cc];

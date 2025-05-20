@@ -10,14 +10,14 @@ typedef struct {
   int length;
   int listsize;
 } SqList;
-int InitList_Sq(SqList &L) /// 创建
+int InitList_Sq(SqList &L) /// 鍒涘缓
 {
   L.student = (man *)malloc(LIST_INIT_SIZE * sizeof(man));
   L.length = 0;
   L.listsize = LIST_INIT_SIZE;
   return 1;
 }
-int ListInsert_Sq(SqList &L, int i, man e) /// 插入
+int ListInsert_Sq(SqList &L, int i, man e) /// 鎻掑叆
 {
   man *p, *q;
   if (i < 1 || i > L.length + 1)
@@ -35,7 +35,7 @@ int ListInsert_Sq(SqList &L, int i, man e) /// 插入
   L.length++;
   return 1;
 }
-int ListDelete_Sq(SqList &L, int i, man &e) /// 删除
+int ListDelete_Sq(SqList &L, int i, man &e) /// 鍒犻櫎
 {
   man *p, *q;
   if (i < 1 || i > L.length + 1)
@@ -88,14 +88,14 @@ int main() {
 //     int length;
 //     int listsize;
 // }SqList;
-// int InitList_Sq(SqList &L)///创建
+// int InitList_Sq(SqList &L)///鍒涘缓
 //{
 //     L.student=(man *)malloc(LIST_INIT_SIZE*sizeof(man));
 //     L.length=0;
 //     L.listsize=LIST_INIT_SIZE;
 //     return 1;
 // }
-// int ListInsert_Sq(SqList &L,int i,man e)///插入
+// int ListInsert_Sq(SqList &L,int i,man e)///鎻掑叆
 //{
 //     man *p,*q;
 //     if(i<1||i>L.length+1) return 0;
@@ -112,7 +112,7 @@ int main() {
 //     L.length++;
 //     return 1;
 // }
-// int ListDelete_Sq(SqList &L,int i,man &e)///删除
+// int ListDelete_Sq(SqList &L,int i,man &e)///鍒犻櫎
 //{
 //     man *p,*q;
 //     if(i<1||i>L.length+1)return 0;

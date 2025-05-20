@@ -5,7 +5,7 @@ const int maxn = 1e5 + 10;
 const int p = 1e9 + 7;
 char str[maxn];
 LL mod[maxn];
-LL poww(LL a, LL b, LL pp) /// ¿ìËÙÃÝ
+LL poww(LL a, LL b, LL pp) /// å¿«é€Ÿå¹‚
 {
   LL ans = 1;
   while (b) {
@@ -16,7 +16,7 @@ LL poww(LL a, LL b, LL pp) /// ¿ìËÙÃÝ
   }
   return ans;
 }
-LL phi(LL n) /// Å·À­º¯Êý
+LL phi(LL n) /// æ¬§æ‹‰å‡½æ•°
 {
   LL ans = n, tmp = n;
   for (int i = 2; i * i <= tmp; i++) {
@@ -30,7 +30,7 @@ LL phi(LL n) /// Å·À­º¯Êý
     ans = ans / tmp * (tmp - 1);
   return ans;
 }
-void init() /// Ô¤´¦Àí1e9+7Å·À­º¯ÊýµÄÅ·À­º¯Êý...
+void init() /// é¢„å¤„ç†1e9+7æ¬§æ‹‰å‡½æ•°çš„æ¬§æ‹‰å‡½æ•°...
 {
   mod[0] = p;
   for (int i = 1; i < maxn; i++)

@@ -5,14 +5,14 @@ int main() {
   while (n--) {
     int i, z, w, maxn = 0, k, sum;
     for (i = 1; i <= 7; i++) {
-      scanf("%d%d", &z, &w); /// ÔçÍí¹¤×÷Ê±³¤
-      sum = z + w - 8;       /// ÇóºÍ
-      if (maxn < sum)        /// ÕÒ×î´óÖµ
+      scanf("%d%d", &z, &w); /// æ—©æ™šå·¥ä½œæ—¶é•¿
+      sum = z + w - 8;       /// æ±‚å’Œ
+      if (maxn < sum)        /// æ‰¾æœ€å¤§å€¼
       {
         maxn = sum;
-        k = i; /// ¼ÇÂ¼ÌìÊý
+        k = i; /// è®°å½•å¤©æ•°
       }
     }
-    printf("%d\n", k); /// Êä³öÌìÊý
+    printf("%d\n", k); /// è¾“å‡ºå¤©æ•°
   }
 }

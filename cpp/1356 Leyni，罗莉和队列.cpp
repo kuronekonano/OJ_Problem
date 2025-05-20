@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <stdio.h>
-#include <string.h> ///身高从小到大，年龄是乱序
+#include <string.h> ///韬珮浠庡皬鍒板ぇ锛屽勾榫勬槸涔卞簭
 using namespace std;
 struct num {
   long long pos, dig;

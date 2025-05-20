@@ -2,19 +2,19 @@
 //int main()
 //{
 //    int a,b,c;
-//    while(scanf("%d%d",&a,&b)!=EOF)//¶ÔÁË£¡Á½Êý×îÐ¡¹«±¶ÊýµÈÓÚÁ½ÊýÖ®»ý³ýÒÔ×î´ó¹«Ô¼Êý
+//    while(scanf("%d%d",&a,&b)!=EOF)//å¯¹äº†ï¼ä¸¤æ•°æœ€å°å…¬å€æ•°ç­‰äºŽä¸¤æ•°ä¹‹ç§¯é™¤ä»¥æœ€å¤§å…¬çº¦æ•°
 //    {
 //        while(a%b!=0)
 //        {
-//            c=a%b;//Õ·×ªÏà³ý·¨£¨Å·¼¸ÀïµÃËã·¨£©Çó×î´ó¹«Ô¼Êý£ºÈç12£¬9£º12%9=3£¬9%3=0£¬Ôò×î´ó¹«Ô¼ÊýÎª3£¡
-//            a=b;//µÝ¹éË¼Ïë
-//            b=c;//Èôa<bÊ±Ôò½«a,bÎ»ÖÃµ÷»»
+//            c=a%b;//è¾—è½¬ç›¸é™¤æ³•ï¼ˆæ¬§å‡ é‡Œå¾—ç®—æ³•ï¼‰æ±‚æœ€å¤§å…¬çº¦æ•°ï¼šå¦‚12ï¼Œ9ï¼š12%9=3ï¼Œ9%3=0ï¼Œåˆ™æœ€å¤§å…¬çº¦æ•°ä¸º3ï¼
+//            a=b;//é€’å½’æ€æƒ³
+//            b=c;//è‹¥a<bæ—¶åˆ™å°†a,bä½ç½®è°ƒæ¢
 //        }
 //        printf("%d\n",b);
 //    }
 //    return 0;
 //}
-#include<stdio.h>///µÝÍÆ·¨£¬×¢ÒâÊÇÁÙÊ±´æ´¢bÖµ£¬·ÅÈëaÖÐ£¬Í¬Ñù²»»áÒòÎªÇóÄ£µÃ0¶ø³öÏÖÎÞ·¨½øÈëÑ­»·µÄÇé¿ö
+#include<stdio.h>///é€’æŽ¨æ³•ï¼Œæ³¨æ„æ˜¯ä¸´æ—¶å­˜å‚¨bå€¼ï¼Œæ”¾å…¥aä¸­ï¼ŒåŒæ ·ä¸ä¼šå› ä¸ºæ±‚æ¨¡å¾—0è€Œå‡ºçŽ°æ— æ³•è¿›å…¥å¾ªçŽ¯çš„æƒ…å†µ
 long long gcd(long long a,long long b)
 {
     while(b!=0)
@@ -39,7 +39,7 @@ int main()
     }
     return 0;
 }
-//#include<stdio.h>///1076µÝ¹é·¨£¬ÕâÑù²»»á³öÏÖÎÞ·¨½øÈëGCDÑ­»·µÄÇé¿ö
+//#include<stdio.h>///1076é€’å½’æ³•ï¼Œè¿™æ ·ä¸ä¼šå‡ºçŽ°æ— æ³•è¿›å…¥GCDå¾ªçŽ¯çš„æƒ…å†µ
 //unsigned long gcd(unsigned long a,unsigned long b)
 //{
 //    if(b==0) return a;

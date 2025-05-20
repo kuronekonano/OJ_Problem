@@ -1,9 +1,9 @@
-#include <bits/stdc++.h> ///大于等于水密度的直接完全浸没水中
+#include <bits/stdc++.h> ///澶т簬绛変簬姘村瘑搴︾殑鐩存帴瀹屽叏娴告病姘翠腑
 #define LL                                                                     \
-  long long /// 否则计算其质量，等于排开水的质量，同时水的密度是1，等于排开水的体积
+  long long /// 鍚﹀垯璁＄畻鍏惰川閲忥紝绛変簬鎺掑紑姘寸殑璐ㄩ噺锛屽悓鏃舵按鐨勫瘑搴︽槸1锛岀瓑浜庢帓寮�姘寸殑浣撶Н
 #define M(a, b)                                                                \
   memset(a, b,                                                                 \
-         sizeof a) /// 直接计算水增加的体积，最后比较一下是否超过桶高度即可
+         sizeof a) /// 鐩存帴璁＄畻姘村鍔犵殑浣撶Н锛屾渶鍚庢瘮杈冧竴涓嬫槸鍚﹁秴杩囨《楂樺害鍗冲彲
 #define pb(x) push_back(x)
 using namespace std;
 const int maxn = 1008;

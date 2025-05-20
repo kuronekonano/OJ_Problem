@@ -1,6 +1,6 @@
 #include <algorithm>
-#include <stdio.h> ///严重警告:这题虽然是冒泡次数算逆序数，但是将会有重复的数字出现，这就导致一个很难发现的问题，在排序时，相同数字的位序，排序时根本不知道谁前谁后
-#include <string.h> ///因此排序时注意！如果数字值相同，按照位序从小到大排序
+#include <stdio.h> ///涓ラ噸璀﹀憡:杩欓铏界劧鏄啋娉℃鏁扮畻閫嗗簭鏁帮紝浣嗘槸灏嗕細鏈夐噸澶嶇殑鏁板瓧鍑虹幇锛岃繖灏卞鑷翠竴涓緢闅惧彂鐜扮殑闂锛屽湪鎺掑簭鏃讹紝鐩稿悓鏁板瓧鐨勪綅搴忥紝鎺掑簭鏃舵牴鏈笉鐭ラ亾璋佸墠璋佸悗
+#include <string.h> ///鍥犳鎺掑簭鏃舵敞鎰忥紒濡傛灉鏁板瓧鍊肩浉鍚岋紝鎸夌収浣嶅簭浠庡皬鍒板ぇ鎺掑簭
 using namespace std;
 struct num {
   int n, i;

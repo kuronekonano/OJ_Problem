@@ -2,7 +2,7 @@
 #include <stdio.h>
 using namespace std;
 int main() {
-  priority_queue<int> q; /// а╘сеох╤сап
+  priority_queue<int> q; /// Д©╘Д╪≤Е┘┬И≤÷Е┬≈
   priority_queue<int, vector<int>, greater<int>> p;
   int a, n;
   while (scanf("%d", &n) != EOF) {

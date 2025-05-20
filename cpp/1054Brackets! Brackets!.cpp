@@ -1,5 +1,5 @@
 #include <stack>
-#include <stdio.h> //ÍêÈ«ÕÕ°á »ù´¡Êı¾İ½á¹¹¡ª¡ªÕ» µÄ´úÂë
+#include <stdio.h> //å®Œå…¨ç…§æ¬ åŸºç¡€æ•°æ®ç»“æ„â€•â€•æ ˆ çš„ä»£ç 
 #include <string.h>
 using namespace std;
 int main() {

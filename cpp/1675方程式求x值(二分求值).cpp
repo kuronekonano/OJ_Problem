@@ -1,5 +1,5 @@
-#include <math.h>  ///¼òµ¥¶ş·Ö£¬³õÊ¼±ß½çl=0,r=100
-#include <stdio.h> ///ÌâÄ¿ÑùÀıµÄÎó²î0.00005ËÄÉáÎåÈëÁË£¬ÕâÀïÃ»ÒªÇó
+#include <math.h>  ///ç®€å•äºŒåˆ†ï¼Œåˆå§‹è¾¹ç•Œl=0,r=100
+#include <stdio.h> ///é¢˜ç›®æ ·ä¾‹çš„è¯¯å·®0.00005å››èˆäº”å…¥äº†ï¼Œè¿™é‡Œæ²¡è¦æ±‚
 double workout(double x) {
   return 8 * pow(x, 4) + 2 * pow(x, 2) + 7 * pow(x, 3) + 3 * x + 6;
 }
@@ -10,23 +10,23 @@ int main() {
     double y;
     scanf("%lf", &y);
     if (y > 8 * pow(100, 4) + 2 * pow(100, 2) + 7 * pow(10, 3) + 3 * 100 + 6 ||
-        y < 6) /// ÅĞ¶ÏyÖµ·¶Î§
+        y < 6) /// åˆ¤æ–­yå€¼èŒƒå›´
     {
       printf("No solution!\n");
       continue;
     } else {
       double l = 0, r = 100, mid;
-      while (r - l > 1e-7) /// Îó²î
+      while (r - l > 1e-7) /// è¯¯å·®
       {
         mid = (l + r) / 2;
-        if (workout(mid) > y) /// ¶ş·ÖÑ­»·
+        if (workout(mid) > y) /// äºŒåˆ†å¾ªç¯
         {
           r = mid;
         } else {
           l = mid;
         }
       }
-      printf("%.4f\n", mid); /// ¿ØÖÆËÄÎ»¾«¶È
+      printf("%.4f\n", mid); /// æ§åˆ¶å››ä½ç²¾åº¦
     }
   }
   return 0;

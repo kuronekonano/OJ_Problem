@@ -1,22 +1,22 @@
-#include <stdio.h> ///ºÍĞí¿ÉÖ¤Ò»ÑùµÄÒÀÀµĞÔÎÊÌâ£¬ÒòÎªÊı¾İÁ¿¶¼²»ÊÇºÜ´ó£¬ËùÒÔ±©Á¦±éÀúÁË
-#include <string.h> ///Ç¶Ì×ÁËÈı²ãfor
+#include <stdio.h> ///å’Œè®¸å¯è¯ä¸€æ ·çš„ä¾èµ–æ€§é—®é¢˜ï¼Œå› ä¸ºæ•°æ®é‡éƒ½ä¸æ˜¯å¾ˆå¤§ï¼Œæ‰€ä»¥æš´åŠ›éå†äº†
+#include <string.h> ///åµŒå¥—äº†ä¸‰å±‚for
 int main() {
   int t, i, j, k;
   bool wap[55][55];
   scanf("%d", &t);
   while (t--) {
-    memset(wap, false, sizeof(wap)); /// ×îºóÒ»¶¨Òª¼ÇµÃÇå¿ÕÊı×é
+    memset(wap, false, sizeof(wap)); /// æœ€åä¸€å®šè¦è®°å¾—æ¸…ç©ºæ•°ç»„
     int n, m, x, y;
     scanf("%d%d", &n, &m);
     for (i = 1; i <= m; i++) {
       scanf("%d%d", &x, &y);
-      wap[x][y] = true; /// ±ê¼ÇÁ½Á½ÓĞ¹ØÏµ
+      wap[x][y] = true; /// æ ‡è®°ä¸¤ä¸¤æœ‰å…³ç³»
     }
     for (i = 1; i <= n; i++) {
       for (j = 1; j <= n; j++) {
         for (k = 1; k <= n; k++) {
           if (wap[i][j] == true && wap[j][k] == true) {
-            wap[i][k] = true; /// ¹ØÁª¹ØÏµ
+            wap[i][k] = true; /// å…³è”å…³ç³»
           }
         }
       }

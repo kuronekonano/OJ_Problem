@@ -2,7 +2,7 @@
 #define LL long long
 using namespace std;
 const int maxn = 1e5 + 7;
-int tre[maxn << 4][2]; /// ×ÖµäÊ÷ºÍVISÊý×é¶¼±ØÐë¿ªµ½Êý¾Ý·¶Î§µÄ16±¶ÒÔÉÏ
+int tre[maxn << 4][2]; /// å­—å…¸æ ‘å’ŒVISæ•°ç»„éƒ½å¿…é¡»å¼€åˆ°æ•°æ®èŒƒå›´çš„16å€ä»¥ä¸Š
 LL vis[maxn << 4];
 int t, n, m, tot;
 LL tmp, s;

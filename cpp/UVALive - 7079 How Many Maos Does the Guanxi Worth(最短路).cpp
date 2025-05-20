@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <stdio.h> ///×î¶ÌÂ·
+#include <stdio.h> ///æœ€çŸ­è·¯
 #include <string.h>
 using namespace std;
 int dist[208];
@@ -12,17 +12,17 @@ void dijkstra(int s, int t, int die) {
   memset(dist, 0x3f, sizeof(dist));
   flag = dist[1];
   vis[die] = true;
-  for (i = 1; i <= n; i++) /// ËùÓÐµãµ½´ïÆðµãµÄ¾àÀë
+  for (i = 1; i <= n; i++) /// æ‰€æœ‰ç‚¹åˆ°è¾¾èµ·ç‚¹çš„è·ç¦»
   {
     dist[i] = maps[s][i];
   }
-  dist[s] = 0;             /// ±ê¼ÇÆðµã³¤¶ÈÎª0
-  vis[s] = true;           /// ±ê¼Ç×ß¹ý
-  for (i = 2; i <= n; i++) /// ±éÀún-1´Î
+  dist[s] = 0;             /// æ ‡è®°èµ·ç‚¹é•¿åº¦ä¸º0
+  vis[s] = true;           /// æ ‡è®°èµ°è¿‡
+  for (i = 2; i <= n; i++) /// éåŽ†n-1æ¬¡
   {
     int minn = 0x7fffffff, mini;
     for (j = 1; j <= n;
-         j++) /// ÕâÀïÊÇÒª±éÀúËùÓÐµÄµã£¬ÒòÎª²»Ò»¶¨ÊÇµÚ0¸öµã×÷ÎªÆðµã
+         j++) /// è¿™é‡Œæ˜¯è¦éåŽ†æ‰€æœ‰çš„ç‚¹ï¼Œå› ä¸ºä¸ä¸€å®šæ˜¯ç¬¬0ä¸ªç‚¹ä½œä¸ºèµ·ç‚¹
     {
       if (!vis[j] && dist[j] < minn) {
         minn = dist[j];
@@ -44,12 +44,12 @@ int main() {
   while (scanf("%d%d", &n, &m) != EOF) {
     if (n == 0 && m == 0)
       return 0;
-    memset(maps, 0x3f, sizeof(maps)); /// ³õÊ¼ËùÓÐÂ·¶ÎÎªÎÞÏÞ´ó(²»¿Éµ½´ï)
-    for (i = 0; i < m; i++)           /// mÌõÂ·
+    memset(maps, 0x3f, sizeof(maps)); /// åˆå§‹æ‰€æœ‰è·¯æ®µä¸ºæ— é™å¤§(ä¸å¯åˆ°è¾¾)
+    for (i = 0; i < m; i++)           /// mæ¡è·¯
     {
       scanf("%d%d%d", &x, &y, &k);
       if (k < maps[x][y])
-        maps[x][y] = maps[y][x] = k; /// Ò»Ö±¸üÐÂÎª×îÐ¡Â·¾¶
+        maps[x][y] = maps[y][x] = k; /// ä¸€ç›´æ›´æ–°ä¸ºæœ€å°è·¯å¾„
     }
     for (i = 2; i <= n - 1; i++) {
       dijkstra(1, n, i);

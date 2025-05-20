@@ -5,7 +5,7 @@ LL t, n, m, p, a[100080];
 LL cnt = 0;
 map<LL, LL> vis;
 map<LL, LL>::iterator it;
-void prim(LL num) /// ·Ö½âÖÊÒòÊı
+void prim(LL num) /// åˆ†è§£è´¨å› æ•°
 {
   cnt = 0;
   for (LL i = 2; i * i <= num; i++) {
@@ -20,7 +20,7 @@ void prim(LL num) /// ·Ö½âÖÊÒòÊı
 }
 LL gcd(LL a, LL b) { return b == 0 ? a : gcd(b, a % b); }
 LL all(LL m) {
-  LL ans = 0; /// ·Ç»¥ÖÊÊıÖ®ºÍ
+  LL ans = 0; /// éäº’è´¨æ•°ä¹‹å’Œ
   for (LL i = 1; i < (1 << cnt); i++) {
     LL sum = 1, num1 = 0, tmp = i;
     for (LL j = 0; j < cnt; j++) {

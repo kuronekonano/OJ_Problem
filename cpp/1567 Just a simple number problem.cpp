@@ -7,10 +7,10 @@ int main() {
     for (i = 0; i < n; i++) {
       scanf("%d", &a[i]);
     }
-    sort(a, a + n);          /// ÅÅÐò
-    int flag = 0, i = n - 1; /// ´Ó×î´óÖµ¿ªÊ¼Êä³ö
+    sort(a, a + n);          /// æŽ’åº
+    int flag = 0, i = n - 1; /// ä»Žæœ€å¤§å€¼å¼€å§‹è¾“å‡º
     while (flag != n) {
-      flag++; /// Êä³ö¼ÆÊýÆ÷
+      flag++; /// è¾“å‡ºè®¡æ•°å™¨
       printf("%d%c", a[i], flag == n ? '\n' : ' ');
       if (flag == n)
         break;

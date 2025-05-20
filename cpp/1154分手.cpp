@@ -6,8 +6,8 @@ void inti() {
   memset(
       a, true,
       sizeof(
-          a)); /// ÀûÓÃ¼òµ¥µÄÊýÑ§Ìâ
-               /// ÄÇÌâµÄËã·¨£¬Í¨¹ý³Ë»ýµÄÐÎÊ½±ê¼ÇËØÊý£¬±éÀú²»³¬¹ýÒ»±é¾Í¿ÉÒÔ±ê¼ÇÍê³É
+          a)); /// åˆ©ç”¨ç®€å•çš„æ•°å­¦é¢˜
+               /// é‚£é¢˜çš„ç®—æ³•ï¼Œé€šè¿‡ä¹˜ç§¯çš„å½¢å¼æ ‡è®°ç´ æ•°ï¼ŒéåŽ†ä¸è¶…è¿‡ä¸€éå°±å¯ä»¥æ ‡è®°å®Œæˆ
   a[0] = a[1] = false;
   for (int i = 2; i <= 1000000; i++) {
     if (a[i]) {
@@ -23,7 +23,7 @@ int main() {
   while (scanf("%d", &n) != EOF) {
     num = sqrt(n);
     bool flag = true;
-    for (int i = 2; i <= num; i++) /// ÕÒÒò×ÓÒ²ÊÇÕÒ³öÆäÖÐÒ»¸ö£¬ÔÙÅÐ¶ÏÁíÒ»¸ö¼´¿É
+    for (int i = 2; i <= num; i++) /// æ‰¾å› å­ä¹Ÿæ˜¯æ‰¾å‡ºå…¶ä¸­ä¸€ä¸ªï¼Œå†åˆ¤æ–­å¦ä¸€ä¸ªå³å¯
     {
       if (a[i] && n % i == 0) {
         int ans = n / i;

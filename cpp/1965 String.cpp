@@ -1,11 +1,11 @@
-#include <stdio.h>  ///gets·½·¨£¬»¹ÓÐÒ»ÖÖscanf·½·¨£¬Çø±ðÔÚÓÚ
-#include <string.h> ///ÕâÀïÍ£Ö¹whileÓÃ£¡=NULL£¬¶øÇÒÒòÎªgets¶ÁÈ¡»Ø³µ£¬µ±Ê²Ã´¶¼²»ÊäÈëµÄÊ±ºò»áÅÐ¶Ï³Éyes£¬´ËÊ±Ó¦¸ÃÊ²Ã´¶¼²»Êä³ö
+#include <stdio.h>  ///getsæ–¹æ³•ï¼Œè¿˜æœ‰ä¸€ç§scanfæ–¹æ³•ï¼ŒåŒºåˆ«åœ¨äºŽ
+#include <string.h> ///è¿™é‡Œåœæ­¢whileç”¨ï¼=NULLï¼Œè€Œä¸”å› ä¸ºgetsè¯»å–å›žè½¦ï¼Œå½“ä»€ä¹ˆéƒ½ä¸è¾“å…¥çš„æ—¶å€™ä¼šåˆ¤æ–­æˆyesï¼Œæ­¤æ—¶åº”è¯¥ä»€ä¹ˆéƒ½ä¸è¾“å‡º
 int main() {
   char a[1005];
   int n, i, j, flag;
   while (gets(a) != NULL) {
     if (strlen(a) ==
-        NULL) /// Îª½â¾öÕâ¸öÎÊÌâ£¬ÒªÅÐ¶ÏÈç¹ûsÎª¿Õ£¬Ôò´ÓÍ·¿ªÊ¼£¬ÕâÑù¾Í²»»áÓÐÊä³öÁË
+        NULL) /// ä¸ºè§£å†³è¿™ä¸ªé—®é¢˜ï¼Œè¦åˆ¤æ–­å¦‚æžœsä¸ºç©ºï¼Œåˆ™ä»Žå¤´å¼€å§‹ï¼Œè¿™æ ·å°±ä¸ä¼šæœ‰è¾“å‡ºäº†
     {
       continue;
     }

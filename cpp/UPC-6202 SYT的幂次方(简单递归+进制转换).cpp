@@ -4,15 +4,15 @@ void dfs(int x) {
     printf("0");
   else {
     int tmp = x, bin[30], i = 0;
-    while (tmp) /// ½øÖÆ×ª»»
+    while (tmp) /// è¿›åˆ¶è½¬æ¢
     {
       bin[i++] = tmp % 2;
       tmp /= 2;
     }
-    bool flag = false; /// ¼ÓºÅ±ê¼Ç
+    bool flag = false; /// åŠ å·æ ‡è®°
     for (
         int j = i - 1; j >= 0;
-        j--) /// ´Ó×î¸ßÎ»¿ªÊ¼±éÀú¶þ½øÖÆÎ»£¬¶ÔÓÚÒ»¸öÐÂµÄÃÝ´Î£¬Èô²»ÊÇ1Ò²²»ÊÇ2£¬Ôò¶ÔÆë½øÐÐµÝ¹é¼ÌÐø¼ÆËã£¬·ñÔòÖ±½ÓÊä³ö¼´¿É
+        j--) /// ä»Žæœ€é«˜ä½å¼€å§‹éåŽ†äºŒè¿›åˆ¶ä½ï¼Œå¯¹äºŽä¸€ä¸ªæ–°çš„å¹‚æ¬¡ï¼Œè‹¥ä¸æ˜¯1ä¹Ÿä¸æ˜¯2ï¼Œåˆ™å¯¹é½è¿›è¡Œé€’å½’ç»§ç»­è®¡ç®—ï¼Œå¦åˆ™ç›´æŽ¥è¾“å‡ºå³å¯
     {
       if (bin[j]) {
         if (flag)
@@ -30,7 +30,7 @@ void dfs(int x) {
   }
   return;
 }
-int main() /// ¶ÔÓÚÃ¿¸öÊý£¬½«Æä·ÖÎª2½øÖÆ£¬È»ºó¿ÉÒÔµÃµ½ÊÇÓÉ2µÄ¼¸´Î·½¼ÓºÍ¶ø³ÉµÄ
+int main() /// å¯¹äºŽæ¯ä¸ªæ•°ï¼Œå°†å…¶åˆ†ä¸º2è¿›åˆ¶ï¼Œç„¶åŽå¯ä»¥å¾—åˆ°æ˜¯ç”±2çš„å‡ æ¬¡æ–¹åŠ å’Œè€Œæˆçš„
 {
   int n;
   while (scanf("%d", &n) != EOF) {

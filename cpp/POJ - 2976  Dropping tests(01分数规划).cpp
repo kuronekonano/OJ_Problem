@@ -1,25 +1,25 @@
 #include <algorithm>
-#include <stdio.h>   ///01·ÖÊý¹æ»®
-using namespace std; /// ÌâÄ¿ÒªÇó¦² ai / ¦² bi Öµ×î´ó£¬ÄÇÃ´ÓÐ²»µÈÊ½ ¦² ai / ¦²
-                     /// bi ¡Ý x ¼´Õâ¸ö×î´óÖµxÊÇËùÇó
+#include <stdio.h>   ///01åˆ†æ•°è§„åˆ’
+using namespace std; /// é¢˜ç›®è¦æ±‚Î£ ai / Î£ bi å€¼æœ€å¤§ï¼Œé‚£ä¹ˆæœ‰ä¸ç­‰å¼ Î£ ai / Î£
+                     /// bi â‰¥ x å³è¿™ä¸ªæœ€å¤§å€¼xæ˜¯æ‰€æ±‚
 const int maxn =
     1e3 +
-    8; /// ²»µÈÊ½¿ÉÒÔ»¯Îª   ¦² ai ¡Ý ¦² bi *x  ---->   ¦² ai - ¦² bi *x ¡Ý0
-       /// ÄÇÃ´¼ÆËã¦² ai - ¦² bi *x µÄÖµ ÅÐ¶ÏÇóºÍÇ°n-k¸ö½á¹ûÊÇ·ñ´óÓÚµÈÓÚ0,
+    8; /// ä¸ç­‰å¼å¯ä»¥åŒ–ä¸º   Î£ ai â‰¥ Î£ bi *x  ---->   Î£ ai - Î£ bi *x â‰¥0
+       /// é‚£ä¹ˆè®¡ç®—Î£ ai - Î£ bi *x çš„å€¼ åˆ¤æ–­æ±‚å’Œå‰n-kä¸ªç»“æžœæ˜¯å¦å¤§äºŽç­‰äºŽ0,
 const double eqs =
-    1e-6; /// ´óÓÚµÈÓÚ0±íÊ¾·ûºÏÌõ¼þ£¬ÎÒÃÇÏòºó¶þ·Ö¸ü´óµÄx£¬¼´¶þ·Ö´ð°¸£¬Ò²¾ÍÊÇÕýÈ·É¾³ýk¸öµÄÇé¿öÏÂ»ñµÃ¸ü´óµÄx
+    1e-6; /// å¤§äºŽç­‰äºŽ0è¡¨ç¤ºç¬¦åˆæ¡ä»¶ï¼Œæˆ‘ä»¬å‘åŽäºŒåˆ†æ›´å¤§çš„xï¼Œå³äºŒåˆ†ç­”æ¡ˆï¼Œä¹Ÿå°±æ˜¯æ­£ç¡®åˆ é™¤kä¸ªçš„æƒ…å†µä¸‹èŽ·å¾—æ›´å¤§çš„x
 int a[maxn],
-    b[maxn]; /// ·ñÔòÈôÇóºÍ½á¹ûÐ¡ÓÚ0£¬ËµÃ÷²»µÈÊ½²»³ÉÁ¢£¬Ñ¡ÔñµÄ×î´óÖµÌ«´ó£¬aiÎÞ·¨Âú×ã
+    b[maxn]; /// å¦åˆ™è‹¥æ±‚å’Œç»“æžœå°äºŽ0ï¼Œè¯´æ˜Žä¸ç­‰å¼ä¸æˆç«‹ï¼Œé€‰æ‹©çš„æœ€å¤§å€¼å¤ªå¤§ï¼Œaiæ— æ³•æ»¡è¶³
 double mx[maxn];
 int n, k;
-bool judge(double x) /// ¶þ·Ö×î´óÖµ
+bool judge(double x) /// äºŒåˆ†æœ€å¤§å€¼
 {
   for (int i = 1; i <= n; i++)
     mx[i] = a[i] - x * b[i];
   sort(mx + 1, mx + 1 + n);
   double ans = 0;
   for (int i = n; i > k; i--)
-    ans += mx[i]; /// È¡Ç°n-k¸ö×î´óÖµËã³öÀ´µÄÊý
+    ans += mx[i]; /// å–å‰n-kä¸ªæœ€å¤§å€¼ç®—å‡ºæ¥çš„æ•°
   return ans >= 0;
 }
 int main() {

@@ -1,6 +1,6 @@
-#include <stdio.h> ///������һ��n����һ����С��mʹ��m����m��ÿһ��λ�ϵ�ֵ�������n
+#include <stdio.h> ///问输入一个n，求一个最小的m使得m加上m的每一数位上的值结果等于n
 #define LL                                                                     \
-  long long /// ��Ϊ�����ϵ�ֵ���ᳬ����ǰλ��*9�����ֻ�ñ�����ξ��뼴��
+  long long /// 因为最多加上的值不会超过当前位数*9，因此只用遍历这段距离即可
 int main() {
   int t;
   LL n;

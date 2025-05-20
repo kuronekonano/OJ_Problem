@@ -1,9 +1,9 @@
 #include <stdio.h>
 int main() {
   int n, i;
-  while (scanf("%d", &n) != EOF) // µÚÒ»¸öÍ¼ĞÎÖ»ÓĞÒ»¸ö
+  while (scanf("%d", &n) != EOF) // ç¬¬ä¸€ä¸ªå›¾å½¢åªæœ‰ä¸€ä¸ª
   {
-    int sum = 1; // µÚ¶ş¸öÍ¼ĞÍÍâÎ§Ôö¼ÓÁË12¸ö
+    int sum = 1; // ç¬¬äºŒä¸ªå›¾å‹å¤–å›´å¢åŠ äº†12ä¸ª
     for (i = 2; i <= n; i++) {
       sum = sum + (i - 1) * 12;
     }

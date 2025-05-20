@@ -3,19 +3,19 @@
 using namespace std;
 int tot;
 int trie[500000][26];
-int num[500000];              /// ¼ÇÂ¼½Úµã±»·ÃÎÊ´ÎÊı
-int insert(char *str, int rt) // ½¨Ê÷
+int num[500000];              /// è®°å½•èŠ‚ç‚¹è¢«è®¿é—®æ¬¡æ•°
+int insert(char *str, int rt) // å»ºæ ‘
 {
   for (int j = 0; str[j]; j++) {
-    int x = str[j] - 'a'; // µÚx¸ö·ÖÖ§ÊÇÕâ¸ö×ÖÄ¸£¬´Ë²ãµÄ·ÖÖ§¾ÍÊÇx£¬´ÓxÔÙ·Ö³ö½Úµã
+    int x = str[j] - 'a'; // ç¬¬xä¸ªåˆ†æ”¯æ˜¯è¿™ä¸ªå­—æ¯ï¼Œæ­¤å±‚çš„åˆ†æ”¯å°±æ˜¯xï¼Œä»xå†åˆ†å‡ºèŠ‚ç‚¹
     if (trie[rt][x] == 0) {
-      trie[rt][x] = ++tot; // ÈôÊÇÎ´±ê¼ÇµÄĞÂ×ÖÄ¸£¬ÔòÖØĞÂ±êºÅ
+      trie[rt][x] = ++tot; // è‹¥æ˜¯æœªæ ‡è®°çš„æ–°å­—æ¯ï¼Œåˆ™é‡æ–°æ ‡å·
     }
     num[trie[rt][x]]++;
     rt = trie[rt][x];
   }
 }
-int find(char *str, int rt) // ²éÑ¯×Öµä
+int find(char *str, int rt) // æŸ¥è¯¢å­—å…¸
 {
   int x, len = strlen(str);
   for (int i = 0; i < len; i++) {
@@ -30,7 +30,7 @@ int find(char *str, int rt) // ²éÑ¯×Öµä
 
 char str[100];
 int main() {
-  tot = 0; /// ¸ù½Úµã
+  tot = 0; /// æ ¹èŠ‚ç‚¹
   int floor = ++tot;
   memset(trie[floor], 0, sizeof(trie[floor]));
   memset(num, 0, sizeof(num));

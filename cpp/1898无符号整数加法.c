@@ -4,7 +4,7 @@ int main()
     int y;
     while(scanf("%d",&y)!=EOF)
     {
-        printf("%u\n",1+y);//牢记无符号整型输出输入为%u
+        printf("%u\n",1+y);//鐗㈣鏃犵鍙锋暣鍨嬭緭鍑鸿緭鍏ヤ负%u
     }
     return 0;
 }

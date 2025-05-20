@@ -1,5 +1,5 @@
-#include <iterator> //µü´úÆ÷ÊÇÓĞÍ·ÎÄ¼şµÄ
-#include <set>      ///ÕâÀïÓÃset½øĞĞÈ¥ÖØÅÅĞò
+#include <iterator> //è¿­ä»£å™¨æ˜¯æœ‰å¤´æ–‡ä»¶çš„
+#include <set>      ///è¿™é‡Œç”¨setè¿›è¡Œå»é‡æ’åº
 #include <stdio.h>
 using namespace std;
 int main() {

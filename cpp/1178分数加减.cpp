@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 using namespace std;
-int gcd(int a, int b) // 最大公约数
+int gcd(int a, int b) // 鏈�澶у叕绾︽暟
 {
   int c;
   while (b != 0) {
@@ -18,7 +18,7 @@ int main() {
   char k;
   int x, y;
   while (scanf("%d/%d%c%d/%d", &a, &b, &k, &c, &d) != EOF) {
-    i = b * d / gcd(abs(b), abs(d)); // 最小公倍数
+    i = b * d / gcd(abs(b), abs(d)); // 鏈�灏忓叕鍊嶆暟
     if (k == '+') {
       x = a * (i / b) + c * (i / d);
       y = i;

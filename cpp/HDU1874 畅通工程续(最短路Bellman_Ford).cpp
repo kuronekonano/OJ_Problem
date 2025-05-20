@@ -8,23 +8,23 @@ int n, m, num;
 struct Edge {
   int from, to, val;
   Edge(int a = 0, int b = 0, int c = 0)
-      : from(a), to(b), val(c) {} /// ´ÓÄ³µãµ½Ä³µãµÄÓĞÏò±ßµÄ¼ÛÖµ
-} edge[Maxn]; /// ±ßµÄ¸öÊı´æÓĞÏò±ß£¬Òò´ËÒª±È×î´óÎŞÏò±ßÊıÁ¿*2¶à
+      : from(a), to(b), val(c) {} /// ä»æŸç‚¹åˆ°æŸç‚¹çš„æœ‰å‘è¾¹çš„ä»·å€¼
+} edge[Maxn]; /// è¾¹çš„ä¸ªæ•°å­˜æœ‰å‘è¾¹ï¼Œå› æ­¤è¦æ¯”æœ€å¤§æ— å‘è¾¹æ•°é‡*2å¤š
 int dist[maxn];
 bool Bellman_Ford(int start) {
   memset(dist, 0x3f, sizeof(dist));
   dist[start] = 0;
-  for (int i = 1; i < n; i++) /// ³ıÆğÊ¼µãÍâÊ£ÏÂn-1´ÎÊı¸üĞÂ
+  for (int i = 1; i < n; i++) /// é™¤èµ·å§‹ç‚¹å¤–å‰©ä¸‹n-1æ¬¡æ•°æ›´æ–°
   {
-    for (int j = 0; j < num; j++) /// ÓĞnumÌõ±ß
+    for (int j = 0; j < num; j++) /// æœ‰numæ¡è¾¹
     {
       if (dist[edge[j].to] > dist[edge[j].from] + edge[j].val)
-        dist[edge[j].to] = dist[edge[j].from] + edge[j].val; /// ¸üĞÂ×î¶ÌÂ·
+        dist[edge[j].to] = dist[edge[j].from] + edge[j].val; /// æ›´æ–°æœ€çŸ­è·¯
     }
   }
   for (int i = 0; i < num; i++)
     if (dist[edge[i].to] > dist[edge[i].from] + edge[i].val)
-      return false; /// ÅĞ¶Ï¸º»·
+      return false; /// åˆ¤æ–­è´Ÿç¯
   return true;
 }
 int main() {
@@ -33,7 +33,7 @@ int main() {
     num = 0;
     for (int i = 0; i < m; i++) {
       scanf("%d%d%d", &from, &to, &val);
-      edge[num++] = Edge(from, to, val); /// ¼Ó±ß(ÎŞÏò±ß)
+      edge[num++] = Edge(from, to, val); /// åŠ è¾¹(æ— å‘è¾¹)
       edge[num++] = Edge(to, from, val);
     }
     int start, ends;
@@ -41,6 +41,6 @@ int main() {
     Bellman_Ford(start);
     printf("%d\n", dist[ends] == 0x3f3f3f3f
                        ? -1
-                       : dist[ends]); /// ÅĞ¶ÏÊÇ·ñ¿ÉÒÔµ½´ïÄ³¸öµã
+                       : dist[ends]); /// åˆ¤æ–­æ˜¯å¦å¯ä»¥åˆ°è¾¾æŸä¸ªç‚¹
   }
 }

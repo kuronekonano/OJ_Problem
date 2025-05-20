@@ -66,7 +66,7 @@ int main() {
 }
 
 /**
-#include<stdio.h>///È¡×î´óÖµ
+#include<stdio.h>///å–æœ€å¤§å€¼
 #include<string.h>
 #include<algorithm>
 #define N 200000
@@ -74,65 +74,65 @@ using namespace std;
 struct tree
 {
     int l,r,maxx;
-} a[N*4];///ËÄ±¶µÄÔ­Ìâ×î´óÖµ
-int b[200003];///´æ´¢Ã¿ÈË³É¼¨µÄÊı×é
-void build(int l,int r,int root)///½¨Ê÷
+} a[N*4];///å››å€çš„åŸé¢˜æœ€å¤§å€¼
+int b[200003];///å­˜å‚¨æ¯äººæˆç»©çš„æ•°ç»„
+void build(int l,int r,int root)///å»ºæ ‘
 {
-    a[root].l=l;///×óÓÒ·¶Î§¸³Öµ
+    a[root].l=l;///å·¦å³èŒƒå›´èµ‹å€¼
     a[root].r=r;
-    a[root].maxx=-1;///×î´óÖµ³õÊ¼»¯
-    if(l==r)///Ò¶×Ó½Úµã±»¸³ÓèÊı×é³É¼¨
+    a[root].maxx=-1;///æœ€å¤§å€¼åˆå§‹åŒ–
+    if(l==r)///å¶å­èŠ‚ç‚¹è¢«èµ‹äºˆæ•°ç»„æˆç»©
     {
         a[root].maxx=b[l];
     }
-    else///²»ÊÇÒ¶×Ó½Úµã¼ÌĞø¶ş·Ö
+    else///ä¸æ˜¯å¶å­èŠ‚ç‚¹ç»§ç»­äºŒåˆ†
     {
-        int mid=(l+r)/2;///ÖĞµã
-        build(l,mid,root*2);///×ó¶ù×Ó
-        build(mid+1,r,root*2+1);///ÓÒ¶ù×Ó        µİ¹é½¨Ê÷
-        a[root].maxx=max(a[root*2].maxx,a[root*2+1].maxx);///µİ¹éÍê³ÉºóÈ¡½¨ºÃµÄÊıÖĞµÄµ×²ãÒ»²½²½ÏòÉÏ´«µİÈ¡×îÖµ
+        int mid=(l+r)/2;///ä¸­ç‚¹
+        build(l,mid,root*2);///å·¦å„¿å­
+        build(mid+1,r,root*2+1);///å³å„¿å­        é€’å½’å»ºæ ‘
+        a[root].maxx=max(a[root*2].maxx,a[root*2+1].maxx);///é€’å½’å®Œæˆåå–å»ºå¥½çš„æ•°ä¸­çš„åº•å±‚ä¸€æ­¥æ­¥å‘ä¸Šä¼ é€’å–æœ€å€¼
     }
 }
-void upda(int where , int value , int root)///µ¥µã¸üĞÂ
+void upda(int where , int value , int root)///å•ç‚¹æ›´æ–°
 {
-    if(a[root].l == a[root].r)///ĞèÒª¸üĞÂµÄÒ¶×Ó½Úµã
+    if(a[root].l == a[root].r)///éœ€è¦æ›´æ–°çš„å¶å­èŠ‚ç‚¹
     {
         a[root].maxx = value ;
-        return ;///µİ¹éÖÕµã
+        return ;///é€’å½’ç»ˆç‚¹
     }
     int mid = (a[root].l+a[root].r)/2
-;///ÕâÀïÓÖÊÇµİ¹é¸üĞÂÁË£¬»»¾ä»°Ëµ£¬ÄáÂê½¨Ê÷¸üĞÂºÍ²éÕÒÆäÊµ¶¼ÓĞÕâ¸ö²½Öè
-    if(where<=mid) upda(where,value,root*2);///µ±Ä¿µÄÇø¼äĞ¡ÓÚÖĞµã£¬Ïò×ó¶ù×ÓËÑË÷
-    else upda(where,value,root*2+1);///·ñÔòÏòÓÒ¶ù×ÓËÑË÷
+;///è¿™é‡Œåˆæ˜¯é€’å½’æ›´æ–°äº†ï¼Œæ¢å¥è¯è¯´ï¼Œå°¼ç›å»ºæ ‘æ›´æ–°å’ŒæŸ¥æ‰¾å…¶å®éƒ½æœ‰è¿™ä¸ªæ­¥éª¤
+    if(where<=mid) upda(where,value,root*2);///å½“ç›®çš„åŒºé—´å°äºä¸­ç‚¹ï¼Œå‘å·¦å„¿å­æœç´¢
+    else upda(where,value,root*2+1);///å¦åˆ™å‘å³å„¿å­æœç´¢
     a[root].maxx = max(a[root*2].maxx ,
-a[root*2+1].maxx);///ÒÑ¾­ÓĞÁËÏòÉÏ´«µİµÄ²Ù×÷
-}///ÓÉÏÂÖÁÉÏµİ¹é·µ»Ø¸üĞÂ
-//void pushup(int root)///ÏòÉÏ´«µİ
+a[root*2+1].maxx);///å·²ç»æœ‰äº†å‘ä¸Šä¼ é€’çš„æ“ä½œ
+}///ç”±ä¸‹è‡³ä¸Šé€’å½’è¿”å›æ›´æ–°
+//void pushup(int root)///å‘ä¸Šä¼ é€’
 //{
 //    if(a[root].l==a[root].r)return;
 //    a[root].maxx=max(a[root*2].maxx,a[root*2+1].maxx);
 //}
 
-int query(int l,int r,int root)///Çø¼ä²éÑ¯
+int query(int l,int r,int root)///åŒºé—´æŸ¥è¯¢
 {
-    if(l<=a[root].l&&a[root].r<=r)///ÔÚ°üº¬Çø¼äÄÚ²éÑ¯µ½Ä¿µÄÇø¼ä
+    if(l<=a[root].l&&a[root].r<=r)///åœ¨åŒ…å«åŒºé—´å†…æŸ¥è¯¢åˆ°ç›®çš„åŒºé—´
     {
         return a[root].maxx;
     }
     else
     {
         int mid = (a[root].l+a[root].r)/2;
-        int res=-1;///³õÊ¼»¯×îÖµ¼ÇÂ¼
+        int res=-1;///åˆå§‹åŒ–æœ€å€¼è®°å½•
         if(l<=mid)
         {
             res =
-max(query(l,r,root*2),res);///²éÑ¯Ê±×¢ÒâÄ¿±êÇø¼ä²»Òª¸Ä±ä£¬¿Î¼şÖĞmid+1ÓëmidÊÇ¸Ä±äÁËµÄ£¬»áWA
+max(query(l,r,root*2),res);///æŸ¥è¯¢æ—¶æ³¨æ„ç›®æ ‡åŒºé—´ä¸è¦æ”¹å˜ï¼Œè¯¾ä»¶ä¸­mid+1ä¸midæ˜¯æ”¹å˜äº†çš„ï¼Œä¼šWA
         }
         if(r>=mid+1)
         {
             res = max(query(l,r,root*2+1),res);
         }
-        return res;///·µ»Ø×î´óÖµ
+        return res;///è¿”å›æœ€å¤§å€¼
     }
 }
 int main()
@@ -140,21 +140,21 @@ int main()
     int n,i,j,m;
     while(scanf("%d%d",&n,&m)!=EOF)
     {
-        for(i=1; i<=n; i++)///ÊäÈëÃ¿ÈË³É¼¨
+        for(i=1; i<=n; i++)///è¾“å…¥æ¯äººæˆç»©
         {
             scanf("%d",&b[i]);
         }
-        build(1,n,1);///½¨Ê÷
+        build(1,n,1);///å»ºæ ‘
 //        for(i=1; i<=n; i++)
 //        {
 //            printf("=====\n");
 //            printf("%d\n",a[i].maxx);
 //        }
-        char commed[2];///Ö¸Áî£¬Îª·ÀÖ¹getcharÇé¿ö¶øÉè³ÉÊı×é
+        char commed[2];///æŒ‡ä»¤ï¼Œä¸ºé˜²æ­¢getcharæƒ…å†µè€Œè®¾æˆæ•°ç»„
         while(m--)
         {
             scanf("%s",commed);
-            if(commed[0]=='U')///¸üĞÂÖ¸Áî
+            if(commed[0]=='U')///æ›´æ–°æŒ‡ä»¤
             {
                 scanf("%d%d",&i,&j);
                 upda(i,j,1);
@@ -165,7 +165,7 @@ int main()
 //                    printf("%d\n",a[i].maxx);
 //                }
             }
-            else if(commed[0]=='Q')///²éÑ¯Ö¸Áî
+            else if(commed[0]=='Q')///æŸ¥è¯¢æŒ‡ä»¤
             {
                 scanf("%d%d",&i,&j);
                 int maxy=query(i,j,1);

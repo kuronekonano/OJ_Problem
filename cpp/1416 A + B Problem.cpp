@@ -1,4 +1,4 @@
-#include <stdio.h> ///�Ӹ�λ����kλ�������������ͬ���-1��ȡ����Ȼ��һһ�ȽϾͺ�
+#include <stdio.h> ///从个位到第k位的数字如果都相同输出-1，取摸，然后一一比较就好
 int main() {
   long long a, b, k;
   while (scanf("%lld%lld", &a, &b) != EOF) {

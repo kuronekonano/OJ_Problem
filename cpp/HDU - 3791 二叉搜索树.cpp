@@ -4,18 +4,18 @@ int tree[3000], btre[3000];
 char a[20];
 int creatree(char aa[], int tree[]) {
   for (int i = 0; i < 3000; i++)
-    tree[i] = -1; /// ½Úµã³õÊ¼»¯
+    tree[i] = -1; /// èŠ‚ç‚¹åˆå§‹åŒ–
   int len = strlen(aa), maxn = 0;
   for (int i = 0; i < len; i++) {
     int pos = 1;
-    while (tree[pos] != -1) /// ×ßµ½Ò¶×Ó½Úµã
+    while (tree[pos] != -1) /// èµ°åˆ°å¶å­èŠ‚ç‚¹
       if (aa[i] - '0' < tree[pos])
-        pos *= 2; /// ±Èµ±Ç°½ÚµãĞ¡µÄ²å×ó±ß
+        pos *= 2; /// æ¯”å½“å‰èŠ‚ç‚¹å°çš„æ’å·¦è¾¹
       else
-        pos = pos * 2 + 1;   /// ´óµÄ²åÓÒº¢×Ó
-    tree[pos] = aa[i] - '0'; /// ÕÒµ½½Úµãºó¸³Öµ
+        pos = pos * 2 + 1;   /// å¤§çš„æ’å³å­©å­
+    tree[pos] = aa[i] - '0'; /// æ‰¾åˆ°èŠ‚ç‚¹åèµ‹å€¼
     if (pos > maxn)
-      maxn = pos; /// ¼ÇÂ¼×î´ó½Úµã±êºÅ
+      maxn = pos; /// è®°å½•æœ€å¤§èŠ‚ç‚¹æ ‡å·
   }
   return maxn;
 }

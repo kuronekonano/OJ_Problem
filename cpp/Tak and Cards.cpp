@@ -11,9 +11,9 @@ int main() {
     dp[0][0] = 1;
     for (int i = 1; i <= n; i++)
       scanf("%d", &a[i]), sum[i] = sum[i - 1] + a[i];
-    for (int i = 1; i <= n; i++)             /// ÓÃµÚi¸öÊý¸üÐÂ1~i
-      for (int j = i; j >= 1; j--)           /// ³¤¶ÈÎª1~i¸öÊý
-        for (int k = sum[i]; k >= a[i]; k--) /// ÇóºÍÎªk
+    for (int i = 1; i <= n; i++)             /// ç”¨ç¬¬iä¸ªæ•°æ›´æ–°1~i
+      for (int j = i; j >= 1; j--)           /// é•¿åº¦ä¸º1~iä¸ªæ•°
+        for (int k = sum[i]; k >= a[i]; k--) /// æ±‚å’Œä¸ºk
           dp[j][k] += dp[j - 1][k - a[i]];
     LL ans = 0;
     for (int i = 1; i <= n; i++)

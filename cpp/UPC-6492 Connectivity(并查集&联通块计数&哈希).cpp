@@ -5,7 +5,7 @@ const int maxn = 1e5 + 10;
 const LL has = 5e5;
 int n, l, k;
 int road[2 * maxn], rail[2 * maxn];
-int find(int z[], int x) /// 比while式的查找更优秀，路径压缩也更快
+int find(int z[], int x) /// 姣攚hile寮忕殑鏌ユ壘鏇翠紭绉�锛岃矾寰勫帇缂╀篃鏇村揩
 {
   return z[x] == x ? x : z[x] = find(z, z[x]);
 }

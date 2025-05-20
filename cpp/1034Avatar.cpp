@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main() {
   int a, b, t;
-  scanf("%d", &t); /// Á½ÊıÏà³Ë£¬È¡ºóËÄÎ»
+  scanf("%d", &t); /// ä¸¤æ•°ç›¸ä¹˜ï¼Œå–åå››ä½
   while (t--) {
     scanf("%d %d", &a, &b);
     int key = a * b;

@@ -1,5 +1,5 @@
 #include <queue>
-#include <stdio.h> ///也可以用数组实现
+#include <stdio.h> ///涔熷彲浠ョ敤鏁扮粍瀹炵幇
 #include <string.h>
 using namespace std;
 int main() {
@@ -35,7 +35,7 @@ int main() {
     printf("%d\n", ans);
   }
 }
-// #include<stdio.h>///数组实现
+// #include<stdio.h>///鏁扮粍瀹炵幇
 // #include<string.h>
 // int main()
 //{

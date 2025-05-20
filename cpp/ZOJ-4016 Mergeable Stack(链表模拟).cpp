@@ -1,13 +1,13 @@
 #include <malloc.h>
-#include <stdio.h> ///Á´±íÄ£Äâ
+#include <stdio.h> ///é“¾è¡¨æ¨¡æ‹Ÿ
 #include <string.h>
 const int maxn = 300005;
-struct node /// Á´±í½áµã¶¨Òå
+struct node /// é“¾è¡¨ç»“ç‚¹å®šä¹‰
 {
   int val;
   node *next, *pre;
 };
-node *newnode() /// ÐÂ½áµã´´½¨²¢³õÊ¼»¯
+node *newnode() /// æ–°ç»“ç‚¹åˆ›å»ºå¹¶åˆå§‹åŒ–
 {
   node *p = (node *)malloc(sizeof(node));
   p->next = NULL;
@@ -15,14 +15,14 @@ node *newnode() /// ÐÂ½áµã´´½¨²¢³õÊ¼»¯
   return p;
 }
 int n, q;
-node *head[maxn]; /// Í·½áµãÖ¸Õë
-node *tail[maxn]; /// ¶ÓÊ×Ö¸Õë
+node *head[maxn]; /// å¤´ç»“ç‚¹æŒ‡é’ˆ
+node *tail[maxn]; /// é˜Ÿé¦–æŒ‡é’ˆ
 int main() {
   int t, flag, s, val;
   scanf("%d", &t);
   while (t--) {
     scanf("%d%d", &n, &q);
-    for (int i = 1; i <= n; i++) /// Í·½áµã³õÊ¼»¯
+    for (int i = 1; i <= n; i++) /// å¤´ç»“ç‚¹åˆå§‹åŒ–
     {
       head[i] = newnode();
       head[i]->val = 0;
@@ -32,7 +32,7 @@ int main() {
     }
     while (q--) {
       scanf("%d", &flag);
-      if (flag == 1) /// ÐÂ½áµã½øÕ»£¬´´½¨ÐÂ½áµã
+      if (flag == 1) /// æ–°ç»“ç‚¹è¿›æ ˆï¼Œåˆ›å»ºæ–°ç»“ç‚¹
       {
         scanf("%d%d", &s, &val);
         head[s]->val++;
@@ -41,7 +41,7 @@ int main() {
         p->pre = tail[s];
         tail[s]->next = p;
         tail[s] = p;
-      } else if (flag == 2) /// µ¯³ö¶ÓÊ×
+      } else if (flag == 2) /// å¼¹å‡ºé˜Ÿé¦–
       {
         scanf("%d", &s);
         if (head[s]->val == 0)
@@ -54,7 +54,7 @@ int main() {
           free(p);
           head[s]->val--;
         }
-      } else /// ºÏ²¢Õ»
+      } else /// åˆå¹¶æ ˆ
       {
         scanf("%d%d", &s, &val);
         if (head[val]->val != 0) {

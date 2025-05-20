@@ -1,5 +1,5 @@
-#include <stdio.h>  ///µÚÒ»¸ö²»ÏàÍ¬µÄ¶ş½øÖÆÎ»Êı
-#include <string.h> ///Çø¼äÁ¬Ğø»ò£¬ÇÒ²Ù×÷
+#include <stdio.h>  ///ç¬¬ä¸€ä¸ªä¸ç›¸åŒçš„äºŒè¿›åˆ¶ä½æ•°
+#include <string.h> ///åŒºé—´è¿ç»­æˆ–ï¼Œä¸”æ“ä½œ
 long long num[65];
 void inti() {
   num[0] = 1;

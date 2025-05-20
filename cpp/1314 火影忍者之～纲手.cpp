@@ -1,10 +1,10 @@
 #include <iostream>
 #include <map>
-#include <stdio.h> ///巧用map进行一一对应
+#include <stdio.h> ///宸х敤map杩涜涓�涓�瀵瑰簲
 #include <string.h>
 #include <string>
 using namespace std;
-bool flag[1008][1009]; /// 关系矩阵
+bool flag[1008][1009]; /// 鍏崇郴鐭╅樀
 int main() {
   int m, n;
   string win, lose;
@@ -16,14 +16,14 @@ int main() {
       cin >> win >> lose;
       if (!q[win])
         q[win] =
-            sum++; /// sum是一直在增加的，因此对于map来说都是独一无二的对应int
+            sum++; /// sum鏄竴鐩村湪澧炲姞鐨勶紝鍥犳瀵逛簬map鏉ヨ閮芥槸鐙竴鏃犱簩鐨勫搴攊nt
       if (!q[lose])
         q[lose] = sum++;
       flag[q[win]][q[lose]] =
-          true; /// 在关系标记矩阵中，记录map对应的标号的关系
+          true; /// 鍦ㄥ叧绯绘爣璁扮煩闃典腑锛岃褰昺ap瀵瑰簲鐨勬爣鍙风殑鍏崇郴
     }
     scanf("%d", &n);
-    while (n--) /// 提问
+    while (n--) /// 鎻愰棶
     {
       cin >> win >> lose;
       if (flag[q[win]][q[lose]]) {

@@ -1,4 +1,4 @@
-#include <stdio.h> ///ÉîËÑ¹ãËÑ¶¼ĞĞ
+#include <stdio.h> ///æ·±æœå¹¿æœéƒ½è¡Œ
 #include <string.h>
 int t, st1, st2, ed1, ed2, n, m;
 char ma[502][503];
@@ -21,16 +21,16 @@ void dfs(int ii, int jj) {
       dfs(nexti, nextj);
     }
     if (ma[nexti][nextj] == '*')
-      flag[nexti][nextj]++; /// ½Ó´¥¼ÆÊı
+      flag[nexti][nextj]++; /// æ¥è§¦è®¡æ•°
   }
-  for (int i = 0; i < 4; i++) /// ¶ÔÓÚÏûÈ¥µÄ*£¬¿ÉÒÔÁ¢¼´´Ó¸ÃµãËÑË÷ÏÂÈ¥
+  for (int i = 0; i < 4; i++) /// å¯¹äºæ¶ˆå»çš„*ï¼Œå¯ä»¥ç«‹å³ä»è¯¥ç‚¹æœç´¢ä¸‹å»
   {
     int nexti = ii + walkx[i];
     int nextj = jj + walky[i];
-    if (flag[nexti][nextj] >= 2) /// ½Ó´¥Á½´Îºó¼´¿ÉÏûÈ¥£¬²¢´ÓÕâ¿ªÊ¼ËÑË÷
+    if (flag[nexti][nextj] >= 2) /// æ¥è§¦ä¸¤æ¬¡åå³å¯æ¶ˆå»ï¼Œå¹¶ä»è¿™å¼€å§‹æœç´¢
     {
       if (nexti == ed1 &&
-          nextj == ed2) /// ÏûÈ¥µÄµãÈôÊÇÖÕµã£¬¿ÉÒÔÁ¢¼´µÃµ½ans²¢·µ»Ø
+          nextj == ed2) /// æ¶ˆå»çš„ç‚¹è‹¥æ˜¯ç»ˆç‚¹ï¼Œå¯ä»¥ç«‹å³å¾—åˆ°anså¹¶è¿”å›
       {
         ans = true;
         return;
@@ -53,7 +53,7 @@ int main() {
     memset(flag, 0, sizeof(flag));
     scanf("%d%d%d%d", &st1, &st2, &ed1, &ed2);
     if (st1 == ed1 && st2 == ed2)
-      ans = true; /// ÆğÊ¼µãµÈÓÚÖÕµãÔò²»ÓÃËÑË÷
+      ans = true; /// èµ·å§‹ç‚¹ç­‰äºç»ˆç‚¹åˆ™ä¸ç”¨æœç´¢
     if (!ans)
       dfs(st1, st2);
     printf("%s\n", ans ? "YES" : "NO");

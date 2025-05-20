@@ -1,9 +1,9 @@
 #include <algorithm>
-#include <stdio.h>  ///³¬°ô£¡×î³¤µÝÔö×ÓÐòÁÐget¡Ì
-#include <string.h> ///Êµ¼ÊÉÏ¾ÍÊÇ½«Ã¿¸öÊýºÍÇ°ÃæµÄÇ°ÃæµÄ×î´óÖµ±È½Ï£¬Ñ¡È¡×î´óÖµ¼ÓÉÏ²¢¸³Öµ¸øÕýÔÚ±éÀúµÄÊý
+#include <stdio.h>  ///è¶…æ£’ï¼æœ€é•¿é€’å¢žå­åºåˆ—getâˆš
+#include <string.h> ///å®žé™…ä¸Šå°±æ˜¯å°†æ¯ä¸ªæ•°å’Œå‰é¢çš„å‰é¢çš„æœ€å¤§å€¼æ¯”è¾ƒï¼Œé€‰å–æœ€å¤§å€¼åŠ ä¸Šå¹¶èµ‹å€¼ç»™æ­£åœ¨éåŽ†çš„æ•°
 using namespace std;
 int main() {
-  int i, j, a[1080], dp[1080], n; /// Á½¸öÊý×é£¬dpÊý×éºÍÊäÈëÊý×é
+  int i, j, a[1080], dp[1080], n; /// ä¸¤ä¸ªæ•°ç»„ï¼Œdpæ•°ç»„å’Œè¾“å…¥æ•°ç»„
   while (scanf("%d", &n) != EOF) {
     for (i = 0; i < n; i++) {
       scanf("%d", &a[i]);
@@ -11,25 +11,25 @@ int main() {
     memset(dp, 0, sizeof(dp));
     int flag;
     int maxn = 1;
-    dp[0] = 1;              /// ³õÊ¼µÚÒ»¸ö±éÀúµÄÊýÎª³¤¶È1
-    for (i = 1; i < n; i++) /// ¿ªÊ¼¶¯Ì¬¹æ»®
+    dp[0] = 1;              /// åˆå§‹ç¬¬ä¸€ä¸ªéåŽ†çš„æ•°ä¸ºé•¿åº¦1
+    for (i = 1; i < n; i++) /// å¼€å§‹åŠ¨æ€è§„åˆ’
     {
-      flag = dp[i];           /// ¼ÇÂ¼´ËÊ±±éÀúÊý×ÖµÄ³¤¶È£¬Ò»°ã±»³õÊ¼»¯Îª0
-      for (j = 0; j < i; j++) /// ¼ì²éÇ°ÃæµÄdpÊý×éÖÐ´æ´¢µÄ×î³¤³¤¶È
+      flag = dp[i];           /// è®°å½•æ­¤æ—¶éåŽ†æ•°å­—çš„é•¿åº¦ï¼Œä¸€èˆ¬è¢«åˆå§‹åŒ–ä¸º0
+      for (j = 0; j < i; j++) /// æ£€æŸ¥å‰é¢çš„dpæ•°ç»„ä¸­å­˜å‚¨çš„æœ€é•¿é•¿åº¦
       {
-        if (a[i] > a[j] && dp[j] > flag) /// ÈôÂú×ãµÝÔöÌõ¼þ£¬ÇÒÕÒµ½ÁË×î´ó³¤¶È
+        if (a[i] > a[j] && dp[j] > flag) /// è‹¥æ»¡è¶³é€’å¢žæ¡ä»¶ï¼Œä¸”æ‰¾åˆ°äº†æœ€å¤§é•¿åº¦
         {
-          flag = dp[j]; /// ¼ÇÂ¼³¤¶È
-        } /// Èç¹û·ûºÏµÝÔöÐòÁÐµÄÌõ¼þ£¬ÄÇÃ´¾Í½«Æä³¤¶È¼ÇÂ¼£¬µ½flag£¬±ãÓÚ´æÖÁµÚiÎ»×÷Îª×î³¤³¤¶È
+          flag = dp[j]; /// è®°å½•é•¿åº¦
+        } /// å¦‚æžœç¬¦åˆé€’å¢žåºåˆ—çš„æ¡ä»¶ï¼Œé‚£ä¹ˆå°±å°†å…¶é•¿åº¦è®°å½•ï¼Œåˆ°flagï¼Œä¾¿äºŽå­˜è‡³ç¬¬iä½ä½œä¸ºæœ€é•¿é•¿åº¦
       }
-      dp[i] = flag + 1; /// Èô±éÀú¹ýÁËµÄi£¬Ôò½«×î³¤³¤¶È+1£¬±íÊ¾ÎªiµÄ³¤¶È
+      dp[i] = flag + 1; /// è‹¥éåŽ†è¿‡äº†çš„iï¼Œåˆ™å°†æœ€é•¿é•¿åº¦+1ï¼Œè¡¨ç¤ºä¸ºiçš„é•¿åº¦
       maxn = max(maxn, dp[i]);
-    } /// ×÷Îª×î³¤³¤¶È£¬´ÓflagÖÐ+1£¨i±¾Éí£©¼ÇÂ¼µ½µÚi¸öÊýÖÐ
+    } /// ä½œä¸ºæœ€é•¿é•¿åº¦ï¼Œä»Žflagä¸­+1ï¼ˆiæœ¬èº«ï¼‰è®°å½•åˆ°ç¬¬iä¸ªæ•°ä¸­
     //        for(i=0;i<=n;i++)
     //        {
     //            printf("%d\n",dp[i]);
     //        }
-    //        sort(dp,dp+n);///ÕâÀïÕÒdp³öÀ´µÄ³¤¶È×î´óÖµ£¬ÓÐµãÐ¡Ìâ´ó×öÁË£¬µ«ÊÇÎªÁËÊ¡ÊÂ
+    //        sort(dp,dp+n);///è¿™é‡Œæ‰¾dpå‡ºæ¥çš„é•¿åº¦æœ€å¤§å€¼ï¼Œæœ‰ç‚¹å°é¢˜å¤§åšäº†ï¼Œä½†æ˜¯ä¸ºäº†çœäº‹
     printf("%d\n", maxn);
   }
   return 0;

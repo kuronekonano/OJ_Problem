@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> ///·ÖÇé¿öÅĞ¶Ï£¬Ê×ÏÈÕÒµ½Á½´®ÖĞË­ÓĞ*
+#include <bits/stdc++.h> ///åˆ†æƒ…å†µåˆ¤æ–­ï¼Œé¦–å…ˆæ‰¾åˆ°ä¸¤ä¸²ä¸­è°æœ‰*
 #define LL long long
 #define M(a, b) memset(a, b, sizeof a)
 using namespace std;
@@ -22,14 +22,14 @@ int main() {
           pos = i;
           break;
         }
-      if (pos == -1) /// ÈôÁ½Õß¶¼Ã»ÓĞ*
+      if (pos == -1) /// è‹¥ä¸¤è€…éƒ½æ²¡æœ‰*
       {
-        if (n != m) /// ÅĞ¶Ï³¤¶È
+        if (n != m) /// åˆ¤æ–­é•¿åº¦
         {
           printf("NO\n");
           continue;
         }
-        for (int i = 0; i < n; i++) /// ÅĞ¶ÏÃ¿¸ö×Ö·ûÊÇ·ñÒ»Ñù
+        for (int i = 0; i < n; i++) /// åˆ¤æ–­æ¯ä¸ªå­—ç¬¦æ˜¯å¦ä¸€æ ·
         {
           if (a[i] != b[i]) {
             printf("NO\n");
@@ -38,23 +38,23 @@ int main() {
           }
         }
         if (!flag)
-          continue; /// ×îºó´íÎó£ºÃ»ÓĞcontinueÊä³öÁ½´Î½á¹û
+          continue; /// æœ€åé”™è¯¯ï¼šæ²¡æœ‰continueè¾“å‡ºä¸¤æ¬¡ç»“æœ
         else {
           printf("YES\n");
           continue;
         }
       }
-      if (pos > n) ///*ÔÚb´®ÖĞ
+      if (pos > n) ///*åœ¨bä¸²ä¸­
       {
-        printf("NO\n"); /// ÈôĞÇºÅÎ»ÖÃ´óÓÚa´®³¤¶È£¬ÄÇÃ´¿Ï¶¨²»¿ÉÄÜ×é³É
+        printf("NO\n"); /// è‹¥æ˜Ÿå·ä½ç½®å¤§äºaä¸²é•¿åº¦ï¼Œé‚£ä¹ˆè‚¯å®šä¸å¯èƒ½ç»„æˆ
         continue;
       }
-      if (m - 1 > n) /// ÈôÊ£Óàb´®³¤¶È´óÓÚa´®³¤¶È£¬Í¬Ñù²»¿ÉÄÜ
+      if (m - 1 > n) /// è‹¥å‰©ä½™bä¸²é•¿åº¦å¤§äºaä¸²é•¿åº¦ï¼ŒåŒæ ·ä¸å¯èƒ½
       {
         printf("NO\n");
         continue;
       }
-      for (int i = 0; i < min(pos, n); i++) /// ±éÀúĞÇºÅÖ®Ç°Î»ÖÃÊÇ·ñÏàµÈ
+      for (int i = 0; i < min(pos, n); i++) /// éå†æ˜Ÿå·ä¹‹å‰ä½ç½®æ˜¯å¦ç›¸ç­‰
       {
         if (a[i] != b[i]) {
           printf("NO\n");
@@ -65,7 +65,7 @@ int main() {
       if (!flag)
         continue;
       for (int i = n - 1, j = m - 1; j > pos && i > 0;
-           j--, i--) /// ±éÀúĞÇºÅÖ®ºóÎ»ÖÃÊÇ·ñÏàµÈ
+           j--, i--) /// éå†æ˜Ÿå·ä¹‹åä½ç½®æ˜¯å¦ç›¸ç­‰
       {
         if (a[i] != b[j]) {
           printf("NO\n");
@@ -73,7 +73,7 @@ int main() {
           break;
         }
       }
-    } else ///*ÔÚa´®ÖĞ
+    } else ///*åœ¨aä¸²ä¸­
     {
       if (pos > m) {
         printf("NO\n");

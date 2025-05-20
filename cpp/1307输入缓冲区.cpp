@@ -9,9 +9,9 @@ int main() {
   while (!q.empty()) {
     q.pop();
   }
-  while (scanf("%s", a) != EOF) /// 使用cin 超时，使用string超时
+  while (scanf("%s", a) != EOF) /// 浣跨敤cin 瓒呮椂锛屼娇鐢╯tring瓒呮椂
   {
-    getchar(); /// 接个回车
+    getchar(); /// 鎺ヤ釜鍥炶溅
     if (strcmp(a, "In") == 0) {
       scanf("%c", &b);
       q.push(b);

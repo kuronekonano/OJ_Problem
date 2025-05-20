@@ -1,4 +1,4 @@
-#include <stdio.h> ///¶şÎ¬Ê÷×´Êı×éÄ£°åÌâ
+#include <stdio.h> ///äºŒç»´æ ‘çŠ¶æ•°ç»„æ¨¡æ¿é¢˜
 #include <string.h>
 #define LL long long
 LL tre[1036][1036];
@@ -6,13 +6,13 @@ int n;
 int lowbit(int x) { return x & (-x); }
 void update(
     int x, int y,
-    int add) /// Çø¼ä¸üĞÂ£¬¶Ô±»¸üĞÂÇøÓòÇ°×ººÍ¸üĞÂxµ½y¸üĞÂÖÁn Ôö³¤ÂÊÎªlowbit(i)
+    int add) /// åŒºé—´æ›´æ–°ï¼Œå¯¹è¢«æ›´æ–°åŒºåŸŸå‰ç¼€å’Œæ›´æ–°xåˆ°yæ›´æ–°è‡³n å¢é•¿ç‡ä¸ºlowbit(i)
 {
   for (int i = x; i <= n; i += lowbit(i))
     for (int j = y; j <= n; j += lowbit(j))
       tre[i][j] += add;
 }
-LL sum(int x, int y) /// ÇóºÍ
+LL sum(int x, int y) /// æ±‚å’Œ
 {
   LL sum = 0;
   for (int i = x; i > 0; i -= lowbit(i))
@@ -23,18 +23,18 @@ LL sum(int x, int y) /// ÇóºÍ
 int main() {
   int flag;
   while (scanf("%d", &flag) != EOF) {
-    if (flag == 0) /// ÊäÈë0Ê±Çå¿ÕÊı×é
+    if (flag == 0) /// è¾“å…¥0æ—¶æ¸…ç©ºæ•°ç»„
     {
       memset(tre, 0, sizeof(tre));
       scanf("%d", &n);
-    } else if (flag == 1) /// ÊäÈë1Ê±×öµ¥µãĞŞ¸Ä
+    } else if (flag == 1) /// è¾“å…¥1æ—¶åšå•ç‚¹ä¿®æ”¹
     {
       int x, y, add;
       scanf("%d%d%d", &x, &y, &add);
       x++;
-      y++; /// ×¢ÒâÌâÄ¿ÊÇ´Ó0,0µÄ×ø±ê¿ªÊ¼µÄ£¬Ö±µ½n-1£¬¶øÊ÷×´Êı×éÒòÎªÒªlowbit²Ù×÷±Ø´Ó1¿ªÊ¼n½áÊø£¬Òò´ËÔÚÊäÈëºóÓ¦+1±íÊ¾Ê÷×´Êı×éÖĞ´æ´¢µÄÎ»ÖÃ
+      y++; /// æ³¨æ„é¢˜ç›®æ˜¯ä»0,0çš„åæ ‡å¼€å§‹çš„ï¼Œç›´åˆ°n-1ï¼Œè€Œæ ‘çŠ¶æ•°ç»„å› ä¸ºè¦lowbitæ“ä½œå¿…ä»1å¼€å§‹nç»“æŸï¼Œå› æ­¤åœ¨è¾“å…¥ååº”+1è¡¨ç¤ºæ ‘çŠ¶æ•°ç»„ä¸­å­˜å‚¨çš„ä½ç½®
       update(x, y, add);
-    } else if (flag == 2) /// ÊäÈë2Ê±Çø¼äÇóºÍ²éÑ¯
+    } else if (flag == 2) /// è¾“å…¥2æ—¶åŒºé—´æ±‚å’ŒæŸ¥è¯¢
     {
       int x1, y1, x2, y2;
       scanf("%d%d%d%d", &x1, &y1, &x2, &y2);
@@ -44,7 +44,7 @@ int main() {
       y2++;
       printf("%lld\n",
              sum(x2, y2) - sum(x1 - 1, y2) - sum(x2, y1 - 1) +
-                 sum(x1 - 1, y1 - 1)); /// Èİ³âÔ­ÀíÉ¾¼õÔö¼ÓÖØ¸´¼õÈ¥µÄÄÚÈİ
+                 sum(x1 - 1, y1 - 1)); /// å®¹æ–¥åŸç†åˆ å‡å¢åŠ é‡å¤å‡å»çš„å†…å®¹
     } else
       break;
   }

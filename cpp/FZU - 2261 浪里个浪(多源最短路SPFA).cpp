@@ -1,5 +1,5 @@
 #include <queue>
-#include <stdio.h> ///¶àÔ´×î¶ÌÂ·¾¶
+#include <stdio.h> ///å¤šæºæœ€çŸ­è·¯å¾„
 #include <string.h>
 #include <vector>
 using namespace std;
@@ -51,10 +51,10 @@ int main() {
       mp[from].push_back(edge(to, val));
     }
     int tmp;
-    scanf("%d", &s); /// ¶à¸öÆğµã£¬½¨Á¢³¬¼¶ÆğµãÁ¬½Ó£¬±ßÈ¨Îª0
+    scanf("%d", &s); /// å¤šä¸ªèµ·ç‚¹ï¼Œå»ºç«‹è¶…çº§èµ·ç‚¹è¿æ¥ï¼Œè¾¹æƒä¸º0
     for (int i = 0; i < s; i++)
       scanf("%d", &tmp), mp[0].push_back(edge(tmp, 0));
-    scanf("%d", &e); /// ¶à¸öÖÕµã£¬½¨Á¢³¬¼¶ÖÕµãÁ¬½Ó£¬±ßÈ¨Îª0
+    scanf("%d", &e); /// å¤šä¸ªç»ˆç‚¹ï¼Œå»ºç«‹è¶…çº§ç»ˆç‚¹è¿æ¥ï¼Œè¾¹æƒä¸º0
     for (int i = 0; i < e; i++)
       scanf("%d", &tmp), mp[tmp].push_back(edge(n + 1, 0));
     SPFA(0);

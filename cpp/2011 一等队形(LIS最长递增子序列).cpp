@@ -1,6 +1,6 @@
-#include <stdio.h>  ///²»ÔÊÐíÓÐÒ»¸öÒÔÉÏ×î¸ßµÄÈË
-#include <string.h> ///´Ó×óµ½ÓÒÒÔ¼°´ÓÓÒµ½×ó·Ö±ðÇó³ö×î³¤µÝÔö×ÓÐòÁÐ£¬²»ÄÜÓÃnlognµÄ·½·¨£¬ÒòÎªÄ¿µÄÊÇÒªµÃµ½´Ó0µ½´ïÄ³¸öÊý×ÖÎ»µÄ×î³¤µÝÔö³¤¶È
-int main() /// ´ÓÁ½Í·¸÷×ßÒ»±ß×î³¤µÝÔö×ÓÐòÁÐºó£¬Ã¿¸öÊý×ÖµÄmaxn[i]ºÍminn[i]¶¼½«±íÊ¾´Ó×óµ½ÓÒ
+#include <stdio.h>  ///ä¸å…è®¸æœ‰ä¸€ä¸ªä»¥ä¸Šæœ€é«˜çš„äºº
+#include <string.h> ///ä»Žå·¦åˆ°å³ä»¥åŠä»Žå³åˆ°å·¦åˆ†åˆ«æ±‚å‡ºæœ€é•¿é€’å¢žå­åºåˆ—ï¼Œä¸èƒ½ç”¨nlognçš„æ–¹æ³•ï¼Œå› ä¸ºç›®çš„æ˜¯è¦å¾—åˆ°ä»Ž0åˆ°è¾¾æŸä¸ªæ•°å­—ä½çš„æœ€é•¿é€’å¢žé•¿åº¦
+int main() /// ä»Žä¸¤å¤´å„èµ°ä¸€è¾¹æœ€é•¿é€’å¢žå­åºåˆ—åŽï¼Œæ¯ä¸ªæ•°å­—çš„maxn[i]å’Œminn[i]éƒ½å°†è¡¨ç¤ºä»Žå·¦åˆ°å³
 {
   int n, a[105], maxn[105], minn[105];
   while (scanf("%d", &n) != EOF) {

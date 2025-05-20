@@ -11,7 +11,7 @@ struct node {
 } tre[maxn << 2];
 void pushup(int rt) { tre[rt].sum = tre[rt << 1].sum + tre[rt << 1 | 1].sum; }
 void pushdown(
-    int rt) /// ÏòÏÂ´«µİ£¬¸ù¾İ½áµãµÄÇø¼ä±ß½ç¶ÔsumÇóºÍÓëmarkÑÓÊ±±ê¼Ç½øĞĞ¸üĞÂ
+    int rt) /// å‘ä¸‹ä¼ é€’ï¼Œæ ¹æ®ç»“ç‚¹çš„åŒºé—´è¾¹ç•Œå¯¹sumæ±‚å’Œä¸markå»¶æ—¶æ ‡è®°è¿›è¡Œæ›´æ–°
 {
   if (mark[rt]) {
     tre[rt << 1].sum += (tre[rt << 1].r - tre[rt << 1].l + 1) * 1LL * mark[rt];
@@ -37,11 +37,11 @@ void build(int l, int r, int rt) {
 void update(int l, int r, LL val, int rt) {
   if (tre[rt].l >= l && tre[rt].r <= r) {
     tre[rt].sum +=
-        (tre[rt].r - tre[rt].l + 1) * val; /// ¸üĞÂÇø¼äÊ±Òª¼ÓÉÏ³¤¶È*val
-    mark[rt] += val;                       /// ²¢ÇÒ¶ÔmarkÑÓÊ±±ê¼Ç¸üĞÂ
+        (tre[rt].r - tre[rt].l + 1) * val; /// æ›´æ–°åŒºé—´æ—¶è¦åŠ ä¸Šé•¿åº¦*val
+    mark[rt] += val;                       /// å¹¶ä¸”å¯¹markå»¶æ—¶æ ‡è®°æ›´æ–°
   } else {
     pushdown(
-        rt); /// ²éÑ¯¼°¸üĞÂ½áµãÊ±ÒªÏÈÅĞ¶Ï¸ÃÎ»ÖÃÊÇ·ñÓĞÑÓÊ±±ê¼Ç£¬Èç¹ûÓĞÔòpush_downÏòÏÂ´«µİ
+        rt); /// æŸ¥è¯¢åŠæ›´æ–°ç»“ç‚¹æ—¶è¦å…ˆåˆ¤æ–­è¯¥ä½ç½®æ˜¯å¦æœ‰å»¶æ—¶æ ‡è®°ï¼Œå¦‚æœæœ‰åˆ™push_downå‘ä¸‹ä¼ é€’
     int mid = (tre[rt].l + tre[rt].r) >> 1;
     if (l > mid)
       update(l, r, val, rt << 1 | 1);
@@ -51,14 +51,14 @@ void update(int l, int r, LL val, int rt) {
       update(l, r, val, rt << 1 | 1);
       update(l, r, val, rt << 1);
     }
-    pushup(rt); /// ¸üĞÂºóÏòÉÏ´«µİ
+    pushup(rt); /// æ›´æ–°åå‘ä¸Šä¼ é€’
   }
 }
 void query(int l, int r, int rt) {
   if (tre[rt].l >= l && tre[rt].r <= r)
     ans += tre[rt].sum;
   else {
-    pushdown(rt); /// ²éÑ¯ÏòÏÂ´«µİ
+    pushdown(rt); /// æŸ¥è¯¢å‘ä¸‹ä¼ é€’
     int mid = (tre[rt].l + tre[rt].r) >> 1;
     if (l > mid)
       query(l, r, rt << 1 | 1);

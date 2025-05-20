@@ -1,6 +1,6 @@
-#include <algorithm> ///reverseº¯ÊıÍ·ÎÄ¼ş
+#include <algorithm> ///reverseå‡½æ•°å¤´æ–‡ä»¶
 #include <stdio.h>
-#include <string.h> ///´Ëº¯Êı±ÈÖ±½ÓÓÃÊı×éµ¹ĞòÊä³ö·ÑÊ±£¬Ïê¼û2330
+#include <string.h> ///æ­¤å‡½æ•°æ¯”ç›´æ¥ç”¨æ•°ç»„å€’åºè¾“å‡ºè´¹æ—¶ï¼Œè¯¦è§2330
 using namespace std;
 int main() {
   char a[10008], b[10008];
@@ -15,7 +15,7 @@ int main() {
       if (a[i] != ' ') {
         b[flag++] = a[i];
       } else {
-        reverse(b, b + flag); /// ´ÓÄ³¸öÎ»ÖÃÖÁÄ³¸öÎ»ÖÃµ÷×ª
+        reverse(b, b + flag); /// ä»æŸä¸ªä½ç½®è‡³æŸä¸ªä½ç½®è°ƒè½¬
         printf("%s", b);
         memset(b, 0, sizeof(b));
         printf("%c", a[i]);
@@ -24,7 +24,7 @@ int main() {
     }
     reverse(b, b + flag);
     printf("%s\n", b);
-    memset(b, 0, sizeof(b)); /// Çå¿Õ×Ö·ûÊı×éÊ±£¬ÇåÎª0Ò²ÊÇÍêÈ«¿Õµô
+    memset(b, 0, sizeof(b)); /// æ¸…ç©ºå­—ç¬¦æ•°ç»„æ—¶ï¼Œæ¸…ä¸º0ä¹Ÿæ˜¯å®Œå…¨ç©ºæ‰
   }
   return 0;
 }

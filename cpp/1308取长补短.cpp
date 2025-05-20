@@ -1,4 +1,4 @@
-#include <stdio.h> ///暴力遍历，暴力出奇迹
+#include <stdio.h> ///鏆村姏閬嶅巻锛屾毚鍔涘嚭濂囪抗
 #include <string.h>
 int main() {
   int m, n, p, i, sumn, sump;

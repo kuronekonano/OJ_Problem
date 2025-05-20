@@ -6,23 +6,23 @@ int find(int tmp, int l, int r) {
       return i;
 }
 int halfpath(int bl, int br, int al, int ar) {
-  // ÄÃ³öÇ°Ğò±éÀúµÄÔªËØµ½ÖĞĞò±éÀúÖĞ²éÑ¯Î»ÖÃ
+  // æ‹¿å‡ºå‰åºéå†çš„å…ƒç´ åˆ°ä¸­åºéå†ä¸­æŸ¥è¯¢ä½ç½®
   if (al == ar)
     return 0;
   int root =
-      find(b[bl], al, ar); // ÕÒ³öÇ°Ğò±éÀúÖĞµÚbl¸öÔªËØÔÚÖĞĞò±éÀúĞòÁĞÖĞµÄÎ»ÖÃ
-  int len = root - al;     // ÖĞĞò±éÀúÖĞµÚbl¸öÔªËØµÄÎ»Ğò²î
-  halfpath(bl + 1, bl + 1 + len, al, al + len); // ×ó×ÓÊ÷
-  halfpath(bl + 1 + len, br, al + len + 1, ar); // ÓÒ×ÓÊ÷
+      find(b[bl], al, ar); // æ‰¾å‡ºå‰åºéå†ä¸­ç¬¬blä¸ªå…ƒç´ åœ¨ä¸­åºéå†åºåˆ—ä¸­çš„ä½ç½®
+  int len = root - al;     // ä¸­åºéå†ä¸­ç¬¬blä¸ªå…ƒç´ çš„ä½åºå·®
+  halfpath(bl + 1, bl + 1 + len, al, al + len); // å·¦å­æ ‘
+  halfpath(bl + 1 + len, br, al + len + 1, ar); // å³å­æ ‘
   c[num++] = a[root];
 }
 int main() {
   while (scanf("%d", &n) != EOF) {
     num = 0;
     for (int i = 0; i < n; i++)
-      scanf("%d", &a[i]); // ÖĞĞò±éÀú
+      scanf("%d", &a[i]); // ä¸­åºéå†
     for (int i = 0; i < n; i++)
-      scanf("%d", &b[i]); // Ç°Ğò±éÀú
+      scanf("%d", &b[i]); // å‰åºéå†
     halfpath(0, n, 0, n);
     for (int i = 0; i < n; i++)
       printf("%d ", c[i]);

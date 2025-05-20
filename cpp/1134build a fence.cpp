@@ -1,7 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 int main() {
-  double area, l, pi = acos(-1); // 最大面积则为半圆，记住acos(-1)时等于π
+  double area, l, pi = acos(-1); // 鏈�澶ч潰绉垯涓哄崐鍦嗭紝璁颁綇acos(-1)鏃剁瓑浜幭�
   while (scanf("%lf", &l)) {
     if (l == 0)
       break;

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h> ///打表找规律，发现，所有素数都为NO,所有素数的n次方都NO
+#include <string.h> ///鎵撹〃鎵捐寰嬶紝鍙戠幇锛屾墍鏈夌礌鏁伴兘涓篘O,鎵�鏈夌礌鏁扮殑n娆℃柟閮絅O
 bool a[1000008];
 int b[1000008];
 int main() {

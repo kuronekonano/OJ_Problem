@@ -1,4 +1,4 @@
-#include <stdio.h> ///ËØÊýÉ¸³öËùÓÐËØÊý£¬½«ËØÊý±éÀú£¬ÕÒ³öµ¹×ªºó²»ÏàµÈÇÒÈÔÎªËØÊýµÄ·´ËØÊý£¬×îºóÖ±½ÓÊä³ö
+#include <stdio.h> ///ç´ æ•°ç­›å‡ºæ‰€æœ‰ç´ æ•°ï¼Œå°†ç´ æ•°éåŽ†ï¼Œæ‰¾å‡ºå€’è½¬åŽä¸ç›¸ç­‰ä¸”ä»ä¸ºç´ æ•°çš„åç´ æ•°ï¼Œæœ€åŽç›´æŽ¥è¾“å‡º
 #include <string.h>
 bool vis[100008];
 int emirp[1008], prim[10008], ans;

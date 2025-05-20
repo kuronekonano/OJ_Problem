@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> ///模拟斜向矩形画图100*100暴力
+#include <bits/stdc++.h> ///妯℃嫙鏂滃悜鐭╁舰鐢诲浘100*100鏆村姏
 #define LL long long
 #define M(a, b) memset(a, b, sizeof a)
 #define pb(x) push_back(x)

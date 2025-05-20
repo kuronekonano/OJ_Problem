@@ -1,6 +1,6 @@
 #include <algorithm>
-#include <stdio.h> ///Ã¿´ÎÕÒ×î´óÏÊ¶ÈµÄĞİÏ¢Õ¾£¬Ö±½Óµ½ÄÇÀïµÈ×ÅÅ©·ò£¬È»ºó¼ÌĞøÕÒ×î´óÏÊ¶ÈµÄĞİÏ¢Õ¾
-#include <string.h> ///×¢ÒâansÊÇlong long µÄ
+#include <stdio.h> ///æ¯æ¬¡æ‰¾æœ€å¤§é²œåº¦çš„ä¼‘æ¯ç«™ï¼Œç›´æ¥åˆ°é‚£é‡Œç­‰ç€å†œå¤«ï¼Œç„¶åç»§ç»­æ‰¾æœ€å¤§é²œåº¦çš„ä¼‘æ¯ç«™
+#include <string.h> ///æ³¨æ„ansæ˜¯long long çš„
 using namespace std;
 int n, a[105], dis[105], ans;
 bool vis[105];

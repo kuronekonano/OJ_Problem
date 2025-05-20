@@ -1,4 +1,4 @@
-#include <stdio.h> ///Õâ´ÎÊÇ×Ô¼ºĞ´µÄA+BÄ£ÄâÁË¡­¡­
+#include <stdio.h> ///è¿™æ¬¡æ˜¯è‡ªå·±å†™çš„A+Bæ¨¡æ‹Ÿäº†â€¦â€¦
 #include <string.h>
 int main() {
   char a[1008], b[1008], c[1008];
@@ -9,7 +9,7 @@ int main() {
     int la = strlen(a);
     int lb = strlen(b);
     int lc = strlen(c);
-    memset(ans, 0, sizeof(ans)); /// ÈıÊıÏà¼Ó£¬Ò»¸öÒ»¸ö¼Ó£¬×îºó½øÎ»
+    memset(ans, 0, sizeof(ans)); /// ä¸‰æ•°ç›¸åŠ ï¼Œä¸€ä¸ªä¸€ä¸ªåŠ ï¼Œæœ€åè¿›ä½
     int numa = 0, k = 0;
     la--, lb--, lc--;
     while (la >= 0) {
@@ -27,7 +27,7 @@ int main() {
         numb > numc ? (numa > numb ? numa : numb) : (numa > numc ? numa : numc);
     for (int i = 0; i < numa; i++) {
       if (i == numa - 1 && ans[i] >= 10)
-        continue; /// ×¢Òâ´¦Àí×îºóÒ»Î»Êı
+        continue; /// æ³¨æ„å¤„ç†æœ€åä¸€ä½æ•°
       ans[i + 1] = ans[i + 1] + ans[i] / 10;
       ans[i] = ans[i] % 10;
     }

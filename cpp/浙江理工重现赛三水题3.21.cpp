@@ -1,4 +1,4 @@
-// #include<stdio.h>///AÌâ»ØÎÄ
+// #include<stdio.h>///Aé¢˜å›æ–‡
 // #include<string.h>
 // int main()
 //{
@@ -20,7 +20,7 @@
 //     }
 //     return 0;
 // }
-// #include<stdio.h>///IÌâÔ½Ô¼ËØ
+// #include<stdio.h>///Ié¢˜è¶Šçº¦ç´ 
 // #include<math.h>
 // int main()
 //{
@@ -31,7 +31,7 @@
 //         int n,p,i;
 //         scanf("%d%d",&n,&p);
 //         int flag=0;
-//         for(i=2;i<=sqrt(n);i++)///±©Á¦¿ª£¬×¢Òâ·¶Î§µ½¸ùºÅn
+//         for(i=2;i<=sqrt(n);i++)///æš´åŠ›å¼€ï¼Œæ³¨æ„èŒƒå›´åˆ°æ ¹å·n
 //         {
 //             if(n%i==0)
 //             {
@@ -52,13 +52,13 @@
 //         }
 //     }
 // }
-#include <stdio.h> ///½â·½³Ì£¬²»ÊÇ±³°ü
+#include <stdio.h> ///è§£æ–¹ç¨‹ï¼Œä¸æ˜¯èƒŒåŒ…
 int main() {
   int n, k, a, b, c;
   while (scanf("%d%d%d%d%d", &n, &k, &a, &b, &c) != EOF) {
     int i, j;
     bool flag = false;
-    for (i = 0; i <= k; i++) /// ±©Á¦ËÑ£¬×î´ó·¶Î§10000
+    for (i = 0; i <= k; i++) /// æš´åŠ›æœï¼Œæœ€å¤§èŒƒå›´10000
     {
       for (j = 0; j <= k - i; j++) {
         int m = k - i - j;

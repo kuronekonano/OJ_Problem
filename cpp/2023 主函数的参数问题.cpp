@@ -1,4 +1,4 @@
-#include <stdio.h> /// ֱ��whileģ�⣬ע�⵱����'��"ʱ��Ҫ������һλ�����һλ�����������֮��ҲҪ����'��"�����ж������ַ�
+#include <stdio.h> /// 直接while模拟，注意当读到'和"时，要跳过这一位输出下一位，并且输出玩之后也要跳过'和"继续判断其他字符
 #include <string.h>
 int main() {
   char a[2000];

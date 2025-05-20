@@ -1,20 +1,20 @@
-#include <stdio.h> ///ÓÐn¸ö¸ñ×ÓÏßÐÔÅÅÁÐ£¬ÓÐm¸ö¹¥»÷Ëþ¡£Ã¿¸öËþ¿ÉÔÚLµ½R·¶Î§ÄÚµÄÃ¿¸ö¸ñ×ÓÀïÔì³ÉZµãÉËº¦¡£ÓÐK¸ö¹ÖÎï£¬Ã¿Ö»¹ÖÎïÔÚPOS´¦³öÉú£¬²¢ÓÐHPµÄÑªÁ¿£¬ÎÊ×îºóÄÜ»î×Å×ß³öN¸ö¸ñ×ÓµÄ¹ÖÎïÓÐ¶àÉÙ¡£
-#include <string.h> ///¸ñ×ÓÊýÎªÊ÷×´Êý×é´óÐ¡£¬Êý×éÄÚ´æ´¢Ã¿¸ö¸ñ×ÓÔì³ÉµÄÉËº¦£¬¶ÔÓÚÇø¼äÉËº¦²»ÄÜµ¥µã¸üÐÂ£¬»á³¬Ê±£¬Ö»ÄÜÇø¼ä¸üÐÂ£¬ÔÚÇø¼ä×ó±ß½çL¸üÐÂZ£¬ÓÒ±ß½çR+1¸üÐÂ-Z
+#include <stdio.h> ///æœ‰nä¸ªæ ¼å­çº¿æ€§æŽ’åˆ—ï¼Œæœ‰mä¸ªæ”»å‡»å¡”ã€‚æ¯ä¸ªå¡”å¯åœ¨Låˆ°RèŒƒå›´å†…çš„æ¯ä¸ªæ ¼å­é‡Œé€ æˆZç‚¹ä¼¤å®³ã€‚æœ‰Kä¸ªæ€ªç‰©ï¼Œæ¯åªæ€ªç‰©åœ¨POSå¤„å‡ºç”Ÿï¼Œå¹¶æœ‰HPçš„è¡€é‡ï¼Œé—®æœ€åŽèƒ½æ´»ç€èµ°å‡ºNä¸ªæ ¼å­çš„æ€ªç‰©æœ‰å¤šå°‘ã€‚
+#include <string.h> ///æ ¼å­æ•°ä¸ºæ ‘çŠ¶æ•°ç»„å¤§å°ï¼Œæ•°ç»„å†…å­˜å‚¨æ¯ä¸ªæ ¼å­é€ æˆçš„ä¼¤å®³ï¼Œå¯¹äºŽåŒºé—´ä¼¤å®³ä¸èƒ½å•ç‚¹æ›´æ–°ï¼Œä¼šè¶…æ—¶ï¼Œåªèƒ½åŒºé—´æ›´æ–°ï¼Œåœ¨åŒºé—´å·¦è¾¹ç•ŒLæ›´æ–°Zï¼Œå³è¾¹ç•ŒR+1æ›´æ–°-Z
 #define LL                                                                     \
-  long long /// Òò´Ëµ±sumº¯ÊýÇóºÍÊ±£¬´Ó1µ½xµÄ¼ÆÊý£¬ÆäËûÇø¼äµÄÉËº¦½«±»±ß½çµÄ-ZµÖÏû£¬¶øµ½´ïXÊ±ÒòÎª»¹Î´µ½´ï±ß½ç-ZµÖÏû£¬ËùÒÔ½«µÃµ½´Ë´¦¸ñ×ÓµÄÉËº¦£¬¼´Ê¹ÖØµþ¸²¸ÇµÄÇø¼äÒ²ÄÜµÃµ½ÉËº¦
+  long long /// å› æ­¤å½“sumå‡½æ•°æ±‚å’Œæ—¶ï¼Œä»Ž1åˆ°xçš„è®¡æ•°ï¼Œå…¶ä»–åŒºé—´çš„ä¼¤å®³å°†è¢«è¾¹ç•Œçš„-ZæŠµæ¶ˆï¼Œè€Œåˆ°è¾¾Xæ—¶å› ä¸ºè¿˜æœªåˆ°è¾¾è¾¹ç•Œ-ZæŠµæ¶ˆï¼Œæ‰€ä»¥å°†å¾—åˆ°æ­¤å¤„æ ¼å­çš„ä¼¤å®³ï¼Œå³ä½¿é‡å è¦†ç›–çš„åŒºé—´ä¹Ÿèƒ½å¾—åˆ°ä¼¤å®³
 int n,
-    m; /// attactÊý×é±íÊ¾´Ó¸ñ×Ópos´¦µ½´ïÖÕµãµÄ×ÜÉËº¦£¬¼ÆËãÊ±´Ónµ¹×ÅÇóµ½1£¬¶ÔÓÚ
-       /// Ã¿¸öPOSµÄ×ÜÉËº¦£¬ÓÉi-1¼Ósum(i)µÝÍÆ¶øÀ´
+    m; /// attactæ•°ç»„è¡¨ç¤ºä»Žæ ¼å­poså¤„åˆ°è¾¾ç»ˆç‚¹çš„æ€»ä¼¤å®³ï¼Œè®¡ç®—æ—¶ä»Žnå€’ç€æ±‚åˆ°1ï¼Œå¯¹äºŽ
+       /// æ¯ä¸ªPOSçš„æ€»ä¼¤å®³ï¼Œç”±i-1åŠ sum(i)é€’æŽ¨è€Œæ¥
 LL tree[100005], attact[100005];
 int lowbit(int x) { return x & (-x); }
-void update(int p, int x) /// ¸üÐÂÊ±´Óxµ½n
+void update(int p, int x) /// æ›´æ–°æ—¶ä»Žxåˆ°n
 {
   while (p <= n) {
     tree[p] += x;
     p += lowbit(p);
   }
 }
-LL sum(int x) /// ÇóºÍÊ±´ÓXµ½1
+LL sum(int x) /// æ±‚å’Œæ—¶ä»ŽXåˆ°1
 {
   LL sum = 0;
   while (x > 0) {
@@ -42,7 +42,7 @@ int main() {
     LL hp;
     scanf("%d", &k);
     while (
-        k--) /// ×îÖÕÊäÈëÃ¿¸ö¹ÖÎïµÄHPºÍ³öÉúµãÊ±£¬Ö»Ðè±È½Ï¸Ã¹ÖÎïµÄÑªÁ¿ÊÇ·ñÄÜ³ÐÊÜ´Ó³öÉúµãµ½ÖÕµãµÄÉËº¦×ÜºÍ£¬¼´¿ÉÅÐ¶Ï¸Ã¹ÖÎïÊÇ·ñÄÜ´æ»î
+        k--) /// æœ€ç»ˆè¾“å…¥æ¯ä¸ªæ€ªç‰©çš„HPå’Œå‡ºç”Ÿç‚¹æ—¶ï¼Œåªéœ€æ¯”è¾ƒè¯¥æ€ªç‰©çš„è¡€é‡æ˜¯å¦èƒ½æ‰¿å—ä»Žå‡ºç”Ÿç‚¹åˆ°ç»ˆç‚¹çš„ä¼¤å®³æ€»å’Œï¼Œå³å¯åˆ¤æ–­è¯¥æ€ªç‰©æ˜¯å¦èƒ½å­˜æ´»
     {
       scanf("%lld%d", &hp, &pos);
       if (hp > attact[pos])

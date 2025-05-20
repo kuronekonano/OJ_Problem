@@ -5,7 +5,7 @@
 #include <stdio.h>
 using namespace std;
 
-// ¶ş²æÊ÷¶¨Òå
+// äºŒå‰æ ‘å®šä¹‰
 typedef char ElementType;
 
 typedef struct BiTreeNode {
@@ -14,8 +14,8 @@ typedef struct BiTreeNode {
   struct BiTreeNode *rchild;
 } BiTreeNode, *BiTree;
 
-// µİ¹éµÄ½¨Á¢Ò»¿Ã¶ş²æÊ÷
-// ÊäÈëÎª¶ş²æÊ÷µÄÏÈĞòĞòÁĞ
+// é€’å½’çš„å»ºç«‹ä¸€æ£µäºŒå‰æ ‘
+// è¾“å…¥ä¸ºäºŒå‰æ ‘çš„å…ˆåºåºåˆ—
 void createBiTree(BiTree &T) {
   char data;
   data = getchar();
@@ -28,7 +28,7 @@ void createBiTree(BiTree &T) {
     createBiTree(T->rchild);
   }
 }
-void creatBiTree_2(BiTree &rt, int n) /// ²ãĞò±éÀú½¨Ê÷
+void creatBiTree_2(BiTree &rt, int n) /// å±‚åºéå†å»ºæ ‘
 {
   char root[2];
   scanf("%s", root);
@@ -61,14 +61,14 @@ void creatBiTree_2(BiTree &rt, int n) /// ²ãĞò±éÀú½¨Ê÷
       T->lchild = node;
   }
 }
-int Nodenum(BiTreeNode *root) // ¶ş²æÊ÷½ÚµãÊıÄ¿
+int Nodenum(BiTreeNode *root) // äºŒå‰æ ‘èŠ‚ç‚¹æ•°ç›®
 {
   if (root == NULL)
     return 0;
   else
     return 1 + Nodenum(root->lchild) + Nodenum(root->rchild);
 }
-// µİ¹éÏú»ÙÒ»¿Ã¶ş²æÊ÷
+// é€’å½’é”€æ¯ä¸€æ£µäºŒå‰æ ‘
 void destroyBiTree(BiTree &T) {
   if (T) {
     destroyBiTree(T->lchild);
@@ -78,42 +78,42 @@ void destroyBiTree(BiTree &T) {
   }
 }
 
-// µİ¹éÏÈĞò±éÀú¶ş²æÊ÷
+// é€’å½’å…ˆåºéå†äºŒå‰æ ‘
 void preOrderTraverse(const BiTree &T) {
   if (T) {
-    //        cout<<T->data<<" ";//Êä³ö¸ù½ÚµãÖµ
+    //        cout<<T->data<<" ";//è¾“å‡ºæ ¹èŠ‚ç‚¹å€¼
     printf("%c ", T->data);
-    preOrderTraverse(T->lchild); // ±éÀú×ó×ÓÊ÷
-    preOrderTraverse(T->rchild); // ±éÀúÓÒ×ÓÊ÷
+    preOrderTraverse(T->lchild); // éå†å·¦å­æ ‘
+    preOrderTraverse(T->rchild); // éå†å³å­æ ‘
   }
 }
 
-// µİ¹éÖĞĞò±éÀú¶ş²æÊ÷
+// é€’å½’ä¸­åºéå†äºŒå‰æ ‘
 void inOrderTraverse(const BiTree &T) {
   if (T) {
-    inOrderTraverse(T->lchild); // ±éÀú×ó×ÓÊ÷
-    //        cout<<T->data<<" ";//Êä³ö¸ù½ÚµãÖµ
+    inOrderTraverse(T->lchild); // éå†å·¦å­æ ‘
+    //        cout<<T->data<<" ";//è¾“å‡ºæ ¹èŠ‚ç‚¹å€¼
     printf("%c ", T->data);
-    inOrderTraverse(T->rchild); // ±éÀúÓÒ×ÓÊ÷
+    inOrderTraverse(T->rchild); // éå†å³å­æ ‘
   }
 }
 
-// µİ¹éºóĞò±éÀú¶ş²æÊ÷
+// é€’å½’ååºéå†äºŒå‰æ ‘
 void postOrderTraverse(const BiTree &T) {
   if (T) {
-    postOrderTraverse(T->lchild); // ±éÀú×ó×ÓÊ÷
-    postOrderTraverse(T->rchild); // ±éÀúÓÒ×ÓÊ÷
+    postOrderTraverse(T->lchild); // éå†å·¦å­æ ‘
+    postOrderTraverse(T->rchild); // éå†å³å­æ ‘
     printf("%c ", T->data);
-    //        cout<<T->data<<" ";//Êä³ö¸ù½ÚµãÖµ
+    //        cout<<T->data<<" ";//è¾“å‡ºæ ¹èŠ‚ç‚¹å€¼
   }
 }
 
-// µİ¹éÇóÊ÷µÄÉî¶È
+// é€’å½’æ±‚æ ‘çš„æ·±åº¦
 int depthOfBiTree(const BiTree &T) {
   int ldepth;
   int rdepth;
 
-  if (T == NULL) // ¿ÕÊ÷
+  if (T == NULL) // ç©ºæ ‘
     return 0;
   ldepth = depthOfBiTree(T->lchild);
   rdepth = depthOfBiTree(T->rchild);
@@ -121,7 +121,7 @@ int depthOfBiTree(const BiTree &T) {
   return (ldepth > rdepth) ? (ldepth + 1) : (rdepth + 1);
 }
 
-// µİ¹éÇó¶ş²æÊ÷µÄÒ¶×Ó½áµã¸öÊı
+// é€’å½’æ±‚äºŒå‰æ ‘çš„å¶å­ç»“ç‚¹ä¸ªæ•°
 int leafCountOfBiTree(const BiTree &T) {
   if (T == NULL)
     return 0;
@@ -130,7 +130,7 @@ int leafCountOfBiTree(const BiTree &T) {
   return leafCountOfBiTree(T->lchild) + leafCountOfBiTree(T->rchild);
 }
 
-void exchangeChild(BiTree &T) /// ½»»»×óÓÒ×ÓÊ÷
+void exchangeChild(BiTree &T) /// äº¤æ¢å·¦å³å­æ ‘
 {
   if (T) {
     BiTree temp = NULL;
@@ -144,10 +144,10 @@ void exchangeChild(BiTree &T) /// ½»»»×óÓÒ×ÓÊ÷
     }
   }
 }
-void LevelOrderTraverse(BiTree T, int n) /// ²ãĞò±éÀú
+void LevelOrderTraverse(BiTree T, int n) /// å±‚åºéå†
 {
-  // VisitÊÇ¶Ô½Úµã²Ù×÷µÄÓ¦ÓÃº¯Êı,
-  // ÔÚÕâÀï£¬¶ÔÃ¿¸öÊı¾İÔªËØµ÷ÓÃº¯ÊıVisit,Ò²¼´ÊÇ±éÀúÁË¸Ã½Úµã
+  // Visitæ˜¯å¯¹èŠ‚ç‚¹æ“ä½œçš„åº”ç”¨å‡½æ•°,
+  // åœ¨è¿™é‡Œï¼Œå¯¹æ¯ä¸ªæ•°æ®å…ƒç´ è°ƒç”¨å‡½æ•°Visit,ä¹Ÿå³æ˜¯éå†äº†è¯¥èŠ‚ç‚¹
   queue<BiTree> q;
   BiTree p;
   BiTree zero;
@@ -180,12 +180,12 @@ int main() {
   int n;
   scanf("%d", &n);
   creatBiTree_2(T, n);
-  printf("½»»»×óÓÒ×ÓÊ÷: \n");
+  printf("äº¤æ¢å·¦å³å­æ ‘: \n");
   exchangeChild(T);
 
-  printf("²ãĞò±éÀú: ");
+  printf("å±‚åºéå†: ");
   LevelOrderTraverse(T, n);
-  destroyBiTree(T); // Ïú»Ù¶ş²æÊ÷£¬ÊÍ·Å¿Õ¼ä
+  destroyBiTree(T); // é”€æ¯äºŒå‰æ ‘ï¼Œé‡Šæ”¾ç©ºé—´
 }
 /*
 5

@@ -1,10 +1,10 @@
-#include <bits/stdc++.h> ///��Ҫע����ǣ�ֻҪ���һ��ѯ��Ⱦɫû�г���λ�ã���һ������
+#include <bits/stdc++.h> ///需要注意的是，只要最后一个询问染色没有出现位置，就一定错误
 #define LL                                                                     \
-  long long /// ������0�Ĵ����������ѯ��û�а���λ��ʱ�����Ȱ������ѯ��ʹ���н⣬�����н���������������޽���
+  long long /// 而对于0的处理，当最后询问没有安插位置时，优先安插最后询问使得有解，否则有解情况都被处理成无解了
 #define M(a, b)                                                                \
   memset(                                                                      \
       a, b,                                                                    \
-      sizeof a) /// ʣ�������ֻҪ��֤�����ڲ����ڱ��Լ�С���������ˣ���ôֱ��������һ��������һ������
+      sizeof a) /// 剩余情况，只要保证区间内不存在比自己小的数就行了，那么直接延续上一个或者下一个即可
 #define pb(x) push_back(x)
 using namespace std;
 const int maxn = 2e5 + 7;
@@ -36,7 +36,7 @@ int main() {
           a[i] = a[i - 1];
       }
     if (!lpos[q] && cnt == 0)
-      flag = false; /// ���û�а���λ�ã��������ѯ��û�а��壬�Ǿ�GG��
+      flag = false; /// 如果没有安插位置，并且最后询问没有安插，那就GG了
     if (!flag)
       printf("NO\n");
     else {

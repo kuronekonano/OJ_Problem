@@ -5,23 +5,23 @@ using namespace std;
 struct point {
   int x, y;
 };
-int vis[208][208]; /// ×÷Îª±ê¼ÇºÍ¼ÇÂ¼²½Êý
+int vis[208][208]; /// ä½œä¸ºæ ‡è®°å’Œè®°å½•æ­¥æ•°
 int walkx[5] = {0, 0, 1, -1};
 int walky[5] = {1, -1, 0, 0};
 char a[208][210];
-int main() /// ´Ó³ö¿ÚÏòÍâ¹ãËÑ¼´¿É£¬ÕÒµ½¹«Ö÷ºÍÊ¿±ø£¬±È½Ï×î¶Ì¾àÀë£¬ÈôÐ¡ÓÚµ½´ïÊ¿±øµÄ¾àÀëÔò¿ÉÒÔÌÓ³öÈ¥
+int main() /// ä»Žå‡ºå£å‘å¤–å¹¿æœå³å¯ï¼Œæ‰¾åˆ°å…¬ä¸»å’Œå£«å…µï¼Œæ¯”è¾ƒæœ€çŸ­è·ç¦»ï¼Œè‹¥å°äºŽåˆ°è¾¾å£«å…µçš„è·ç¦»åˆ™å¯ä»¥é€ƒå‡ºåŽ»
 {
   int i, j, n, m;
   while (
       scanf("%d%d", &n, &m) !=
-      EOF) /// ×¢Òâ·ÖÁ½ÖÖÇé¿ö£¬ÈôÁ½ÈË¶¼ËÑµ½Ôò±È½Ï¾àÀë£¬ÈôËÑ²»µ½¹«Ö÷Ôò±»Ç½·âËÀ£¬Êä³öNo£¬ÈôÖ»ËÑµ½¹«Ö÷ÔòÒ»¶¨ÊÇYes
+      EOF) /// æ³¨æ„åˆ†ä¸¤ç§æƒ…å†µï¼Œè‹¥ä¸¤äººéƒ½æœåˆ°åˆ™æ¯”è¾ƒè·ç¦»ï¼Œè‹¥æœä¸åˆ°å…¬ä¸»åˆ™è¢«å¢™å°æ­»ï¼Œè¾“å‡ºNoï¼Œè‹¥åªæœåˆ°å…¬ä¸»åˆ™ä¸€å®šæ˜¯Yes
   {
     point out;
     memset(a, 0, sizeof(a));
     for (i = 0; i < n; i++) {
       scanf("%s", a[i]);
       for (j = 0; j < m; j++)
-        if (a[i][j] == '%') /// ±ê¼Ç³ö¿Ú
+        if (a[i][j] == '%') /// æ ‡è®°å‡ºå£
         {
           out.x = i;
           out.y = j;
@@ -33,8 +33,8 @@ int main() /// ´Ó³ö¿ÚÏòÍâ¹ãËÑ¼´¿É£¬ÕÒµ½¹«Ö÷ºÍÊ¿±ø£¬±È½Ï×î¶Ì¾àÀë£¬ÈôÐ¡ÓÚµ½´ïÊ¿±øµ
     queue<point> q;
     while (!q.empty())
       q.pop();
-    q.push(out);           /// ´Ó³ö¿ÚÏòÍâËÑ
-    vis[out.x][out.y] = 1; /// ±ê¼Ç³ö¿Ú
+    q.push(out);           /// ä»Žå‡ºå£å‘å¤–æœ
+    vis[out.x][out.y] = 1; /// æ ‡è®°å‡ºå£
     while (!q.empty()) {
       point tmp;
       tmp = q.front();

@@ -2,25 +2,25 @@
 #include <cstring>
 #include <stdio.h>
 using namespace std;
-struct man {       // ����һ���ṹ���Ӧ��ʵ������������һ���ṹ��man
-  long long mark;  // ���������ˣ���Ϊ�޶����ֵΪ10��9�η�������ȫ����long long
-  long long money; // ��Ǯ
-  long long rp;    // ��Ʒ����
-} men[1005];       // ������������ֵΪ1000��
+struct man {       // 又是一个结构体的应用实例！！！创建一个结构体man
+  long long mark;  // 分数（对了，因为限定最大值为10的9次方，所以全部用long long
+  long long money; // 金钱
+  long long rp;    // 人品变量
+} men[1005];       // 并且输入的最大值为1000人
 int cmp(man a,
-        man b) // ���ǶԱȺ����Ķ��壬���У�������Ϊcmp��������������������man
-               // a,man b����a��b���Ƚ�
+        man b) // 这是对比函数的定义，其中，函数名为cmp，定义两个变量，叫做man
+               // a,man b，用a和b作比较
 {
-  if (a.mark == b.mark) // ���ɼ���ͬ
+  if (a.mark == b.mark) // 若成绩相同
   {
-    if (a.money == b.money) // ����Ǯ��ͬ
+    if (a.money == b.money) // 若金钱相同
     {
-      return a.rp > b.rp; // �Ա���Ʒ
+      return a.rp > b.rp; // 对比人品
     }
-    return a.money > b.money; // �ԱȽ�Ǯ
+    return a.money > b.money; // 对比金钱
   }
   return a.mark >
-         b.mark; // �Աȳɼ�����Ϊ������������Խ�����ǰ�棬Ϊ��׼�Ľ�������
+         b.mark; // 对比成绩，因为是排名，所以越大的排前面，为标准的降序排列
 }
 int main() {
   int n, i;

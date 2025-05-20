@@ -1,4 +1,4 @@
-#include <stdio.h> ///±äĞÎ×î³¤µİ¼õ×ÓĞòÁĞ¡£dp
+#include <stdio.h> ///å˜å½¢æœ€é•¿é€’å‡å­åºåˆ—ã€‚dp
 #include <string.h>
 int main() {
   int a[1005], dp[1008], n, i, j;
@@ -6,14 +6,14 @@ int main() {
     for (i = 0; i < n; i++) {
       scanf("%d", &a[i]);
     }
-    memset(dp, 0, sizeof(dp)); /// ¼ÇµÃÇå¿Õ
+    memset(dp, 0, sizeof(dp)); /// è®°å¾—æ¸…ç©º
     dp[0] = 1;
     int flag;
     for (i = 1; i < n; i++) {
       flag = dp[i];
       for (j = 0; j < i; j++) {
         if (a[i] < a[j] &&
-            flag < dp[j]) /// ×îºó´íÎó£¬ÕâÀï²»Ğ¡ĞÄ°ÑdpÊı×é´ò³ÉÁËaÊı×é
+            flag < dp[j]) /// æœ€åé”™è¯¯ï¼Œè¿™é‡Œä¸å°å¿ƒæŠŠdpæ•°ç»„æ‰“æˆäº†aæ•°ç»„
         {
           flag = dp[j];
         }
@@ -21,13 +21,13 @@ int main() {
       dp[j] = flag + 1;
     }
     int maxn = dp[0];
-    for (i = 0; i < n; i++) /// ÒÔºóÓÃforÕÒ×î´óÖµ°É¡£±Ï¾¹Ö»ÓÃ±éÀúÒ»ÂÖ
+    for (i = 0; i < n; i++) /// ä»¥åç”¨foræ‰¾æœ€å¤§å€¼å§ã€‚æ¯•ç«Ÿåªç”¨éå†ä¸€è½®
     {
       if (dp[i] > maxn) {
         maxn = dp[i];
       }
     }
-    printf("%d\n", n - maxn); /// ×îºóÄÃ×Ü¸öÊı¼õÈ¥×î³¤ĞòÁĞ³¤¶È¼´ÊÇ±»É¾³ı×îĞ¡¸öÊı
+    printf("%d\n", n - maxn); /// æœ€åæ‹¿æ€»ä¸ªæ•°å‡å»æœ€é•¿åºåˆ—é•¿åº¦å³æ˜¯è¢«åˆ é™¤æœ€å°ä¸ªæ•°
   }
   return 0;
 }

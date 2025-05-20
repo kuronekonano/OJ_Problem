@@ -10,16 +10,16 @@ void insert(int a, int rt) {
   for (int i = 31; i >= 0; i--) {
     int x = (a >> i) & 1;
     if (!tre[rt][x])
-      tre[rt][x] = ++tot; /// ´´½¨½Úµã
+      tre[rt][x] = ++tot; /// åˆ›å»ºèŠ‚ç‚¹
     rt = tre[rt][x];
   }
 }
 int finds(int a, int rt) {
   int res = 0;
-  for (int i = 31; i >= 0; i--) /// ´Ó¸ßÎ»±éÀú¶ş½øÖÆ
+  for (int i = 31; i >= 0; i--) /// ä»é«˜ä½éå†äºŒè¿›åˆ¶
   {
-    int x = (a >> i) & 1; /// ÅĞ¶ÏÊıÖµ
-    res <<= 1;            /// ºóÒÆ½á¹û
+    int x = (a >> i) & 1; /// åˆ¤æ–­æ•°å€¼
+    res <<= 1;            /// åç§»ç»“æœ
     if (tre[rt][!x])
       rt = tre[rt][!x], res++;
     else

@@ -1,24 +1,24 @@
 #include <iostream>
-#include <queue> ///ÓÅÏÈ¶ÓÁĞ
+#include <queue> ///ä¼˜å…ˆé˜Ÿåˆ—
 #include <stdio.h>
 #include <string>
 using namespace std;
-struct document /// ½á¹¹Ìå´ò°ü
+struct document /// ç»“æ„ä½“æ‰“åŒ…
 {
   char name[20];
-  int num;    /// ²ÎÊı¼ÇÂ¼
-  int getnum; /// ÓÅÏÈ¼¶¼ÇÂ¼
-  int equals; /// ÏÈÀ´ºóµ½Ë³Ğò¼ÇÂ¼
+  int num;    /// å‚æ•°è®°å½•
+  int getnum; /// ä¼˜å…ˆçº§è®°å½•
+  int equals; /// å…ˆæ¥ååˆ°é¡ºåºè®°å½•
   bool operator()(
       const document &a,
       const document &
-          b) /// ±È½Ïº¯Êı´æ·ÅÓÚ½á¹¹ÌåÖĞ£¬bool·µ»ØÖµ£¬ÃüÃûÎªoperator£¬²ÎÊıÊÇ½á¹¹ÌåÀàĞÍ
+          b) /// æ¯”è¾ƒå‡½æ•°å­˜æ”¾äºç»“æ„ä½“ä¸­ï¼Œboolè¿”å›å€¼ï¼Œå‘½åä¸ºoperatorï¼Œå‚æ•°æ˜¯ç»“æ„ä½“ç±»å‹
   {
-    if (a.getnum == b.getnum) /// ×Ô¶¨Òå½á¹¹ÌåÅÅĞò
+    if (a.getnum == b.getnum) /// è‡ªå®šä¹‰ç»“æ„ä½“æ’åº
     {
       return a.equals > b.equals;
     }
-    return a.getnum > b.getnum; /// ´Ó´óµ½Ğ¡½µĞòÅÅÁĞ
+    return a.getnum > b.getnum; /// ä»å¤§åˆ°å°é™åºæ’åˆ—
   }
 } much;
 
@@ -26,7 +26,7 @@ int main() {
   string input;
   int flag = 0;
   priority_queue<document, vector<document>, document>
-      q; /// ¶¨ÒåÓÅÏÈ¶ÓÁĞ£¬Ê×Î»ÊÇ¶ÓÁĞÖĞÔªËØÀàĞÍ£¬ÖĞ¼äÊÇ¶¯Ì¬Êı×é£¬×îºóÊÇ±È¶Ôº¯Êı×Ô¶¨Òå£¬ÒòÎªÎÒ·Åµ½ÁË½á¹¹ÌåÖĞ£¬Òò´Ëº¯ÊıÃûÎª½á¹¹ÌåÀàĞÍÃû
+      q; /// å®šä¹‰ä¼˜å…ˆé˜Ÿåˆ—ï¼Œé¦–ä½æ˜¯é˜Ÿåˆ—ä¸­å…ƒç´ ç±»å‹ï¼Œä¸­é—´æ˜¯åŠ¨æ€æ•°ç»„ï¼Œæœ€åæ˜¯æ¯”å¯¹å‡½æ•°è‡ªå®šä¹‰ï¼Œå› ä¸ºæˆ‘æ”¾åˆ°äº†ç»“æ„ä½“ä¸­ï¼Œå› æ­¤å‡½æ•°åä¸ºç»“æ„ä½“ç±»å‹å
   while (cin >> input) {
     if (input == "GET") {
       if (!q.size()) {
@@ -34,13 +34,13 @@ int main() {
         continue;
       } else {
         printf("%s %d\n", q.top().name,
-               q.top().num); /// Êä³ö¶ÓÁĞÊ×Î»ÖĞ½á¹¹ÌåµÄ¸÷ÏîÊı¾İ£¬Óï·¨Îªtop().xxx
-        q.pop();             /// µ¯³ö
+               q.top().num); /// è¾“å‡ºé˜Ÿåˆ—é¦–ä½ä¸­ç»“æ„ä½“çš„å„é¡¹æ•°æ®ï¼Œè¯­æ³•ä¸ºtop().xxx
+        q.pop();             /// å¼¹å‡º
       }
     } else {
       scanf("%s %d %d", much.name, &much.num, &much.getnum);
       much.equals = ++flag;
-      q.push(much); /// ÈëÁĞ
+      q.push(much); /// å…¥åˆ—
     }
   }
   return 0;

@@ -3,10 +3,10 @@ bool judge(int x1, int y1, int x2, int y2, int x3, int y3) {
   if (x1 == x2 && x2 == x3 || x1 == x2 && x2 == y3 || x1 == y2 && y2 == x3 ||
       x1 == y2 && y2 == y3 || y1 == x2 && x2 == x3 || y1 == x2 && x2 == y3 ||
       y1 == y2 && y2 == x3 || y1 == y2 && y2 == y3)
-    return true; /// ÖØµşÔÚÒ»Æğ
+    return true; /// é‡å åœ¨ä¸€èµ·
 
   if (x1 == x2 && y1 + y2 == x3 || x1 == x2 && y1 + y2 == y3)
-    return true; /// Á½±ß¼ÓºÍºóµÈÓÚÁíÒ»¸ö¾ØĞÎµÄ±ß
+    return true; /// ä¸¤è¾¹åŠ å’Œåç­‰äºå¦ä¸€ä¸ªçŸ©å½¢çš„è¾¹
   if (x1 == y2 && y1 + x2 == x3 || x1 == y2 && y1 + x2 == y3)
     return true;
 

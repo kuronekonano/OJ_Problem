@@ -14,7 +14,7 @@ bool cmp(num a, num b) {
   return a.num < b.num;
 }
 bool cmp2(num a, num b) { return a.i < b.i; }
-void build(int l, int r, int root) /// ½¨Ê÷
+void build(int l, int r, int root) /// å»ºæ ‘
 {
   tree[root].l = l;
   tree[root].r = r;
@@ -40,7 +40,7 @@ int query(int l, int r, int root) {
     if (r >= mid + 1) {
       res = max(query(l, r, root * 2 + 1), res);
     }
-    return res; /// ·µ»Ø×î´óÖµ
+    return res; /// è¿”å›æœ€å¤§å€¼
   }
 }
 int main() {
@@ -52,19 +52,19 @@ int main() {
     }
     sort(
         a + 1, a + n + 1,
-        cmp); /// °´ÊıµÄ´óĞ¡ÅÅĞò£¬µÃµ½ÏàÍ¬ÊıµÄÎ»Ğò£¬È»ºó´íÎ»¸³ÖµÇ°Ò»¸öÏàÍ¬ÔªËØµÄÎ»Ğò
+        cmp); /// æŒ‰æ•°çš„å¤§å°æ’åºï¼Œå¾—åˆ°ç›¸åŒæ•°çš„ä½åºï¼Œç„¶åé”™ä½èµ‹å€¼å‰ä¸€ä¸ªç›¸åŒå…ƒç´ çš„ä½åº
     for (int i = n; i >= 2; i--) {
       if (a[i].num == a[i - 1].num)
         a[i].next = a[i - 1].i;
       else
         a[i].next = -1;
     }
-    sort(a + 1, a + 1 + n, cmp2); /// ½«´òÂÒË³ĞòµÄÊıÁĞ°´»Ö¸´³ÉÔ­ĞòÁĞ(Î»ĞòÅÅĞò)
-    build(1, n, 1); /// ½«°´Ë³ĞòÅÅÁĞºÃ²¢¸³ÖµÁËÏàÍ¬ÊıÏÂÒ»Î»ĞòµÄÊı×é½¨Á¢µ½Ïß¶ÎÊ÷ÖĞ
+    sort(a + 1, a + 1 + n, cmp2); /// å°†æ‰“ä¹±é¡ºåºçš„æ•°åˆ—æŒ‰æ¢å¤æˆåŸåºåˆ—(ä½åºæ’åº)
+    build(1, n, 1); /// å°†æŒ‰é¡ºåºæ’åˆ—å¥½å¹¶èµ‹å€¼äº†ç›¸åŒæ•°ä¸‹ä¸€ä½åºçš„æ•°ç»„å»ºç«‹åˆ°çº¿æ®µæ ‘ä¸­
     int q, l, r;
     scanf("%d", &q);
     while (q--) {
-      scanf("%d%d", &l, &r); /// Ïß¶ÎÊ÷×î´óÖµ²éÑ¯
+      scanf("%d%d", &l, &r); /// çº¿æ®µæ ‘æœ€å¤§å€¼æŸ¥è¯¢
       int ans = query(l, r, 1);
       if (ans == -1 || ans < l)
         printf("jiong\n");

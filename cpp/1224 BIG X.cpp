@@ -5,7 +5,7 @@ int main() {
   while (t--) {
     scanf("%d", &n);
     int i, j;
-    for (i = 1; i <= n / 2 + 1; i++) // 上半部分
+    for (i = 1; i <= n / 2 + 1; i++) // 涓婂崐閮ㄥ垎
     {
       for (j = 1; j <= n - i + 1; j++) {
         if (i == j || j == n - i + 1) {
@@ -15,11 +15,11 @@ int main() {
       }
       printf("\n");
     }
-    for (i = n / 2; i >= 1; i--) // 注意分上下两部分
+    for (i = n / 2; i >= 1; i--) // 娉ㄦ剰鍒嗕笂涓嬩袱閮ㄥ垎
     {
-      for (j = 1; j <= n - i + 1; j++) // 下半部分
+      for (j = 1; j <= n - i + 1; j++) // 涓嬪崐閮ㄥ垎
       {
-        if (i == j || j == n - i + 1) // 每行头尾输出图形就好
+        if (i == j || j == n - i + 1) // 姣忚澶村熬杈撳嚭鍥惧舰灏卞ソ
         {
           printf("X");
         } else

@@ -66,12 +66,12 @@ int main() {
       xx.pb(x);
       yy.pb(y);
     }
-    sort(xx.begin(), xx.end()); /// ÀëÉ¢»¯
+    sort(xx.begin(), xx.end()); /// ç¦»æ•£åŒ–
     sort(
         yy.begin(),
-        yy.end()); /// ÏÈ½«×ø±êÖµ°´´óĞ¡ÅÅĞò£¬µÃµ½Ã¿¸ö×ø±êÖµµÄÏà¶ÔÎ»ÖÃ£¬Ò²¾ÍÊÇÀëÉ¢»¯Ó³ÉäµÄÖµ
+        yy.end()); /// å…ˆå°†åæ ‡å€¼æŒ‰å¤§å°æ’åºï¼Œå¾—åˆ°æ¯ä¸ªåæ ‡å€¼çš„ç›¸å¯¹ä½ç½®ï¼Œä¹Ÿå°±æ˜¯ç¦»æ•£åŒ–æ˜ å°„çš„å€¼
     xx.erase(unique(xx.begin(), xx.end()),
-             xx.end()); /// È¥ÖØ£¬Èç¹ûÊÇÏàÍ¬×ø±êÓĞÇø·ÖÔò²»ÄÜÕâÑùÀëÉ¢
+             xx.end()); /// å»é‡ï¼Œå¦‚æœæ˜¯ç›¸åŒåæ ‡æœ‰åŒºåˆ†åˆ™ä¸èƒ½è¿™æ ·ç¦»æ•£
     yy.erase(unique(yy.begin(), yy.end()), yy.end());
     for (int i = 0; i < q.size(); i++) {
       q[i].x = lower_bound(xx.begin(), xx.end(), q[i].x) - xx.begin();

@@ -10,7 +10,7 @@ struct node {
 } a[20004];
 int lowbit(int x) { return x & (-x); }
 void update(int x) {
-  while (x <= maxn) /// ÉÏ½çÎªÌâÄ¿¸ø³öµÄ×î´óÖµ
+  while (x <= maxn) /// ä¸Šç•Œä¸ºé¢˜ç›®ç»™å‡ºçš„æœ€å¤§å€¼
   {
     tree[x]++;
     x += lowbit(x);
@@ -34,7 +34,7 @@ int main() {
     memset(highl, 0, sizeof highl);
     memset(highr, 0, sizeof highr);
     scanf("%d", &n);
-    for (int i = 1; i <= n; i++) /// ×óµ½ÓÒ±éÀú¸üÐÂ×ó±ßµÄ½Ï´ó½ÏÐ¡Öµ¼ÆÊý
+    for (int i = 1; i <= n; i++) /// å·¦åˆ°å³éåŽ†æ›´æ–°å·¦è¾¹çš„è¾ƒå¤§è¾ƒå°å€¼è®¡æ•°
     {
       scanf("%d", &a[i].val);
       a[i].pos = i;
@@ -45,7 +45,7 @@ int main() {
     sort(a + 1, a + 1 + n, cmp);
     memset(tree, 0, sizeof tree);
     for (int i = 1; i <= n; i++) {
-      update(a[i].val); /// ÓÒµ½×ó±éÀú¸üÐÂÓÒ±ßµÄ½Ï´ó½ÏÐ¡Öµ¼ÆÊý
+      update(a[i].val); /// å³åˆ°å·¦éåŽ†æ›´æ–°å³è¾¹çš„è¾ƒå¤§è¾ƒå°å€¼è®¡æ•°
       lowr[a[i].pos] += query(a[i].val - 1);
       highr[a[i].pos] += i - query(a[i].val);
     }

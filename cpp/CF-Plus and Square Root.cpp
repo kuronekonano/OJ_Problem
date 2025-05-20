@@ -4,7 +4,7 @@ long long a[100009];
 void inti() {
   a[1] = 2;
   for (long long i = 2; i <= 100000;
-       i++) /// 这里i是用来相乘的，因此可能会爆，要用long long
+       i++) /// 杩欓噷i鏄敤鏉ョ浉涔樼殑锛屽洜姝ゅ彲鑳戒細鐖嗭紝瑕佺敤long long
   {
     a[i] = i * (i + 1) * (i + 1) - i + 1;
   }
@@ -13,7 +13,7 @@ int main() {
   inti();
   int n;
   while (scanf("%d", &n) != EOF) {
-    for (int i = 1; i <= n; i++) /// 这里仅仅是输出，所以不会爆
+    for (int i = 1; i <= n; i++) /// 杩欓噷浠呬粎鏄緭鍑猴紝鎵�浠ヤ笉浼氱垎
     {
       printf("%lld\n", a[i]);
     }

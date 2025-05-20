@@ -1,6 +1,6 @@
 #include <iterator>
 #include <map>
-#include <stdio.h> ///map find²éÕÒĞ¡Ó¦ÓÃ
+#include <stdio.h> ///map findæŸ¥æ‰¾å°åº”ç”¨
 #include <string.h>
 using namespace std;
 int main() {
@@ -16,9 +16,9 @@ int main() {
     if (strcmp(str, "END") == 0) {
       return 0;
     }
-    map<string, bool>::iterator that = q.find(str); /// findº¯ÊıÊ¹ÓÃ£¬µü´úÆ÷¶¨Òå
+    map<string, bool>::iterator that = q.find(str); /// findå‡½æ•°ä½¿ç”¨ï¼Œè¿­ä»£å™¨å®šä¹‰
     if (that ==
-        q.end()) /// ±È½Ï£¬Èç¹ûfindµÄ·µ»ØÖµ²»µÈÓÚmapµÄend£¬ÔòËµÃ÷²éÕÒµ½ÁË£¬·ñÔòËµÃ÷Î´²éÕÒµ½
+        q.end()) /// æ¯”è¾ƒï¼Œå¦‚æœfindçš„è¿”å›å€¼ä¸ç­‰äºmapçš„endï¼Œåˆ™è¯´æ˜æŸ¥æ‰¾åˆ°äº†ï¼Œå¦åˆ™è¯´æ˜æœªæŸ¥æ‰¾åˆ°
     {
       printf("No\n");
     } else {

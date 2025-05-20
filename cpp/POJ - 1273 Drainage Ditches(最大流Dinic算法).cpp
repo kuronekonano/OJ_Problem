@@ -5,7 +5,7 @@
 using namespace std;
 const int maxn = 208;
 const int inf = 0x3f3f3f3f;
-struct edge /// vectorÁ´Ê½Ç°ÏòĞÇ
+struct edge /// vectoré“¾å¼å‰å‘æ˜Ÿ
 {
   int to, val, rev;
   edge() {}
@@ -17,7 +17,7 @@ struct edge /// vectorÁ´Ê½Ç°ÏòĞÇ
 };
 int n, m, dep[maxn];
 vector<edge> mp[maxn];
-void add(int from, int to, int val) /// ¼Ó±ß
+void add(int from, int to, int val) /// åŠ è¾¹
 {
   mp[from].push_back(edge(to, val, mp[to].size()));
   mp[to].push_back(edge(from, 0, mp[from].size() - 1));
@@ -88,13 +88,13 @@ int main() {
 using namespace std;
 const int maxn=208;
 const int inf=0x3f3f3f3f;
-struct edge///Á´Ê½Ç°ÏòĞÇ
+struct edge///é“¾å¼å‰å‘æ˜Ÿ
 {
     int next,to,val;
 }mp[maxn*maxn];
 int head[maxn],dep[maxn],cnt;
 int n,m;
-void add(int from,int to,int val)///¼Ó±ß
+void add(int from,int to,int val)///åŠ è¾¹
 {
     mp[cnt].to=to,mp[cnt].val=val;
     mp[cnt].next=head[from],head[from]=cnt++;

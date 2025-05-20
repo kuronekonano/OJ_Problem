@@ -20,7 +20,7 @@ int main() {
       int x;
       scanf("%d", &x);
       int ans = 0, dis = 0x3f3f3f3f;
-      for (i = n; i >= 1; i--) /// ´Ón->1¾ÍÄÜ¹ý£¬´Ó1->n¾Í³¬Ê±
+      for (i = n; i >= 1; i--) /// ä»Žn->1å°±èƒ½è¿‡ï¼Œä»Ž1->nå°±è¶…æ—¶
       {
         for (j = i - 1; j >= 0; j--) {
           int tmp = dp[i] ^ dp[j];

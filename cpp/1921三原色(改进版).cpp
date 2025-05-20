@@ -1,14 +1,14 @@
-#include <stdio.h> ///ÈýÔ­É«£¬¾ÍÊÇÈ¡Á½Á½¹«±¶Êý¸öÊý£¬È»ºóÒòÎªÓÐ¹«¹²Çø¼ä£¬±»¶à¼õµôµÄ²¿·Ö¼Ó»ØÀ´¾ÍºÃÁË
+#include <stdio.h> ///ä¸‰åŽŸè‰²ï¼Œå°±æ˜¯å–ä¸¤ä¸¤å…¬å€æ•°ä¸ªæ•°ï¼Œç„¶åŽå› ä¸ºæœ‰å…¬å…±åŒºé—´ï¼Œè¢«å¤šå‡æŽ‰çš„éƒ¨åˆ†åŠ å›žæ¥å°±å¥½äº†
 long long gcd(long long x, long long y) {
-  while (y != 0) /// ×î´ó¹«Ô¼Êý
+  while (y != 0) /// æœ€å¤§å…¬çº¦æ•°
   {
-    long long z = y; /// ÕâÀïÒª¼Ç×¡£¬³£ÓÃÕâÑùµÄ·½·¨£¬ÁÙÊ±´æ´¢b
+    long long z = y; /// è¿™é‡Œè¦è®°ä½ï¼Œå¸¸ç”¨è¿™æ ·çš„æ–¹æ³•ï¼Œä¸´æ—¶å­˜å‚¨b
     y = x % y;
     x = z;
   }
   return x;
 }
-long long lcm(long long a, long long b) /// ×îÐ¡¹«±¶Êý
+long long lcm(long long a, long long b) /// æœ€å°å…¬å€æ•°
 {
   long long c = gcd(a, b);
   return a * b / c;
@@ -16,13 +16,13 @@ long long lcm(long long a, long long b) /// ×îÐ¡¹«±¶Êý
 int main() {
   long long x, y, z, n;
   while (scanf("%lld%lld%lld%lld", &x, &y, &z, &n) != EOF) {
-    long long red = lcm(x, y); /// Á½É«½»²æ²¿·Ö£¬¾ÍÊÇÁ½ÊýµÄ×î¹«±¶Êý¸öÊý
+    long long red = lcm(x, y); /// ä¸¤è‰²äº¤å‰éƒ¨åˆ†ï¼Œå°±æ˜¯ä¸¤æ•°çš„æœ€å…¬å€æ•°ä¸ªæ•°
     long long yellow = lcm(x, z);
     long long green = lcm(y, z);
-    long long black = lcm(red, z); /// ÈýÊý½»²æ²¿·Ö£¬±»ÖØ¸´¼õµôµÄ¹«±¶Êý²¿·Ö
+    long long black = lcm(red, z); /// ä¸‰æ•°äº¤å‰éƒ¨åˆ†ï¼Œè¢«é‡å¤å‡æŽ‰çš„å…¬å€æ•°éƒ¨åˆ†
     long long much = n / red + n / yellow + n / green -
-                     2 * (n / black); /// ÕâÀïÊÇÍ³¼ÆËùÓÐ×÷ÎªÈýÊý¹«±¶ÊýµÄ¸öÊý
-    printf("%lld\n", n - much);       /// ÓÃ×ÜÊý¼õ¹«±¶Êý¸öÊý
+                     2 * (n / black); /// è¿™é‡Œæ˜¯ç»Ÿè®¡æ‰€æœ‰ä½œä¸ºä¸‰æ•°å…¬å€æ•°çš„ä¸ªæ•°
+    printf("%lld\n", n - much);       /// ç”¨æ€»æ•°å‡å…¬å€æ•°ä¸ªæ•°
   }
-  return 0; /// ×¢ÒâÈç¹ûÇónÒÔÄÚ£¬ÓÐ¶àÉÙmµÄ±¶Êý£¬Ö±½ÓÓÃn/m¿ÉÇó
+  return 0; /// æ³¨æ„å¦‚æžœæ±‚nä»¥å†…ï¼Œæœ‰å¤šå°‘mçš„å€æ•°ï¼Œç›´æŽ¥ç”¨n/må¯æ±‚
 }

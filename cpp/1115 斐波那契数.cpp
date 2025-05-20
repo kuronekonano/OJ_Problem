@@ -3,7 +3,7 @@
 #include <stdio.h>
 using namespace std;
 unsigned
-    a[5005]; // ÎªÃ«ÒªÓÃÎŞ·ûºÅÕûĞÍ£¿Êä³öÒòÎª²»ÖªµÀÔõÃ´Ğ´ËùÒÔÖ»ÄÜÓÃcoutºÍcinÁË
+    a[5005]; // ä¸ºæ¯›è¦ç”¨æ— ç¬¦å·æ•´å‹ï¼Ÿè¾“å‡ºå› ä¸ºä¸çŸ¥é“æ€ä¹ˆå†™æ‰€ä»¥åªèƒ½ç”¨coutå’Œcinäº†
 unsigned fei(unsigned n) {
   int i;
   a[1] = 0;

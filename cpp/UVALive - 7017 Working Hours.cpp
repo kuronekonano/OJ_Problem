@@ -1,6 +1,6 @@
-#include <stdio.h> ///计算工作时间，模拟读取字符串
+#include <stdio.h> ///璁＄畻宸ヤ綔鏃堕棿锛屾ā鎷熻鍙栧瓧绗︿覆
 #include <stdlib.h>
-#include <string.h> ///总时间计算时全部换算成分钟，最后输出时取模和除得到时间
+#include <string.h> ///鎬绘椂闂磋绠楁椂鍏ㄩ儴鎹㈢畻鎴愬垎閽燂紝鏈�鍚庤緭鍑烘椂鍙栨ā鍜岄櫎寰楀埌鏃堕棿
 int main() {
   char a[10];
   int time = 0;

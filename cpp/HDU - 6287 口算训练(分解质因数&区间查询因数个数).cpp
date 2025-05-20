@@ -16,7 +16,7 @@ void prim(int x, int pos) {
 int check(int l, int r, int x) {
   return upper_bound(p[x].begin(), p[x].end(), r) -
          lower_bound(p[x].begin(), p[x].end(), l);
-} /// 直接在某个因数中查询第pos个位置的值被分解出了多少个x，也就是连续多少pos
+} /// 鐩存帴鍦ㄦ煇涓洜鏁颁腑鏌ヨ绗琾os涓綅缃殑鍊艰鍒嗚В鍑轰簡澶氬皯涓獂锛屼篃灏辨槸杩炵画澶氬皯pos
 int main() {
   int t;
   scanf("%d", &t);

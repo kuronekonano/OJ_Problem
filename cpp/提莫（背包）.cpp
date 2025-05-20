@@ -1,29 +1,29 @@
 #include <algorithm>
-#include <stdio.h> ///±³°ü
+#include <stdio.h> ///èƒŒåŒ…
 #include <string.h>
 using namespace std;
-struct metal /// ¼ÛÖµºÍ¹¥»÷´ò°ü
+struct metal /// ä»·å€¼å’Œæ”»å‡»æ‰“åŒ…
 {
   int att;
   int vol;
 } timo[1005];
-int dp[1005][1005]; /// dpÊı×é
+int dp[1005][1005]; /// dpæ•°ç»„
 int main() {
   int i, n, v, t;
   scanf("%d", &t);
   while (t--) {
-    scanf("%d%d", &n, &v); /// n¸öµÀ¾ß£¬vµÄÈİÁ¿
+    scanf("%d%d", &n, &v); /// nä¸ªé“å…·ï¼Œvçš„å®¹é‡
     memset(dp, 0, sizeof(dp));
-    for (i = 1; i <= n; i++) /// ÊäÈë¼ÛÖµºÍ¹¥»÷,n¸öµÀ¾ß
+    for (i = 1; i <= n; i++) /// è¾“å…¥ä»·å€¼å’Œæ”»å‡»,nä¸ªé“å…·
     {
       scanf("%d", &timo[i].att);
     }
     for (i = 1; i <= n; i++) {
       scanf("%d", &timo[i].vol);
     }
-    for (i = timo[1].vol; i <= v; i++) /// ±ß½ç³õÊ¼´¦Àí
+    for (i = timo[1].vol; i <= v; i++) /// è¾¹ç•Œåˆå§‹å¤„ç†
     {
-      dp[1][i] = timo[1].att; /// ¶¯Ì¬¹æ»®±í¸ñµÄºáĞĞÊÇ´Ó1¿ªÊ¼Ôö´óµÄ±³°üÈİÁ¿
+      dp[1][i] = timo[1].att; /// åŠ¨æ€è§„åˆ’è¡¨æ ¼çš„æ¨ªè¡Œæ˜¯ä»1å¼€å§‹å¢å¤§çš„èƒŒåŒ…å®¹é‡
     }
     for (i = 2; i <= n; i++) {
       for (int j = 1; j <= v; j++) {

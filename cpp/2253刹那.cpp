@@ -1,14 +1,14 @@
 #include <algorithm>
-#include <stdio.h> //ÒÀÈ»ÊÇ½á¹¹ÌåµÄÔËÓÃ
+#include <stdio.h> //ä¾ç„¶æ˜¯ç»“æ„ä½“çš„è¿ç”¨
 using namespace std;
-struct student // ÕâÀïÓÃÉÏÁË½á¹¹Ìåº¯Êı
+struct student // è¿™é‡Œç”¨ä¸Šäº†ç»“æ„ä½“å‡½æ•°
 {
   char name[105];
   long high;
 } stu[1005];
-int cmp(student a, student b) // ¼Ç×¡½á¹¹ÌåµÄsortÅÅĞò×Ô¶¨Òåcmpº¯ÊıµÄ¸ñÊ½£¡£¡£¡
+int cmp(student a, student b) // è®°ä½ç»“æ„ä½“çš„sortæ’åºè‡ªå®šä¹‰cmpå‡½æ•°çš„æ ¼å¼ï¼ï¼ï¼
 {
-  return a.high < b.high; // ÉıĞòÅÅÁĞ
+  return a.high < b.high; // å‡åºæ’åˆ—
 }
 int main() {
   int i, t, n;
@@ -18,7 +18,7 @@ int main() {
     for (i = 0; i < n; i++) {
       scanf("%s%d", stu[i].name, &stu[i].high);
     }
-    sort(stu, stu + n, cmp); // ½á¹¹ÌåÅÅĞò±ØĞë×Ô¶¨Òåº¯Êı
+    sort(stu, stu + n, cmp); // ç»“æ„ä½“æ’åºå¿…é¡»è‡ªå®šä¹‰å‡½æ•°
     printf("%s\n", stu[n - 1].name);
   }
   return 0;

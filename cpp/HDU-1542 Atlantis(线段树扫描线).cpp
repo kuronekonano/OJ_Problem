@@ -34,14 +34,14 @@ void build(int l, int r, int rt) {
 void cal_dis(int rt) {
   if (tre[rt].cnt > 0)
     tre[rt].dis = tre[rt].ren -
-                  tre[rt].len; /// Èô¸²¸Ç¼ÆÊı´óÓÚ0£¬¸ÃÇø¼äµÄ¸²¸ÇÃæ»ıÎªÇø¼ä³¤¶È
+                  tre[rt].len; /// è‹¥è¦†ç›–è®¡æ•°å¤§äº0ï¼Œè¯¥åŒºé—´çš„è¦†ç›–é¢ç§¯ä¸ºåŒºé—´é•¿åº¦
   else if (tre[rt].r - tre[rt].l == 1)
-    tre[rt].dis = 0; /// Ò¶×Ó½Úµã
+    tre[rt].dis = 0; /// å¶å­èŠ‚ç‚¹
   else
     tre[rt].dis =
         tre[rt << 1].dis +
         tre[rt << 1 | 1]
-            .dis; /// ²»ÊÇÒ¶×Ó½Úµã£¬Í¨¹ıÏòÉÏ´«µİ£¬Á½¸ö×Ó½ÚµãµÄdisÖ®ºÍ¼´¸ü´óÇø¼äµÄdis
+            .dis; /// ä¸æ˜¯å¶å­èŠ‚ç‚¹ï¼Œé€šè¿‡å‘ä¸Šä¼ é€’ï¼Œä¸¤ä¸ªå­èŠ‚ç‚¹çš„disä¹‹å’Œå³æ›´å¤§åŒºé—´çš„dis
   return;
 }
 void update(edge line, int rt) {

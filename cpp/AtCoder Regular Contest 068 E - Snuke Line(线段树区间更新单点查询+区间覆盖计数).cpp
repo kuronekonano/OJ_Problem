@@ -86,7 +86,7 @@ int main() {
   }
 }
 /**
-树状数组区间更新单点查询
+鏍戠姸鏁扮粍鍖洪棿鏇存柊鍗曠偣鏌ヨ
 #include<cstdio>
 #include<cstring>
 #include<cstdlib>

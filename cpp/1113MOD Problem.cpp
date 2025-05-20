@@ -4,7 +4,7 @@ int main() {
   int num[109], i;
   char str[109];
   while (scanf("%s", str) != EOF) {
-    int n = strlen(str); /// ´óÊı×Ö·û´®×ª»»
+    int n = strlen(str); /// å¤§æ•°å­—ç¬¦ä¸²è½¬æ¢
     if (str[0] == '0') {
       return 0;
     }
@@ -13,7 +13,7 @@ int main() {
     }
     long long number = 0;
     for (i = 0; i < n; i++) {
-      number = (number * 10 + num[i]) % 33; /// Í¬ÓàÄ£¶¨Àí
+      number = (number * 10 + num[i]) % 33; /// åŒä½™æ¨¡å®šç†
     }
     if (number == 0) {
       printf("OK\n");

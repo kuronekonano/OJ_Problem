@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <iostream>
-#include <stdio.h> ///×Ö·û´®Êı×éÏà¼Ó×ÖµäĞò×îĞ¡ÅÅĞò
+#include <stdio.h> ///å­—ç¬¦ä¸²æ•°ç»„ç›¸åŠ å­—å…¸åºæœ€å°æ’åº
 #include <string>
 using namespace std;
 bool cmp(string a, string b) { return a + b < b + a; }

@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <iostream>
-#include <stdio.h> ///×ÖµäÊ÷
+#include <stdio.h> ///å­—å…¸æ ‘
 #include <string.h>
 #include <string>
 #include <vector>
@@ -10,18 +10,18 @@ int tot;
 int tre[50005][26];
 bool vis[50005];
 vector<string> v, ans;
-int insert(string str, int rt) /// ²åÈëµ¥´Ê
+int insert(string str, int rt) /// æ’å…¥å•è¯
 {
-  for (int j = 0; j < str.size(); j++) /// ±éÀúµ¥´Êstring
+  for (int j = 0; j < str.size(); j++) /// éå†å•è¯string
   {
     int x = str[j] - 'a';
-    if (tre[rt][x] == 0)  /// ĞÂ½Úµã
-      tre[rt][x] = ++tot; /// ½Úµã±àºÅ
-    rt = tre[rt][x];      /// ÏÂÒ»¸ö½Úµã
+    if (tre[rt][x] == 0)  /// æ–°èŠ‚ç‚¹
+      tre[rt][x] = ++tot; /// èŠ‚ç‚¹ç¼–å·
+    rt = tre[rt][x];      /// ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
   }
-  vis[rt] = true; /// µ¥´ÊÄ©Î²±ê¼Ç
+  vis[rt] = true; /// å•è¯æœ«å°¾æ ‡è®°
 }
-bool finds(string str, int rt) /// ²éÑ¯
+bool finds(string str, int rt) /// æŸ¥è¯¢
 {
   for (int i = 0; i < str.size(); i++) {
     int x = str[i] - 'a';
@@ -39,7 +39,7 @@ int main() {
   string a;
   v.clear();
   ans.clear();
-  while (cin >> a) /// ½¨Ê÷
+  while (cin >> a) /// å»ºæ ‘
     insert(a, num), v.pb(a);
   for (int i = 0; i < v.size(); i++) {
     for (int j = 0; j < v[i].size(); j++) {
@@ -47,7 +47,7 @@ int main() {
       string tmb = v[i].substr(j + 1);
       //            cout<<tma<<"======"<<tmb<<endl;
       if (finds(tma, num) && finds(tmb, num)) {
-        /// Ò»µ©µ±Ç°µ¥´ÊÈ·¶¨ÊÇans£¬Ôò¿ÉÒÔ²»ÓÃÔÙ±éÀúÕâ¸öµ¥´ÊÊ£ÓàµÄ×éºÏ
+        /// ä¸€æ—¦å½“å‰å•è¯ç¡®å®šæ˜¯ansï¼Œåˆ™å¯ä»¥ä¸ç”¨å†éå†è¿™ä¸ªå•è¯å‰©ä½™çš„ç»„åˆ
         ans.pb(v[i]);
         break;
       }

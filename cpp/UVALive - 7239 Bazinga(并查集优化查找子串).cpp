@@ -1,4 +1,4 @@
-#include <stdio.h> ///²¢²é¼¯ÓÅ»¯×Ó´®²éÕÒ
+#include <stdio.h> ///å¹¶æŸ¥é›†ä¼˜åŒ–å­ä¸²æŸ¥æ‰¾
 #include <string.h>
 int z[508];
 char a[508][2008];
@@ -121,7 +121,7 @@ int main() {
 //         cas++;
 //         int ans=-1;
 //         scanf("%d",&n);
-//         for(i=1;i<=n;i++)z[i]=i;///³õÊ¼»¯²¢²é¼¯
+//         for(i=1;i<=n;i++)z[i]=i;///åˆå§‹åŒ–å¹¶æŸ¥é›†
 //         scanf("%s",&a[1]);
 //         getnext(a[1],strlen(a[1]),1);
 //         for(i=2; i<=n; i++)

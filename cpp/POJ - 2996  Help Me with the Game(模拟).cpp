@@ -1,19 +1,19 @@
 #include <algorithm>
-#include <stdio.h> ///Ä£Äâ£¬¸ø³öÆåÅÌ£¬ÊäÈëÆåÅÌÉÏ¸÷¸öÆå×ÓËùÔÚÎ»ÖÃ£¬°×ÆåÏàÍ¬½ÇÉ«£¬°´ÐÐ´ÓÐ¡µ½´ó£¬ÁÐ´ÓÐ¡µ½´óÊä³ö
-#include <string.h> ///ºÚÆåÏàÍ¬½ÇÉ«£¬°´ÐÐ´Ó´óµ½Ð¡£¬ÁÐ´ÓÐ¡µ½´óÊä³ö
+#include <stdio.h> ///æ¨¡æ‹Ÿï¼Œç»™å‡ºæ£‹ç›˜ï¼Œè¾“å…¥æ£‹ç›˜ä¸Šå„ä¸ªæ£‹å­æ‰€åœ¨ä½ç½®ï¼Œç™½æ£‹ç›¸åŒè§’è‰²ï¼ŒæŒ‰è¡Œä»Žå°åˆ°å¤§ï¼Œåˆ—ä»Žå°åˆ°å¤§è¾“å‡º
+#include <string.h> ///é»‘æ£‹ç›¸åŒè§’è‰²ï¼ŒæŒ‰è¡Œä»Žå¤§åˆ°å°ï¼Œåˆ—ä»Žå°åˆ°å¤§è¾“å‡º
 using namespace std;
 struct point {
   int x;
   char y;
 } P[10], p[10], k, q, r[2], n[2], b[2], K, Q, R[2], N[2],
-    B[2];                  /// Ã¿¸öÆå×ÓÎ»ÖÃ£¬ÒÔ¼°¶ÔÓ¦½ÇÉ«
-bool CMP(point a, point b) /// °×ÆåÊä³öË³ÐòÅÅÐò
+    B[2];                  /// æ¯ä¸ªæ£‹å­ä½ç½®ï¼Œä»¥åŠå¯¹åº”è§’è‰²
+bool CMP(point a, point b) /// ç™½æ£‹è¾“å‡ºé¡ºåºæŽ’åº
 {
   if (a.x == b.x)
     return a.y < b.y;
   return a.x < b.x;
 }
-bool cmp(point a, point b) /// ºÚÆåÊä³öË³ÐòÅÅÐò
+bool cmp(point a, point b) /// é»‘æ£‹è¾“å‡ºé¡ºåºæŽ’åº
 {
   if (a.x == b.x)
     return a.y < b.y;
@@ -26,13 +26,13 @@ int main() {
       scanf("%s", ma[i]);
     }
     int rr = 0, nn = 0, bb = 0, RR = 0, NN = 0, BB = 0, KK = 0, kk = 0, QQ = 0,
-        qq = 0, PP = 0, pp = 0;     /// ³õÊ¼»¯¸÷¸öÆå×Ó³öÏÖ±êÖ¾ºÍ³öÏÖÊýÁ¿
-    for (int i = 1; i < 17; i += 2) /// ÆåÅÌ×ßÎ»
+        qq = 0, PP = 0, pp = 0;     /// åˆå§‹åŒ–å„ä¸ªæ£‹å­å‡ºçŽ°æ ‡å¿—å’Œå‡ºçŽ°æ•°é‡
+    for (int i = 1; i < 17; i += 2) /// æ£‹ç›˜èµ°ä½
     {
       for (int j = 2; j < 33; j += 4) {
         if (ma[i][j] == ':' || ma[i][j] == '.')
-          continue;                                  /// Î´·ÅÖÃÆå×Ó
-        else if (ma[i][j] >= 'a' && ma[i][j] <= 'z') /// ºÚÆå
+          continue;                                  /// æœªæ”¾ç½®æ£‹å­
+        else if (ma[i][j] >= 'a' && ma[i][j] <= 'z') /// é»‘æ£‹
         {
           if (ma[i][j] == 'k') {
             kk++;
@@ -59,13 +59,13 @@ int main() {
             n[nn].y = 'a' + (j + 2) / 4 - 1;
             nn++;
           }
-          if (ma[i][j] == 'p') /// Ê¿±ø
+          if (ma[i][j] == 'p') /// å£«å…µ
           {
             p[pp].x = 9 - (i + 1) / 2;
             p[pp].y = 'a' + (j + 2) / 4 - 1;
             pp++;
           }
-        } else /// °×Æå
+        } else /// ç™½æ£‹
         {
           if (ma[i][j] == 'K') {
             KK++;
@@ -100,7 +100,7 @@ int main() {
         }
       }
     }
-    sort(n, n + nn, cmp); /// ¸÷¸ö½ÇÉ«Êä³öË³ÐòÅÅÐò
+    sort(n, n + nn, cmp); /// å„ä¸ªè§’è‰²è¾“å‡ºé¡ºåºæŽ’åº
     sort(b, b + bb, cmp);
     sort(r, r + rr, cmp);
     sort(p, p + pp, cmp);
@@ -110,7 +110,7 @@ int main() {
     sort(P, P + PP, CMP);
     printf("White: ");
     if (KK)
-      printf("K%c%d", K.y, K.x); /// ÍõÓÐÇÒ½öÓÐÒ»¸ö£¬Òò´Ë²»ÓÃÊä³ö¶ººÅ
+      printf("K%c%d", K.y, K.x); /// çŽ‹æœ‰ä¸”ä»…æœ‰ä¸€ä¸ªï¼Œå› æ­¤ä¸ç”¨è¾“å‡ºé€—å·
     if (QQ)
       printf(",Q%c%d", Q.y, Q.x);
     if (RR)

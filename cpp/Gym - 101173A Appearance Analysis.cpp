@@ -5,7 +5,7 @@ struct point {
   int xx, yy;
 } num[20008];
 char a[150][150];
-bool judge1(int x, int y, int n) /// ×óÉÏ½Ç
+bool judge1(int x, int y, int n) /// å·¦ä¸Šè§’
 {
   bool flag = false;
   int i, j, ii, jj;
@@ -23,7 +23,7 @@ bool judge1(int x, int y, int n) /// ×óÉÏ½Ç
     return 1;
 
   flag = false;
-  for (i = num[n].yy, ii = x; i >= num[n].y; i--, ii++) /// ÓÒÉÏ½Ç
+  for (i = num[n].yy, ii = x; i >= num[n].y; i--, ii++) /// å³ä¸Šè§’
   {
     for (int j = num[n].x, jj = y; j <= num[n].xx; j++, jj++) {
       if (a[ii][jj] != a[j][i]) {
@@ -38,7 +38,7 @@ bool judge1(int x, int y, int n) /// ×óÉÏ½Ç
     return 1;
 
   flag = false;
-  for (i = num[n].xx, ii = x; i >= num[n].x; i--, ii++) /// ÓÒÏÂ½Ç
+  for (i = num[n].xx, ii = x; i >= num[n].x; i--, ii++) /// å³ä¸‹è§’
   {
     for (int j = num[n].yy, jj = y; j >= num[n].y; j--, jj++) {
       if (a[ii][jj] != a[i][j]) {
@@ -53,7 +53,7 @@ bool judge1(int x, int y, int n) /// ×óÉÏ½Ç
     return 1;
 
   flag = false;
-  for (i = num[n].y, ii = x; i <= num[n].yy; i++, ii++) /// ×óÏÂ½Ç
+  for (i = num[n].y, ii = x; i <= num[n].yy; i++, ii++) /// å·¦ä¸‹è§’
   {
     for (int j = num[n].xx, jj = y; j >= num[n].x; j--, jj++) {
       if (a[ii][jj] != a[j][i]) {
@@ -69,7 +69,7 @@ bool judge1(int x, int y, int n) /// ×óÉÏ½Ç
 
   return 0;
 }
-bool judge2(int x, int y, int n) /// ×óÉÏ½Ç
+bool judge2(int x, int y, int n) /// å·¦ä¸Šè§’
 {
   int i, j, ii, jj;
   bool flag = false;
@@ -87,7 +87,7 @@ bool judge2(int x, int y, int n) /// ×óÉÏ½Ç
     return 1;
 
   flag = false;
-  for (i = num[n].xx, ii = x; i >= num[n].x; i--, ii++) /// ÓÒÏÂ½Ç
+  for (i = num[n].xx, ii = x; i >= num[n].x; i--, ii++) /// å³ä¸‹è§’
   {
     for (j = num[n].yy, jj = y; j >= num[n].y; j--, jj++) {
       if (a[ii][jj] != a[i][j]) {
@@ -124,11 +124,11 @@ int main() {
     num[ans].xx = num[ans].x + cn - 1;
     num[ans].yy = num[ans].y + rn - 1;
     if (cn == rn) {
-      for (i = 1; i < c; i += cn + 1) /// ´óÍ¼ĞÎ
+      for (i = 1; i < c; i += cn + 1) /// å¤§å›¾å½¢
       {
         for (j = 1; j < r; j += rn + 1) {
           bool flag2 = false;
-          for (int n = 1; n <= ans; n++) /// ´ÓansÖĞÑ¡ÔñÍ¼ĞÎ±È½Ï
+          for (int n = 1; n <= ans; n++) /// ä»ansä¸­é€‰æ‹©å›¾å½¢æ¯”è¾ƒ
           {
             if (judge1(i, j, n) != 0) {
               flag2 = true;
@@ -146,11 +146,11 @@ int main() {
       }
       printf("%d\n", ans);
     } else {
-      for (i = 1; i < c; i += cn + 1) /// ´óÍ¼ĞÎ
+      for (i = 1; i < c; i += cn + 1) /// å¤§å›¾å½¢
       {
         for (j = 1; j < r; j += rn + 1) {
           bool flag2 = false;
-          for (int n = 1; n <= ans; n++) /// ´ÓansÖĞÑ¡ÔñÍ¼ĞÎ±È½Ï
+          for (int n = 1; n <= ans; n++) /// ä»ansä¸­é€‰æ‹©å›¾å½¢æ¯”è¾ƒ
           {
             if (judge2(i, j, n) != 0) {
               flag2 = true;

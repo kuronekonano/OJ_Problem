@@ -1,10 +1,10 @@
-#include <bits/stdc++.h> ///01×ÖµäÊ÷
+#include <bits/stdc++.h> ///01å­—å…¸æ ‘
 #define LL long long
 #define M(a, b) memset(a, b, sizeof a)
 using namespace std;
 const int maxn = 1e5 + 7;
 int tre[maxn << 5][2];
-int cnt[maxn << 5]; /// ±ê¼Ç½Úµã×ß¹ı´ÎÊı£¬¾Í²»ÓÃ¹ØĞÄÔ­½ÚµãÁ´½ÓÏòÄÄ¸ö±êºÅÁË
+int cnt[maxn << 5]; /// æ ‡è®°èŠ‚ç‚¹èµ°è¿‡æ¬¡æ•°ï¼Œå°±ä¸ç”¨å…³å¿ƒåŸèŠ‚ç‚¹é“¾æ¥å‘å“ªä¸ªæ ‡å·äº†
 int q, tot = 0;
 char flag[3];
 void insert(int a, int rt, int add) {
@@ -15,7 +15,7 @@ void insert(int a, int rt, int add) {
       M(tre[tre[rt][x]], 0);
     }
     rt = tre[rt][x];
-    cnt[rt] += add; /// É¾³ıºÍ²åÈë¾ÍÊÇ¶ÔÄ³¸ö½ÚµãµÄ¾­¹ı´ÎÊı¼ÆÊı
+    cnt[rt] += add; /// åˆ é™¤å’Œæ’å…¥å°±æ˜¯å¯¹æŸä¸ªèŠ‚ç‚¹çš„ç»è¿‡æ¬¡æ•°è®¡æ•°
   }
 }
 int finds(int a, int rt) {
@@ -24,7 +24,7 @@ int finds(int a, int rt) {
     ans <<= 1;
     int x = (a >> i) & 1;
     if (tre[rt][!x] && cnt[tre[rt][!x]])
-      rt = tre[rt][!x], ans |= 1; /// ±ØĞëÍ¬Ê±·ûºÏÁ½¸öÌõ¼ş²ÅÄÜÍùÕâÌõ×ÓÊ÷ÉÏ×ß
+      rt = tre[rt][!x], ans |= 1; /// å¿…é¡»åŒæ—¶ç¬¦åˆä¸¤ä¸ªæ¡ä»¶æ‰èƒ½å¾€è¿™æ¡å­æ ‘ä¸Šèµ°
     else
       rt = tre[rt][x];
   }
@@ -48,7 +48,7 @@ int main() {
           max(tmp,
               finds(
                   tmp,
-                  rt))); /// ÒòÎª0Ò»Ö±ÔÚ¸ù²¿£¬Òò´Ë±ØĞë¼ì²éÒ»ÏÂÕâ¸öÊıÒì»ò0(Êä³ö×Ô¼º)ºÍÒì»ò¼¯ºÏÖĞÄ³¸öÊıÀ´È¡×î´óÖµ
+                  rt))); /// å› ä¸º0ä¸€ç›´åœ¨æ ¹éƒ¨ï¼Œå› æ­¤å¿…é¡»æ£€æŸ¥ä¸€ä¸‹è¿™ä¸ªæ•°å¼‚æˆ–0(è¾“å‡ºè‡ªå·±)å’Œå¼‚æˆ–é›†åˆä¸­æŸä¸ªæ•°æ¥å–æœ€å¤§å€¼
   }
   return 0;
 }

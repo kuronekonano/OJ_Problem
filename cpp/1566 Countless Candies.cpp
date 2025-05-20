@@ -1,4 +1,4 @@
-#include <stdio.h> ///区间更新，可以用线段树来做·····orz
+#include <stdio.h> ///鍖洪棿鏇存柊锛屽彲浠ョ敤绾挎鏍戞潵鍋氥兓銉汇兓銉汇兓orz
 #include <string.h>
 int main() {
   int n, vis[100008];

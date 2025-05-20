@@ -1,6 +1,6 @@
 #include <stdio.h>
 int main() {
-  int x1, x2, x3, t, d, h, a; // 输入的高度h特么用不着，x3特么也用不着！！！！
+  int x1, x2, x3, t, d, h, a; // 杈撳叆鐨勯珮搴鐗逛箞鐢ㄤ笉鐫�锛寈3鐗逛箞涔熺敤涓嶇潃锛侊紒锛侊紒
   double k;
   scanf("%d", &t);
   for (i = 1; i <= t; i++) {

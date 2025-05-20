@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h> ///˼·����һ��4*4�ÿո���յľ��������ÿ���ַ���Ȼ���ٵ��Ż�ȥ����������һ�����ټ���װʣ�µģ����������װ��ֱ���ַ�������
+#include <string.h> ///思路是拿一个4*4用空格清空的矩阵来存放每个字符，然后再倒着回去输出，输出玩一部分再继续装剩下的，再输出，再装，直到字符串结束
 int main() {
   char a[108];
   int i, j, k;
@@ -26,6 +26,6 @@ int main() {
         }
       }
     }
-    printf("\n"); /// �ǵû���
+    printf("\n"); /// 记得换行
   }
 }

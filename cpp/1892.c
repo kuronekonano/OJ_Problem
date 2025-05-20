@@ -1,7 +1,7 @@
 #include<stdio.h>
 int main()
 {
-    long long int a,b;//32Î»ÓĞ·ûºÅÕûĞÎ·¶Î§ÄÚ int: -21,0000,0000~21,0000,0000(Ê®Î»£©
+    long long int a,b;//32ä½æœ‰ç¬¦å·æ•´å½¢èŒƒå›´å†… int: -21,0000,0000~21,0000,0000(åä½ï¼‰
     while(scanf("%lld%lld",&a,&b)!=EOF)
     {
         printf("%lld\n",a+b);

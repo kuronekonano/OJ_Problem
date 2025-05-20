@@ -11,19 +11,19 @@ int main() {
     bool flag = false;
     for (int i = 0; i <= 6; i++) {
       if (flag && a[i] > 0)
-        printf("+"); /// ע�����Ҫ�������������Ƿ��žͲ��������
+        printf("+"); /// 注意符号要单独输出，如果是符号就不输出正号
       if (a[i] != 0 && i != 6) {
-        if (a[i] == 1) /// �ӵ�:ע��ϵ��Ϊ1ʱû������ֻ����ĸ
+        if (a[i] == 1) /// 坑点:注意系数为1时没有数字只有字母
         {
           printf("%c", b[i]);
         } else if (a[i] == -1)
-          printf("-%c", b[i]); /// ͬʱҪע�⸺��Ҳ�����
+          printf("-%c", b[i]); /// 同时要注意负数也是如此
         else
           printf("%ld%c", a[i],
-                 b[i]); /// �������1��ϵ�����Ǿ����ֺ���ĸһ�����
-        flag = true;    /// �������Ǳ����û�в�Ϊ0������
+                 b[i]); /// 如果不是1的系数，那就数字和字母一起输出
+        flag = true;    /// 这个标记是标记有没有不为0的数的
       }
-      if (a[i] != 0 && i == 6) /// ���һ����������������ж�
+      if (a[i] != 0 && i == 6) /// 最后一个常数单独输出和判断
       {
         printf("%ld", a[i]);
         flag = true;

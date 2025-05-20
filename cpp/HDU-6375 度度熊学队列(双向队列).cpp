@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> ///Ê§°ÜµÄ´úÂë£¬ÎŞÏŞRE
+#include <bits/stdc++.h> ///å¤±è´¥çš„ä»£ç ï¼Œæ— é™RE
 #define LL long long
 #define M(a, b) memset(a, b, sizeof a)
 #define pb(x) push_back(x)
@@ -40,7 +40,7 @@ int main() {
     init();
     while (q--) {
       scanf("%d", &flag);
-      if (flag == 1) /// ²åÈë
+      if (flag == 1) /// æ’å…¥
       {
         scanf("%d%d%d", &u, &w, &val);
         node *p = newnode();
@@ -49,13 +49,13 @@ int main() {
         node *rp = newnode();
         rp->val = val;
         if (w) {
-          p->pre = tail[u]; /// ÕıÏò
+          p->pre = tail[u]; /// æ­£å‘
           tail[u]->next = p;
           tail[u] = p;
           if (head[u] == tail[u])
             head[u]->next = p;
 
-          rp->next = rhead[u]->next; /// ·´Ïò
+          rp->next = rhead[u]->next; /// åå‘
           rp->pre = rhead[u];
           if (rhead[u]->next != NULL)
             rhead[u]->next->pre = rp;
@@ -63,7 +63,7 @@ int main() {
             rtail[u] = rp;
           rhead[u]->next = rp;
         } else {
-          p->next = head[u]->next; /// ÕıÏò
+          p->next = head[u]->next; /// æ­£å‘
           p->pre = head[u];
           if (head[u]->next != NULL)
             head[u]->next->pre = rp;
@@ -71,20 +71,20 @@ int main() {
             tail[u] = p;
           head[u]->next = p;
 
-          rp->pre = rtail[u]; /// ·´Ïò
+          rp->pre = rtail[u]; /// åå‘
           rtail[u]->next = rp;
           rtail[u] = rp;
           if (rhead[u] == rtail[u])
             rhead[u]->next = rp;
         }
-      } else if (flag == 2) /// É¾³ı
+      } else if (flag == 2) /// åˆ é™¤
       {
         scanf("%d%d", &u, &w);
         if (head[u] == tail[u])
           printf("-1\n");
         else {
           if (w) {
-            printf("%d\n", tail[u]->val); /// ÕıÏò
+            printf("%d\n", tail[u]->val); /// æ­£å‘
             node *p = tail[u];
             if (tail[u]->pre != NULL)
               tail[u] = tail[u]->pre;
@@ -92,14 +92,14 @@ int main() {
               head[u] = tail[u];
             tail[u]->next = NULL;
 
-            node *rp = rhead[u]->next; /// ·´Ïò
+            node *rp = rhead[u]->next; /// åå‘
             rhead[u]->next = rp->next;
             if (rp->next != NULL)
               rp->next->pre = rhead[u];
             else
               rhead[u] = rtail[u];
           } else {
-            printf("%d\n", head[u]->next->val); /// ÕıÏò
+            printf("%d\n", head[u]->next->val); /// æ­£å‘
             node *p = head[u]->next;
             head[u]->next = p->next;
             if (p->next != NULL)
@@ -107,7 +107,7 @@ int main() {
             else
               head[u] = tail[u];
 
-            node *rp = rtail[u]; /// ·´Ïò
+            node *rp = rtail[u]; /// åå‘
             if (rtail[u]->pre != NULL)
               rtail[u] = rtail[u]->pre;
             else
@@ -117,10 +117,10 @@ int main() {
         }
       } else {
         scanf("%d%d%d", &u, &v, &w);
-        if (w) /// ÄæÏò½Ó
+        if (w) /// é€†å‘æ¥
         {
           if (rhead[v] != rtail[v]) {
-            tail[u]->next = rhead[v]->next; /// uÖ®ºó½ÓÄæv,Çå¿ÕÄæv
+            tail[u]->next = rhead[v]->next; /// uä¹‹åæ¥é€†v,æ¸…ç©ºé€†v
             if (rhead[v]->next != NULL)
               rhead[v]->next->pre = tail[u];
             tail[u] = rtail[v];
@@ -134,10 +134,10 @@ int main() {
             tail[v]->next = NULL;
             head[v] = tail[v];
           }
-        } else /// Ë³Ğò½Ó
+        } else /// é¡ºåºæ¥
         {
           if (head[v] != tail[v]) {
-            tail[u]->next = head[v]->next; /// uÖ®ºó½Óv£¬Çå¿Õv
+            tail[u]->next = head[v]->next; /// uä¹‹åæ¥vï¼Œæ¸…ç©ºv
             if (head[v]->next != NULL)
               head[v]->next->pre = tail[u];
             tail[u] = tail[v];
@@ -170,7 +170,7 @@ int main() {
 2 1 1
 */
 
-/// ¼ÙµÄ´úÂë£¬ÄÜAµ«ÊÇÃ÷ÏÔ»á³¬Ê±
+/// å‡çš„ä»£ç ï¼Œèƒ½Aä½†æ˜¯æ˜æ˜¾ä¼šè¶…æ—¶
 // #include<bits/stdc++.h>
 // #define LL long long
 // #define M(a,b) memset(a,b,sizeof a)

@@ -3,7 +3,7 @@ int main()
 {
     int t,n,j;
     scanf("%d",&t);
-    while(t--)//ÎªÃ«¶¨ÒåtÊ±ÓÃforÓï¾ä£¬ÎÞÂÛi++»¹ÊÇi--¶¼ÎÞ·¨Ñ­»·£¬Ã÷Ã÷³õÊ¼»¯iÎª1£¬Êä³öµÄi¶¼ÊÇt+1
+    while(t--)//ä¸ºæ¯›å®šä¹‰tæ—¶ç”¨forè¯­å¥ï¼Œæ— è®ºi++è¿˜æ˜¯i--éƒ½æ— æ³•å¾ªçŽ¯ï¼Œæ˜Žæ˜Žåˆå§‹åŒ–iä¸º1ï¼Œè¾“å‡ºçš„iéƒ½æ˜¯t+1
     {
         scanf("%d",&n);
         int a[n];

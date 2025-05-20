@@ -19,12 +19,12 @@ bool cmp(student a, student b) {
 int main() {
   int n, m, i, j, k;
   while (scanf("%d %d", &n, &m) != EOF) {
-    for (i = 0; i < 6; i++) /// 学生数量
+    for (i = 0; i < 6; i++) /// 瀛︾敓鏁伴噺
     {
       stu[i].num = 0;
       stu[i].sum = 0;
       scanf("%s", stu[i].name);
-      for (j = 0; j < n; j++) /// 题目数量
+      for (j = 0; j < n; j++) /// 棰樼洰鏁伴噺
       {
         char a[10];
         scanf("%s", a);
@@ -34,7 +34,7 @@ int main() {
         stu[i].num++;
         int len = strlen(a);
         int mark = 0;
-        for (k = 0; k < len;) /// 分数
+        for (k = 0; k < len;) /// 鍒嗘暟
         {
           if (a[k] == '(') {
             k++;

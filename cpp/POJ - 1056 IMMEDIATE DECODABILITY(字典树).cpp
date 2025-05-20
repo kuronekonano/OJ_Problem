@@ -1,4 +1,4 @@
-#include <stdio.h> ///字典树建树同时判断重复前缀
+#include <stdio.h> ///瀛楀吀鏍戝缓鏍戝悓鏃跺垽鏂噸澶嶅墠缂�
 #include <string.h>
 int tot, tre[100][3];
 bool vis[100], ans;

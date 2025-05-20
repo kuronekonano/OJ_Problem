@@ -6,13 +6,13 @@
 using namespace std;
 int main() {
   int a[508][509], i, j, n, m,
-      num[100000]; /// ÔÚ¾ØÕóÖÐ£¬Ò»¿ªÊ¼ÏëÒª²»ÒªÅÐ¶ÏÕâ¸öÊýÊÇ²»ÊÇËØÊý
+      num[100000]; /// åœ¨çŸ©é˜µä¸­ï¼Œä¸€å¼€å§‹æƒ³è¦ä¸è¦åˆ¤æ–­è¿™ä¸ªæ•°æ˜¯ä¸æ˜¯ç´ æ•°
   bool su
-      [100008]; /// Ê×ÏÈÕÒ³ö10^5ÄÚËùÓÐµÄËØÊý(ËØÊýÉ¸)£¬È»ºó½«ËùÓÐËØÊý·Åµ½Ò»¸önumÊý×éÖÐ
+      [100008]; /// é¦–å…ˆæ‰¾å‡º10^5å†…æ‰€æœ‰çš„ç´ æ•°(ç´ æ•°ç­›)ï¼Œç„¶åŽå°†æ‰€æœ‰ç´ æ•°æ”¾åˆ°ä¸€ä¸ªnumæ•°ç»„ä¸­
   memset(
       su, true,
       sizeof(
-          su)); /// ÔÙÀûÓÃlower_boundÕÒµ½µÚÒ»¸ö´óÓÚµÈÓÚ¾ØÕóÄÚÄ³¸öÊýµÄËØÊý£¬×ö²î¿ÉËã³ö²Ù×÷¾àÀë
+          su)); /// å†åˆ©ç”¨lower_boundæ‰¾åˆ°ç¬¬ä¸€ä¸ªå¤§äºŽç­‰äºŽçŸ©é˜µå†…æŸä¸ªæ•°çš„ç´ æ•°ï¼Œåšå·®å¯ç®—å‡ºæ“ä½œè·ç¦»
   su[1] = false;
   int flag = 0;
   for (i = 2; i <= 100000; i++) {
@@ -24,18 +24,18 @@ int main() {
     }
   }
   while (scanf("%d%d", &n, &m) != EOF) {
-    int minn = 0x7f7f7f7f; /// ¶ÔÃ¿ÐÐÃ¿ÁÐµÄ²Ù×÷ÊýÇóºÍ£¬È¡×îÐ¡Öµ±ãÊÇ×îÐ¡²Ù×÷Êý
+    int minn = 0x7f7f7f7f; /// å¯¹æ¯è¡Œæ¯åˆ—çš„æ“ä½œæ•°æ±‚å’Œï¼Œå–æœ€å°å€¼ä¾¿æ˜¯æœ€å°æ“ä½œæ•°
     for (i = 1; i <= n; i++) {
       a[i][0] = 0;
       for (j = 1; j <= m; j++) {
         scanf("%d", &a[i][j]);
         int pos = lower_bound(num, num + flag, a[i][j]) -
-                  num;                /// ´óÓÚµÈÓÚµÚij¸öÊýµÄËØÊýÎ»ÖÃ
-        a[i][j] = num[pos] - a[i][j]; /// ×ö²î¼ÆËã²Ù×÷¾àÀë
+                  num;                /// å¤§äºŽç­‰äºŽç¬¬ijä¸ªæ•°çš„ç´ æ•°ä½ç½®
+        a[i][j] = num[pos] - a[i][j]; /// åšå·®è®¡ç®—æ“ä½œè·ç¦»
         a[i][0] += a[i][j];
       }
       if (a[i][0] < minn)
-        minn = a[i][0]; /// È¡×îÐ¡Öµ
+        minn = a[i][0]; /// å–æœ€å°å€¼
     }
     //        printf("------------------\n");
     //        for(i=1;i<=n;i++)

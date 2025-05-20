@@ -1,4 +1,4 @@
-#include <stdio.h> ///¶ş·ÖÍ¼×î´óÆ¥Åä
+#include <stdio.h> ///äºŒåˆ†å›¾æœ€å¤§åŒ¹é…
 #include <string.h>
 struct man {
   int st, ed;
@@ -7,13 +7,13 @@ int match[505];
 bool edge[505][505], vis[505];
 int n, k, t;
 bool KM(int x) {
-  for (int i = 1; i <= n; i++) /// ±éÀú¹¤ÈË
+  for (int i = 1; i <= n; i++) /// éå†å·¥äºº
   {
-    if (!vis[i] && edge[x][i]) /// Èç¹ûÈÎÎñxÄÜ±»¹¤ÈËi×ö£¬ÇÒ¹¤ÈËiÃ»ÓĞÈÎÎñ
+    if (!vis[i] && edge[x][i]) /// å¦‚æœä»»åŠ¡xèƒ½è¢«å·¥äººiåšï¼Œä¸”å·¥äººiæ²¡æœ‰ä»»åŠ¡
     {
-      vis[i] = true; /// ÓÃ¹ı¹¤ÈËi
+      vis[i] = true; /// ç”¨è¿‡å·¥äººi
       if (match[i] == 0 || KM(match[i])) {
-        match[i] = x; /// ¸üĞÂÅä¶Ô¹ØÏµ
+        match[i] = x; /// æ›´æ–°é…å¯¹å…³ç³»
         return true;
       }
     }
@@ -40,7 +40,7 @@ int main() {
       work[i].ed = x * 60 + y;
       for (int j = 1; j <= n; j++)
         if (work[i].st >= men[j].st && men[j].ed >= work[i].ed)
-          edge[i][j] = true; /// ×¢Òâ¹¤×÷Ê±¼ä±»°üº¬ÔÚ¹¤ÈËÊ±¼äÇø¼äÄÚ£¡£¡
+          edge[i][j] = true; /// æ³¨æ„å·¥ä½œæ—¶é—´è¢«åŒ…å«åœ¨å·¥äººæ—¶é—´åŒºé—´å†…ï¼ï¼
     }
     int sum = 0;
     for (int i = 1; i <= k; i++) {

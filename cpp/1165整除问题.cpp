@@ -1,5 +1,5 @@
 #include <stdio.h>
-int gys(int a, int b) // ²ÉÓÃµÝ¹é·½·¨µÄ×î´ó¹«Ô¼Êý
+int gys(int a, int b) // é‡‡ç”¨é€’å½’æ–¹æ³•çš„æœ€å¤§å…¬çº¦æ•°
 {
   if (a % b == 0) {
     return b;
@@ -7,26 +7,26 @@ int gys(int a, int b) // ²ÉÓÃµÝ¹é·½·¨µÄ×î´ó¹«Ô¼Êý
     return gys(b, a % b);
   }
 }
-int gbs(int x, int y) // ×îÐ¡¹«±¶Êý
+int gbs(int x, int y) // æœ€å°å…¬å€æ•°
 {
-  return (x * y) / gys(x, y); // Á½Êý³Ë»ý³ýÒÔ×î´ó¹«Ô¼ÊýµÈÓÚ×îÐ¡¹«±¶Êý
+  return (x * y) / gys(x, y); // ä¸¤æ•°ä¹˜ç§¯é™¤ä»¥æœ€å¤§å…¬çº¦æ•°ç­‰äºŽæœ€å°å…¬å€æ•°
 }
 int main() {
   int n, a, b, i, j, c[10];
   while (
       scanf("%d%d%d", &n, &a, &b) !=
-      EOF) // ÕÒ³öÔÚaÖÁb·¶Î§ÄÚÄÜÍ¬Ê±±»n¸öÊýÕû³ýµÄÊý£¬¾ÍÊÇÇó×Ån¸öÊýµÄ¹«±¶Êý£¬Í¬Ê±Ò²ÊÇn¸öÊý×îÐ¡¹«±¶ÊýµÄ±¶Êý
+      EOF) // æ‰¾å‡ºåœ¨aè‡³bèŒƒå›´å†…èƒ½åŒæ—¶è¢«nä¸ªæ•°æ•´é™¤çš„æ•°ï¼Œå°±æ˜¯æ±‚ç€nä¸ªæ•°çš„å…¬å€æ•°ï¼ŒåŒæ—¶ä¹Ÿæ˜¯nä¸ªæ•°æœ€å°å…¬å€æ•°çš„å€æ•°
   {
     for (i = 0; i < n; i++) {
       scanf("%d", &c[i]);
     }
-    int sum = gbs(c[0], c[1]); // ÏÈÕÒ³öÁ½¸öÊýµÄ×îÐ¡¹«±¶Êý
+    int sum = gbs(c[0], c[1]); // å…ˆæ‰¾å‡ºä¸¤ä¸ªæ•°çš„æœ€å°å…¬å€æ•°
     for (i = 2; i < n; i++) {
-      sum = gbs(sum, c[i]); // ÔÙÑ­»·ÕÒ³öËùÓÐÊýµÄ×îÐ¡¹«±¶Êý
+      sum = gbs(sum, c[i]); // å†å¾ªçŽ¯æ‰¾å‡ºæ‰€æœ‰æ•°çš„æœ€å°å…¬å€æ•°
     }
     i = 1;
     int flag = 0;
-    while (i * sum >= a && i * sum <= b) // ÕÒµÄÊýÊÇ×îÐ¡¹«±¶ÊýÔÚaÖÁb·¶Î§ÄÚµÄ±¶Êý
+    while (i * sum >= a && i * sum <= b) // æ‰¾çš„æ•°æ˜¯æœ€å°å…¬å€æ•°åœ¨aè‡³bèŒƒå›´å†…çš„å€æ•°
     {
       i++;
       flag++;

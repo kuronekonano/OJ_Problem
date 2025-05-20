@@ -1,5 +1,5 @@
 #include <math.h>
-#include <stdio.h> ///�����ȱ������θ����߳�����������(�����ڱ߲��ܸ���)ʹ֮���͸�Χ�ǵ��������С
+#include <stdio.h> ///两个等边三角形给出边长，问如何组合(可以邻边不能覆盖)使之宽和高围城的形面积最小
 int main() {
   int t;
   scanf("%d", &t);

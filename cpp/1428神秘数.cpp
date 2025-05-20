@@ -1,7 +1,7 @@
 #include <stdio.h>
-int main() /// 10µÄ9´ÎÃİ£¬²»³¬¹ılong long
+int main() /// 10çš„9æ¬¡å¹‚ï¼Œä¸è¶…è¿‡long long
 {
-  long long a, b; /// Êä³öµÄÊÇa¼ÓÉÏbµ¹¹ıÀ´µÄÊı
+  long long a, b; /// è¾“å‡ºçš„æ˜¯aåŠ ä¸Šbå€’è¿‡æ¥çš„æ•°
   while (scanf("%lld%lld", &a, &b) != EOF) {
     long long x = 0;
     while (b != 0) {

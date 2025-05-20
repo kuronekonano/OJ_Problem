@@ -1,11 +1,11 @@
 #include <algorithm>
 #include <iostream>
 #include <queue>
-#include <stdio.h> ///±´¶ûÂü×î¶ÌÂ·Ëã·¨ ÅĞ¶Ï¸º»·
+#include <stdio.h> ///è´å°”æ›¼æœ€çŸ­è·¯ç®—æ³• åˆ¤æ–­è´Ÿç¯
 #include <string.h>
 #include <vector>
 using namespace std;
-int n, m, v; /// nÖÖ»õ±Ò£¬m¸ö½»Ò×Õ¾£¬³õÊ¼ÄÃµ½µÄÊÇvºÅ»õ±Ò£¬ÓĞsÃæÖµµÄvºÅ»õ±Ò
+int n, m, v; /// nç§è´§å¸ï¼Œmä¸ªäº¤æ˜“ç«™ï¼Œåˆå§‹æ‹¿åˆ°çš„æ˜¯vå·è´§å¸ï¼Œæœ‰sé¢å€¼çš„vå·è´§å¸
 double s;
 struct money {
   int from, to;
@@ -16,7 +16,7 @@ struct money {
 double dist[108];
 int from, to, num = 0;
 bool Bellman_Ford(int start) {
-  memset(dist, 0, sizeof(dist)); /// ¸üĞÂÎª×î³¤Â·
+  memset(dist, 0, sizeof(dist)); /// æ›´æ–°ä¸ºæœ€é•¿è·¯
   dist[start] = s;
   for (int i = 1; i < n; i++) {
     for (int j = 0; j < num; j++) {
@@ -25,7 +25,7 @@ bool Bellman_Ford(int start) {
       }
     }
   }
-  for (int i = 0; i < num; i++) /// ÅĞ¶Ï¸º»·
+  for (int i = 0; i < num; i++) /// åˆ¤æ–­è´Ÿç¯
   {
     if (dist[dao[i].to] < (dist[dao[i].from] - dao[i].c) * dao[i].r)
       return true;
@@ -39,9 +39,9 @@ int main() {
       scanf("%d%d%lf%lf%lf%lf", &from, &to, &rab, &cab, &rba, &cba);
       dao[num++] =
           money(from, to, rab,
-                cab); /// ÓĞÏò±ß£¬Ã¿¸ö»õ±Ò×÷ÎªÒ»¸ö½Úµã£¬Ã¿¸ö½»»»Õ¾×÷ÎªÁ½ÌõÓĞÏò±ß
+                cab); /// æœ‰å‘è¾¹ï¼Œæ¯ä¸ªè´§å¸ä½œä¸ºä¸€ä¸ªèŠ‚ç‚¹ï¼Œæ¯ä¸ªäº¤æ¢ç«™ä½œä¸ºä¸¤æ¡æœ‰å‘è¾¹
       dao[num++] =
-          money(to, from, rba, cba); /// È¨ÖµÖ»ÓÃ±£´æÊÖĞø·ÑºÍ»ãÂÊ¼´¿É¼ÆËãval
+          money(to, from, rba, cba); /// æƒå€¼åªç”¨ä¿å­˜æ‰‹ç»­è´¹å’Œæ±‡ç‡å³å¯è®¡ç®—val
     }
     if (Bellman_Ford(v))
       printf("YES\n");

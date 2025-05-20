@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <iostream>
-#include <stdio.h> ///³É±¶ÊýµÄÁ½¸öÊý±êºÅ²»ÄÜÏàÍ¬£¬ÓÃÀàËÆËØÊýÉ¸µÄÔ¤´¦Àí£¬±ê¼ÇÃ¿¸öÊý×Ö±»×÷Îª±¶ÊýµÄ´ÎÊý
+#include <stdio.h> ///æˆå€æ•°çš„ä¸¤ä¸ªæ•°æ ‡å·ä¸èƒ½ç›¸åŒï¼Œç”¨ç±»ä¼¼ç´ æ•°ç­›çš„é¢„å¤„ç†ï¼Œæ ‡è®°æ¯ä¸ªæ•°å­—è¢«ä½œä¸ºå€æ•°çš„æ¬¡æ•°
 #include <string.h>
 using namespace std;
 int a[10008];

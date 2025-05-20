@@ -2,7 +2,7 @@
 int main()
 {
     int a;
-    while(scanf("%d",&a))//´Ó1µ½9£¬³ıÒÔ9¶¼µÃµ½0.nnnnnnnnµÄÑ­»·Ğ¡Êı
+    while(scanf("%d",&a))//ä»1åˆ°9ï¼Œé™¤ä»¥9éƒ½å¾—åˆ°0.nnnnnnnnçš„å¾ªç¯å°æ•°
     {
         switch(a)
         {

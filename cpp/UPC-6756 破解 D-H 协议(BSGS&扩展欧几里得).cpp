@@ -4,7 +4,7 @@ using namespace std;
 const int maxn = 1e5 + 7;
 LL a, b, p, g, m;
 map<LL, int> mp;
-inline LL qp(LL a, LL b) /// ¿ìËÙÃİ
+inline LL qp(LL a, LL b) /// å¿«é€Ÿå¹‚
 {
   LL ans = 1;
   while (b) {
@@ -15,7 +15,7 @@ inline LL qp(LL a, LL b) /// ¿ìËÙÃİ
   }
   return ans;
 }
-int exgcd(LL a, LL b, LL &xx, LL &yy) /// À©Õ¹Å·¼¸ÀïµÃ
+int exgcd(LL a, LL b, LL &xx, LL &yy) /// æ‰©å±•æ¬§å‡ é‡Œå¾—
 {
   if (!b) {
     xx = 1, yy = 0;
@@ -25,12 +25,12 @@ int exgcd(LL a, LL b, LL &xx, LL &yy) /// À©Õ¹Å·¼¸ÀïµÃ
   yy -= xx * (a / b);
   return gcd;
 }
-inline LL inv(LL x) /// ÇóÄæÔª
+inline LL inv(LL x) /// æ±‚é€†å…ƒ
 {
   LL xx, yy;
   return exgcd(x, p, xx, yy) == 1 ? (xx + p) % p : -1;
 }
-inline LL cal(LL num) /// Ô¤´¦Àí
+inline LL cal(LL num) /// é¢„å¤„ç†
 {
   for (int i = 0; i <= m; i++) {
     LL k = num * inv(qp(g, i * m)) % p;
@@ -57,5 +57,5 @@ int main() {
     printf("%lld\n", qp(a, ab));
   }
 }
-/// exgcd±¾ÖÊ²»ÊÇÎªÁËÇóÄæÔª,ÓÃÀ´Çóax+by=gcd(a,b)µÄ(x,y)½â
-/// a p»¥ÖÊ¾ÍÄÜÓÃ·ÑÂíÇóÄæÔª
+/// exgcdæœ¬è´¨ä¸æ˜¯ä¸ºäº†æ±‚é€†å…ƒ,ç”¨æ¥æ±‚ax+by=gcd(a,b)çš„(x,y)è§£
+/// a päº’è´¨å°±èƒ½ç”¨è´¹é©¬æ±‚é€†å…ƒ

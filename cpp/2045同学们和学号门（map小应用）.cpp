@@ -1,21 +1,21 @@
 #include <iostream>
-#include <map> ///Ò»Ò»Ó³Éä
+#include <map> ///ä¸€ä¸€æ˜ å°„
 #include <stdio.h>
 #include <string>
 using namespace std;
 int main() {
   int n, t, i;
-  map<string, string> q; /// ×Ö·û´®ÓÃstring¶ø²»ÊÇchar
+  map<string, string> q; /// å­—ç¬¦ä¸²ç”¨stringè€Œä¸æ˜¯char
   char stu[30], num[30];
   while (scanf("%d", &n) != EOF) {
     for (i = 1; i <= n; i++) {
       scanf("%s %s", stu, num);
-      q[stu] = num; /// ÏñÊı×éÒ»ÑùÊ¹ÓÃ
+      q[stu] = num; /// åƒæ•°ç»„ä¸€æ ·ä½¿ç”¨
     }
     scanf("%d", &t);
     while (t--) {
       scanf("%s", stu);
-      cout << q[stu] << endl; /// Êä³ö±ØĞëÓÃC++µÄ
+      cout << q[stu] << endl; /// è¾“å‡ºå¿…é¡»ç”¨C++çš„
     }
   }
   return 0;

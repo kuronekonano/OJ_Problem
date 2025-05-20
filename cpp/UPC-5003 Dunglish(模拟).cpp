@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> ///×éºÏ£¬×îºóÑùÀýÃ»¸ø³öËùÓÐÌâÒâÓÐ¿Óµã£¬Ö»ÓÐÒ»ÖÖÅÅÁÐÊ±Êä³öÄÇÖÖÅÅÁÐ²¢ÅÐ¶Ï
+#include <bits/stdc++.h> ///ç»„åˆï¼Œæœ€åŽæ ·ä¾‹æ²¡ç»™å‡ºæ‰€æœ‰é¢˜æ„æœ‰å‘ç‚¹ï¼Œåªæœ‰ä¸€ç§æŽ’åˆ—æ—¶è¾“å‡ºé‚£ç§æŽ’åˆ—å¹¶åˆ¤æ–­
 #define LL long long
 using namespace std;
 map<string, int> mp;

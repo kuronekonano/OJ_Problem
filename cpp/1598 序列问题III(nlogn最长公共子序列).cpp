@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <stdio.h> ///½«LCSÎÊÌâ×ª»»ÎªLISÎÊÌâ£¬¼ÇÂ¼ÏàÍ¬Êı×ÖµÄÎ»Ğò£¬ÓëÁíÒ»¸ö´®µÄÎ»ĞòÏàÆ¥Åä£¬²¢ÇóLIS
+#include <stdio.h> ///å°†LCSé—®é¢˜è½¬æ¢ä¸ºLISé—®é¢˜ï¼Œè®°å½•ç›¸åŒæ•°å­—çš„ä½åºï¼Œä¸å¦ä¸€ä¸ªä¸²çš„ä½åºç›¸åŒ¹é…ï¼Œå¹¶æ±‚LIS
 #include <string.h>
 using namespace std;
 int main() {
@@ -10,9 +10,9 @@ int main() {
     scanf("%d%d", &p, &q);
     for (int i = 1; i <= p; i++)
       scanf("%d", &a[i]),
-          pos[a[i]] = i; /// ¼ÇÂ¼A´®ÖĞÃ¿¸ö×Ö·û³öÏÖµÄÎ»ÖÃ×Ö·ûa[i]³öÏÖÔÚÎ»ÖÃi
+          pos[a[i]] = i; /// è®°å½•Aä¸²ä¸­æ¯ä¸ªå­—ç¬¦å‡ºç°çš„ä½ç½®å­—ç¬¦a[i]å‡ºç°åœ¨ä½ç½®i
     for (int i = 1; i <= q; i++)
-      scanf("%d", &a[i]), a[i] = pos[a[i]]; /// ¶ÔÓÚB´®
+      scanf("%d", &a[i]), a[i] = pos[a[i]]; /// å¯¹äºBä¸²
     maxx[1] = a[1];
     int flag = 1;
     for (int i = 2; i <= q; i++) {

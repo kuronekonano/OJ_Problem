@@ -1,4 +1,4 @@
-#include <stdio.h> ///kmp重复子串计数
+#include <stdio.h> ///kmp閲嶅瀛愪覆璁℃暟
 #include <string.h>
 char t[10008], s[100008];
 int next[10008];

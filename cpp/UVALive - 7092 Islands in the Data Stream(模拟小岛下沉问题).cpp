@@ -1,10 +1,10 @@
 #include <map>
 #include <math.h>
-#include <stdio.h> ///һ�����ߺ�ƽ�棬����û���½�أ�ÿ����û��Ϊһ�ֵ������
+#include <stdio.h> ///一层层提高海平面，逐渐淹没最低陆地，每次淹没作为一轮岛屿计数
 #include <string.h>
 using namespace std;
 int k, a[20], t;
-bool check() /// �ж��Ƿ����е��춼����û
+bool check() /// 判断是否所有岛屿都被淹没
 {
   for (int i = 2; i <= 11; i++) {
     if (a[i])
@@ -19,16 +19,16 @@ int main() {
     for (int i = 1; i <= 12; i++)
       scanf("%d", &a[i]);
     int sum = 0, num = 2;
-    while (!check()) /// ͷβһ����0
+    while (!check()) /// 头尾一定是0
     {
-      int i = 2; /// ���ϴ�2������11
+      int i = 2; /// 不断从2遍历到11
       while (i <= 11) {
-        if (a[i] && a[i - 1] == 0) /// ֻҪ����0(����)
+        if (a[i] && a[i - 1] == 0) /// 只要不是0(海面)
         {
-          sum++;                 /// ��Ϊ���쿪ʼ����������
-          int minn = 0x7fffffff; /// ��¼ÿ�����嵺����͵�
-          int st = i;            /// ��¼���쿪ʼλ��
-          while (a[i] != 0)      /// ����������
+          sum++;                 /// 作为岛屿开始，计数增长
+          int minn = 0x7fffffff; /// 记录每个整体岛屿最低点
+          int st = i;            /// 记录岛屿开始位置
+          while (a[i] != 0)      /// 遍历到海面
           {
             if (a[i] < minn)
               minn = a[i];
@@ -36,9 +36,9 @@ int main() {
           }
           for (int j = st; j <= i; j++)
             if (a[j])
-              a[j] -= minn; /// �ر�����û��͵�
+              a[j] -= minn; /// 重遍历淹没最低点
         }
-        i++; /// Խ����ǰ�Ǻ����λ��
+        i++; /// 越过当前是海域的位置
       }
     }
     printf("%d %d\n", k, sum);

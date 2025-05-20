@@ -1,7 +1,7 @@
-//#include<stdio.h>//Ç¿ÖÆ×ª»»Ð´·¨
+//#include<stdio.h>//å¼ºåˆ¶è½¬æ¢å†™æ³•
 //int main()
 //{
-//     double a;//Èç¹ûÊ¹ÓÃdoubleÐÍÔòÓÐ¾«¶ÈËðÊ§£¬¿ÉÄÜ´æ´¢µÄÊÇ12=11.99999999¡¤¡¤¡¤¡¤¡¤
+//     double a;//å¦‚æžœä½¿ç”¨doubleåž‹åˆ™æœ‰ç²¾åº¦æŸå¤±ï¼Œå¯èƒ½å­˜å‚¨çš„æ˜¯12=11.99999999ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»
 //     while(scanf("%lf",&a)!=EOF)
 //     {
 //         a=a*100;

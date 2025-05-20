@@ -34,15 +34,15 @@ void dfs1(int rt, int pre, int dep) {
     int v = mp[rt][i];
     if (v != pre) {
       dfs1(v, rt, dep + 1);
-      sum[rt] += sum[v]; /// ×ÓÊ÷½ÚµãºÍ
+      sum[rt] += sum[v]; /// å­æ ‘èŠ‚ç‚¹å’Œ
       if (son[rt] == 0 || sum[v] > sum[son[rt]])
-        son[rt] = v; /// ÖØ¶ù×Ó
+        son[rt] = v; /// é‡å„¿å­
     }
   }
 }
 void dfs2(int rt, int boss) {
-  top[rt] = boss;  /// Ã¿ÌõÁ´µÄ¶¥¶Ë½Úµã
-  num[rt] = ++pos; /// Á´ÉÏÁ¬Ğò
+  top[rt] = boss;  /// æ¯æ¡é“¾çš„é¡¶ç«¯èŠ‚ç‚¹
+  num[rt] = ++pos; /// é“¾ä¸Šè¿åº
   fp[num[rt]] = rt;
   if (son[rt] == 0)
     return;
@@ -50,7 +50,7 @@ void dfs2(int rt, int boss) {
   for (int i = 0; i < mp[rt].size(); i++) {
     int v = mp[rt][i];
     if (v != son[rt] && v != fa[rt])
-      dfs2(v, v); /// ĞÂ¿ªÒ»ÌõÁ´
+      dfs2(v, v); /// æ–°å¼€ä¸€æ¡é“¾
   }
 }
 struct node {
@@ -106,21 +106,21 @@ int query(int pos, int rt) {
     return query(pos, rt << 1);
 }
 
-void change(int l, int r, int val) /// ÏòÉÏ»ØËİ¶ÔÃ¿ÌõÁ´¸üĞÂ
+void change(int l, int r, int val) /// å‘ä¸Šå›æº¯å¯¹æ¯æ¡é“¾æ›´æ–°
 {
   int f1 = top[l], f2 = top[r];
   while (f1 != f2) {
-    if (deep[f1] < deep[f2]) /// Á½ÌõÁ´µÄtopÉî¶È¶Ô±È
+    if (deep[f1] < deep[f2]) /// ä¸¤æ¡é“¾çš„topæ·±åº¦å¯¹æ¯”
     {
       swap(f1, f2);
       swap(l, r);
     }
-    update(num[f1], num[l], val, 1); /// ¸üĞÂÕûÌõÁ´
-    l = fa[f1];                      /// topµÄfa
-    f1 = top[l];                     /// ÉÏ·½Á´µÄtop
+    update(num[f1], num[l], val, 1); /// æ›´æ–°æ•´æ¡é“¾
+    l = fa[f1];                      /// topçš„fa
+    f1 = top[l];                     /// ä¸Šæ–¹é“¾çš„top
   }
   if (deep[l] > deep[r])
-    swap(l, r); /// ÔÚÍ¬Ò»ÌõÁ´ÉÏµÄÁ½¸ö½Úµã
+    swap(l, r); /// åœ¨åŒä¸€æ¡é“¾ä¸Šçš„ä¸¤ä¸ªèŠ‚ç‚¹
   update(num[l], num[r], val, 1);
 }
 int main() {
@@ -138,10 +138,10 @@ int main() {
       mp[from].push_back(to);
       mp[to].push_back(from);
       //            add(from,to);
-      //            add(to,from);///Ë«Ïò±ß
+      //            add(to,from);///åŒå‘è¾¹
     }
-    dfs1(1, 0, 0); /// ¸ù½Úµã1¿ªÊ¼ËÑ£¬¸¸½ÚµãÎª0£¬Éî¶ÈÎª0
-    dfs2(1, 1);    /// ¸ù½Úµã¿ªÊ¼ËÑ£¬µÚÒ»¸ötop½ÚµãÎª¸ù½Úµã
+    dfs1(1, 0, 0); /// æ ¹èŠ‚ç‚¹1å¼€å§‹æœï¼Œçˆ¶èŠ‚ç‚¹ä¸º0ï¼Œæ·±åº¦ä¸º0
+    dfs2(1, 1);    /// æ ¹èŠ‚ç‚¹å¼€å§‹æœï¼Œç¬¬ä¸€ä¸ªtopèŠ‚ç‚¹ä¸ºæ ¹èŠ‚ç‚¹
     build(1, n, 1);
     //        for(int i=1;i<=n;i++) update(num[i],num[i],val[i],1);
     char op[3];

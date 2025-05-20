@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> ///对买的商品位置进行排序后分类，按照非严格递增的顺序二分查找每个商品的位置，能找到这样序列再逆向回去查询
+#include <bits/stdc++.h> ///瀵逛拱鐨勫晢鍝佷綅缃繘琛屾帓搴忓悗鍒嗙被锛屾寜鐓ч潪涓ユ牸閫掑鐨勯『搴忎簩鍒嗘煡鎵炬瘡涓晢鍝佺殑浣嶇疆锛岃兘鎵惧埌杩欐牱搴忓垪鍐嶉�嗗悜鍥炲幓鏌ヨ
 #define LL long long
 #define M(a, b) memset(a, b, sizeof a)
 #define pb(x) push_back(x)

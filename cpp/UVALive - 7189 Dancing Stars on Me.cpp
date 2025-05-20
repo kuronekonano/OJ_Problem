@@ -25,7 +25,7 @@ int main() {
     for (i = 1; i < n; i++) {
       if (i != tmi)
         for (int j = 1; j < n;
-             j++) /// 记得判断条件，是加dx与减dy和减dx加dy同时存在
+             j++) /// 璁板緱鍒ゆ柇鏉′欢锛屾槸鍔燿x涓庡噺dy鍜屽噺dx鍔燿y鍚屾椂瀛樺湪
         {
           if ((x[tmi] - dx == x[i] && x[0] - dx == x[j] &&
                y[tmi] + dy == y[i] && y[0] + dy == y[j]) ||

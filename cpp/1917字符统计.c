@@ -4,7 +4,7 @@ int main()
 {
     char s[1001];
     int n,i,d,x,k;
-    while(gets(s))//必须用gets函数输入，或是getchar，否则scanf不读入空格则无法计数空格
+    while(gets(s))//蹇呴』鐢╣ets鍑芥暟杈撳叆锛屾垨鏄痝etchar锛屽惁鍒檚canf涓嶈鍏ョ┖鏍煎垯鏃犳硶璁℃暟绌烘牸
     {
         x=0;
         d=0;

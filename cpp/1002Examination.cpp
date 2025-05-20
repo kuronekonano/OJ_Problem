@@ -5,13 +5,13 @@ int main() {
   int i, n, m, k, flag = 0;
   while (scanf("%d%d%d", &n, &m, &k) != EOF) {
     flag++;
-    int stu[n * m + 5]; // c++因此可以在这里定义数组，+5多加点防止数组不够用
+    int stu[n * m + 5]; // c++鍥犳鍙互鍦ㄨ繖閲屽畾涔夋暟缁勶紝+5澶氬姞鐐归槻姝㈡暟缁勪笉澶熺敤
     for (i = 0; i < n * m; i++) {
       scanf("%d", &stu[i]);
     }
     sort(stu, stu + n * m);
     printf("Scenario #%d\n", flag);
-    printf("%d\n", stu[n * m - k]); // 因为是第几名，所以是倒着数的
+    printf("%d\n", stu[n * m - k]); // 鍥犱负鏄鍑犲悕锛屾墍浠ユ槸鍊掔潃鏁扮殑
     printf("\n");
   }
   return 0;

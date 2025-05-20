@@ -44,8 +44,8 @@ int main() {
             add *
                 (l -
                  1)); ///(i-1)*(d[i]+x)=(i-1)*d[i]+(i-1)*x,
-                      ///(i-1)为系数，在tree2中存储了(i-1)*d[i]的前缀和，而更新需要改变的值是(i-1)*x
-        update(tree2, r + 1, -add * r); /// 更新的位置是r+1和l本身
+                      ///(i-1)涓虹郴鏁帮紝鍦╰ree2涓瓨鍌ㄤ簡(i-1)*d[i]鐨勫墠缂�鍜岋紝鑰屾洿鏂伴渶瑕佹敼鍙樼殑鍊兼槸(i-1)*x
+        update(tree2, r + 1, -add * r); /// 鏇存柊鐨勪綅缃槸r+1鍜宭鏈韩
       } else {
         LL l, r;
         scanf("%lld%lld", &l, &r);

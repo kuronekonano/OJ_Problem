@@ -1,4 +1,4 @@
-#include <stdio.h> ///ËãÊõ»ù±¾¶¨Àí
+#include <stdio.h> ///ç®—æœ¯åŸºæœ¬å®šç†
 #include <string.h>
 #define LL long long
 const int maxn = 10000100;
@@ -18,16 +18,16 @@ void init() {
     }
   }
 }
-void breakperime(LL x) /// ·Ö½âÖÊÒòÊı
+void breakperime(LL x) /// åˆ†è§£è´¨å› æ•°
 {
   memset(mi, 0, sizeof(mi));
   memset(pi, 0, sizeof(pi));
   cnt = 0;
   for (LL i = 0; prime[i] * prime[i] <= x; i++) {
     if (x % prime[i] == 0) {
-      pi[cnt] = prime[i]; /// ¼ÇÂ¼ÖÊÒòÊı
+      pi[cnt] = prime[i]; /// è®°å½•è´¨å› æ•°
       while (x % prime[i] == 0) {
-        mi[cnt]++; /// ¼ÇÂ¼¸ÃÖÊÒòÊıµÄÃİ´Î
+        mi[cnt]++; /// è®°å½•è¯¥è´¨å› æ•°çš„å¹‚æ¬¡
         x /= prime[i];
       }
       cnt++;

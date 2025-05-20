@@ -1,4 +1,4 @@
-#include <stdio.h> ///ÕÒ¹æÂÉ:Ê×ÏîÊÇ 2£¬¹«²îÎª 4µÄnÖµ¶¼ÄÜ±»3Õû³ýAn=2+4*(n-1)
+#include <stdio.h> ///æ‰¾è§„å¾‹:é¦–é¡¹æ˜¯ 2ï¼Œå…¬å·®ä¸º 4çš„nå€¼éƒ½èƒ½è¢«3æ•´é™¤An=2+4*(n-1)
 int main() {
   long long n;
   while (scanf("%lld", &n) != EOF) {

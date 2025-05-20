@@ -1,21 +1,21 @@
 #include <algorithm>
-#include <stdio.h> ///»ù´¡DP
+#include <stdio.h> ///åŸºç¡€DP
 #include <string.h>
-using namespace std; /// ËûÕÒµÄÊÇÈËÊıËùÒÔÇó×îĞ¡ºÍ¾ÍºÃ
+using namespace std; /// ä»–æ‰¾çš„æ˜¯äººæ•°æ‰€ä»¥æ±‚æœ€å°å’Œå°±å¥½
 int a[1001][1001];
 int b[1001][1001];
 int main() {
   int n, i, j;
   while (scanf("%d", &n) != EOF) {
     memset(a, 0, sizeof(a));
-    for (i = 0; i < n; i++) /// ÊäÈë
+    for (i = 0; i < n; i++) /// è¾“å…¥
     {
       for (j = 0; j < n; j++) {
         scanf("%d", &a[i][j]);
       }
     }
     memset(b, 0, sizeof(b));
-    b[0][0] = a[0][0]; /// ±ß½ç³õÊ¼´¦Àí
+    b[0][0] = a[0][0]; /// è¾¹ç•Œåˆå§‹å¤„ç†
     for (i = 0, j = 1; j < n; j++) {
       b[i][j] = b[i][j - 1] + a[i][j];
     }
@@ -25,10 +25,10 @@ int main() {
     for (i = 1; i < n; i++) /// dp
     {
       for (j = 1; j < n; j++) {
-        b[i][j] = a[i][j] + min(b[i - 1][j], b[i][j - 1]); /// ÕÒĞ¡µÄdp
+        b[i][j] = a[i][j] + min(b[i - 1][j], b[i][j - 1]); /// æ‰¾å°çš„dp
       }
     }
-    printf("%d\n", b[i - 1][j - 1]); /// Êä³ö×îºó³ö¿ÚµÄÈËÊıºÍ
+    printf("%d\n", b[i - 1][j - 1]); /// è¾“å‡ºæœ€åå‡ºå£çš„äººæ•°å’Œ
   }
   return 0;
 }

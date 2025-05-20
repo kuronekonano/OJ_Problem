@@ -7,13 +7,13 @@ LL euler[maxn] = {0};
 LL prime[maxn], cnt = 0;
 bool vis[maxn];
 LL sum[maxn];
-void Init() /// ÏßÐÔÅ·À­É¸
+void Init() /// çº¿æ€§æ¬§æ‹‰ç­›
 {
   sum[1] = euler[1] = 1;
   memset(vis, false, sizeof vis);
   for (int i = 2; i < maxn; i++) {
     if (!vis[i])
-      prime[++cnt] = i, euler[i] = i - 1; /// ËØÊýÇé¿ö
+      prime[++cnt] = i, euler[i] = i - 1; /// ç´ æ•°æƒ…å†µ
     for (int j = 1; j <= cnt && i * prime[j] <= maxn; j++) {
       vis[i * prime[j]] = 1;
       if (i % prime[j])
@@ -23,10 +23,10 @@ void Init() /// ÏßÐÔÅ·À­É¸
         break;
       }
     }
-    //        printf("======¦Õ(%d)=%lld\n",i,euler[i]);
+    //        printf("======Ï†(%d)=%lld\n",i,euler[i]);
     sum[i] = sum[i - 1] +
              ((i & 1) ? euler[i] / 2
-                      : euler[i]); /// ans¼´Ç°×ººÍ£¬ÆæÊýÎª¦Õ(i)/2,Å¼ÊýÎª¦Õ(i)
+                      : euler[i]); /// anså³å‰ç¼€å’Œï¼Œå¥‡æ•°ä¸ºÏ†(i)/2,å¶æ•°ä¸ºÏ†(i)
   }
 }
 int main() {

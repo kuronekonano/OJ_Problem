@@ -2,7 +2,7 @@
 #include <stdlib.h>
 int main() {
   char s
-      [20]; // 又是一个用到strtlo函数的题，这次是把一个原来是a进制的数字变成十进制，竟然也能用strtol，只需把base值变成原进制a，就可以把字符串输出成十进制
+      [20]; // 鍙堟槸涓�涓敤鍒皊trtlo鍑芥暟鐨勯锛岃繖娆℃槸鎶婁竴涓師鏉ユ槸a杩涘埗鐨勬暟瀛楀彉鎴愬崄杩涘埗锛岀珶鐒朵篃鑳界敤strtol锛屽彧闇�鎶奲ase鍊煎彉鎴愬師杩涘埗a锛屽氨鍙互鎶婂瓧绗︿覆杈撳嚭鎴愬崄杩涘埗
   int a, t;
   while (scanf("%d%s", &a, &s) != EOF) {
     t = strtol(s, NULL, a);

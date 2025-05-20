@@ -5,24 +5,24 @@ int main() {
   while (t--) {
     scanf("%d", &n);
     if (n == 1) {
-      printf("*\n"); // �������һ����ʱ�����
+      printf("*\n"); // 单独输出一颗星时的情况
     } else {
-      for (i = 1; i <= n; i++) // ÿ��
+      for (i = 1; i <= n; i++) // 每行
       {
-        for (j = 1; j <= n - i; j++) // �ո���
+        for (j = 1; j <= n - i; j++) // 空格数
         {
           printf(" ");
         }
-        printf("*");                     // �����ո�����Ǻ�
-        for (k = 1; k <= i * 2 - 3; k++) // �����ո�������ʵ�ļ�������
+        printf("*");                     // 输出玩空格输出星号
+        for (k = 1; k <= i * 2 - 3; k++) // 继续空格，数量是实心减掉两遍
           printf(" ");
-        if (i > 1) /// ��һ�в�����ڶ����Ǻ�
+        if (i > 1) /// 第一行不输出第二个星号
         {
           printf("*");
         }
         printf("\n");
       }
-      for (i = n - 1; i >= 1; i--) /// �°벿�֣�ֱ����������ͺ�
+      for (i = n - 1; i >= 1; i--) /// 下半部分，直接逆序输出就好
       {
         for (j = 1; j <= n - i; j++) {
           printf(" ");

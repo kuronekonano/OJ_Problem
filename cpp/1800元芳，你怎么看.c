@@ -4,8 +4,8 @@ int main()
     int sum,x,y,j,i;
     while(scanf("%d%d%d%d",&x,&y,&i,&j)!=EOF)
     {
-        if(i>x&&(j+y)%(i-x)==0)//ÓÉ(ÈËÊı)*x+y=(ÈËÊı)*i-j,ÒÆÏîºóµÃ(ÈËÊı)*(i-x)=y+j,×îºó(ÈËÊı)=(y+j)/(i-x)
-            printf("He is right\n");//ÓÉÓÚÈËÊı¹Ì¶¨£¬ÇÒ²»ÎªĞ¡Êı£¬ËùÒÔ(y+j)/(i-x)±Ø¶¨Õû³ı£¬(j+y)%(i-x)==0
+        if(i>x&&(j+y)%(i-x)==0)//ç”±(äººæ•°)*x+y=(äººæ•°)*i-j,ç§»é¡¹åå¾—(äººæ•°)*(i-x)=y+j,æœ€å(äººæ•°)=(y+j)/(i-x)
+            printf("He is right\n");//ç”±äºäººæ•°å›ºå®šï¼Œä¸”ä¸ä¸ºå°æ•°ï¼Œæ‰€ä»¥(y+j)/(i-x)å¿…å®šæ•´é™¤ï¼Œ(j+y)%(i-x)==0
         else
             printf("Back to the adult, it surely has something\n");
     }

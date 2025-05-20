@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 char S[1004], T[1004];
-void kmp_pre(char x[], int m, int next[]) /// 子串预处理next数组
+void kmp_pre(char x[], int m, int next[]) /// 瀛愪覆棰勫鐞唍ext鏁扮粍
 {
   int i, j;
   j = next[0] = -1;

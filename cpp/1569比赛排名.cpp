@@ -19,7 +19,7 @@ int main() {
   while (t--) {
     scanf("%d", &n);
     for (i = 0; i < n; i++) {
-      a[i].down = 0; /// ¿¨ÁËºÃ¾Ã£¬ËµÃ÷ÔÚ½á¹¹ÌåÀï³õÊ¼»¯ÊÇ²»ĞĞµÄ
+      a[i].down = 0; /// å¡äº†å¥½ä¹…ï¼Œè¯´æ˜åœ¨ç»“æ„ä½“é‡Œåˆå§‹åŒ–æ˜¯ä¸è¡Œçš„
       scanf("%s", a[i].name);
       scanf("%s", b);
       for (j = 0; b[j] != '\0'; j++) {
@@ -103,7 +103,7 @@ int main() {
 //     return 0;
 // }
 
-// #include<stdio.h>///³¬ÄÍÄ¥Æ¾Ê²Ã´ÎÒµÄ¾Í¹ı²»ÁË
+// #include<stdio.h>///è¶…è€ç£¨å‡­ä»€ä¹ˆæˆ‘çš„å°±è¿‡ä¸äº†
 // #include<string.h>
 // #include<algorithm>
 // using namespace std;

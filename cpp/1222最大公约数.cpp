@@ -1,5 +1,5 @@
 #include <stdio.h>
-int yueshu(int a, int b) // ×¨ÃÅÕÒ×î´ó¹«Ô¼ÊýµÄº¯Êý
+int yueshu(int a, int b) // ä¸“é—¨æ‰¾æœ€å¤§å…¬çº¦æ•°çš„å‡½æ•°
 {
   int t;
   while (a % b != 0) {

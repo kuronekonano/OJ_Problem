@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> ///���������ߣ�ȥ���м������ǰ��һЩָ��󣬻������ܻص�ԭ������ָ������ֻ�ü�����ȥ�ͻ����Ĵ����ͺ�
+#include <bits/stdc++.h> ///机器人行走，去掉中间或后面或前面一些指令后，机器人能回到原点的最大指令数，只用计数出去和回来的次数就好
 using namespace std;
 int main() {
   int n;

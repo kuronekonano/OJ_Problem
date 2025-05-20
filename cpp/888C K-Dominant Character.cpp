@@ -1,8 +1,8 @@
-#include <bits/stdc++.h> ///�ַ����������ж�������k�����Ӵ��ж�������ĸc�������k��Сֵ
+#include <bits/stdc++.h> ///字符串处理，判断在任意k长的子串中都包含字母c，求这个k最小值
 using namespace std;
 int main() {
   int n, num[30], flag[30], one[30],
-      last[30]; /// ��¼������ͬ��ĸ֮��ľ��룬ȡ�����룬Ȼ����������ĸ��ȡ��С���룬�ǵ��ڴ�֮ǰ��Ҫ���������ĸ��һ�γ��ֺ����һ�γ��ֵľ��룬ȡ��С
+      last[30]; /// 记录两两相同字母之间的距离，取最大距离，然后在所有字母中取最小距离，记得在此之前还要考虑这个字母第一次出现和最后一次出现的距离，取最小
   char a[100005];
   while (scanf("%s", a) != EOF) {
     memset(one, 0, sizeof(one));
@@ -34,7 +34,7 @@ int main() {
       if (flag[i] != 0 && flag[i] < ans)
         ans = flag[i];
     if (ans ==
-        0x7fffffff) /// ���ô�о���������Σ���ôֱ��ȥ�ַ����м��Ǹ���ĸ������ȡ�ַ�������һ��
+        0x7fffffff) /// 如果么有距离出现两次，那么直接去字符串中间那个字母，长度取字符串长度一半
       ans = (len + 1) / 2;
     printf("%d\n", ans);
   }

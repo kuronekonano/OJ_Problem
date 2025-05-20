@@ -1,5 +1,5 @@
 #include <math.h>
-#include <stdio.h> ///ÅĞ¶ÏÔ²ÇĞÏß
+#include <stdio.h> ///åˆ¤æ–­åœ†åˆ‡çº¿
 int main() {
   int t;
   scanf("%d", &t);
@@ -9,32 +9,32 @@ int main() {
     int maxn = r1 >= r2 ? r1 : r2;
     int minn = r1 >= r2 ? r2 : r1;
     double dis = sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-    if (dis == 0 && r1 == r2) /// ÖØºÏ
+    if (dis == 0 && r1 == r2) /// é‡åˆ
     {
       printf("-1\n");
       continue;
     }
-    if (dis == (maxn - minn)) /// ÄÚÇĞ
+    if (dis == (maxn - minn)) /// å†…åˆ‡
     {
       printf("1\n");
       continue;
     }
-    if (dis < (maxn - minn)) /// ÄÚº¬
+    if (dis < (maxn - minn)) /// å†…å«
     {
       printf("0\n");
       continue;
     }
-    if (dis == (maxn + minn)) /// ÍâÇĞ
+    if (dis == (maxn + minn)) /// å¤–åˆ‡
     {
       printf("3\n");
       continue;
     }
-    if (dis < (maxn + minn) && dis > (maxn - minn)) /// Ïà½»
+    if (dis < (maxn + minn) && dis > (maxn - minn)) /// ç›¸äº¤
     {
       printf("2\n");
       continue;
     }
-    if (dis > (maxn + minn)) /// ÏàÀë
+    if (dis > (maxn + minn)) /// ç›¸ç¦»
     {
       printf("4\n");
       continue;

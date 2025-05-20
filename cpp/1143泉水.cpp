@@ -1,51 +1,51 @@
-#include <stdio.h> //DFSÉî¶ÈÓÅÏÈËÑË÷
+#include <stdio.h> //DFSæ·±åº¦ä¼˜å…ˆæœç´¢
 #include <string.h>
-int vis[1056][1012];  // ±ê¼ÇÊý×é
-int high[1007][1024]; // ×ø±ê¸ß¶È£¬Êý×éÏÂ±ê´ú±í×ø±êÎ»ÖÃ£¬´æ´¢µÄÊÇ×ø±êµÄ¸ß¶È
-int walkx[4] = {0, 1, -1, 0}; // ÐÐ×ßµÄÂ·Ïß£¬Ò»Î¬Êý×é´æ´¢xµÄÒÆ¶¯·½Ê½
-int walky[4] = {1, 0, 0, -1}; // ÐÐ×ßµÄÂ·Ïß£¬Ò»Î¬Êý×é´æ´¢yµÄÒÆ¶¯·½Ê½
-int area;                     // ¼ÇÂ¼×ÜÃæ»ý
+int vis[1056][1012];  // æ ‡è®°æ•°ç»„
+int high[1007][1024]; // åæ ‡é«˜åº¦ï¼Œæ•°ç»„ä¸‹æ ‡ä»£è¡¨åæ ‡ä½ç½®ï¼Œå­˜å‚¨çš„æ˜¯åæ ‡çš„é«˜åº¦
+int walkx[4] = {0, 1, -1, 0}; // è¡Œèµ°çš„è·¯çº¿ï¼Œä¸€ç»´æ•°ç»„å­˜å‚¨xçš„ç§»åŠ¨æ–¹å¼
+int walky[4] = {1, 0, 0, -1}; // è¡Œèµ°çš„è·¯çº¿ï¼Œä¸€ç»´æ•°ç»„å­˜å‚¨yçš„ç§»åŠ¨æ–¹å¼
+int area;                     // è®°å½•æ€»é¢ç§¯
 int i, j, n, m, p1, p2;
-int dfs(int x, int y) // DFSº¯ÊýÓÃÓÚÒÆ¶¯×ø±ê
+int dfs(int x, int y) // DFSå‡½æ•°ç”¨äºŽç§»åŠ¨åæ ‡
 {
-  if (vis[x][y]) // ÈôÍ¶Èë×ø±êÒÑ¾­±»±ê¼Ç£¬Ôò½áÊø
+  if (vis[x][y]) // è‹¥æŠ•å…¥åæ ‡å·²ç»è¢«æ ‡è®°ï¼Œåˆ™ç»“æŸ
   {
     return 0;
   }
   if (!vis[x]
-          [y]) // ÈôÍ¶Èë×ø±êÎ´±»±ê¼Ç£¬±ê¼ÇÕâ¸ö×ø±ê£¬²¢Ôö¼ÓÁ÷¶¯Ãæ»ý£¬Ò»¿ªÊ¼µÄÈªÑÛÎ»ÖÃÊÇÎ´±»±ê¼ÇµÄ
+          [y]) // è‹¥æŠ•å…¥åæ ‡æœªè¢«æ ‡è®°ï¼Œæ ‡è®°è¿™ä¸ªåæ ‡ï¼Œå¹¶å¢žåŠ æµåŠ¨é¢ç§¯ï¼Œä¸€å¼€å§‹çš„æ³‰çœ¼ä½ç½®æ˜¯æœªè¢«æ ‡è®°çš„
   {
     area++;
     vis[x][y] = 1;
   }
-  for (int i = 0; i < 4; i++) // ´ÓÍ¶Èë×ø±êµÄÎ»ÖÃ¿ªÊ¼ÐÐ×ß£¬4¸ö·½Ïò
+  for (int i = 0; i < 4; i++) // ä»ŽæŠ•å…¥åæ ‡çš„ä½ç½®å¼€å§‹è¡Œèµ°ï¼Œ4ä¸ªæ–¹å‘
   {
-    int nx = x + walkx[i]; // ÐÂ×ø±êÎ»ÖÃ£¬ÎªÉÏÏÂ×óÓÒÒÆ¶¯ºóµÄxºÍyÖµ
+    int nx = x + walkx[i]; // æ–°åæ ‡ä½ç½®ï¼Œä¸ºä¸Šä¸‹å·¦å³ç§»åŠ¨åŽçš„xå’Œyå€¼
     int ny = y + walky[i];
     if (nx >= 1 && nx <= n && ny >= 1 && ny <= m &&
         high[nx][ny] <=
             high[p1]
-                [p2]) // ÈôÕâ¸öÐÂ×ø±êÎ»ÖÃ·ûºÏÌõ¼þ£¬Î´±»±ê¼ÇÇÒ²»³öµØÍ¼£¬ÇÒ¸ß¶È²»¸ß£¬ÔòÑ¡Ôñ´ÓÕâÀï×ß£¬½øÈëÏÂÒ»¸öDFSº¯ÊýÖÐ
+                [p2]) // è‹¥è¿™ä¸ªæ–°åæ ‡ä½ç½®ç¬¦åˆæ¡ä»¶ï¼Œæœªè¢«æ ‡è®°ä¸”ä¸å‡ºåœ°å›¾ï¼Œä¸”é«˜åº¦ä¸é«˜ï¼Œåˆ™é€‰æ‹©ä»Žè¿™é‡Œèµ°ï¼Œè¿›å…¥ä¸‹ä¸€ä¸ªDFSå‡½æ•°ä¸­
     {
-      dfs(nx, ny); // ÕâÊÇÒ»²ãµÝ¹é¹ØÏµ
+      dfs(nx, ny); // è¿™æ˜¯ä¸€å±‚é€’å½’å…³ç³»
     }
   }
   return 0;
 }
-int main() /// Ö÷º¯Êý
+int main() /// ä¸»å‡½æ•°
 {
   while (scanf("%d%d%d%d", &n, &m, &p1, &p2) !=
-         EOF) // ÊäÈëµØÍ¼·½Õó´óÐ¡£¬ÊäÈëÈªÑÛÎ»ÖÃ
+         EOF) // è¾“å…¥åœ°å›¾æ–¹é˜µå¤§å°ï¼Œè¾“å…¥æ³‰çœ¼ä½ç½®
   {
-    for (i = 1; i <= n; i++) // ÊäÈë²¿·Ö£¬ÊäÈë¸÷¸ö×ø±ê¸ß¶È
+    for (i = 1; i <= n; i++) // è¾“å…¥éƒ¨åˆ†ï¼Œè¾“å…¥å„ä¸ªåæ ‡é«˜åº¦
     {
       for (j = 1; j <= m; j++) {
         scanf("%d", &high[i][j]);
       }
     }
-    memset(vis, 0, sizeof(vis)); // Çå¿Õ±ê¼ÇÊý×é
-    area = 0;                    // ³õÊ¼»¯Ë®ÓòÃæ»ý
-    dfs(p1, p2);                 // Í¶Èë³õÊ¼×ø±ê
+    memset(vis, 0, sizeof(vis)); // æ¸…ç©ºæ ‡è®°æ•°ç»„
+    area = 0;                    // åˆå§‹åŒ–æ°´åŸŸé¢ç§¯
+    dfs(p1, p2);                 // æŠ•å…¥åˆå§‹åæ ‡
     printf("%d\n", area);
   }
   return 0;

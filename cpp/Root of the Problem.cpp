@@ -2,7 +2,7 @@
 #include <cstring>
 #include <math.h>
 #include <stdio.h>
-using namespace std; // Ñ­»·´Ó1¿ªÊ¼±éÀú£¬
+using namespace std; // å¾ªç¯ä»1å¼€å§‹éå†ï¼Œ
 int main() {
   int a, i, b, n;
   while (scanf("%d%d", &b, &n) != EOF) {
@@ -10,7 +10,7 @@ int main() {
       return 0;
     }
     for (i = 1; i <= b; i++) {
-      if (b - pow(i, n) == 0) // Çó²î£¬ÈôµÈÓÚ0ÔòiµÄn´Î·½Îªb,iÎªËùÇóAÖµ
+      if (b - pow(i, n) == 0) // æ±‚å·®ï¼Œè‹¥ç­‰äº0åˆ™içš„næ¬¡æ–¹ä¸ºb,iä¸ºæ‰€æ±‚Aå€¼
       {
         printf("%d\n", i);
         break;

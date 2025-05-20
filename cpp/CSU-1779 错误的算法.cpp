@@ -1,4 +1,4 @@
-#include <algorithm> ///Á½ÖÖËã·¨µÄ×î´óÖµ£¬¼õÈ¥½»µãµÄÖµÔÙ±È½Ï
+#include <algorithm> ///ä¸¤ç§ç®—æ³•çš„æœ€å¤§å€¼ï¼Œå‡å»äº¤ç‚¹çš„å€¼å†æ¯”è¾ƒ
 #include <stdio.h>
 #include <string.h>
 using namespace std;
@@ -7,7 +7,7 @@ int main() {
   while (scanf("%d%d", &n, &m) != EOF) {
     maxn = 0;
     int ii, jj;
-    for (i = 1; i <= n; i++) /// ÊäÈë&ĞĞ×î´ó
+    for (i = 1; i <= n; i++) /// è¾“å…¥&è¡Œæœ€å¤§
     {
       vis[i][0] = 0;
       for (j = 1; j <= m; j++) {
@@ -20,7 +20,7 @@ int main() {
       }
     }
     int maxl = 0;
-    for (j = 1; j <= m; j++) /// ÁĞ×î´ó
+    for (j = 1; j <= m; j++) /// åˆ—æœ€å¤§
     {
       vis[0][j] = 0;
       for (i = 1; i <= n; i++) {
@@ -33,7 +33,7 @@ int main() {
     }
     maxn = maxn + maxl - vis[ii][jj];
     int maxx = 0;
-    for (i = 1; i <= n; i++) /// ÕıÈ·Ëã·¨
+    for (i = 1; i <= n; i++) /// æ­£ç¡®ç®—æ³•
     {
       for (j = 1; j <= m; j++) {
         vis[i][j] = vis[i][0] + vis[0][j] - vis[i][j];

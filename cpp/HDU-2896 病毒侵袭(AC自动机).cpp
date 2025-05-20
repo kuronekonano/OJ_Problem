@@ -8,7 +8,7 @@ using namespace std;
 struct node {
   int next[128];
   int fail,
-      cnt; /// ע��,cnt��Ϊĩβ�ڵ�ı�ǣ�ֻ����1��0���������������һ���ڵ�ͬʱ�Ƕ�����ʽ�β�������(ֻ���������ظ����ʵ����)
+      cnt; /// 注意,cnt作为末尾节点的标记，只存在1和0两种情况，不会有一个节点同时是多个单词结尾的情况。(只适用于无重复单词的情况)
 } Tree[100005];
 int tot;
 queue<int> q;

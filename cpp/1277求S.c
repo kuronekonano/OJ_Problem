@@ -3,7 +3,7 @@
 int main()
 {
     int s,n;
-    while(scanf("%d",&n)!=EOF)//»¹Ó¦×¢Òâpowº¯Êýºó²»ÄÜÇóÓà,·ñÔò½«±àÒë´íÎó
+    while(scanf("%d",&n)!=EOF)//è¿˜åº”æ³¨æ„powå‡½æ•°åŽä¸èƒ½æ±‚ä½™,å¦åˆ™å°†ç¼–è¯‘é”™è¯¯
     {
         s=pow(n%3,5);//(n^5)%3=((n%3)^5)%3
         printf("%d\n",s%3);

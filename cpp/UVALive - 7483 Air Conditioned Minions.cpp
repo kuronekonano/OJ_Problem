@@ -1,5 +1,5 @@
-#include <algorithm> ///������Χ����һ����Χ������
-#include <stdio.h> ///������߽��¶���������θ����ڷ�Χ�ڽ�����¶ȷ�Χ��������С�ϲ���һ���ķ�Χ
+#include <algorithm> ///超出范围则按下一个大范围来计数
+#include <stdio.h> ///按照左边界温度排序后依次更新在范围内交叉的温度范围，并且缩小合并在一起后的范围
 using namespace std;
 struct tem {
   int l, r;

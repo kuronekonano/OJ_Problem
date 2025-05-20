@@ -5,7 +5,7 @@ int main()
     int r,a,b,r2;
     while(scanf("%d%d%d",&r,&a,&b)!=EOF)
     {
-        r2=sqrt(pow(a/2,2)+pow(b/2,2));//桌子中心到棋盘四角的距离
+        r2=sqrt(pow(a/2,2)+pow(b/2,2));//妗屽瓙涓績鍒版鐩樺洓瑙掔殑璺濈
         if(r2<=r)
             printf("YES\n");
         else

@@ -11,7 +11,7 @@ bool judge(int mid) {
       cnt++;
     else
       start = a
-          [i]; /// �����ϻ�Ӧ�ж��յ������һ����ŵ�ľ���Ҫ������Сֵ��������Ŀ��û�п��������
+          [i]; /// 理论上还应判断终点与最后一个落脚点的距离要大于最小值，但是题目并没有卡这个问题
   if (cnt > m)
     return false;
   return true;

@@ -1,4 +1,4 @@
-#include<stdio.h>//魔方面数问题
+#include<stdio.h>//榄旀柟闈㈡暟闂
 int main()
 {
     int n,a,b,c;

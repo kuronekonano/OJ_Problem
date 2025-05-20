@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <stdio.h>
-using namespace std; /// ÕÒÏà½»Çø¼ä
+using namespace std; /// æ‰¾ç›¸äº¤åŒºé—´
 int main() {
   long long l1, l2, r1, r2, k;
   while (scanf("%lld%lld%lld%lld%lld", &l1, &r1, &l2, &r2, &k) != EOF) {

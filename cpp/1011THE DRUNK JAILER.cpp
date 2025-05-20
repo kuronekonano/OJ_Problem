@@ -1,4 +1,4 @@
-#include <stdio.h> ///¿ªµÆÎÊÌâ
+#include <stdio.h> ///å¼€ç¯é—®é¢˜
 #include <string.h>
 int main() {
   bool cell[105];
@@ -7,15 +7,15 @@ int main() {
   while (t--) {
     scanf("%d", &n);
     memset(cell, true, sizeof(cell));
-    for (i = 1; i <= n; i++) /// Ö´ĞĞn´Î£¬n¸ö·¸ÈË£¬n¸ö·¿¼ä
+    for (i = 1; i <= n; i++) /// æ‰§è¡Œnæ¬¡ï¼Œnä¸ªçŠ¯äººï¼Œnä¸ªæˆ¿é—´
     {
-      for (j = i; j <= n; j += i) /// ÌâÒâÃ»¶Á¶®£¬ÊÇµÚ¼¸´Î¾ÍÊÇ¼¸µÄ±¶ÊıµÄ·¿¼ä¿ª¹Ø
+      for (j = i; j <= n; j += i) /// é¢˜æ„æ²¡è¯»æ‡‚ï¼Œæ˜¯ç¬¬å‡ æ¬¡å°±æ˜¯å‡ çš„å€æ•°çš„æˆ¿é—´å¼€å…³
       {
         cell[j] = cell[j] ? false : true;
       }
     }
     int flag = 0;
-    for (i = 1; i <= n; i++) /// ±éÀú¼ÆÊı
+    for (i = 1; i <= n; i++) /// éå†è®¡æ•°
     {
       if (cell[i] == false) {
         flag++;

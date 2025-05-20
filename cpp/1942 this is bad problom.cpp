@@ -1,74 +1,74 @@
 #include <queue>
-#include <stdio.h> ///ÉîËÑ£¬ÆäÊµÓÃµ½ÁË¶ÓÁÐÎÒ¸Ð¾õÊÇÊÇ¹ãËÑ
+#include <stdio.h> ///æ·±æœï¼Œå…¶å®žç”¨åˆ°äº†é˜Ÿåˆ—æˆ‘æ„Ÿè§‰æ˜¯æ˜¯å¹¿æœ
 #include <string.h>
 using namespace std;
-struct location /// ÐÐ×ß×ø±êºÍ²½Êý´ò°ü½á¹¹Ìå
+struct location /// è¡Œèµ°åæ ‡å’Œæ­¥æ•°æ‰“åŒ…ç»“æž„ä½“
 {
   int x, y, step;
 } now, nexts;
-char maps[109][109];          /// ÊäÈën*nÕó×Ö·û´®£¬Ïàµ±ÓÚµØÍ¼
-bool vis[109][109];           /// ±ê¼ÇÊý×é£¬¼ì²éÊÇ·ñ×ß¹ýÄ³¸ö×ø±ê
-int walkx[4] = {0, 1, 0, -1}; /// ÐÐ×ßÊý×é£¬ËÄ¸ö·½ÏòÂõ½ø
+char maps[109][109];          /// è¾“å…¥n*né˜µå­—ç¬¦ä¸²ï¼Œç›¸å½“äºŽåœ°å›¾
+bool vis[109][109];           /// æ ‡è®°æ•°ç»„ï¼Œæ£€æŸ¥æ˜¯å¦èµ°è¿‡æŸä¸ªåæ ‡
+int walkx[4] = {0, 1, 0, -1}; /// è¡Œèµ°æ•°ç»„ï¼Œå››ä¸ªæ–¹å‘è¿ˆè¿›
 int walky[4] = {1, 0, -1, 0};
 int i, j, n, q, hx, hy;
-int dfs(int x, int y) /// ËÑË÷º¯Êý
+int dfs(int x, int y) /// æœç´¢å‡½æ•°
 {
-  memset(vis, false, sizeof(vis)); /// Çå¿Õ±ê¼ÇÊý×é
-  queue<location> s;               /// ½¨Á¢½á¹¹ÌålocationÐÍ¶ÓÁÐ
+  memset(vis, false, sizeof(vis)); /// æ¸…ç©ºæ ‡è®°æ•°ç»„
+  queue<location> s;               /// å»ºç«‹ç»“æž„ä½“locationåž‹é˜Ÿåˆ—
   now.x = x;
-  now.y = y; /// now½á¹¹Ìå´æ·Åµ±Ê±Ê¹ÓÃµÄ×ø±êºÍ²½Êý
+  now.y = y; /// nowç»“æž„ä½“å­˜æ”¾å½“æ—¶ä½¿ç”¨çš„åæ ‡å’Œæ­¥æ•°
   now.step = 0;
-  vis[x][y] = true;  /// Ð¡»ÔËùÔÚ×ø±êÒª±ê¼Ç£¬²»ÄÜ·µ»ØÕâÀï
-  s.push(now);       /// ½²³õÊ¼×ø±êÈûÈë¶ÓÁÐ
-  while (!s.empty()) /// µ±¶ÓÁÐ²»Îª¿Õ
+  vis[x][y] = true;  /// å°è¾‰æ‰€åœ¨åæ ‡è¦æ ‡è®°ï¼Œä¸èƒ½è¿”å›žè¿™é‡Œ
+  s.push(now);       /// è®²åˆå§‹åæ ‡å¡žå…¥é˜Ÿåˆ—
+  while (!s.empty()) /// å½“é˜Ÿåˆ—ä¸ä¸ºç©º
   {
-    now = s.front();               /// È¡³ö¶ÓÊ×
-    s.pop();                       /// °ÑÈ¡³öµÄµ¯³öÈ¥
-    if (maps[now.x][now.y] == 'G') /// ÏÈ¼ì²éÈ¡³öÀ´µÄÕâ¸ö×ø±êÊÇ·ñÓÐÅ®º¢×Ó
+    now = s.front();               /// å–å‡ºé˜Ÿé¦–
+    s.pop();                       /// æŠŠå–å‡ºçš„å¼¹å‡ºåŽ»
+    if (maps[now.x][now.y] == 'G') /// å…ˆæ£€æŸ¥å–å‡ºæ¥çš„è¿™ä¸ªåæ ‡æ˜¯å¦æœ‰å¥³å­©å­
     {
       return now
-          .step; /// ÓÐµÄ»°¿ÉÒÔ·µ»Ø²½ÊýÁË£¬ÕâÀïÌâÄ¿ÒªÇóµÄÊÇ×îÐ¡²½Êý£¬ÒòÎªÃ¿´ÎÖ´ÐÐÐÐ×ßÑ­»·£¬¶¼ÊÇÖ»ÐÐ×ßÒ»²½µÄ£¬ËùÒÔ£¬×îÐ¡²½Êý¾ÍÊÇ×î¿ìÕÒµ½Å®º¢×ÓµÄÂ·Ïß£¬»á×îÏÈÍË³öËÑË÷Ñ­»·
-    } /// Í¬Ê±ÒòÎªÌâÄ¿ËùÇóÊÇ×îÐ¡²½Êý£¬¼´Ê¹ÓÐÏàÍ¬µÄ×îÐ¡²½ÊýÒ²²»»áÓ°Ïì
-    for (int i = 0; i < 4; i++) /// ËÄ²½×ß
+          .step; /// æœ‰çš„è¯å¯ä»¥è¿”å›žæ­¥æ•°äº†ï¼Œè¿™é‡Œé¢˜ç›®è¦æ±‚çš„æ˜¯æœ€å°æ­¥æ•°ï¼Œå› ä¸ºæ¯æ¬¡æ‰§è¡Œè¡Œèµ°å¾ªçŽ¯ï¼Œéƒ½æ˜¯åªè¡Œèµ°ä¸€æ­¥çš„ï¼Œæ‰€ä»¥ï¼Œæœ€å°æ­¥æ•°å°±æ˜¯æœ€å¿«æ‰¾åˆ°å¥³å­©å­çš„è·¯çº¿ï¼Œä¼šæœ€å…ˆé€€å‡ºæœç´¢å¾ªçŽ¯
+    } /// åŒæ—¶å› ä¸ºé¢˜ç›®æ‰€æ±‚æ˜¯æœ€å°æ­¥æ•°ï¼Œå³ä½¿æœ‰ç›¸åŒçš„æœ€å°æ­¥æ•°ä¹Ÿä¸ä¼šå½±å“
+    for (int i = 0; i < 4; i++) /// å››æ­¥èµ°
     {
-      nexts.x = now.x + walkx[i]; /// next½á¹¹Ìå´æ·ÅÏÂÒ»¸ö½«Òªµ½´ïµÄ×ø±ê
+      nexts.x = now.x + walkx[i]; /// nextç»“æž„ä½“å­˜æ”¾ä¸‹ä¸€ä¸ªå°†è¦åˆ°è¾¾çš„åæ ‡
       nexts.y = now.y + walky[i];
-      nexts.step = now.step + 1; /// ²½Êý¼ÇµÃ¼Ó1
+      nexts.step = now.step + 1; /// æ­¥æ•°è®°å¾—åŠ 1
       if (nexts.x < n && nexts.x >= 0 && nexts.y < n && nexts.y >= 0 &&
           maps[nexts.x][nexts.y] != '#' &&
-          vis[nexts.x][nexts.y] == false) /// ¼ì²éµÄÌõ¼þÓÐ:
-      { /// ×ø±ê²»ÄÜ³¬³öµØÍ¼£¬×ø±êµ½´ïµÄÊÇÎª×ß¹ýµÄÂ·Ïß£¬×ø±ê²»ÄÜ×ß½¨ÖþÎï
+          vis[nexts.x][nexts.y] == false) /// æ£€æŸ¥çš„æ¡ä»¶æœ‰:
+      { /// åæ ‡ä¸èƒ½è¶…å‡ºåœ°å›¾ï¼Œåæ ‡åˆ°è¾¾çš„æ˜¯ä¸ºèµ°è¿‡çš„è·¯çº¿ï¼Œåæ ‡ä¸èƒ½èµ°å»ºç­‘ç‰©
         vis[nexts.x][nexts.y] =
-            true;      /// Èç¹û·ûºÏÌõ¼þÔò±ê¼ÇÕâ¸ö¿ÉÒÔ×ßµÄ×ø±ê£¬´ú±í×ß¹ý
-        s.push(nexts); /// ²¢ÈûÈë¶ÓÁÐÖÐ£¬±íÊ¾´ÓÕâÀï¼ÌÐøÌ½Ë÷ÍùËÄ¸ö·½Ïò×ßÏÂÈ¥
+            true;      /// å¦‚æžœç¬¦åˆæ¡ä»¶åˆ™æ ‡è®°è¿™ä¸ªå¯ä»¥èµ°çš„åæ ‡ï¼Œä»£è¡¨èµ°è¿‡
+        s.push(nexts); /// å¹¶å¡žå…¥é˜Ÿåˆ—ä¸­ï¼Œè¡¨ç¤ºä»Žè¿™é‡Œç»§ç»­æŽ¢ç´¢å¾€å››ä¸ªæ–¹å‘èµ°ä¸‹åŽ»
       }
     }
   }
-  return -1; /// Èç¹ûµ½ÁËÕâÒ»²½£¬ËµÃ÷ÉÏÃæËùÓÐ²½Öè¶¼×ßÍêÁË£¬¶ÓÁÐ¿ÕÁË£¬Ã¿¸öµØ·½¶¼×ß¹ýÁËÒ²Ã»ÓÐÕÒµ½Å®º¢×Ó£¬Ö»ÄÜcryÁË£¬·µ»Ø-1
+  return -1; /// å¦‚æžœåˆ°äº†è¿™ä¸€æ­¥ï¼Œè¯´æ˜Žä¸Šé¢æ‰€æœ‰æ­¥éª¤éƒ½èµ°å®Œäº†ï¼Œé˜Ÿåˆ—ç©ºäº†ï¼Œæ¯ä¸ªåœ°æ–¹éƒ½èµ°è¿‡äº†ä¹Ÿæ²¡æœ‰æ‰¾åˆ°å¥³å­©å­ï¼Œåªèƒ½cryäº†ï¼Œè¿”å›ž-1
 }
 int main() {
 
-  while (scanf("%d%d", &n, &q) != EOF) /// ÊäÈën*n¾ØÕó£¬ÒÔ¼°q¸öÅ®º¢×Ó
+  while (scanf("%d%d", &n, &q) != EOF) /// è¾“å…¥n*nçŸ©é˜µï¼Œä»¥åŠqä¸ªå¥³å­©å­
   {
-    for (i = 0; i < n; i++) /// ÊäÈë²¿·Ö
+    for (i = 0; i < n; i++) /// è¾“å…¥éƒ¨åˆ†
     {
       scanf("%s", maps[i]);
       for (j = 0; j < n; j++) {
-        if (maps[i][j] == '*') /// ÊäÈëÊ±¼´¿É²éÕÒ*Ð¡»Ô×ø±ê£¬ÕÒµ½²¢¼ÇÂ¼ÏÂ×ø±ê
+        if (maps[i][j] == '*') /// è¾“å…¥æ—¶å³å¯æŸ¥æ‰¾*å°è¾‰åæ ‡ï¼Œæ‰¾åˆ°å¹¶è®°å½•ä¸‹åæ ‡
         {
           hx = i;
           hy = j;
         }
       }
     }
-    int gx, gy; /// Å®º¢×ÓµÄ×ø±ê
-    while (q--) /// ÓÐq¸öÅ®º¢×Ó¾Í±ê¼Çq´Î£¬ÊäÈëq´Î
+    int gx, gy; /// å¥³å­©å­çš„åæ ‡
+    while (q--) /// æœ‰qä¸ªå¥³å­©å­å°±æ ‡è®°qæ¬¡ï¼Œè¾“å…¥qæ¬¡
     {
       scanf("%d%d", &gx, &gy);
-      maps[gx][gy] = 'G'; /// ½²×ø±ê´øÈëmapÖÐ£¬Ö±½Ó±ê¼ÇÎªÒ»¸ö×Ö·û£¬±È½ÏºÃ²éÕÒ
+      maps[gx][gy] = 'G'; /// è®²åæ ‡å¸¦å…¥mapä¸­ï¼Œç›´æŽ¥æ ‡è®°ä¸ºä¸€ä¸ªå­—ç¬¦ï¼Œæ¯”è¾ƒå¥½æŸ¥æ‰¾
     }
-    int flag = dfs(hx, hy); /// ½øÈëËÑË÷£¬³õÊ¼Öµ£¬¿ªÊ¼Ñ°ÕÒµÄ×ø±ê¾ÍÊÇÐ¡»ÔµÄ×ø±ê
-    if (flag != -1)         /// ¼ì²é·µ»ØÖµ
+    int flag = dfs(hx, hy); /// è¿›å…¥æœç´¢ï¼Œåˆå§‹å€¼ï¼Œå¼€å§‹å¯»æ‰¾çš„åæ ‡å°±æ˜¯å°è¾‰çš„åæ ‡
+    if (flag != -1)         /// æ£€æŸ¥è¿”å›žå€¼
     {
       printf("%d\n", flag);
     } else {

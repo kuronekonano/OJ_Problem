@@ -9,7 +9,7 @@ int main() {
         scanf("%d", &a[i][j]);
       }
     }
-    for (i = n - 2; i >= 0; i--) // 从倒数第二行开始找
+    for (i = n - 2; i >= 0; i--) // 浠庡�掓暟绗簩琛屽紑濮嬫壘
     {
       for (j = 0; j <= i; j++) {
         a[i][j] = a[i][j] + max(a[i + 1][j], a[i + 1][j + 1]);

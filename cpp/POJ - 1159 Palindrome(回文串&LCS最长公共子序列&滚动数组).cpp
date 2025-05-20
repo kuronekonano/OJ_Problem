@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <stdio.h> ///最长公共子序列/滚动数组
+#include <stdio.h> ///鏈�闀垮叕鍏卞瓙搴忓垪/婊氬姩鏁扮粍
 #include <string.h>
 using namespace std;
 int vis[10][5009], t;
@@ -34,7 +34,7 @@ int main() {
   return 0;
 }
 /**
-#include<stdio.h>///最长公共子序列 /short int
+#include<stdio.h>///鏈�闀垮叕鍏卞瓙搴忓垪 /short int
 #include<string.h>
 #include<algorithm>
 using namespace std;

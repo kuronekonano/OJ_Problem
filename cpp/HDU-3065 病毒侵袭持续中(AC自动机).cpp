@@ -25,7 +25,7 @@ void insert(char S[], int num) {
              sizeof(Tree[Tree[now].next[S[i] - 'A']].next));
       Tree[Tree[now].next[S[i] - 'A']].fail =
           Tree[Tree[now].next[S[i] - 'A']].cnt = 0;
-    } /// ע���ʼ����֮ǰ����İ��½ڵ���Ϊ��S[i]�ı�ţ�����һֱֻ�����128�Žڵ�֮�ڵ�ֵ�����ֱ�Ӵ���tot���������½ڵ�ı�ţ�Ҫ��ʼ����Ӧ����tot���ӽڵ�
+    } /// 注意初始化，之前错误的把新节点认为是S[i]的编号，这样一直只会清除128号节点之内的值，结果直接错误，tot才是真正新节点的编号，要初始化的应该是tot的子节点
     now = Tree[now].next[S[i] - 'A'];
   }
   Tree[now].cnt = num;
@@ -100,7 +100,7 @@ int main() {
     int flag = 0;
     for (
         int i = 0; i <= len;
-        i++) /// ע�������Ŀ���ֵ���ֻ��26����д��ĸ����T��2e6�ĳ��Ȱ���������ASCII���ַ���������˵����ֵ����е��ַ�������ȫ��������TLE(�ӵ�)
+        i++) /// 注意这里，题目的字典树只有26个大写字母，串T有2e6的长度包含了所有ASCII码字符，必须过滤掉非字典树中的字符，否则全部遍历会TLE(坑点)
     {
       if (str[i] >= 'A' && str[i] <= 'Z')
         tmp[flag++] = str[i];

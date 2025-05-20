@@ -2,7 +2,7 @@
 #define LL long long
 using namespace std;
 LL pri[3090], cnt;
-void broken(LL num) /// ·Ö½âÖÊÒòÊı
+void broken(LL num) /// åˆ†è§£è´¨å› æ•°
 {
   cnt = 0;
   for (int i = 2; i * i <= num; i++) {
@@ -15,7 +15,7 @@ void broken(LL num) /// ·Ö½âÖÊÒòÊı
   if (num != 1)
     pri[cnt++] = num;
 }
-LL all(LL m) /// Èİ³âÔ­Àí
+LL all(LL m) /// å®¹æ–¥åŸç†
 {
   LL ans = 0;
   for (int i = 1; i < (1 << cnt); i++) {

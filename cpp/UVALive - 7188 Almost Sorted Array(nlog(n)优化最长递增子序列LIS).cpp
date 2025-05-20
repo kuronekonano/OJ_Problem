@@ -1,4 +1,4 @@
-#include <stdio.h> ///n*log(n)ÓÅ»¯×î³¤µİÔö(µİ¼õ)×ÓĞòÁĞ
+#include <stdio.h> ///n*log(n)ä¼˜åŒ–æœ€é•¿é€’å¢(é€’å‡)å­åºåˆ—
 #include <string.h>
 int t, a[100008], maxn[100008], minn[100008];
 int Search(int num, int low, int high) {
@@ -35,20 +35,20 @@ int main() {
     minn[1] = a[1];
     int flagmax = 1, flagmin = 1;
     for (i = 2; i <= n;
-         i++) /// Ïàµ±ÓÚÊı×éÖĞ´æµÄÊÇÃ¿¸öµİÔö(µİ¼õ)ĞòÁĞµÄ×î´óÖµ/×îĞ¡Öµ
+         i++) /// ç›¸å½“äºæ•°ç»„ä¸­å­˜çš„æ˜¯æ¯ä¸ªé€’å¢(é€’å‡)åºåˆ—çš„æœ€å¤§å€¼/æœ€å°å€¼
     {
       if (a[i] >= maxn[flagmax]) {
         flagmax++;
         maxn[flagmax] = a[i];
       } else {
-        int pos = Search(a[i], 1, flagmax); /// µİÔöĞòÁĞÖĞ¶ş·Ö²éÕÒ
+        int pos = Search(a[i], 1, flagmax); /// é€’å¢åºåˆ—ä¸­äºŒåˆ†æŸ¥æ‰¾
         maxn[pos] = a[i];
       }
       if (a[i] <= minn[flagmin]) {
         flagmin++;
         minn[flagmin] = a[i];
       } else {
-        int pos = Search1(a[i], 1, flagmin); /// µİ¼õĞòÁĞÖĞ¶ş·Ö²éÕÒ
+        int pos = Search1(a[i], 1, flagmin); /// é€’å‡åºåˆ—ä¸­äºŒåˆ†æŸ¥æ‰¾
         minn[pos] = a[i];
       }
     }

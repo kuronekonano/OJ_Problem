@@ -73,7 +73,7 @@ int main() {
       mp[i].clear();
     for (int i = 0; i < m; i++) {
       scanf("%d%d", &from, &to);
-      vis[from * 300 + to]++; /// ¿ÉÄÜÊÇÒòÎªÊý¾ÝË®£¬ÕâÑù¼Ó±ß·½Ê½×ã×ã¼ÓÁË4´Î±ß
+      vis[from * 300 + to]++; /// å¯èƒ½æ˜¯å› ä¸ºæ•°æ®æ°´ï¼Œè¿™æ ·åŠ è¾¹æ–¹å¼è¶³è¶³åŠ äº†4æ¬¡è¾¹
     }
     map<int, int>::iterator it;
     for (it = vis.begin(); it != vis.end(); it++)

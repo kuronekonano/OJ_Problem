@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <stdio.h> ///Èô³ö·¢µãºÍÖÕµãµÄ¹«Ë¾Ò»ÑùÔò»¨·ÑÎª0£¬²»Ò»ÑùÔò»¨·ÑÎª1
+#include <stdio.h> ///è‹¥å‡ºå‘ç‚¹å’Œç»ˆç‚¹çš„å…¬å¸ä¸€æ ·åˆ™èŠ±è´¹ä¸º0ï¼Œä¸ä¸€æ ·åˆ™èŠ±è´¹ä¸º1
 #include <string.h>
 using namespace std;
 int main() {

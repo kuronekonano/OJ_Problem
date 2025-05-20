@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h> ///µ±ÄêÎªÈòÄê
+#include <string.h> ///å½“å¹´ä¸ºé—°å¹´
 int main() {
   char week[9][15] = {{"Sunday"},   {"Monday"}, {"Tuesday"}, {"Wednesday"},
                       {"Thursday"}, {"Friday"}, {"Saturday"}};

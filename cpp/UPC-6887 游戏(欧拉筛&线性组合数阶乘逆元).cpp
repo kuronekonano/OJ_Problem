@@ -1,10 +1,10 @@
-#include <bits/stdc++.h> ///½©Ê¬µÄ´«È¾ÅÅÁĞ×éºÏ,¸ù¾İÌâÒâ¿ÉÖªÊÇ°´ÕÕ"Î±ËØÊı"¹æÂÉÀ´´«È¾µÄ
+#include <bits/stdc++.h> ///åƒµå°¸çš„ä¼ æŸ“æ’åˆ—ç»„åˆ,æ ¹æ®é¢˜æ„å¯çŸ¥æ˜¯æŒ‰ç…§"ä¼ªç´ æ•°"è§„å¾‹æ¥ä¼ æŸ“çš„
 #define LL long long
 using namespace std;
 const int maxn = 1e7 + 5;
 const int mod = 1e9 + 7;
 int fac[maxn], inv[maxn];
-bool vis[maxn]; /// ÄÇÃ´¾ÍÕÒµ½ËùÓĞµÄÎ±ËØÊıºÍ·ÇÎ±ËØÊı£¬½øĞĞ´«È¾Ë³ĞòµÄÅÅÁĞ×éºÏ
+bool vis[maxn]; /// é‚£ä¹ˆå°±æ‰¾åˆ°æ‰€æœ‰çš„ä¼ªç´ æ•°å’Œéä¼ªç´ æ•°ï¼Œè¿›è¡Œä¼ æŸ“é¡ºåºçš„æ’åˆ—ç»„åˆ
 LL poww(LL a, LL b) {
   LL ans = 1;
   while (b) {
@@ -25,7 +25,7 @@ int prim(int l, int r) {
     }
   return sum;
 }
-int init(int r) /// ÏßĞÔÔ¤´¦ÀíÇó×éºÏÊı
+int init(int r) /// çº¿æ€§é¢„å¤„ç†æ±‚ç»„åˆæ•°
 {
   fac[0] = 1;
   for (int i = 1; i <= r; i++)
