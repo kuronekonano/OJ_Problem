@@ -1,17 +1,17 @@
 #include <stdio.h>
 int main() {
-  int t, x, y, k;
-  scanf("%d", &t);
-  while (t--) {
-    scanf("%d%d%d", &k, &x, &y);
-    if (x >= y)
-      if (x - y + 5 < x + 2 && x - y + 5 > 3)
-        printf("%d 6 1 2 3 %d %d %d\n", k, x - y + 5, x + 2, x + 3);
-      else
-        printf("%d NO PATH\n", k);
-    else
-      printf("%d 2 %d %d\n", k, x, y);
-  }
+    int t, x, y, k;
+    scanf( "%d", &t );
+    while ( t-- ) {
+        scanf( "%d%d%d", &k, &x, &y );
+        if ( x >= y )
+            if ( x - y + 5 < x + 2 && x - y + 5 > 3 )
+                printf( "%d 6 1 2 3 %d %d %d\n", k, x - y + 5, x + 2, x + 3 );
+            else
+                printf( "%d NO PATH\n", k );
+        else
+            printf( "%d 2 %d %d\n", k, x, y );
+    }
 }
 /// 每条回旋边都要比上一条边长，因此当x<y时满足先横向小于后纵向的条件，直接两条边输出坐标即可
 /// 当x>=y时，需要进行回旋，可以发现如果能到达任何一个点一定是6条边就能到达。

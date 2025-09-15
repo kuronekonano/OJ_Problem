@@ -1,10 +1,10 @@
 #include <stdio.h>
 int main() {
-  int a, b, c, d, e, n;
-  while (scanf("%d%d%d%d%d", &a, &b, &c, &d, &e) != EOF) // 同余定理
-  {
-    n = ((a % e) * (b % e) * (c % e) * (d % e)) % e;
-    printf("%d\n", n);
-  }
-  return 0;
+    int a, b, c, d, e, n;
+    while ( scanf( "%d%d%d%d%d", &a, &b, &c, &d, &e ) != EOF )  // 同余定理
+    {
+        n = ( ( a % e ) * ( b % e ) * ( c % e ) * ( d % e ) ) % e;
+        printf( "%d\n", n );
+    }
+    return 0;
 }

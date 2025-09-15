@@ -1,55 +1,54 @@
 #include <algorithm>
 #include <stdio.h>
 using namespace std;
-struct Road /// 包括这条边是从哪儿(from)到(to)哪儿，以及长度(val)
+struct Road  /// 包括这条边是从哪儿(from)到(to)哪儿，以及长度(val)
 {
-  int x, y, dis;
-} road[10000];
-bool cmp(Road a, Road b) /// 结构体排序
+    int x, y, dis;
+} road[ 10000 ];
+bool cmp( Road a, Road b )  /// 结构体排序
 {
-  return a.dis < b.dis; /// 给长度按从小到大排序
+    return a.dis < b.dis;  /// 给长度按从小到大排序
 }
-int finds[150];
-int Find(int n) /// 并查集的查找函数
+int finds[ 150 ];
+int Find( int n )  /// 并查集的查找函数
 {
-  return finds[n] == n ? n : Find(finds[n]);
+    return finds[ n ] == n ? n : Find( finds[ n ] );
 }
-void join(int x, int y) /// 合为一个集合中
+void join( int x, int y )  /// 合为一个集合中
 {
-  finds[Find(x)] = Find(y);
+    finds[ Find( x ) ] = Find( y );
 }
 int main() {
-  int n, i, j;
-  while (scanf("%d", &n) != EOF) /// n个城镇，m条边
-  {
-    if (!n)
-      break;
-    int m = n * (n - 1) / 2; /// 这里是边的数量
-    for (i = 0; i < m;
-         i++) /// 输入从哪儿到哪儿，这里不是利用邻接矩阵了，直接给边赋予信息
+    int n, i, j;
+    while ( scanf( "%d", &n ) != EOF )  /// n个城镇，m条边
     {
-      scanf("%d%d%d", &road[i].x, &road[i].y, &road[i].dis);
+        if ( !n )
+            break;
+        int m = n * ( n - 1 ) / 2;  /// 这里是边的数量
+        for ( i = 0; i < m; i++ )   /// 输入从哪儿到哪儿，这里不是利用邻接矩阵了，直接给边赋予信息
+        {
+            scanf( "%d%d%d", &road[ i ].x, &road[ i ].y, &road[ i ].dis );
+        }
+        sort( road, road + m, cmp );  /// 给边按从小到大排序
+        for ( i = 0; i <= n; i++ )    /// 预处理
+        {
+            finds[ i ] = i;
+        }
+        int sum = 0, flag = 0;
+        for ( i = 0; i < m; i++ )  /// 从长度小的边开始遍历
+        {
+            if ( Find( road[ i ].x ) != Find( road[ i ].y ) )  /// 第一小的边的开始和结尾上司不同
+            {                                                  /// 这里如果他们的上司不一样，说明他们之间没有连通，不会构成环状，可以选择这条边加上
+                flag++;                                        /// 已经加入的边计数
+                join( road[ i ].x, road[ i ].y );              /// 并把相应节点合为一个集合(表示已经连通)
+                sum += road[ i ].dis;                          /// 总长度加上这条边
+            }  /// 再找下一个短边的两个城镇是否连通，没连通则将其连通，总和加上那条边的长度
+            if ( flag == m - 1 )
+                break;  /// 记住这里是边的数量，m的数量，不是n的数量
+        }  /// 因为n个城镇不会超过n-1条边，因此当达到这个边数目时就可以跳出了，此时总和就是所有最短边总和
+        printf( "%d\n", sum );
     }
-    sort(road, road + m, cmp); /// 给边按从小到大排序
-    for (i = 0; i <= n; i++)   /// 预处理
-    {
-      finds[i] = i;
-    }
-    int sum = 0, flag = 0;
-    for (i = 0; i < m; i++) /// 从长度小的边开始遍历
-    {
-      if (Find(road[i].x) != Find(road[i].y)) /// 第一小的边的开始和结尾上司不同
-      { /// 这里如果他们的上司不一样，说明他们之间没有连通，不会构成环状，可以选择这条边加上
-        flag++;                     /// 已经加入的边计数
-        join(road[i].x, road[i].y); /// 并把相应节点合为一个集合(表示已经连通)
-        sum += road[i].dis;         /// 总长度加上这条边
-      } /// 再找下一个短边的两个城镇是否连通，没连通则将其连通，总和加上那条边的长度
-      if (flag == m - 1)
-        break; /// 记住这里是边的数量，m的数量，不是n的数量
-    } /// 因为n个城镇不会超过n-1条边，因此当达到这个边数目时就可以跳出了，此时总和就是所有最短边总和
-    printf("%d\n", sum);
-  }
-  return 0;
+    return 0;
 }
 
 /////BY: Torrance_ZHANG

@@ -21,33 +21,33 @@
 // }
 #include <stdio.h>
 int main() {
-  int i, n, t, a[100005];
-  int hun, fif, tw, ten, fir, one;
-  while (scanf("%d", &n) != EOF) {
-    hun = 0;
-    fif = 0;
-    tw = 0;
-    ten = 0;
-    fir = 0;
-    one = 0;
-    for (i = 1; i <= n; i++) {
-      scanf("%d", &a[i]);
+    int i, n, t, a[ 100005 ];
+    int hun, fif, tw, ten, fir, one;
+    while ( scanf( "%d", &n ) != EOF ) {
+        hun = 0;
+        fif = 0;
+        tw  = 0;
+        ten = 0;
+        fir = 0;
+        one = 0;
+        for ( i = 1; i <= n; i++ ) {
+            scanf( "%d", &a[ i ] );
+        }
+        for ( i = 1; i <= n; i++ )  // 不断求模的过程
+        {
+            hun    = hun + a[ i ] / 100;
+            a[ i ] = a[ i ] % 100;
+            fif    = fif + a[ i ] / 50;
+            a[ i ] = a[ i ] % 50;
+            tw     = tw + a[ i ] / 20;
+            a[ i ] = a[ i ] % 20;
+            ten    = ten + a[ i ] / 10;
+            a[ i ] = a[ i ] % 10;
+            fir    = fir + a[ i ] / 5;
+            a[ i ] = a[ i ] % 5;
+            one    = one + a[ i ] / 1;
+        }
+        printf( "%d %d %d %d %d %d\n", hun, fif, tw, ten, fir, one );
     }
-    for (i = 1; i <= n; i++) // 不断求模的过程
-    {
-      hun = hun + a[i] / 100;
-      a[i] = a[i] % 100;
-      fif = fif + a[i] / 50;
-      a[i] = a[i] % 50;
-      tw = tw + a[i] / 20;
-      a[i] = a[i] % 20;
-      ten = ten + a[i] / 10;
-      a[i] = a[i] % 10;
-      fir = fir + a[i] / 5;
-      a[i] = a[i] % 5;
-      one = one + a[i] / 1;
-    }
-    printf("%d %d %d %d %d %d\n", hun, fif, tw, ten, fir, one);
-  }
-  return 0;
+    return 0;
 }

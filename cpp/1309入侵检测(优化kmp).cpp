@@ -1,47 +1,47 @@
 #include <stdio.h>
 #include <string.h>
-char a[200005]; /// 主体活动串长度
-char b[2005];   /// 入侵者活动串长度
-int next[2008];
-int lena, lenb;
-void getnext() /// 预处理
+char a[ 200005 ];  /// 主体活动串长度
+char b[ 2005 ];    /// 入侵者活动串长度
+int  next[ 2008 ];
+int  lena, lenb;
+void getnext()  /// 预处理
 {
-  memset(next, 0, sizeof(next)); /// 计算next数组，初始全部为0
-  int i = 0, j = next[0] = -1;   /// 模式串自己和自己比较
-  while (i < lenb) /// i是一直增大的，这里也可以用for，其实相当于遍历一遍模式串
-  {                /// 如果j为0，或成功匹配了字符
-    while (j != -1 && b[i] != b[j])
-      j = next[j];
-    ++i, ++j;                             /// 匹配下一位
-    next[i] = b[i] == b[j] ? next[j] : j; /// 同时给next数组的下一位赋值j的位置
-  }
+    memset( next, 0, sizeof( next ) );  /// 计算next数组，初始全部为0
+    int i = 0, j = next[ 0 ] = -1;      /// 模式串自己和自己比较
+    while ( i < lenb )                  /// i是一直增大的，这里也可以用for，其实相当于遍历一遍模式串
+    {                                   /// 如果j为0，或成功匹配了字符
+        while ( j != -1 && b[ i ] != b[ j ] )
+            j = next[ j ];
+        ++i, ++j;                                      /// 匹配下一位
+        next[ i ] = b[ i ] == b[ j ] ? next[ j ] : j;  /// 同时给next数组的下一位赋值j的位置
+    }
 }
-bool kmp() /// 主串与模式串相匹配
+bool kmp()  /// 主串与模式串相匹配
 {
-  int i = 0, j = 0;
-  while (i < lena) {
-    if (j == -1 || a[i] == b[j])
-      i++, j++;
-    else
-      j = next[j];
-    if (j == lenb)
-      return true;
-  }
-  return false;
+    int i = 0, j = 0;
+    while ( i < lena ) {
+        if ( j == -1 || a[ i ] == b[ j ] )
+            i++, j++;
+        else
+            j = next[ j ];
+        if ( j == lenb )
+            return true;
+    }
+    return false;
 }
 int main() {
 
-  while (scanf("%s%s", a, b) != EOF) {
-    lena = strlen(a);
-    lenb = strlen(b);
-    getnext(); /// 模式串预处理
-    //        for(int i=0; i<=lenb; i++)
-    //        {
-    //            printf("%d->%d\n",i,next[i]);///next数组
-    //        }
-    printf("%s\n", kmp() ? "yes" : "no");
-  }
-  return 0;
+    while ( scanf( "%s%s", a, b ) != EOF ) {
+        lena = strlen( a );
+        lenb = strlen( b );
+        getnext();  /// 模式串预处理
+        //        for(int i=0; i<=lenb; i++)
+        //        {
+        //            printf("%d->%d\n",i,next[i]);///next数组
+        //        }
+        printf( "%s\n", kmp() ? "yes" : "no" );
+    }
+    return 0;
 }
 // #include<stdio.h>
 // #include<string.h>

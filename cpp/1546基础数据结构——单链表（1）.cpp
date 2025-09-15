@@ -1,93 +1,93 @@
 #include <malloc.h>
-#include <stdio.h> ///链表
+#include <stdio.h>  ///链表
 struct num {
-  int a;
+    int a;
 };
 typedef struct Node {
-  num date;
-  struct Node *next;
-} *LinkList, Node;
-int GetElem_L(LinkList L, int i, num &e) /// 获取元素
+    num          date;
+    struct Node* next;
+} * LinkList, Node;
+int GetElem_L( LinkList L, int i, num& e )  /// 获取元素
 {
-  Node *p;
-  int j = 1;
-  p = L->next;
-  while (p && j < i) {
-    p = p->next;
-    j++;
-  }
-  e = p->date;
-  return 1;
+    Node* p;
+    int   j = 1;
+    p       = L->next;
+    while ( p && j < i ) {
+        p = p->next;
+        j++;
+    }
+    e = p->date;
+    return 1;
 }
-int Check_L(LinkList L) /// 遍历链表
+int Check_L( LinkList L )  /// 遍历链表
 {
-  Node *p;
-  int j = 1;
-  p = L->next;
-  while (p) {
-    printf("%d%c", p->date, p->next == NULL ? '\n' : ' ');
-    p = p->next;
-  }
-  return 1;
+    Node* p;
+    int   j = 1;
+    p       = L->next;
+    while ( p ) {
+        printf( "%d%c", p->date, p->next == NULL ? '\n' : ' ' );
+        p = p->next;
+    }
+    return 1;
 }
-int ListInsert_L(LinkList &L, int i, num e) /// 插入元素
+int ListInsert_L( LinkList& L, int i, num e )  /// 插入元素
 {
-  Node *p;
-  p = L;
-  int j = 0;
-  while (p && j < i - 1) {
-    p = p->next;
-    j++;
-  }
-  Node *s = (LinkList)malloc(sizeof(Node));
-  s->date = e;
-  s->next = p->next;
-  p->next = s;
-  return 1;
+    Node* p;
+    p     = L;
+    int j = 0;
+    while ( p && j < i - 1 ) {
+        p = p->next;
+        j++;
+    }
+    Node* s = ( LinkList )malloc( sizeof( Node ) );
+    s->date = e;
+    s->next = p->next;
+    p->next = s;
+    return 1;
 }
-int ListDelete_L(LinkList &L, int i, num &e) /// 删除元素
+int ListDelete_L( LinkList& L, int i, num& e )  /// 删除元素
 {
-  Node *p, *q;
-  p = L;
-  int j = 0;
-  while (p->next && j < i - 1) {
-    p = p->next;
-    j++;
-  }
-  q = p->next;
-  p->next = q->next;
-  e = q->date;
-  free(q);
-  return 1;
+    Node *p, *q;
+    p     = L;
+    int j = 0;
+    while ( p->next && j < i - 1 ) {
+        p = p->next;
+        j++;
+    }
+    q       = p->next;
+    p->next = q->next;
+    e       = q->date;
+    free( q );
+    return 1;
 }
-void CreateList_L(LinkList &L) /// 创建链表
+void CreateList_L( LinkList& L )  /// 创建链表
 {
-  L = (LinkList)malloc(sizeof(Node));
-  L->next = NULL;
+    L       = ( LinkList )malloc( sizeof( Node ) );
+    L->next = NULL;
 }
 int main() {
-  LinkList L;
-  num tmp;
-  int n, del;
-  while (scanf("%d", &n) != EOF) {
-    CreateList_L(L);
-    for (int i = 1; i <= n; i++) {
-      scanf("%d", &tmp.a);
-      ListInsert_L(L, i, tmp);
+    LinkList L;
+    num      tmp;
+    int      n, del;
+    while ( scanf( "%d", &n ) != EOF ) {
+        CreateList_L( L );
+        for ( int i = 1; i <= n; i++ ) {
+            scanf( "%d", &tmp.a );
+            ListInsert_L( L, i, tmp );
+        }
+        scanf( "%d", &del );
+        printf( "%d\n", n );
+        Check_L( L );
+        for ( int i = 1; i <= n; i++ ) {
+            GetElem_L( L, i, tmp );
+            if ( tmp.a == del ) {
+                n--;
+                ListDelete_L( L, i, tmp );
+            }
+        }
+        printf( "%d\n", n );
+        Check_L( L );
     }
-    scanf("%d", &del);
-    printf("%d\n", n);
-    Check_L(L);
-    for (int i = 1; i <= n; i++) {
-      GetElem_L(L, i, tmp);
-      if (tmp.a == del) {
-        n--;
-        ListDelete_L(L, i, tmp);
-      }
-    }
-    printf("%d\n", n);
-    Check_L(L);
-  }
 }
 
 // #include<stdio.h>//真・链表

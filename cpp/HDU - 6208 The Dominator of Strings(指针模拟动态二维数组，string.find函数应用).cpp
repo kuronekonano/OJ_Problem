@@ -1,31 +1,31 @@
 #include <iostream>
-#include <stdio.h> ///string.find()函数应用
+#include <stdio.h>  ///string.find()函数应用
 #include <string>
 using namespace std;
 int main() {
-  string v[100008];
-  int t, n;
-  ios::sync_with_stdio(false);
-  cin >> t;
-  while (t--) {
-    int maxn = 0, maxi = 0;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-      cin >> v[i];
-      if (v[i].size() > maxn) {
-        maxi = i;           /// 最长串位置
-        maxn = v[i].size(); /// 最长串长度
-      }
+    string v[ 100008 ];
+    int    t, n;
+    ios::sync_with_stdio( false );
+    cin >> t;
+    while ( t-- ) {
+        int maxn = 0, maxi = 0;
+        cin >> n;
+        for ( int i = 0; i < n; i++ ) {
+            cin >> v[ i ];
+            if ( v[ i ].size() > maxn ) {
+                maxi = i;              /// 最长串位置
+                maxn = v[ i ].size();  /// 最长串长度
+            }
+        }
+        int sum = 0;
+        for ( int i = 0; i < n; i++ )
+            if ( v[ maxi ].find( v[ i ] ) != string::npos )
+                sum++;  /// string中find函数应用，判断v[i]是否是v[maxi]的子串，是返回地址，否则返回string::npos
+        if ( sum == n )
+            cout << v[ maxi ] << endl;
+        else
+            cout << "No" << endl;
     }
-    int sum = 0;
-    for (int i = 0; i < n; i++)
-      if (v[maxi].find(v[i]) != string::npos)
-        sum++; /// string中find函数应用，判断v[i]是否是v[maxi]的子串，是返回地址，否则返回string::npos
-    if (sum == n)
-      cout << v[maxi] << endl;
-    else
-      cout << "No" << endl;
-  }
 }
 // #include <stdio.h>
 // #include <string.h>

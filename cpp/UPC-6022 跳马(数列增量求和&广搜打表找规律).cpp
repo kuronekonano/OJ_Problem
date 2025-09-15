@@ -60,20 +60,21 @@
 #include <stdio.h>
 #define ULL unsigned long long
 int main() {
-  ULL n, t;
-  ULL a[] = {1, 9, 41, 109, 205};
-  scanf("%llu", &t);
-  while (t--) {
-    scanf("%llu", &n);
-    if (n < 5) {
-      printf("%llu\n", a[n]);
-      continue;
-    } else {
-      n -= 4;
-      ULL ans = (240 + 28 * n) / 2 * (n - 1) + 325;
-      printf("%llu\n", ans);
+    ULL n, t;
+    ULL a[] = { 1, 9, 41, 109, 205 };
+    scanf( "%llu", &t );
+    while ( t-- ) {
+        scanf( "%llu", &n );
+        if ( n < 5 ) {
+            printf( "%llu\n", a[ n ] );
+            continue;
+        }
+        else {
+            n -= 4;
+            ULL ans = ( 240 + 28 * n ) / 2 * ( n - 1 ) + 325;
+            printf( "%llu\n", ans );
+        }
     }
-  }
 }
 /*
 0------->1-------->1-------->1

@@ -1,12 +1,12 @@
 #include <stdio.h>
 int main() {
-  int k, a, b;
-  while (scanf("%d%d%d", &k, &a, &b) != EOF) {
-    if (a % k && b / k == 0 || b % k && a / k == 0)
-      printf("-1\n");
-    else
-      printf("%d\n", a / k + b / k);
-  }
+    int k, a, b;
+    while ( scanf( "%d%d%d", &k, &a, &b ) != EOF ) {
+        if ( a % k && b / k == 0 || b % k && a / k == 0 )
+            printf( "-1\n" );
+        else
+            printf( "%d\n", a / k + b / k );
+    }
 }
 /// 乒乓球比赛，一局中赢的人得1分，输的人不得分，其中一人得的分数达到k分时，两人分数清零重算，清零一次算一局
 /// 给出两人得到的所有分数和a和b，计算总共进行了多少局比赛。总分数除k可以知道其中一个人达到了几次k

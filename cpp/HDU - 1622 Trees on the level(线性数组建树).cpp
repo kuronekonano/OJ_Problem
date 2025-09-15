@@ -1,66 +1,67 @@
-#include <stdio.h> ///线性建树
+#include <stdio.h>  ///线性建树
 #include <string.h>
 int main() {
-  int tree[60000], maxn = 0;
-  bool vis[60000];
-  char a[300];
-  while (scanf("%s", a) != EOF) {
-    bool flag = true;
-    maxn = 0;
-    memset(vis, false, sizeof(vis));
-    if (strcmp(a, "()") == 0) {
-      printf("not complete\n");
-      continue;
+    int  tree[ 60000 ], maxn = 0;
+    bool vis[ 60000 ];
+    char a[ 300 ];
+    while ( scanf( "%s", a ) != EOF ) {
+        bool flag = true;
+        maxn      = 0;
+        memset( vis, false, sizeof( vis ) );
+        if ( strcmp( a, "()" ) == 0 ) {
+            printf( "not complete\n" );
+            continue;
+        }
+        int len = strlen( a ), sum = 0, pos = 1;
+        for ( int i = 1; i < len - 1; i++ ) {
+            if ( a[ i ] >= '0' && a[ i ] <= '9' )
+                sum = sum * 10 + a[ i ] - '0';
+            if ( a[ i ] == 'L' )
+                pos *= 2;
+            if ( a[ i ] == 'R' )
+                pos = 2 * pos + 1;
+        }
+        if ( pos > maxn )
+            maxn = pos;
+        if ( pos == 1 )
+            vis[ 0 ] = true;
+        tree[ pos ] = sum;
+        vis[ pos ]  = true;
+        while ( scanf( "%s", a ) != EOF ) {
+            if ( strcmp( a, "()" ) == 0 ) {
+                for ( int i = 1; i <= maxn; i++ )
+                    if ( !vis[ i / 2 ] && vis[ i ] )
+                        flag = false;
+                if ( flag ) {
+                    printf( "%d", tree[ 1 ] );
+                    for ( int i = 2; i <= maxn; i++ )
+                        if ( vis[ i ] )
+                            printf( " %d", tree[ i ] );
+                    printf( "\n" );
+                }
+                else
+                    printf( "not complete\n" );
+                break;
+            }
+            int len = strlen( a ), sum = 0, pos = 1;
+            for ( int i = 1; i < len - 1; i++ ) {
+                if ( a[ i ] >= '0' && a[ i ] <= '9' )
+                    sum = sum * 10 + a[ i ] - '0';
+                if ( a[ i ] == 'L' )
+                    pos *= 2;
+                if ( a[ i ] == 'R' )
+                    pos = 2 * pos + 1;
+            }
+            if ( pos > maxn )
+                maxn = pos;
+            if ( pos == 1 )
+                vis[ 0 ] = true;
+            if ( vis[ pos ] )
+                flag = false;
+            tree[ pos ] = sum;
+            vis[ pos ]  = true;
+        }
     }
-    int len = strlen(a), sum = 0, pos = 1;
-    for (int i = 1; i < len - 1; i++) {
-      if (a[i] >= '0' && a[i] <= '9')
-        sum = sum * 10 + a[i] - '0';
-      if (a[i] == 'L')
-        pos *= 2;
-      if (a[i] == 'R')
-        pos = 2 * pos + 1;
-    }
-    if (pos > maxn)
-      maxn = pos;
-    if (pos == 1)
-      vis[0] = true;
-    tree[pos] = sum;
-    vis[pos] = true;
-    while (scanf("%s", a) != EOF) {
-      if (strcmp(a, "()") == 0) {
-        for (int i = 1; i <= maxn; i++)
-          if (!vis[i / 2] && vis[i])
-            flag = false;
-        if (flag) {
-          printf("%d", tree[1]);
-          for (int i = 2; i <= maxn; i++)
-            if (vis[i])
-              printf(" %d", tree[i]);
-          printf("\n");
-        } else
-          printf("not complete\n");
-        break;
-      }
-      int len = strlen(a), sum = 0, pos = 1;
-      for (int i = 1; i < len - 1; i++) {
-        if (a[i] >= '0' && a[i] <= '9')
-          sum = sum * 10 + a[i] - '0';
-        if (a[i] == 'L')
-          pos *= 2;
-        if (a[i] == 'R')
-          pos = 2 * pos + 1;
-      }
-      if (pos > maxn)
-        maxn = pos;
-      if (pos == 1)
-        vis[0] = true;
-      if (vis[pos])
-        flag = false;
-      tree[pos] = sum;
-      vis[pos] = true;
-    }
-  }
 }
 
 // #include<cstdio>

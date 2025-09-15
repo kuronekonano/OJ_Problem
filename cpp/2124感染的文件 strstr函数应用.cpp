@@ -1,30 +1,30 @@
 #include <stdio.h>
-#include <string.h> ///【strstr函数应用，strstr(str1,str2)】检查str1中是否包含str2，若包含，返回第一个查找到的str2首地址，不包含返回NULL空地址
-int main()          /// 包含于string.h头文件中
+#include <string.h>  ///【strstr函数应用，strstr(str1,str2)】检查str1中是否包含str2，若包含，返回第一个查找到的str2首地址，不包含返回NULL空地址
+int main()           /// 包含于string.h头文件中
 {
-  int t, n, i;
-  char a[56][25];
-  char b[20008];
-  scanf("%d", &t);
-  while (t--) {
-    scanf("%d", &n);
-    for (i = 0; i < n; i++) {
-      scanf("%s", a[i]);
+    int  t, n, i;
+    char a[ 56 ][ 25 ];
+    char b[ 20008 ];
+    scanf( "%d", &t );
+    while ( t-- ) {
+        scanf( "%d", &n );
+        for ( i = 0; i < n; i++ ) {
+            scanf( "%s", a[ i ] );
+        }
+        scanf( "%s", b );
+        bool flag = true;
+        for ( i = 0; i < n; i++ ) {
+            if ( strstr( b, a[ i ] ) != 0 ) {
+                printf( "infected\n" );
+                flag = false;
+                break;
+            }
+        }
+        if ( flag ) {
+            printf( "not infected\n" );
+        }
     }
-    scanf("%s", b);
-    bool flag = true;
-    for (i = 0; i < n; i++) {
-      if (strstr(b, a[i]) != 0) {
-        printf("infected\n");
-        flag = false;
-        break;
-      }
-    }
-    if (flag) {
-      printf("not infected\n");
-    }
-  }
-  return 0;
+    return 0;
 }
 // #include<stdio.h>///手动比较
 // #include<string.h>
