@@ -1,51 +1,53 @@
-#include <stdio.h> ///并查集优化子串查找
+#include <stdio.h>  ///并查集优化子串查找
 #include <string.h>
-int z[508];
-char a[508][2008];
-int find(int x) {
-  int r = x, k;
-  while (z[r] != r) {
-    k = r;
-    r = z[r];
-    z[k] = z[r];
-  }
-  return r;
+int  z[ 508 ];
+char a[ 508 ][ 2008 ];
+int  find( int x ) {
+    int r = x, k;
+    while ( z[ r ] != r ) {
+        k      = r;
+        r      = z[ r ];
+        z[ k ] = z[ r ];
+    }
+    return r;
 }
-void join(int x, int y) {
-  int aa = find(x), bb = find(y);
-  if (aa != bb) {
-    if (strlen(a[x]) < strlen(a[y])) {
-      z[x] = y;
-    } else
-      z[y] = x;
-  }
+void join( int x, int y ) {
+    int aa = find( x ), bb = find( y );
+    if ( aa != bb ) {
+        if ( strlen( a[ x ] ) < strlen( a[ y ] ) ) {
+            z[ x ] = y;
+        }
+        else
+            z[ y ] = x;
+    }
 }
 int main() {
-  int t, i, j, n, cas = 0;
-  scanf("%d", &t);
-  while (t--) {
-    cas++;
-    int ans = -1;
-    scanf("%d", &n);
-    for (i = 1; i <= n; i++)
-      z[i] = i;
-    for (i = 1; i <= n; i++) {
-      scanf("%s", a[i]);
-      bool flag = false;
-      for (j = i - 1; j >= 1; j--) {
-        if (find(i) == find(j))
-          continue;
-        if (strstr(a[i], a[j]) == NULL) {
-          flag = true;
-          break;
-        } else
-          join(i, j);
-      }
-      if (flag)
-        ans = i;
+    int t, i, j, n, cas = 0;
+    scanf( "%d", &t );
+    while ( t-- ) {
+        cas++;
+        int ans = -1;
+        scanf( "%d", &n );
+        for ( i = 1; i <= n; i++ )
+            z[ i ] = i;
+        for ( i = 1; i <= n; i++ ) {
+            scanf( "%s", a[ i ] );
+            bool flag = false;
+            for ( j = i - 1; j >= 1; j-- ) {
+                if ( find( i ) == find( j ) )
+                    continue;
+                if ( strstr( a[ i ], a[ j ] ) == NULL ) {
+                    flag = true;
+                    break;
+                }
+                else
+                    join( i, j );
+            }
+            if ( flag )
+                ans = i;
+        }
+        printf( "Case #%d: %d\n", cas, ans );
     }
-    printf("Case #%d: %d\n", cas, ans);
-  }
 }
 // #include<stdio.h>
 // #include<string.h>

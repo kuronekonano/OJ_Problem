@@ -1,55 +1,59 @@
 #include <algorithm>
-#include <stdio.h> ///莫队
+#include <stdio.h>  ///莫队
 #include <string.h>
 using namespace std;
 const int maxn = 100005;
-const int inf = 1000000007;
+const int inf  = 1000000007;
 struct node {
-  int l, r, id;
-} que[maxn];
-bool cmp(node a, node b) { return a.r < b.r; }
-int n, q;
-int num[maxn];
-int first[maxn], last[maxn];
-int tree[maxn], ans[maxn];
-int lowbit(int x) { return (-x) & x; }
-int updata(int x, int tmp) {
-  for (int i = que[x].l; i <= n; i += lowbit(i))
-    tmp -= tree[i];
-  return tmp;
+    int l, r, id;
+} que[ maxn ];
+bool cmp( node a, node b ) {
+    return a.r < b.r;
 }
-void query(int x) {
-  for (int i = x; i > 0; i -= lowbit(i))
-    tree[i]++;
+int n, q;
+int num[ maxn ];
+int first[ maxn ], last[ maxn ];
+int tree[ maxn ], ans[ maxn ];
+int lowbit( int x ) {
+    return ( -x ) & x;
+}
+int updata( int x, int tmp ) {
+    for ( int i = que[ x ].l; i <= n; i += lowbit( i ) )
+        tmp -= tree[ i ];
+    return tmp;
+}
+void query( int x ) {
+    for ( int i = x; i > 0; i -= lowbit( i ) )
+        tree[ i ]++;
 }
 int main() {
-  int cnt = 0;
-  while (scanf("%d%d", &n, &q) != EOF) {
-    cnt = 0;
-    memset(first, -1, sizeof first);
-    memset(tree, 0, sizeof tree);
-    for (int i = 1; i <= n; i++) {
-      scanf("%d", &num[i]);
-      last[num[i]] = i;
-      if (first[num[i]] == -1)
-        first[num[i]] = i, cnt++;
+    int cnt = 0;
+    while ( scanf( "%d%d", &n, &q ) != EOF ) {
+        cnt = 0;
+        memset( first, -1, sizeof first );
+        memset( tree, 0, sizeof tree );
+        for ( int i = 1; i <= n; i++ ) {
+            scanf( "%d", &num[ i ] );
+            last[ num[ i ] ] = i;
+            if ( first[ num[ i ] ] == -1 )
+                first[ num[ i ] ] = i, cnt++;
+        }
+        for ( int i = 0; i < q; i++ ) {
+            scanf( "%d%d", &que[ i ].l, &que[ i ].r );
+            que[ i ].id = i;
+        }
+        sort( que, que + q,
+              cmp );  /// 询问排序，按R右边界从小到大
+        int j = 0;
+        for ( int i = 1; i <= n; i++ ) {
+            while ( j < q && que[ j ].r == i )
+                ans[ que[ j ].id ] = updata( j, cnt ), j++;
+            if ( last[ num[ i ] ] == i )
+                query( first[ num[ i ] ] - 1 );
+        }
+        for ( int i = 0; i < q; i++ )
+            printf( "%d\n", ans[ i ] );
     }
-    for (int i = 0; i < q; i++) {
-      scanf("%d%d", &que[i].l, &que[i].r);
-      que[i].id = i;
-    }
-    sort(que, que + q,
-         cmp); ///询问排序，按R右边界从小到大
-    int j = 0;
-    for (int i = 1; i <= n; i++) {
-      while (j < q && que[j].r == i)
-        ans[que[j].id] = updata(j, cnt), j++;
-      if (last[num[i]] == i)
-        query(first[num[i]] - 1);
-    }
-    for (int i = 0; i < q; i++)
-      printf("%d\n", ans[i]);
-  }
 }
 
 /***

@@ -1,31 +1,31 @@
 #include <iterator>
 #include <map>
-#include <stdio.h> ///map find查找小应用
+#include <stdio.h>  ///map find查找小应用
 #include <string.h>
 using namespace std;
 int main() {
-  map<string, bool> q;
-  char str[105];
-  while (scanf("%s", str) != EOF) {
-    if (strcmp(str, "END") == 0) {
-      break;
+    map< string, bool > q;
+    char                str[ 105 ];
+    while ( scanf( "%s", str ) != EOF ) {
+        if ( strcmp( str, "END" ) == 0 ) {
+            break;
+        }
+        q[ str ] = true;
     }
-    q[str] = true;
-  }
-  while (scanf("%s", str) != EOF) {
-    if (strcmp(str, "END") == 0) {
-      return 0;
+    while ( scanf( "%s", str ) != EOF ) {
+        if ( strcmp( str, "END" ) == 0 ) {
+            return 0;
+        }
+        map< string, bool >::iterator that = q.find( str );  /// find函数使用，迭代器定义
+        if ( that == q.end() )                               /// 比较，如果find的返回值不等于map的end，则说明查找到了，否则说明未查找到
+        {
+            printf( "No\n" );
+        }
+        else {
+            printf( "Yes\n" );
+        }
     }
-    map<string, bool>::iterator that = q.find(str); /// find函数使用，迭代器定义
-    if (that ==
-        q.end()) /// 比较，如果find的返回值不等于map的end，则说明查找到了，否则说明未查找到
-    {
-      printf("No\n");
-    } else {
-      printf("Yes\n");
-    }
-  }
-  return 0;
+    return 0;
 }
 
 // #include<stdio.h>

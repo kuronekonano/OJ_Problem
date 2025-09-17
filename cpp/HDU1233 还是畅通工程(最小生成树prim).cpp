@@ -1,66 +1,61 @@
-#include <stdio.h> ///prim
+#include <stdio.h>  ///prim
 #include <string.h>
 /// 建图――邻接矩阵
-int vis[150][150]; /// 邻接矩阵数组，将两城镇连接，并存储距离
+int vis[ 150 ][ 150 ];  /// 邻接矩阵数组，将两城镇连接，并存储距离
 int main() {
-  int x, y, i, n, j, dis;
-  while (scanf("%d", &n) != EOF) {
-    if (!n)
-      return 0;
-    for (i = 0; i < n * (n - 1) / 2; i++) {
-      scanf("%d%d%d", &x, &y, &dis); /// x起点，y终点，w距离
-      vis[x][y] = dis;
-      vis[y][x] =
-          dis; /// 当为无向图是加入此句，否则不加，公路是双向的，当然是无向图
-    }
-    int minn, mini,
-        sum = 0; /// 分别记录
-                 /// minn为到达节点的最小长度，minid为最小的节点，sum为长度总和
-    bool seta[150];   /// 标记是否走过
-    int lowcost[150]; /// 到达某个节点所需要的最小距离
-    int mst[150];     /// 记录父亲节点，形成树结构
-    memset(seta, false, sizeof(seta));
-    memset(mst, 0, sizeof(mst));
-    memset(
-        lowcost, 0x3f,
-        sizeof(
-            lowcost)); /// 储存每个点到现在已经构造好的生成树
-                       /// 也就是集合b的最短距离，memset按字节初始化0x7f是一个约等于最大值的数
-    /// 将其初始化的原因：表示不可取
-    mst[1] = 0;              /// 1号节点为根节点，入度为0，没有父亲节点
-    seta[1] = true;          /// 标记1号节点走过
-    for (i = 2; i <= n; i++) /// 初始化
-    {
-      mst[i] = 1;
-      lowcost[i] = vis[1][i]; /// lowcos的初始化第i个值，等于从1连接到i的距离
-    }
-    for (i = 2; i <= n; i++) /// 每次循环就新到达一个点，总共遍历n-1个点
-    {
-      minn = 0x7fffffff;       /// 初始化长度最小值
-      mini = 0;                /// 初始化到达长度最小的节点
-      for (j = 1; j <= n; j++) /// 第一次遍历，查找一个能到达的节点中距离最短的
-      {
-        if (!seta[j] && lowcost[j] < minn) {
-          minn = lowcost[j];
-          mini = j;
+    int x, y, i, n, j, dis;
+    while ( scanf( "%d", &n ) != EOF ) {
+        if ( !n )
+            return 0;
+        for ( i = 0; i < n * ( n - 1 ) / 2; i++ ) {
+            scanf( "%d%d%d", &x, &y, &dis );  /// x起点，y终点，w距离
+            vis[ x ][ y ] = dis;
+            vis[ y ][ x ] = dis;  /// 当为无向图是加入此句，否则不加，公路是双向的，当然是无向图
         }
-      } /// 记录下来
-      if (minn == 0x7fffffff)
-        return -1;
-      sum += minn;       /// 求和
-      seta[mini] = true; /// 标记
-      for (
-          j = 1; j <= n;
-          j++) /// 第二次遍历，在走了上一个点的基础上，更新所有未走的点的最短距离
-      {
-        if (!seta[j] && vis[mini][j] < lowcost[j]) {
-          lowcost[j] = vis[mini][j];
-          mst[j] = mini; /// 更新父亲节点
+        int minn, mini,
+            sum = 0;          /// 分别记录
+                              /// minn为到达节点的最小长度，minid为最小的节点，sum为长度总和
+        bool seta[ 150 ];     /// 标记是否走过
+        int  lowcost[ 150 ];  /// 到达某个节点所需要的最小距离
+        int  mst[ 150 ];      /// 记录父亲节点，形成树结构
+        memset( seta, false, sizeof( seta ) );
+        memset( mst, 0, sizeof( mst ) );
+        memset( lowcost, 0x3f,
+                sizeof( lowcost ) );  /// 储存每个点到现在已经构造好的生成树
+                                      /// 也就是集合b的最短距离，memset按字节初始化0x7f是一个约等于最大值的数
+        /// 将其初始化的原因：表示不可取
+        mst[ 1 ]  = 0;              /// 1号节点为根节点，入度为0，没有父亲节点
+        seta[ 1 ] = true;           /// 标记1号节点走过
+        for ( i = 2; i <= n; i++ )  /// 初始化
+        {
+            mst[ i ]     = 1;
+            lowcost[ i ] = vis[ 1 ][ i ];  /// lowcos的初始化第i个值，等于从1连接到i的距离
         }
-      }
+        for ( i = 2; i <= n; i++ )  /// 每次循环就新到达一个点，总共遍历n-1个点
+        {
+            minn = 0x7fffffff;          /// 初始化长度最小值
+            mini = 0;                   /// 初始化到达长度最小的节点
+            for ( j = 1; j <= n; j++ )  /// 第一次遍历，查找一个能到达的节点中距离最短的
+            {
+                if ( !seta[ j ] && lowcost[ j ] < minn ) {
+                    minn = lowcost[ j ];
+                    mini = j;
+                }
+            }  /// 记录下来
+            if ( minn == 0x7fffffff )
+                return -1;
+            sum += minn;                /// 求和
+            seta[ mini ] = true;        /// 标记
+            for ( j = 1; j <= n; j++ )  /// 第二次遍历，在走了上一个点的基础上，更新所有未走的点的最短距离
+            {
+                if ( !seta[ j ] && vis[ mini ][ j ] < lowcost[ j ] ) {
+                    lowcost[ j ] = vis[ mini ][ j ];
+                    mst[ j ]     = mini;  /// 更新父亲节点
+                }
+            }
+        }
+        printf( "%d\n", sum );
     }
-    printf("%d\n", sum);
-  }
 }
 
 /////BY: Torrance_ZHANG

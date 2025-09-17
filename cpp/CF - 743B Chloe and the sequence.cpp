@@ -1,23 +1,23 @@
-#include <math.h> ///然后每次做一个操作，将上一轮得到的序列放在最末端，在上一轮原本的序列后面加上一个n值
-#include <stdio.h> ///一开始给一个序列，只有一个元素1
+#include <math.h>   ///然后每次做一个操作，将上一轮得到的序列放在最末端，在上一轮原本的序列后面加上一个n值
+#include <stdio.h>  ///一开始给一个序列，只有一个元素1
 int main() {
-  long long n, k;
-  while (scanf("%lld%lld", &n, &k) != EOF) {
-    if (k % 2 != 0)
-      printf("1\n");
-    else {
-      long long flag = 0;
-      long long half = pow(2, n - 1);
-      k = k % half;
-      while (k != half && k != 0) {
-        k = k * 2;
-        flag++;
-        if (k > half)
-          k = k % half;
-      }
-      printf("%lld\n", n - flag);
+    long long n, k;
+    while ( scanf( "%lld%lld", &n, &k ) != EOF ) {
+        if ( k % 2 != 0 )
+            printf( "1\n" );
+        else {
+            long long flag = 0;
+            long long half = pow( 2, n - 1 );
+            k              = k % half;
+            while ( k != half && k != 0 ) {
+                k = k * 2;
+                flag++;
+                if ( k > half )
+                    k = k % half;
+            }
+            printf( "%lld\n", n - flag );
+        }
     }
-  }
 }
 /// 第0次   1
 /// 第1次   1 2 1

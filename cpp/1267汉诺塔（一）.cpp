@@ -38,19 +38,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void hanoi(int n, char a, char b, char c) {
-  if (n >= 1) {
-    hanoi(n - 1, a, c, b); /// 每次最小的要较大的上面，而不是较大的挪到小的上面
-    printf("%c --> %c \n", a, c);
-    hanoi(n - 1, b, a, c);
-  }
+void hanoi( int n, char a, char b, char c ) {
+    if ( n >= 1 ) {
+        hanoi( n - 1, a, c, b );  /// 每次最小的要较大的上面，而不是较大的挪到小的上面
+        printf( "%c --> %c \n", a, c );
+        hanoi( n - 1, b, a, c );
+    }
 }
 
 int main() {
-  int n;
-  printf("Input the number of diskes:\n");
-  scanf("%d", &n);
-  hanoi(n, 'A', 'B', 'C');
+    int n;
+    printf( "Input the number of diskes:\n" );
+    scanf( "%d", &n );
+    hanoi( n, 'A', 'B', 'C' );
 }
 ///    实现这个算法可以简单分为三个步骤：
 ///

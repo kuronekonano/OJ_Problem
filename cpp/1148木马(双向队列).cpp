@@ -1,22 +1,22 @@
-#include <stdio.h> ///正常的方法
+#include <stdio.h>  ///正常的方法
 #include <string.h>
 int main() {
-  char a[100009];
-  while (gets(a) != NULL) {
-    int n;
-    scanf("%d", &n);
-    getchar(); /// 记得接住那个n的回车，否则下一轮GG
-    int flag = strlen(a);
-    n = n % flag;
-    for (int i = flag - n; i < flag; i++) {
-      putchar(a[i]);
+    char a[ 100009 ];
+    while ( gets( a ) != NULL ) {
+        int n;
+        scanf( "%d", &n );
+        getchar();  /// 记得接住那个n的回车，否则下一轮GG
+        int flag = strlen( a );
+        n        = n % flag;
+        for ( int i = flag - n; i < flag; i++ ) {
+            putchar( a[ i ] );
+        }
+        for ( int i = 0; i < flag - n; i++ ) {
+            putchar( a[ i ] );
+        }
+        puts( "" );  /// puts()换行方法
     }
-    for (int i = 0; i < flag - n; i++) {
-      putchar(a[i]);
-    }
-    puts(""); /// puts()换行方法
-  }
-  return 0;
+    return 0;
 }
 // #include<stdio.h>
 // #include<queue>///单项队列

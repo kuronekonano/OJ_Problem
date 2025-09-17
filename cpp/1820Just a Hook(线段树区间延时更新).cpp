@@ -1,82 +1,79 @@
 #include <stdio.h>
 #include <string.h>
 const int N = 100010;
-int n, m, k;
+int       n, m, k;
 struct node {
-  int l, r, sum;
-  int mark;
-} tree[N << 2];
+    int l, r, sum;
+    int mark;
+} tree[ N << 2 ];
 
-void build(int rt, int l, int r) {
-  tree[rt].l = l;
-  tree[rt].r = r;
-  tree[rt].mark = 0; /// 注意mark延时标记的初始化位置
-  if (l == r) {
-    tree[rt].sum = 1;
+void build( int rt, int l, int r ) {
+    tree[ rt ].l    = l;
+    tree[ rt ].r    = r;
+    tree[ rt ].mark = 0;  /// 注意mark延时标记的初始化位置
+    if ( l == r ) {
+        tree[ rt ].sum = 1;
+        return;
+    }
+    int mid = ( l + r ) >> 1;
+    build( rt << 1, l, mid );
+    build( rt << 1 | 1, mid + 1, r );
+    tree[ rt ].sum = tree[ rt << 1 ].sum + tree[ rt << 1 | 1 ].sum;
     return;
-  }
-  int mid = (l + r) >> 1;
-  build(rt << 1, l, mid);
-  build(rt << 1 | 1, mid + 1, r);
-  tree[rt].sum = tree[rt << 1].sum + tree[rt << 1 | 1].sum;
-  return;
 }
 
-void pushdown(int rt) {
-  if (tree[rt].mark) {
-    tree[rt << 1 | 1].sum =
-        (tree[rt << 1 | 1].r - tree[rt << 1 | 1].l + 1) *
-        tree[rt].mark; /// 这里的push_down是直接赋值，而非增加
-    tree[rt << 1].sum = (tree[rt << 1].r - tree[rt << 1].l + 1) * tree[rt].mark;
-    tree[rt << 1 | 1].mark = tree[rt].mark;
-    tree[rt << 1].mark = tree[rt].mark;
-    tree[rt].mark = 0;
-  }
-  return;
-}
-void update(int rt, int l, int r, int val) {
-  if (tree[rt].l >= l && tree[rt].r <= r) {
-    tree[rt].sum = (tree[rt].r - tree[rt].l + 1) * val;
-    tree[rt].mark = val;
+void pushdown( int rt ) {
+    if ( tree[ rt ].mark ) {
+        tree[ rt << 1 | 1 ].sum  = ( tree[ rt << 1 | 1 ].r - tree[ rt << 1 | 1 ].l + 1 ) * tree[ rt ].mark;  /// 这里的push_down是直接赋值，而非增加
+        tree[ rt << 1 ].sum      = ( tree[ rt << 1 ].r - tree[ rt << 1 ].l + 1 ) * tree[ rt ].mark;
+        tree[ rt << 1 | 1 ].mark = tree[ rt ].mark;
+        tree[ rt << 1 ].mark     = tree[ rt ].mark;
+        tree[ rt ].mark          = 0;
+    }
     return;
-  }
-  pushdown(rt);
-  int mid = (tree[rt].l + tree[rt].r) >> 1;
-  if (l <= mid)
-    update(rt << 1, l, r, val);
-  if (r > mid)
-    update(rt << 1 | 1, l, r, val);
-  tree[rt].sum = tree[rt << 1].sum + tree[rt << 1 | 1].sum;
-  return;
+}
+void update( int rt, int l, int r, int val ) {
+    if ( tree[ rt ].l >= l && tree[ rt ].r <= r ) {
+        tree[ rt ].sum  = ( tree[ rt ].r - tree[ rt ].l + 1 ) * val;
+        tree[ rt ].mark = val;
+        return;
+    }
+    pushdown( rt );
+    int mid = ( tree[ rt ].l + tree[ rt ].r ) >> 1;
+    if ( l <= mid )
+        update( rt << 1, l, r, val );
+    if ( r > mid )
+        update( rt << 1 | 1, l, r, val );
+    tree[ rt ].sum = tree[ rt << 1 ].sum + tree[ rt << 1 | 1 ].sum;
+    return;
 }
 
-int query(int rt, int l, int r) {
-  int ans = 0;
-  if (tree[rt].l >= l && tree[rt].r <= r)
-    return tree[rt].sum;
-  pushdown(rt);
-  int mid = (tree[rt].l + tree[rt].r) >> 1;
-  if (l <= mid)
-    ans += query(rt << 1, l, r);
-  if (r > mid)
-    ans += query(rt << 1 | 1, l, r);
-  return ans;
+int query( int rt, int l, int r ) {
+    int ans = 0;
+    if ( tree[ rt ].l >= l && tree[ rt ].r <= r )
+        return tree[ rt ].sum;
+    pushdown( rt );
+    int mid = ( tree[ rt ].l + tree[ rt ].r ) >> 1;
+    if ( l <= mid )
+        ans += query( rt << 1, l, r );
+    if ( r > mid )
+        ans += query( rt << 1 | 1, l, r );
+    return ans;
 }
 
 int main() {
-  int ca = 0, t, l, r, val;
-  scanf("%d", &t);
-  while (t--) {
-    scanf("%d%d", &n, &m);
-    build(1, 1, n);
-    while (m--) {
-      scanf("%d%d%d", &l, &r, &val);
-      update(1, l, r, val);
+    int ca = 0, t, l, r, val;
+    scanf( "%d", &t );
+    while ( t-- ) {
+        scanf( "%d%d", &n, &m );
+        build( 1, 1, n );
+        while ( m-- ) {
+            scanf( "%d%d%d", &l, &r, &val );
+            update( 1, l, r, val );
+        }
+        printf( "Case %d: The total value of the hook is %d.\n", ++ca, query( 1, 1, n ) );
     }
-    printf("Case %d: The total value of the hook is %d.\n", ++ca,
-           query(1, 1, n));
-  }
-  return 0;
+    return 0;
 }
 
 // #include<stdio.h>

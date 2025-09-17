@@ -1,41 +1,43 @@
 #include <stdio.h>
 int main() {
-  int t, m, n;
-  scanf("%d", &t);
-  while (t--) {
-    scanf("%d%d", &n, &m);
-    int stx = (n + 1) / 2;
-    int sty = stx;
-    int floor = 0;
-    int maxsize = 1;
-    while (maxsize * maxsize < m) {
-      maxsize += 2; /// 记得是奇数 ，每次加2不是特么加1
-      floor++;
+    int t, m, n;
+    scanf( "%d", &t );
+    while ( t-- ) {
+        scanf( "%d%d", &n, &m );
+        int stx     = ( n + 1 ) / 2;
+        int sty     = stx;
+        int floor   = 0;
+        int maxsize = 1;
+        while ( maxsize * maxsize < m ) {
+            maxsize += 2;  /// 记得是奇数 ，每次加2不是特么加1
+            floor++;
+        }
+        int minsize = ( maxsize - 2 ) * ( maxsize - 2 );  /// 最后错误，记得区分层数和当层最大值
+        int line    = ( maxsize * maxsize - minsize ) / 4;
+        m           = m - minsize;
+        if ( m <= line ) {
+            stx = stx - floor;
+            sty = sty + floor;
+            stx = stx + m;
+        }
+        else if ( m <= line * 2 ) {
+            stx = stx + floor;
+            sty = sty + floor;
+            sty = sty - ( m - line );
+        }
+        else if ( m <= line * 3 ) {
+            stx = stx + floor;
+            sty = sty - floor;
+            stx = stx - ( m - 2 * line );
+        }
+        else {
+            stx = stx - floor;
+            sty = sty - floor;
+            sty = sty + ( m - 3 * line );
+        }
+        printf( "%d %d\n", stx, sty );
     }
-    int minsize =
-        (maxsize - 2) * (maxsize - 2); /// 最后错误，记得区分层数和当层最大值
-    int line = (maxsize * maxsize - minsize) / 4;
-    m = m - minsize;
-    if (m <= line) {
-      stx = stx - floor;
-      sty = sty + floor;
-      stx = stx + m;
-    } else if (m <= line * 2) {
-      stx = stx + floor;
-      sty = sty + floor;
-      sty = sty - (m - line);
-    } else if (m <= line * 3) {
-      stx = stx + floor;
-      sty = sty - floor;
-      stx = stx - (m - 2 * line);
-    } else {
-      stx = stx - floor;
-      sty = sty - floor;
-      sty = sty + (m - 3 * line);
-    }
-    printf("%d %d\n", stx, sty);
-  }
-  return 0;
+    return 0;
 }
 // #include<stdio.h>
 // int main()

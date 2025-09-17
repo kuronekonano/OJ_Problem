@@ -2,43 +2,42 @@
 #define LL long long
 using namespace std;
 const int maxn = 2e5 + 10;
-const int mod = 16777216;
-int tre[maxn];
-int n, a[maxn];
-LL lmin[maxn], rmax[maxn];
-void updata(int pos, int val) {
-  for (int i = pos; i <= n; i += i & -i)
-    tre[i] += val;
+const int mod  = 16777216;
+int       tre[ maxn ];
+int       n, a[ maxn ];
+LL        lmin[ maxn ], rmax[ maxn ];
+void      updata( int pos, int val ) {
+    for ( int i = pos; i <= n; i += i & -i )
+        tre[ i ] += val;
 }
-int query(int pos) {
-  int ans = 0;
-  for (int i = pos; i; i -= i & -i)
-    ans += tre[i] % mod;
-  return ans % mod;
+int query( int pos ) {
+    int ans = 0;
+    for ( int i = pos; i; i -= i & -i )
+        ans += tre[ i ] % mod;
+    return ans % mod;
 }
 int main() {
-  while (scanf("%d", &n) != EOF) {
-    memset(tre, 0, sizeof tre);
-    for (int i = 0; i < n; i++) {
-      scanf("%d", &a[i]);
-      int tmp = query(a[i]);
-      lmin[i] = tmp;
-      updata(a[i], 1);
+    while ( scanf( "%d", &n ) != EOF ) {
+        memset( tre, 0, sizeof tre );
+        for ( int i = 0; i < n; i++ ) {
+            scanf( "%d", &a[ i ] );
+            int tmp   = query( a[ i ] );
+            lmin[ i ] = tmp;
+            updata( a[ i ], 1 );
+        }
+        LL abxx = 0, abcd = 0;
+        memset( tre, 0, sizeof tre );
+        for ( int i = n - 1; i >= 0; i-- )
+            rmax[ i ] = n - i - 1 - query( a[ i ] ), updata( a[ i ], 1 );
+        memset( tre, 0, sizeof tre );
+        for ( int i = 1; i < n - 2; i++ )
+            abxx += ( lmin[ i ] * rmax[ i ] * ( rmax[ i ] - 1 ) / 2 ) % mod;
+        for ( int i = 0; i < n - 1; i++ )
+            abcd = ( abcd + ( query( a[ i ] - 1 ) * rmax[ i ] ) % mod ) % mod, updata( a[ i ], lmin[ i ] );
+        //        printf("%lld %lld\n",abxx,abcd);
+        printf( "%lld\n", ( abxx - abcd + mod ) % mod );
     }
-    LL abxx = 0, abcd = 0;
-    memset(tre, 0, sizeof tre);
-    for (int i = n - 1; i >= 0; i--)
-      rmax[i] = n - i - 1 - query(a[i]), updata(a[i], 1);
-    memset(tre, 0, sizeof tre);
-    for (int i = 1; i < n - 2; i++)
-      abxx += (lmin[i] * rmax[i] * (rmax[i] - 1) / 2) % mod;
-    for (int i = 0; i < n - 1; i++)
-      abcd = (abcd + (query(a[i] - 1) * rmax[i]) % mod) % mod,
-      updata(a[i], lmin[i]);
-    //        printf("%lld %lld\n",abxx,abcd);
-    printf("%lld\n", (abxx - abcd + mod) % mod);
-  }
-  return 0;
+    return 0;
 }
 /**
 求 满足(a < b < c < d, h[a] < h[b] < h[d] < h[c])(简称abdc)的四元组数

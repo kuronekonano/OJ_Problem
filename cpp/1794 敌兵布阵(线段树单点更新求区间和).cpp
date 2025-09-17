@@ -1,77 +1,77 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int maxn = 5e4 + 9;
-int t, n, ans, a[maxn];
+int       t, n, ans, a[ maxn ];
 struct node {
-  int l, r, sum;
-} tre[maxn << 2];
-void build(int l, int r, int rt) {
-  tre[rt].l = l;
-  tre[rt].r = r;
-  if (l == r)
-    tre[rt].sum = a[l];
-  else {
-    int mid = (l + r) >> 1;
-    build(l, mid, rt << 1);
-    build(mid + 1, r, rt << 1 | 1);
-    tre[rt].sum = tre[rt << 1].sum + tre[rt << 1 | 1].sum;
-  }
-}
-void update(int pos, int val, int rt) {
-  tre[rt].sum = tre[rt].sum + val;
-  if (tre[rt].l == pos && pos == tre[rt].r)
-    return;
-  int mid = (tre[rt].l + tre[rt].r) >> 1;
-  if (pos > mid)
-    update(pos, val, rt << 1 | 1);
-  else if (pos <= mid)
-    update(pos, val, rt << 1);
-}
-void query(int l, int r, int rt) {
-  if (tre[rt].l >= l && tre[rt].r <= r)
-    ans += tre[rt].sum;
-  else {
-    int mid = (tre[rt].l + tre[rt].r) >> 1;
-    if (mid < l)
-      query(l, r, rt << 1 | 1);
-    else if (mid >= r)
-      query(l, r, rt << 1);
+    int l, r, sum;
+} tre[ maxn << 2 ];
+void build( int l, int r, int rt ) {
+    tre[ rt ].l = l;
+    tre[ rt ].r = r;
+    if ( l == r )
+        tre[ rt ].sum = a[ l ];
     else {
-      query(l, r, rt << 1);
-      query(l, r, rt << 1 | 1);
+        int mid = ( l + r ) >> 1;
+        build( l, mid, rt << 1 );
+        build( mid + 1, r, rt << 1 | 1 );
+        tre[ rt ].sum = tre[ rt << 1 ].sum + tre[ rt << 1 | 1 ].sum;
     }
-  }
+}
+void update( int pos, int val, int rt ) {
+    tre[ rt ].sum = tre[ rt ].sum + val;
+    if ( tre[ rt ].l == pos && pos == tre[ rt ].r )
+        return;
+    int mid = ( tre[ rt ].l + tre[ rt ].r ) >> 1;
+    if ( pos > mid )
+        update( pos, val, rt << 1 | 1 );
+    else if ( pos <= mid )
+        update( pos, val, rt << 1 );
+}
+void query( int l, int r, int rt ) {
+    if ( tre[ rt ].l >= l && tre[ rt ].r <= r )
+        ans += tre[ rt ].sum;
+    else {
+        int mid = ( tre[ rt ].l + tre[ rt ].r ) >> 1;
+        if ( mid < l )
+            query( l, r, rt << 1 | 1 );
+        else if ( mid >= r )
+            query( l, r, rt << 1 );
+        else {
+            query( l, r, rt << 1 );
+            query( l, r, rt << 1 | 1 );
+        }
+    }
 }
 int main() {
-  int t, cas = 1;
-  scanf("%d", &t);
-  while (t--) {
-    scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
-      scanf("%d", &a[i]);
-    build(1, n, 1);
-    char tmp[10];
-    int l, r, val;
-    printf("Case %d:\n", cas++);
-    while (scanf("%s", tmp) != EOF) {
-      if (tmp[0] == 'E')
-        break;
-      if (tmp[0] == 'A') {
-        scanf("%d%d", &l, &val);
-        update(l, val, 1);
-      }
-      if (tmp[0] == 'S') {
-        scanf("%d%d", &l, &val);
-        update(l, -val, 1);
-      }
-      if (tmp[0] == 'Q') {
-        scanf("%d%d", &l, &r);
-        ans = 0;
-        query(l, r, 1);
-        printf("%d\n", ans);
-      }
+    int t, cas = 1;
+    scanf( "%d", &t );
+    while ( t-- ) {
+        scanf( "%d", &n );
+        for ( int i = 1; i <= n; i++ )
+            scanf( "%d", &a[ i ] );
+        build( 1, n, 1 );
+        char tmp[ 10 ];
+        int  l, r, val;
+        printf( "Case %d:\n", cas++ );
+        while ( scanf( "%s", tmp ) != EOF ) {
+            if ( tmp[ 0 ] == 'E' )
+                break;
+            if ( tmp[ 0 ] == 'A' ) {
+                scanf( "%d%d", &l, &val );
+                update( l, val, 1 );
+            }
+            if ( tmp[ 0 ] == 'S' ) {
+                scanf( "%d%d", &l, &val );
+                update( l, -val, 1 );
+            }
+            if ( tmp[ 0 ] == 'Q' ) {
+                scanf( "%d%d", &l, &r );
+                ans = 0;
+                query( l, r, 1 );
+                printf( "%d\n", ans );
+            }
+        }
     }
-  }
 }
 
 /**

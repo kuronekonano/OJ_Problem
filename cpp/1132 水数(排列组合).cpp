@@ -18,13 +18,13 @@
 
 #include <stdio.h>
 int main() {
-  int a[26], pow = 1, t, n;
-  a[1] = 1;
-  for (int i = 2; i <= 25; i++)
-    a[i] = a[i - 1] * 2 + pow, pow *= 2;
-  scanf("%d", &t);
-  while (t--)
-    scanf("%d", &n), printf("%d\n", a[n]);
+    int a[ 26 ], pow = 1, t, n;
+    a[ 1 ] = 1;
+    for ( int i = 2; i <= 25; i++ )
+        a[ i ] = a[ i - 1 ] * 2 + pow, pow *= 2;
+    scanf( "%d", &t );
+    while ( t-- )
+        scanf( "%d", &n ), printf( "%d\n", a[ n ] );
 }
 /*
 这个规律是把上一层的每个二进制数中加入0或1组成本层的二进制数，

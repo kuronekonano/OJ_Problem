@@ -1,66 +1,67 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int maxn = 2e5 + 10;
-int n;
+int       n;
 struct node {
-  int num, id;                        /// 值和位置
-  bool operator<(const node &a) const /// 优先队列按值从小到大排序
-  {
-    return num > a.num;
-  }
-} a[maxn];
-int pre[maxn], nxt[maxn]; /// 循环链表数组
-bool vis[maxn];
-priority_queue<node> q; /// 保证按最小字典序输出
-vector<int> ans;
-bool judge(int a, int b, int c) {
-  if (a < c)
-    return a < b && b < c;
-  return a < b || b < c;
+    int  num, id;                          /// 值和位置
+    bool operator<( const node& a ) const  /// 优先队列按值从小到大排序
+    {
+        return num > a.num;
+    }
+} a[ maxn ];
+int                    pre[ maxn ], nxt[ maxn ];  /// 循环链表数组
+bool                   vis[ maxn ];
+priority_queue< node > q;  /// 保证按最小字典序输出
+vector< int >          ans;
+bool                   judge( int a, int b, int c ) {
+    if ( a < c )
+        return a < b && b < c;
+    return a < b || b < c;
 }
 int main() {
-  int t;
-  scanf("%d", &t);
-  while (t--) {
-    scanf("%d", &n);
-    for (int i = 0; i < n; i++) {
-      scanf("%d", &a[i].num);
-      a[i].id = i;
+    int t;
+    scanf( "%d", &t );
+    while ( t-- ) {
+        scanf( "%d", &n );
+        for ( int i = 0; i < n; i++ ) {
+            scanf( "%d", &a[ i ].num );
+            a[ i ].id = i;
+        }
+        bool flag = true;
+        ans.clear();
+        int cnt = 0;
+        while ( !q.empty() )
+            q.pop();
+        memset( vis, false, sizeof vis );
+        for ( int i = 0; i < n; i++ )
+            pre[ i ] = i == 0 ? n - 1 : i - 1, nxt[ i ] = i == n - 1 ? 0 : i + 1;
+        for ( int i = 0; i < n; i++ ) {
+            if ( a[ i ].num != -1 )
+                cnt++;
+            if ( a[ i ].num % n == i && a[ i ].num != -1 )
+                vis[ i ] = true, q.push( a[ i ] );
+        }
+        while ( !q.empty() ) {
+            node tmp = q.top();
+            ans.push_back( tmp.num );
+            q.pop();
+            nxt[ pre[ tmp.id ] ] = nxt[ tmp.id ];
+            pre[ nxt[ tmp.id ] ] = pre[ tmp.id ];
+            int pos              = nxt[ tmp.id ];
+            if ( a[ pos ].num != -1 && !vis[ pos ] && judge( pre[ pos ], a[ pos ].num % n, pos ) )
+                vis[ pos ] = true, q.push( a[ pos ] );
+        }
+        if ( cnt != ans.size() )
+            flag = false;
+        if ( flag ) {
+            for ( int i = 0; i < ans.size(); i++ )
+                printf( "%d%c", ans[ i ], i == ans.size() - 1 ? '\n' : ' ' );
+            if ( ans.size() == 0 )
+                printf( "\n" );
+        }
+        else
+            printf( "-1\n" );
     }
-    bool flag = true;
-    ans.clear();
-    int cnt = 0;
-    while (!q.empty())
-      q.pop();
-    memset(vis, false, sizeof vis);
-    for (int i = 0; i < n; i++)
-      pre[i] = i == 0 ? n - 1 : i - 1, nxt[i] = i == n - 1 ? 0 : i + 1;
-    for (int i = 0; i < n; i++) {
-      if (a[i].num != -1)
-        cnt++;
-      if (a[i].num % n == i && a[i].num != -1)
-        vis[i] = true, q.push(a[i]);
-    }
-    while (!q.empty()) {
-      node tmp = q.top();
-      ans.push_back(tmp.num);
-      q.pop();
-      nxt[pre[tmp.id]] = nxt[tmp.id];
-      pre[nxt[tmp.id]] = pre[tmp.id];
-      int pos = nxt[tmp.id];
-      if (a[pos].num != -1 && !vis[pos] && judge(pre[pos], a[pos].num % n, pos))
-        vis[pos] = true, q.push(a[pos]);
-    }
-    if (cnt != ans.size())
-      flag = false;
-    if (flag) {
-      for (int i = 0; i < ans.size(); i++)
-        printf("%d%c", ans[i], i == ans.size() - 1 ? '\n' : ' ');
-      if (ans.size() == 0)
-        printf("\n");
-    } else
-      printf("-1\n");
-  }
 }
 /*
 #include<bits/stdc++.h>

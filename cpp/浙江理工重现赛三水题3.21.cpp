@@ -52,28 +52,28 @@
 //         }
 //     }
 // }
-#include <stdio.h> ///解方程，不是背包
+#include <stdio.h>  ///解方程，不是背包
 int main() {
-  int n, k, a, b, c;
-  while (scanf("%d%d%d%d%d", &n, &k, &a, &b, &c) != EOF) {
-    int i, j;
-    bool flag = false;
-    for (i = 0; i <= k; i++) /// 暴力搜，最大范围10000
-    {
-      for (j = 0; j <= k - i; j++) {
-        int m = k - i - j;
-        if (i * a + j * b + m * c == n) {
-          printf("Yes\n");
-          flag = true;
-          break;
+    int n, k, a, b, c;
+    while ( scanf( "%d%d%d%d%d", &n, &k, &a, &b, &c ) != EOF ) {
+        int  i, j;
+        bool flag = false;
+        for ( i = 0; i <= k; i++ )  /// 暴力搜，最大范围10000
+        {
+            for ( j = 0; j <= k - i; j++ ) {
+                int m = k - i - j;
+                if ( i * a + j * b + m * c == n ) {
+                    printf( "Yes\n" );
+                    flag = true;
+                    break;
+                }
+            }
+            if ( flag )
+                break;
         }
-      }
-      if (flag)
-        break;
+        if ( flag == false ) {
+            printf( "No\n" );
+        }
     }
-    if (flag == false) {
-      printf("No\n");
-    }
-  }
-  return 0;
+    return 0;
 }

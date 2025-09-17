@@ -6,32 +6,32 @@
 using namespace std;
 const int maxn = 1003 + 10;
 struct num {
-  LL ab, cc;
-  int p;
-  num() {}
-  num(LL a, LL b, int c) {
-    ab = a;
-    cc = b;
-    p = c;
-  }
-} aa[maxn];
-bool cmp(num a, num b) {
-  if (a.ab * b.cc == a.cc * b.ab)
-    return a.p < b.p;
-  return a.ab * b.cc < a.cc * b.ab;
+    LL  ab, cc;
+    int p;
+    num() {}
+    num( LL a, LL b, int c ) {
+        ab = a;
+        cc = b;
+        p  = c;
+    }
+} aa[ maxn ];
+bool cmp( num a, num b ) {
+    if ( a.ab * b.cc == a.cc * b.ab )
+        return a.p < b.p;
+    return a.ab * b.cc < a.cc * b.ab;
 }
 int n;
 int main() {
-  while (scanf("%d", &n) != EOF) {
-    LL a, b, c;
-    for (int i = 1; i <= n; i++) {
-      scanf("%lld%lld%lld", &a, &b, &c);
-      aa[i] = num(a + b, c, i);
+    while ( scanf( "%d", &n ) != EOF ) {
+        LL a, b, c;
+        for ( int i = 1; i <= n; i++ ) {
+            scanf( "%lld%lld%lld", &a, &b, &c );
+            aa[ i ] = num( a + b, c, i );
+        }
+        sort( aa + 1, aa + 1 + n, cmp );
+        for ( int i = 1; i <= n; i++ )
+            printf( "%d%c", aa[ i ].p, i == n ? '\n' : ' ' );
     }
-    sort(aa + 1, aa + 1 + n, cmp);
-    for (int i = 1; i <= n; i++)
-      printf("%d%c", aa[i].p, i == n ? '\n' : ' ');
-  }
 }
 
 /*

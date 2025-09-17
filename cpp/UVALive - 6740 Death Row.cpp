@@ -1,15 +1,15 @@
-#include <stdio.h> ///有n个人，没次死神会带走一个或多个人，使得剩下的人是带走前人数的其中一个非平凡因子
-int main()         /// 问n个人被带走最小需要多少次
+#include <stdio.h>  ///有n个人，没次死神会带走一个或多个人，使得剩下的人是带走前人数的其中一个非平凡因子
+int main()          /// 问n个人被带走最小需要多少次
 {
-  int n, t;
-  scanf("%d", &t);
-  while (t--) {
-    scanf("%d", &n);
-    if (n <= 3)
-      printf("%d\n", n);
-    else
-      printf("%d\n", n & 1 ? 4 : 3);
-  }
+    int n, t;
+    scanf( "%d", &t );
+    while ( t-- ) {
+        scanf( "%d", &n );
+        if ( n <= 3 )
+            printf( "%d\n", n );
+        else
+            printf( "%d\n", n & 1 ? 4 : 3 );
+    }
 }
 /// 非平凡因子：除了1和他本身以外的因子
 /// 因为是最小次数，所以每次尽量带走较多的人，也就是剩下的人数是除1之外的最小因子

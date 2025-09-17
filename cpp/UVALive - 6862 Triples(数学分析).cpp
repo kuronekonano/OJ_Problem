@@ -1,24 +1,20 @@
 #include <stdio.h>
 int main() {
-  int m, n;
-  while (scanf("%d%d", &m, &n) != EOF) {
-    int ans = 0;
-    for (int i = 1; i <= m; i++) /// for(int i=0;i<=m;i++)
-    {
-      for (int j = i; j <= m; j++) {
-        int sum = i * i + j * j;
-        for (int k = j; k <= m; k++)
-          if (k * k == sum)
-            ans++;
-      }
-    } /// ans+(m+1)*(n-1)
-    printf(
-        "%d\n",
-        ans +
-            (m + 1) *
-                (n -
-                 1)); /// 当0=x时，只要y=z，就行,那么就有(m+1)*(n-1)个，因为y可能从0取到m，j可以从2取到n。
-  } /// 当0!=x时，那么只要一个勾股定理能构成，只要幂大于2，就一下没解，所以我们把第一种中拿出j=2时，的特殊情况，特殊考虑。
+    int m, n;
+    while ( scanf( "%d%d", &m, &n ) != EOF ) {
+        int ans = 0;
+        for ( int i = 1; i <= m; i++ )  /// for(int i=0;i<=m;i++)
+        {
+            for ( int j = i; j <= m; j++ ) {
+                int sum = i * i + j * j;
+                for ( int k = j; k <= m; k++ )
+                    if ( k * k == sum )
+                        ans++;
+            }
+        }  /// ans+(m+1)*(n-1)
+        printf( "%d\n",
+                ans + ( m + 1 ) * ( n - 1 ) );  /// 当0=x时，只要y=z，就行,那么就有(m+1)*(n-1)个，因为y可能从0取到m，j可以从2取到n。
+    }  /// 当0!=x时，那么只要一个勾股定理能构成，只要幂大于2，就一下没解，所以我们把第一种中拿出j=2时，的特殊情况，特殊考虑。
 }
 /// 费马大定理:当整数n >2时，关于x, y, z的方程 x^n + y^n = z^n 没有正整数解。
 /// 因此ans计算的只是当题目中的j=2时有解的情况数量

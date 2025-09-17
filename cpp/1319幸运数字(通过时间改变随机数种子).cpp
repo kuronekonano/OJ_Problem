@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 int main() {
-  srand(time(NULL));
-  printf("%d\n", rand() % 10);
+    srand( time( NULL ) );
+    printf( "%d\n", rand() % 10 );
 }
 /*srand函数在stdlib.h头文件中，time函数在time.h头文件中。srand一般与rand函数配合生成随机数据。
 一般srand和rand配合使用产生伪随机数序列。rand函数在产生随机数前，需要系统提供的生成伪随机数序

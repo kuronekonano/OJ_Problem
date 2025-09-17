@@ -1,19 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-  char a[12];
-  long x;
-  while (~scanf("%s", a)) {
-    x = strtol(
-        a, NULL,
-        13); // 因为字符串A中的字符，在传参之前就已经被后面的base进制识别了，所以即使是16进制或13进制有存在字母的他也能读取，若是大于进制的非
-    if (x % 13 == 0) // 数字，他将不读取
-    {
-      printf("YES\n");
-    } else
-      printf("NO\n");
-  }
-  return 0;
+    char a[ 12 ];
+    long x;
+    while ( ~scanf( "%s", a ) ) {
+        x = strtol( a, NULL,
+                    13 );   // 因为字符串A中的字符，在传参之前就已经被后面的base进制识别了，所以即使是16进制或13进制有存在字母的他也能读取，若是大于进制的非
+        if ( x % 13 == 0 )  // 数字，他将不读取
+        {
+            printf( "YES\n" );
+        }
+        else
+            printf( "NO\n" );
+    }
+    return 0;
 }
 /// 1 函数名：
 ///  strtol
