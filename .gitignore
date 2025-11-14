@@ -54,3 +54,4 @@ Desktop.ini
 
 # java open jdk
 java/openJdk*
+*.class
