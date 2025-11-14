@@ -51,3 +51,6 @@ Desktop.ini
 # Ignore Visual Studio debugging and linker files
 *.ilk
 *.pdb
+
+# java open jdk
+java/openJdk*
